@@ -82,7 +82,6 @@
     "angular-ui-router": "ui-router#^0.3.2",
     "angular-animate": "^1.5.8",
     "angular-cookies": "^1.5.8",
-    "angularLocalStorage": "ngStorage#^0.3.2",
     "angular-messages": "^1.5.8",
     "ngSweetAlert": "angular-sweetalert#^1.1.2"
   },
