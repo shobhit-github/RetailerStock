@@ -1,0 +1,125 @@
+
+<style type="text/css">
+    input{
+      margin-bottom: 5px !important;
+    }
+    .has-error-icon {
+      border-right-color: #C00 !important;
+    }    
+    .msg-div {
+      margin-bottom: 13px;
+      text-align: right;
+      color: #C00;
+    }
+</style>
+
+        <!-- Modals -->
+
+      <div ng-controller="profileCtrl" class="modal fade profile-setting" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+          <form name="profileSetting" class="form-horizontal form-label-left input_mask">
+            <input readonly ng-model="user._id" type="hidden" />
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Profile Settings</h4>
+            </div>
+            <div style="height:200px;" class="modal-body">
+                <br>
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input ng-model="user.firstname" type="text" class="form-control has-feedback-left" name="firstname" placeholder="First Name" ng-minlength="5" ng-maxlength="12" required ng-class="{ 'has-error-input': profileSetting.firstname.$invalid && profileSetting.firstname.$dirty }" />
+                  <span class="fa fa-user form-control-feedback left" aria-hidden="true" ng-class="{ 'has-error-icon': profileSetting.firstname.$invalid && profileSetting.firstname.$dirty }" ></span>
+                  <!-- Validation messages for firstname -->
+                  <div class="msg-div">                  
+                    <div ng-if="profileSetting.firstname.$dirty" ng-messages="profileSetting.firstname.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the fisrtname !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 20 ! </em>
+                    </div>              
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input ng-model="user.lastname" type="text" class="form-control has-feedback-left" name="lastname" placeholder="Last Name" ng-minlength="5" ng-maxlength="15" required ng-class="{ 'has-error-input': profileSetting.lastname.$invalid && profileSetting.lastname.$dirty }"/>
+                  <span class="fa fa-user form-control-feedback left" aria-hidden="true" ng-class="{ 'has-error-icon': profileSetting.lastname.$invalid && profileSetting.lastname.$dirty }" ></span>
+                  <!-- Validation messages for lastname -->
+                  <div class="msg-div">                  
+                    <div ng-if="profileSetting.lastname.$dirty" ng-messages="profileSetting.lastname.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the lastname !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 20 ! </em>
+                    </div>              
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input ng-model="user.email" type="email" class="form-control has-feedback-left" name="email" placeholder="Email" ng-minlength="5" ng-maxlength="40" required ng-class="{ 'has-error-input': profileSetting.email.$invalid && profileSetting.email.$dirty }"/>
+                  <span class="fa fa-envelope form-control-feedback left" aria-hidden="true" ng-class="{ 'has-error-icon': profileSetting.email.$invalid && profileSetting.email.$dirty }"></span>
+                  <!-- Validation messages for email -->
+                  <div class="msg-div">                  
+                    <div ng-if="profileSetting.email.$dirty" ng-messages="profileSetting.email.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the email address !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 40 ! </em>
+                      <em ng-message="email"><i class="fa fa-ban"></i> Email address must be valid ! </em>
+                    </div>              
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input ng-model="user.phone" type="text" class="form-control has-feedback-left" name="phone" placeholder="Phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required ng-class="{ 'has-error-input': profileSetting.phone.$invalid && profileSetting.phone.$dirty }" />
+                  <span class="fa fa-phone form-control-feedback left" aria-hidden="true" ng-class="{ 'has-error-icon': profileSetting.phone.$invalid && profileSetting.phone.$dirty }" ></span>
+                  <!-- Validation messages for phone -->
+                  <div class="msg-div">                  
+                    <div ng-if="profileSetting.phone.$dirty" ng-messages="profileSetting.phone.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the phone number !</em>
+                      <em ng-message="pattern"><i class="fa fa-ban"></i> Must be valid 10 digit number !</em>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group has-feedback col-md-12 col-sm-12 col-xs-12">
+                  <input ng-model="user.username" type="text" class="form-control has-feedback-left" name="username" placeholder="Username" ng-minlength="5" ng-maxlength="40" required ng-class="{ 'has-error-input': profileSetting.username.$invalid && profileSetting.username.$dirty }" />
+                  <span class="fa fa-user form-control-feedback left" aria-hidden="true" ng-class="{ 'has-error-icon': profileSetting.username.$invalid && profileSetting.username.$dirty }"></span>
+                  <!-- Validation messages for username -->
+                  <div class="msg-div">                  
+                    <div ng-if="profileSetting.username.$dirty" ng-messages="profileSetting.username.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the username !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 20 ! </em>
+                    </div>              
+                  </div>
+                </div>
+
+                <!--div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="ln_solid"></div>
+                </div>
+                
+                
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input type="text" class="form-control has-feedback-left" id="inputSuccess5" placeholder="Phone">
+                  <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input type="text" class="form-control has-feedback-left" id="inputSuccess5" placeholder="Phone">
+                  <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                  <input type="text" class="form-control has-feedback-left" id="inputSuccess5" placeholder="Phone">
+                  <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
+                </div-->
+
+              
+                  
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-click="updateProfile(user);" data-dismiss="modal" type="button" ng-disabled="profileSetting.$invalid" class="btn btn-primary submit">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>        

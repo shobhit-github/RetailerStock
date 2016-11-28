@@ -1,0 +1,54 @@
+{
+  "name": "retailer_stock",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "dependencies": {
+    "async": "^2.1.2",
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "bower": "^1.8.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.1",
+    "crypto": "0.0.3",
+    "debug": "~2.2.0",
+    "express": "^4.13.4",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^7.1.9",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.16.0",
+    "mongoose": "^4.6.0",
+    "mongoose-paginate": "^5.0.3",
+    "mongoose-schema-extend": "^0.2.2",
+    "morgan": "^1.7.0",
+    "nodemailer": "^2.6.4",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shobhit-github/RetailerStock.git"
+  },
+  "keywords": [
+    "retailer_stock",
+    "stock",
+    "management",
+    "small",
+    "businessmen"
+  ],
+  "author": "Shohbit Sharma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shobhit-github/RetailerStock/issues"
+  },
+  "homepage": "https://github.com/shobhit-github/RetailerStock#readme"
+}

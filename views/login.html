@@ -1,0 +1,241 @@
+  <style type="text/css">
+    input{
+      margin-bottom: 5px !important;
+    }
+    .login-form input.ng-dirty.ng-invalid {
+      border-color: #C00 !important;
+      color: #C00 !important;
+    }
+    .msg-div {
+      margin-bottom: 20px;
+      text-align: right;
+      color: #C00;
+    }
+  </style>
+  <div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+     <div class="login_wrapper">
+        <div ng-show="loginSec==true" class="animate-zoomin form login_form">
+          <section class="login_content">
+            <form class="login-form" name="loginForm">
+              <h1>Login Form</h1>
+                
+                <div style="margin-bottom:20px" ng-if="authError || authSuccess || authInfo || authWarning">
+                  <em ng-if="authError"> <font color="#C00000"><i class="fa fa-ban"></i> {{ authError }}</font></em>
+                  <em ng-if="authSuccess"> <font color="green"><i class="fa fa-check"></i> {{ authSuccess }}</font></em>
+                  <em ng-if="authInfo"> <font color="deepskyblue"><i class="fa fa-info"></i> {{ authInfo }}</font></em>
+                </div>
+
+              <div class="form-group" ng-class="{ 'has-error': loginForm.username.$touched && loginForm.username.$error }">
+                <input type="text" class="form-control" placeholder="Username" name="username" ng-model="users.username" ng-minlength="5"     ng-maxlength="20" required />   
+                <!-- Validation messages for username -->
+                <div class="msg-div">                  
+                  <div ng-if="loginForm.username.$dirty" ng-messages="loginForm.username.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the username !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Username should be minimum 5 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Username should be exceed to 20 characters ! </em>
+                  </div>              
+                </div>
+              </div>
+
+              <div class="form-group"  ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$error }">
+                <input type="password" name="password" class="form-control" placeholder="Password" required ng-model="users.password" ng-minlength="5" ng-maxlength="20" required />
+                <!-- Validation messages for password -->
+                <div class="msg-div">                
+                  <div ng-if="loginForm.password.$dirty" ng-messages="loginForm.password.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the password !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Password should be minimum 5 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Password should be exceed to 20 characters ! </em>
+                  </div>                  
+                </div>
+              </div>
+
+              <div>
+                <button ng-disabled="loginForm.$invalid" ng-click="loginUser(users);" type="button" class="btn btn-default submit" >Log in</button>
+                <a ng-click="displaySection('forget_pass')" class="reset_pass" href="#">Lost your password?</a>
+              </div>
+
+
+              or
+              <social-auth
+                facebook='http://localhost:3000/authenticate_facebook/'
+              ></social-auth>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a href="javascript:void(0);" ng-click="displaySection('register');" class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div ng-show="registerSec==true" id="register" class="animate-zoomin form">
+          <section class="login_content">
+            <form class="reg-form" name="regForm">
+              <h1>Create Account</h1>
+
+              <div class="form-group" ng-class="{ 'has-error': regForm.first_name.$touched && regForm.first_name.$error }">
+                <input type="text" class="form-control" placeholder="Firstname" name="first_name" ng-model="users.first_name" ng-minlength="2"     ng-maxlength="15" required />   
+                <!-- Validation messages for firstname -->
+                <div class="msg-div">                  
+                  <div ng-if="regForm.first_name.$dirty" ng-messages="regForm.first_name.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the firstname !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Firstname should be minimum 2 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Firstname should be exceed to 15 characters ! </em>
+                  </div>              
+                </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error': regForm.last_name.$touched && regForm.last_name.$error }">
+                <input type="text" class="form-control" placeholder="Lastname" name="last_name" ng-model="users.last_name" ng-minlength="2"     ng-maxlength="15" required />   
+                <!-- Validation messages for lastname -->
+                <div class="msg-div">                  
+                  <div ng-if="regForm.last_name.$dirty" ng-messages="regForm.last_name.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the lastname !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Firstname should be minimum 2 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Firstname should be exceed to 15 characters ! </em>
+                  </div>              
+                </div>
+              </div>
+                          
+              <div class="form-group" ng-class="{ 'has-error': regForm.username.$touched && regForm.username.$error }">
+                <input type="text" class="form-control" placeholder="Username" name="username" ng-model="users.username" ng-minlength="5"     ng-maxlength="20" required />   
+                <!-- Validation messages for username -->
+                <div class="msg-div">                  
+                  <div ng-if="regForm.username.$dirty" ng-messages="regForm.username.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the username !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Username should be minimum 5 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Username should be exceed to 20 characters ! </em>
+                  </div>              
+                </div>
+              </div>
+
+              <div class="form-group" ng-class="{ 'has-error': regForm.email.$touched && regForm.email.$error }">
+                <input type="text" class="form-control" placeholder="Email ID" name="email" ng-model="users.email" ng-minlength="5"     ng-maxlength="40" required />   
+                <!-- Validation messages for email -->
+                <div class="msg-div">                  
+                  <div ng-if="regForm.email.$dirty" ng-messages="regForm.email.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the email address !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 40 ! </em>
+                      <em ng-message="email"><i class="fa fa-ban"></i> Email address must be valid ! </em>
+                  </div>              
+                </div>
+              </div>
+
+              <div class="form-group"  ng-class="{ 'has-error': regForm.password.$touched && regForm.password.$error }">
+                <input type="password" name="password" class="form-control" placeholder="Password" required ng-model="users.password" ng-minlength="5" ng-maxlength="20" required />
+                <!-- Validation messages for password -->
+                <div class="msg-div">                
+                  <div ng-if="regForm.password.$dirty" ng-messages="regForm.password.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the password !</em>
+                    <em ng-message="minlength"><i class="fa fa-ban"></i> Password should be minimum 5 characters long !</em>
+                    <em ng-message="maxlength"><i class="fa fa-ban"></i> Password should be exceed to 20 characters ! </em>
+                  </div>                  
+                </div>
+              </div>
+
+
+
+              <div class="form-group"  ng-class="{ 'has-error': regForm.phone.$touched && regForm.phone.$error }">
+                <input type="tel" name="phone" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" class="form-control" placeholder="Telephone" required ng-model="users.phone" ng-minlength="5" ng-maxlength="20" required />
+                <!-- Validation messages for phone -->
+                <div class="msg-div">                  
+                  <div ng-if="regForm.phone.$dirty" ng-messages="regForm.phone.$error" role="alert">
+                    <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the phone number !</em>
+                    <em ng-message="pattern"><i class="fa fa-ban"></i> Must be valid 10 digit number !</em>
+                  </div>
+                </div>
+              </div>
+
+                          
+              <div>
+                <button class="btn btn-default submit" ng-disabled="regForm.$invalid" href="index.html">Submit</button>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a ng-click="displaySection('login')" href="javascript:void(0);" class="to_login"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+
+        <div ng-show="forgetSec==true" class="animate-zoomin form login_form">
+          <section class="login_content">
+            <form class="forget-form" name="forgetForm">
+              <h1>Recover Password</h1>
+                
+                <div style="margin-bottom:20px" ng-if="authError || authSuccess || authInfo || authWarning">
+                  <em ng-if="authError"> <font color="#C00000"><i class="fa fa-ban"></i> {{ authError }}</font></em>
+                  <em ng-if="authSuccess"> <font color="green"><i class="fa fa-check"></i> {{ authSuccess }}</font></em>
+                  <em ng-if="authInfo"> <font color="deepskyblue"><i class="fa fa-info"></i> {{ authInfo }}</font></em>
+                </div>
+
+              <div class="form-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$error }">
+                <input type="text" class="form-control" placeholder="Email ID" name="email" ng-model="users.email" ng-minlength="5"     ng-maxlength="40" required />   
+                <!-- Validation messages for email -->
+                <div class="msg-div">                  
+                  <div ng-if="forgetForm.email.$dirty" ng-messages="forgetForm.email.$error" role="alert">
+                      <em ng-message="required"><i class="fa fa-ban"></i> You don't entered the email address !</em>
+                      <em ng-message="minlength"><i class="fa fa-ban"></i> Minimum characters length should be 5 !</em>
+                      <em ng-message="maxlength"><i class="fa fa-ban"></i> Maximum characters length should be 40 ! </em>
+                      <em ng-message="email"><i class="fa fa-ban"></i> Email address must be valid ! </em>
+                  </div>              
+                </div>
+              </div>
+
+
+              <div>
+                <button ng-disabled="forgetForm.$invalid" ng-click="resetPassword(users);" type="button" class="btn btn-default submit" >Recover</button>
+              </div>
+
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">New to site?
+                  <a href="javascript:void(0);" ng-click="displaySection('register');" class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+
+            </form>
+          </section>
+        </div>
+
+
+
+      </div>
+  </div>

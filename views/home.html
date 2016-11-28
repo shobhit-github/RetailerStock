@@ -1,0 +1,21 @@
+    <div class="container body" >
+      <div class="main_container">
+
+        <loader class="loader"></loader>
+
+        <!-- Sidebar -->
+        <aside ng-include="'views/elements/sidebar.html'"></aside>
+
+        <!--  Header -->
+        <header ng-include="'views/elements/header.html'" ></header>
+
+        <section ui-view></section>
+
+        <!-- Footer -->
+        <footer ng-include="'views/elements/footer.html'" ></footer>
+
+        <!-- UI-elements -->
+        <div ng-include="'views/elements/ui-elements.html'"></div>
+
+      </div>
+    </div>

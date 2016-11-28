@@ -1,0 +1,107 @@
+
+<!-- page content -->
+    <div class="right_col" role="main">
+      <div class="animate-zoomin">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Tables <small>Some examples to get you started</small></h3>
+          </div>
+
+          <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+          
+          <div class="clearfix"></div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Table design <small>Custom design</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li>   </li>
+                  <li> 
+                    <button type="button" ng-click="deleteMember(checkedArray);" ng-disabled="checkedArray.length==0||!checkedArray" class="btn btn-round btn-danger">
+                      <i class="fa fa-trash"></i> 
+                    </button>
+                  </li>
+                  <li> 
+                    <button style="padding:6px 8.5px;" type="button" class="btn btn-round btn-primary">
+                      <i class="fa fa-user-plus"></i>
+                    </button>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="x_content">
+
+                <div class="row">
+                  <select-limit elem-data="pagination" elem-send="paginateMembers(pagination);"></select-limit>
+                  <search-field elem-data="pagination" elem-send="paginateMembers(pagination, search);"></search-field>   
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-striped jambo_table bulk_action">
+                    <thead>
+                      <tr class="headings">
+                        <th>
+                          <check-box check-all all-records="records"></check-box>
+                        </th>
+                        <th class="column-title"> Role </th>
+                        <th class="column-title"> Joining Date </th>
+                        <th class="column-title"> Member Name </th>
+                        <th class="column-title"> Status </th>
+                        <th class="column-title"> Amount </th>
+                        <th class="column-title no-link last"><span class="nobr">Action</span> </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                      <tr class="even pointer" ng-if="pagination.totalItems == 0">
+                        <td colspan=7 class="a-center" align="center">
+                            {{ pagination.message }}
+                        </td>
+                      </tr>
+
+                      <tr class="even pointer" ng-if="pagination.totalItems > 0" ng-repeat="record in records">
+                        <td class="a-center ">
+                            <check-box all-records="records" data="record"></check-box>
+                        </td>
+                        <td class="">
+                          <span ng-if="record.role == 'Distributor'" class="label label-primary">{{ record.role }}</span>
+                          <span ng-if="record.role == 'Dealer'" class="label label-default">{{ record.role }}</span>
+                        </td>
+                        <td class=" ">{{ record.created_at | date : "mediumDate" }}</td>
+                        <td class=" ">{{ record.firstname+' '+record.lastname }}</td>
+                        <td class=" ">Paid</td>
+                        <td class="a-right a-right ">$7.45</td>
+                        <td class="last"><a href="#"> View </a> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+                <div class="row">
+                    <current-page-info elem-data="pagination"></current-page-info>
+                    <go-to-page elem-data="pagination" elem-send="paginateMembers(pagination);"></go-to-page>
+                    <pagination elem-data="pagination" elem-send="paginateMembers(pagination);"></pagination>  
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
