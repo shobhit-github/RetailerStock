@@ -7,7 +7,7 @@
 app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
   function ($http, $token, $q, $sweetAlert, $msg) {
 
-  const SERVER_URI = 'http://localhost:3000/';
+  const SERVER_URI = 'https://retailerstock.herokuapp.com/';
   var config = {
     headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }  
   };
