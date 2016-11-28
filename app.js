@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
-app.use('/assets', express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname + '/public')));
 app.use('/views', express.static(path.join(__dirname + '/views')));
 app.use(express.static(path.join(__dirname, 'ngApp')));
 
