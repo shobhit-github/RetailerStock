@@ -36,7 +36,7 @@ app.use('/views', express.static(path.join(__dirname + '/views')));
 app.use(express.static(path.join(__dirname, 'ngApp')));
 
 
-
+console.log(__dirname);
 
 // Starting index.html file 
 app.get('/', function(req, res) {
