@@ -12,7 +12,7 @@ var User   = require('../models/users');
 var app   = express()
   , help  = require('../config/helpers');
   
-var methods = new Object(); 
+var methods = new Object();
 
 
 
