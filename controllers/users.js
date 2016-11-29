@@ -103,7 +103,6 @@ methods.changePassword = function(req, res) {
 
 
 
-
 /*
  |--------------------------------------------------
  | Retrieve all Users account
