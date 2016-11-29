@@ -33,7 +33,7 @@ router.post('/signup', AuthController.signUp);
 router.post('/login', AuthController.login);
 router.post('/reset_password', AuthController.resetPassword);
 router.get('/logout', AuthController.logout);
-router.get('/check_auth', AuthController.checkAuth);
+router.get('/check_auth', help.ensureAuthenticated, AuthController.checkAuth);
 
 
 
