@@ -18,7 +18,6 @@ var http = require('http')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-
 // Database Connectivity
 var port = process.env.PORT || 3002;
 mongoose.Promise = require('bluebird'); // implement if mongoose mpromise will deprecate
@@ -36,12 +35,10 @@ app.use('/views', express.static(path.join(__dirname + '/views')));
 app.use(express.static(path.join(__dirname, 'ngApp')));
 
 
-console.log(__dirname);
-
 // Starting index.html file 
 app.get('/', function(req, res) {
   res.status(200).sendfile('./index.html');
-})
+});
 
 
 // REST-APIs routes

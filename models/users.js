@@ -8,7 +8,8 @@ var msg               =   require('../config/messages')
 
 var config            =   require('../config/config')
   , moment            =   require('moment');
-  
+
+
 /**      User Schema
 ---------------------------------*/
 var UserSchema = new Schema({ 
@@ -17,13 +18,13 @@ var UserSchema = new Schema({
   
   lastname: { type: String, required: true },
   
-	username: { type: String, unique: true, required: true },
+  username: { type: String, unique: true, required: true },
   
   password: { type:String, required: true },
   
-	role:  { type : String, enum:["Administrator","Dealer","Distributor"], default: "Dealer" },
+  role:  { type : String, enum:["Administrator","Dealer","Distributor"], default: "Dealer" },
   
-	email: { type: String, unique: true, lowercase: true, required: true },
+  email: { type: String, unique: true, lowercase: true, required: true },
   
   phone: { type: String, unique: true, required: true },
   
@@ -135,7 +136,6 @@ UserSchema.methods =  {
   comparePassword : function(passw, callback)  {
     bcrypt.compare(passw, this.password, function(err, isMatch) {
       if(err) {
-    console.log(err);
         return callback(err);
       }
        return callback(null, isMatch);

@@ -124,7 +124,7 @@ methods.resetPassword = function(req, res) {
       'from'    :   'shobhit.musiclover.sharma1@gmail.com',
       'to'      :   req.body.email,
       'subject' :   'Reset Password',
-      'html'    :   '<a href="'+config.CLIENT_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
+      'html'    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
     }, isSent );
     
   })
@@ -139,7 +139,7 @@ methods.resetPassword = function(req, res) {
  | Logout User
  |--------------------------------------------------
  */
-methods.logout = function(req, res){
+methods.logout = function(req, res) {
   
   req.logout();
   

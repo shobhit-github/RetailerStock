@@ -83,6 +83,7 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
     switch (res.status) {
       case 403: $sweetAlert.error(res.statusText, $msg.AUTHENTICATION_ERROR); break;
       case 500: $sweetAlert.error(res.statusText, $msg.INTERNAL_SERVER_ERROR); break;
+      case 503: $sweetAlert.error(res.statusText, $msg.SERVICE_UNAVAILABLE); break;
       case 404: $sweetAlert.error(res.statusText, $msg.NOT_FOUND_ERROR); break;
         
       default:  $sweetAlert.error(res.statusText, $msg.INTERNAL_SERVER_ERROR); break;
