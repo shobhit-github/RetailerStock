@@ -7,7 +7,7 @@
 app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
   function ($http, $token, $q, $sweetAlert, $msg) {
 
-  const SERVER_URI = 'https://retailerstock.herokuapp.com/';
+  const SERVER_URI = 'https://retailerstock.herokuapp.com/api/';
   var config = {
     headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }  
   };
@@ -17,18 +17,18 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
   ----------------------------------------------*/
 
   this.isAuthorized = function(module_name) { // Check Authorization 
-    return $http.get(SERVER_URI+'api/check_auth', {
+    return $http.get(SERVER_URI+'check_auth', {
       headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() } ,
       params : { 'module_name': module_name }
     });
   };
   
   this.authenticate = function(data) { // Authenticate User
-    return $http.post(SERVER_URI+'api/login', data);
+    return $http.post(SERVER_URI+'login', data);
   };
 
   this.resetPassword = function(email) { // Reset Password
-    return $http.post(SERVER_URI+'api/reset_password', email);
+    return $http.post(SERVER_URI+'reset_password', email);
   };
  
   this.exit = function() { // Get Logout
@@ -44,18 +44,19 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
   this.findMember = function(params) {  // Find user profile
     config.params = params;
     if(params.search) {
-      return $http.post(SERVER_URI+'api/all_users', params.search, config);
+      return $http.post(SERVER_URI+'all_users', params.search, config);
     }
-    return $http.get(SERVER_URI+'api/all_users', config);
+    return $http.get(SERVER_URI+'all_users', config);
   };
 
   this.removeMember = function(data) {
-    return $http.delete(SERVER_URI+'api/remove_profile/'+data, config);
+
+    return $http.delete(SERVER_URI+'remove_profile/'+data, config);
   };
 
   this.updateUserProfile = function(data) { // Update user profile
 
-    return $http.put(SERVER_URI+'api/update_profile', data, config);
+    return $http.put(SERVER_URI+'update_profile', data, config);
   };
 
 
