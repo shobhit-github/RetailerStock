@@ -6,7 +6,7 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', /*'ui.calendar',
     */'ngAnimate', 'ngMessages'/*,'ngValidate','ngFileUpload', 'angular-confirm','textAngular' ,'chart.js' ,'angularMoment','uiSwitch'*/])
         .constant({
-        	'HTTP_ROOT':'https://retailerstock.herokuapp.com/views/',
+          'HTTP_ROOT':'http://retailerstock.herokuapp.com/views/',
           'IMG_DIR':'https://retailerstock.herokuapp.com/images/',
           'FILES_DIR':'https://retailerstock.herokuapp.com/files/'
 });

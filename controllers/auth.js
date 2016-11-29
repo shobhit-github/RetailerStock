@@ -3,16 +3,16 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , config = require('../config/config')
-  , msg = require('../config/messages');
+  , config  = require('../config/config')
+  , msg     = require('../config/messages');
   
 var router = express.Router();
-var User = require('../models/users');
+var User   = require('../models/users');
 
-var app = express()
-  , help = require('./helpers');
+var app   = express()
+  , help  = require('../config/helpers');
   
-
+var methods = new Object();
 
 
 
@@ -27,16 +27,19 @@ var app = express()
  |======================================================================================
  */
 
+
+
   
 /*
  |--------------------------------------------------
  | Login Required Middleware
  |--------------------------------------------------
  */
-router.get('/check_auth', help.ensureAuthenticated, function(req, res) {
-  
+methods.checkAuth = function(req, res) {
+
   return res.status(200).json({ success: true, response: req.user });
-})
+};
+
 
 
 /*
@@ -44,7 +47,7 @@ router.get('/check_auth', help.ensureAuthenticated, function(req, res) {
  | Create Email and Password Account
  |--------------------------------------------------
  */
-router.post('/signup', function(req, res) {
+methods.signUp = function(req, res) {
   
   User.findOne({ email: req.body.email }, function(err, existingUser) {
     
@@ -67,7 +70,7 @@ router.post('/signup', function(req, res) {
     });
     
   });
-});
+};
 
 
 
@@ -76,7 +79,7 @@ router.post('/signup', function(req, res) {
  | Log in with Email
  |--------------------------------------------------
  */
-router.post('/login', function(req, res) {
+methods.login = function(req, res) {
 
 console.log(req.body);
   User.findOne({ username: req.body.username }, function(err, user) {
@@ -92,7 +95,8 @@ console.log(req.body);
       return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ help.createJWT(user) });
     });
   });
-});
+};
+
 
 
 /*
@@ -100,17 +104,16 @@ console.log(req.body);
  | Reset password with email send
  |--------------------------------------------------
  */
-router.post('/reset_password', function(req, res) {
+methods.resetPassword = function(req, res) {
   
   var encryptedEmail = help.encrypt(req.body.email);
   
-  //  Check Email Sending Status
-  var isSent = function(res) {
+  var isSent = function(res) {  // check email sending status
     if(!res) {
       res.status(200).json({ success: false, message: msg.EMAIL_FAILED });
     }
     res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
-  }
+  };
   
   
   User.count({email: req.body.email}, function(err, user) {
@@ -126,9 +129,8 @@ router.post('/reset_password', function(req, res) {
       'html'    :   '<a href="'+config.CLIENT_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
     }, isSent );
     
-    
   })
-})
+};
 
 
 
@@ -139,7 +141,7 @@ router.post('/reset_password', function(req, res) {
  | Logout User
  |--------------------------------------------------
  */
-router.get('/logout', function(req, res){
+methods.logout = function(req, res){
   
   req.logout();
   
@@ -147,7 +149,7 @@ router.get('/logout', function(req, res){
       'success':  true,
       'message':  msg.LOGOUT_SUCCESS
     });
-});
+};
 
 
 
@@ -155,4 +157,4 @@ router.get('/logout', function(req, res){
 
 
 
-module.exports = router;
+module.exports = methods;

@@ -5,12 +5,13 @@
 var express = require('express')
   , config = require('../config/config')
   , msg = require('../config/messages')
-  , help = require('./helpers'); // helper functions
+  , help = require('../config/helpers'); // helper functions
   
 var router = express.Router()
   , User = require('../models/users');
 
-var app = express();
+var app = express()
+  , methods = new Object();
 
  
 
@@ -29,18 +30,18 @@ var app = express();
  | Update Existing User Account
  |--------------------------------------------------
  */
-router.put('/update_profile', help.ensureAuthenticated, function(req, res) {
+methods.updateProfile = function(req, res) {
     
   User.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }, function(err) {
     if (err) {
-      return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
-		}
+      return res.status(500).json({success: false, message: msg.INTERNAL_ERROR});
+    }
       return res.status(200).json({
         success: true, 
         message: msg.PROFILE_UPDATED_DONE
       });
   });
-});
+};
 
 
 /*
@@ -48,7 +49,7 @@ router.put('/update_profile', help.ensureAuthenticated, function(req, res) {
  | Delete Existing User Account
  |--------------------------------------------------
  */
-router.delete('/remove_profile/:ids', help.ensureAuthenticated, function(req, res) {
+methods.deleteUser = function(req, res) {
   
   var ids = req.params.ids.split(',');
   var options;
@@ -56,13 +57,13 @@ router.delete('/remove_profile/:ids', help.ensureAuthenticated, function(req, re
   User.removeByIds(ids, function(err) {
     if (err) {
       return res.status(500).json({ success: false, message: err.message });
-		}
+	}
       return res.status(200).json({
         success: true, 
         message: msg.USERS_DELETED
       });
   });
-});
+};
 
 
 
@@ -71,7 +72,8 @@ router.delete('/remove_profile/:ids', help.ensureAuthenticated, function(req, re
  | Modify Password of Existing User Account
  |--------------------------------------------------
  */
-router.put('/modify_password', help.ensureAuthenticated, function(req, res) {
+
+methods.changePassword = function(req, res) {
 
   
   req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password 
@@ -97,7 +99,7 @@ router.put('/modify_password', help.ensureAuthenticated, function(req, res) {
     });
   })
 
-});
+};
 
 
 
@@ -107,7 +109,7 @@ router.put('/modify_password', help.ensureAuthenticated, function(req, res) {
  | Retrieve all Users account
  |--------------------------------------------------
  */
-router.all('/all_users', help.ensureAuthenticated, function(req, res) {
+methods.getAllUsers = function(req, res) {
   
   var condition1 = { $or: [ { role: { $ne: "Administrator" } }, { _id: { $ne: req.user._id } } ] },
       condition2 = new Object();
@@ -135,10 +137,10 @@ router.all('/all_users', help.ensureAuthenticated, function(req, res) {
     return res.status(200).json({ success: true, data: result });
   })
 
-});
+};
 
 
 
 
 
-module.exports = router;
+module.exports = methods;

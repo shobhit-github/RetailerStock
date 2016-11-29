@@ -46,8 +46,7 @@ app.get('/', function(req, res) {
 
 // REST-APIs routes
 app.use(cors());
-app.use('/auth',  require('./routes/index'));
-app.use('/users', require('./routes/users'));
+app.use('/api',  require('./config/routes'));
 
 
 

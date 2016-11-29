@@ -3,10 +3,10 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , config = require('../config/config')
+  , config = require('./config');
   
 var User   = require('../models/users')
-  , msg = require('../config/messages');
+  , msg = require('./messages');
   
 var crypto = require('crypto')
   , algorithm = 'aes-256-ctr'
