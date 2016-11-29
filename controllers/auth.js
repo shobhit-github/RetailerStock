@@ -105,7 +105,7 @@ console.log(req.body);
 methods.resetPassword = function(req, res) {
   
   var encryptedEmail = help.encrypt(req.body.email);
-  
+  console.log("Infoiiiiii");
   var isSent = function(res) {  // check email sending status
     if(!res) {
       res.status(200).json({ success: false, message: msg.EMAIL_FAILED });
