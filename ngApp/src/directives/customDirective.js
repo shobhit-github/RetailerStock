@@ -106,7 +106,7 @@ app.directive('checkBox',
             } else { value.selected = false; }
           })
         }
-        $scope.selectOne = function() { console.log($scope);
+        $scope.selectOne = function() { 
           $rootScope.checkedArray = new Array(); 
           angular.forEach($scope.allRecords, function(value, index) {
             if($scope.allRecords[index].selected) { $rootScope.checkedArray.push(value._id); }
