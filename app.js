@@ -11,10 +11,13 @@ var http = require('http')
   , bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , app = express();
+  
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
 
 // Database Connectivity
 var port = process.env.PORT || 3002;
