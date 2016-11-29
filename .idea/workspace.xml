@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/httpService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/httpService.js" />
     </list>
     <ignored path="RetailerStock.iws" />
@@ -37,8 +36,8 @@
       <file leaf-file-name="httpService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ngApp/src/services/httpService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+            <state relative-caret-position="540">
+              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -316,7 +315,7 @@
       <updated>1480403258848</updated>
       <workItem from="1480403261557" duration="3299000" />
       <workItem from="1480406999890" duration="8261000" />
-      <workItem from="1480418043585" duration="1937000" />
+      <workItem from="1480418043585" duration="2164000" />
     </task>
     <task id="LOCAL-00001" summary="Modified UserController">
       <created>1480405886214</created>
@@ -350,7 +349,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13497000" />
+    <option name="totallyTimeSpent" value="13724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -575,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ngApp/src/services/httpService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+        <state relative-caret-position="540">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
           <folding />
         </state>
       </provider>

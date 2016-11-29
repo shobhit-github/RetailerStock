@@ -21,19 +21,19 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
       headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() } ,
       params : { 'module_name': module_name }
     });
-  }
+  };
   
   this.authenticate = function(data) { // Authenticate User
     return $http.post(SERVER_URI+'api/login', data);
-  }
+  };
 
   this.resetPassword = function(email) { // Reset Password
     return $http.post(SERVER_URI+'api/reset_password', email);
-  }
+  };
  
   this.exit = function() { // Get Logout
     return $token.deleteFromAllStorage();
-  }
+  };
 
 
 
@@ -46,17 +46,17 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
     if(params.search) {
       return $http.post(SERVER_URI+'api/all_users', params.search, config);
     }
-    return $http.get(SERVER_URI+'users/all_users', config);
-  }
+    return $http.get(SERVER_URI+'api/all_users', config);
+  };
 
   this.removeMember = function(data) {
     return $http.delete(SERVER_URI+'api/remove_profile/'+data, config);
-  }
+  };
 
   this.updateUserProfile = function(data) { // Update user profile
 
     return $http.put(SERVER_URI+'api/update_profile', data, config);
-  }
+  };
 
 
 
