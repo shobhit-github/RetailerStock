@@ -51,7 +51,7 @@ router.put('/update_profile', help.ensureAuthenticated, function(req, res) {
 router.delete('/remove_profile/:ids', help.ensureAuthenticated, function(req, res) {
   
   var ids = req.params.ids.split(',');
-  var options
+  var options;
   
   User.removeByIds(ids, function(err) {
     if (err) {
@@ -78,7 +78,7 @@ router.put('/modify_password', help.ensureAuthenticated, function(req, res) {
     if(!isMatch) {
       return res.status(200).json({ success: false, message: msg.INVALID_PASSWORD });
     }
-  })
+  });
 
   
   req.user.encryptPassword(req.body.new_pass, function(err, pass) {   // updating password
@@ -135,7 +135,7 @@ router.all('/all_users', help.ensureAuthenticated, function(req, res) {
     return res.status(200).json({ success: true, data: result });
   })
 
-})
+});
 
 
 
