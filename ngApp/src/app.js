@@ -11,12 +11,12 @@ var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies'
           'FILE_URL':'https://retailerstock.herokuapp.com/files/'
 });
 
-app.run(['$rootScope', '$state', 'HTTP_ROOT', 'IMG_DIR', 'FILES_DIR', '$templateCache', 
+app.run(['$rootScope', '$state', 'HTTP_ROOT', 'IMG_URL', 'FILE_URL', '$templateCache',
   function($rootScope, $state, HTTP_ROOT, IMG_DIR, FILES_DIR, $templateCache) {
 
     $rootScope.HTTP_ROOT = HTTP_ROOT;
-    $rootScope.IMG_DIR = IMG_DIR;
-    $rootScope.FILES_DIR = FILES_DIR;
+    $rootScope.IMG_URL = IMG_URL;
+    $rootScope.FILE_URL = FILE_URL;
 
     $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
