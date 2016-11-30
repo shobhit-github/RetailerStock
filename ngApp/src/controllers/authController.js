@@ -14,14 +14,14 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 		if(secName == 'register') { $scope.forgetSec = $scope.loginSec = false; $scope.registerSec = true; } 
 		if(secName == 'login') { $scope.forgetSec = $scope.registerSec = false; $scope.loginSec = true;  }
 		if(secName == 'forget_pass') { $scope.registerSec = $scope.loginSec = false; $scope.forgetSec = true; } 
-	}
+	};
 
 	$scope.loginUser = function(users) {
 
 	    var error = function(response, status) {
 	      $scope.authError = response.data.message;
 	      $scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
-	    }
+	    };
 
 		$api.authenticate(users).then( function(response, status) {
 	    	$token.saveToAllStorage(response.data.token);
@@ -30,7 +30,7 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 	    	$scope.authError = $scope.authWarning = $scope.authInfo = false;	    	
 	    	$timeout(function() { $location.path('dashboard'); }, 2000);
 	    }, error );
-	}
+	};
 
 
 	$scope.resetPassword = function(users) {
@@ -38,10 +38,11 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 	    var error = function(response, status) {
 			$scope.authError = response.data.message;
 			$scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
-	    }
+	    };
 
 		$api.resetPassword(users).then( function(response, status) {
-			console.log(response);
+			$scope.authSuccess= response.data.message;
+			$scope.authError  = $scope.authWarning = $scope.authInfo = false;
 	    }, error );
 	}
 
