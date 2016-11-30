@@ -36,8 +36,8 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 	$scope.resetPassword = function(users) {
 
 	    var error = function(response, status) {
-			$rootScope.authError = response.data.message;
-			$rootScope.authSuccess = $rootScope.authWarning = $rootScope.authInfo = false;
+			$scope.authError = response.data.message;
+			$scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
 	    }
 
 		$api.resetPassword(users).then( function(response, status) {

@@ -29,9 +29,6 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
         }
 
       }).state('home', {
-        controller: function(){
-          console.log("dfsdf");
-        },
         resolve: {
           checkPermission:function($q,$api,$state, $msg, $rootScope) {
             var deferred = $q.defer();
