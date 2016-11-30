@@ -12,7 +12,7 @@ var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies'
 });
 
 app.run(['$rootScope', '$state', 'HTTP_ROOT', 'IMG_URL', 'FILE_URL', '$templateCache',
-  function($rootScope, $state, HTTP_ROOT, IMG_DIR, FILES_DIR, $templateCache) {
+  function($rootScope, $state, HTTP_ROOT, IMG_URL, FILE_URL, $templateCache) {
 
     $rootScope.HTTP_ROOT = HTTP_ROOT;
     $rootScope.IMG_URL = IMG_URL;
