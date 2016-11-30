@@ -108,7 +108,7 @@ methods.resetPassword = function(req, res) {
 
   var isSent = function(resp) {  // check email sending status
     if(!resp) {
-      res.status(200).json({ success: false, message: msg.EMAIL_FAILED });
+      res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
     }
     res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
   };
