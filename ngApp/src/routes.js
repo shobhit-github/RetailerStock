@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
 
      
     $stateProvider.
-      state('login', { 
+      state('login', {
         url: '/login',
         templateUrl: HTTP_ROOT+'login.html',
         controller: 'authCtrl',
@@ -29,15 +29,18 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
         }
 
       }).state('home', {
+        controller: function(){
+          console.log("dfsdf");
+        },
         resolve: {
           checkPermission:function($q,$api,$state, $msg, $rootScope) {
             var deferred = $q.defer();
-            $api.isAuthorized('dashboard').error(function (res, status) { deferred.reject(); 
+            $api.isAuthorized('dashboard').error(function (res, status) { deferred.reject();
                 $rootScope.authSuccess = $rootScope.authWarning = $rootScope.authError = false; $rootScope.authInfo = $msg.LOGIN_REQUIRE;
                 if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
             });
           }
-        },         
+        },
         templateUrl: HTTP_ROOT+'home.html',
         controller: function($rootScope) {
           $rootScope.bodyClass = "nav-md";
@@ -146,7 +149,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
           $api.exit(); $location.path('/');
         }
 
-      })      
+      })
 
 
   }]);
