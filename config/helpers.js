@@ -133,7 +133,7 @@ helper.sendEmail = function(mailOption, callback) {
   });
   
 
-}
+};
  
 
 

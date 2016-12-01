@@ -8,7 +8,7 @@
 app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
   function($stateProvider, $urlRouterProvider, HTTP_ROOT ) {
 
-   
+
     $urlRouterProvider.when("", "/login");
     $urlRouterProvider.when("/", "/login");
     $urlRouterProvider.otherwise("/404");
@@ -29,9 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
         }
 
       }).state('home', {
-        controller: function(){
-          console.log("dfsdf");
-        },
+
         resolve: {
           checkPermission:function($q,$api,$state, $msg, $rootScope) {
             var deferred = $q.defer();
@@ -105,7 +103,22 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
           }
         },
         templateUrl: HTTP_ROOT+'setting.html',
-      })
+
+    }).state('home.pricetable', {
+      url: '/pricetable',
+      controller:'shoppingCtrl',
+      resolve: {
+        checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          var deferred = $q.defer();
+          $api.isAuthorized('profile').success(function (res, status) { deferred.resolve(res);
+            if(status === 200) $rootScope.user = res.response;
+          }).error(function (res, status) { deferred.reject();
+            if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
+          });
+        }
+      },
+      templateUrl: HTTP_ROOT+'pricing_tables.html',
+    })
 
 
 
