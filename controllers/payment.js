@@ -13,7 +13,7 @@ var methods = new Object();
 
 
 var braintree = require('braintree')
-  , gateway = require('../lib/config').PAYMENT;
+  , gateway = require('../lib/config').GATEWAY;
 
 
 
@@ -33,7 +33,7 @@ var braintree = require('braintree')
  */
 methods.getBrainteeToken = function(req, res) {
 
-    gateway.braintree.clientToken.generate({}, function (err, response) {
+    gateway.clientToken.generate({}, function (err, response) {
         console.log(response);
         res.status.json({success: true, _token_braintree: response.clientToken});
     });
