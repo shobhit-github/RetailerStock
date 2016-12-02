@@ -10,6 +10,10 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 
 		$scope.generateBraintreeToken = function () {
 
+			var error = function (res) {
+				console.log(res);
+			};
+
 			$api.getBraintreeToken().then( function (res, status) {
 
 				braintree.setup(res._token_braintree, 'dropin', {
