@@ -35,7 +35,7 @@ methods.getBrainteeToken = function(req, res) {
 
     gateway.clientToken.generate({}, function (err, response) {
         console.log(response);
-        res.status.json({success: true, _token_braintree: response.clientToken});
+        res.status(200).json({success: true, _token_braintree: response.clientToken});
     });
 };
 
