@@ -12,7 +12,8 @@ var app   = express()
 var methods = new Object();
 
 
-var braintree = require('braintree');
+var braintree = require('braintree')
+  , gateway = require('../lib/config').PAYMENT;
 
 
 
@@ -32,31 +33,14 @@ var braintree = require('braintree');
  */
 methods.getBrainteeToken = function(req, res) {
 
-    gateway.clientToken.generate({}, function (err, response) {
+    gateway.braintree.clientToken.generate({}, function (err, response) {
+        console.log(response);
         res.status.json({success: true, _token_braintree: response.clientToken});
     });
 };
 
 
 
-
-
-
-
-/*
- |--------------------------------------------------
- | Logout User
- |--------------------------------------------------
- */
-methods.logout = function(req, res) {
-
-    req.logout();
-
-    res.status(200).json({
-        'success':  true,
-        'message':  msg.LOGOUT_SUCCESS
-    });
-};
 
 
 

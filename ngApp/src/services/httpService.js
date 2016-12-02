@@ -65,9 +65,8 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
      ----------------------------------------------*/
 
   this.getBraintreeToken = function () {
-    return $http.get(SERVER_URI+'braintree_token', function (res) {
-        
-    })
+    
+    return $http.get(SERVER_URI+'braintree_token');
   };
 
 
