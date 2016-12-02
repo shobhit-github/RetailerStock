@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pricing_tables.html" afterPath="$PROJECT_DIR$/views/pricing_tables.html" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -416,7 +414,7 @@
       <workItem from="1480507757519" duration="6800000" />
       <workItem from="1480567328810" duration="7493000" />
       <workItem from="1480648891392" duration="8164000" />
-      <workItem from="1480674561195" duration="5541000" />
+      <workItem from="1480674561195" duration="5665000" />
     </task>
     <task id="LOCAL-00001" summary="Modified UserController">
       <created>1480405886214</created>
@@ -656,11 +654,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480679889727</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Integrating Payment Gateway">
+      <created>1480680109159</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1480680109159</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47980000" />
+    <option name="totallyTimeSpent" value="48104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
