@@ -13,8 +13,9 @@ var app  = express()
 
 /*  controller dependencies
 ..........................................*/
-var UserController    =   require('../controllers/users')
-  , AuthController    =   require('../controllers/auth');
+var AuthController    =   require('../controllers/auth')
+  , PaymentController =   require('../controllers/payment')
+  , UserController    =   require('../controllers/users');
 
 
 
@@ -45,6 +46,9 @@ router.put('/modify_password', help.ensureAuthenticated, UserController.changePa
 router.all('/all_users', help.ensureAuthenticated, UserController.getAllUsers);
 
 
+/* Routes for Payment Module
+ |........................................ */
+router.get('/braintree_token', help.ensureAuthenticated, PaymentController.getBrainteeToken);
 
 
 
