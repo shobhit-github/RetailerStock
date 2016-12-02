@@ -61,9 +61,14 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
 
 
 
+    /* Shop Service
+     ----------------------------------------------*/
 
-
-
+  this.getBraintreeToken = function () {
+    return $http.get(SERVER_URI+'braintree_token', function (res) {
+        
+    })
+  };
 
 
 

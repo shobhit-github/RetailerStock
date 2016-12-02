@@ -59,7 +59,7 @@ helper.ensureAuthenticated = function (req, res, next) {
   req.user = payload.sub;
   next();
   
-}
+};
 
 /*
  |--------------------------------------------------
@@ -75,7 +75,7 @@ helper.createJWT = function (user) {
     exp: moment().add(14, 'days').unix()
   };
   return jwt.encode(payload, config.TOKEN_SECRET);
-}
+};
 
 
 
@@ -94,7 +94,7 @@ helper.encrypt = function(str) {   // Encryption
   crypted += cipher.final('hex');
   
   return crypted;
-}
+};
  
  
 helper.decrypt = function(str) {   // Decryption 
@@ -105,7 +105,7 @@ helper.decrypt = function(str) {   // Decryption
   dec += decipher.final('utf8');
   
   return dec;
-}
+};
 
 
 

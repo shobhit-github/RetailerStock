@@ -7,5 +7,8 @@
 app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 	function shoppingCtrl($rootScope, $scope, $api, $state) {
 
+		braintree.setup(CLIENT_TOKEN_FROM_SERVER, 'dropin', {
+			container: 'payment-form'
+		});
 	}
 ]);

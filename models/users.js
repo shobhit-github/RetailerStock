@@ -113,7 +113,7 @@ UserSchema.statics =  {
     return this.remove({ _id: { $in: idsArray } }, callback);
   }
   
-}
+};
 
 
 /**      User Plugins
