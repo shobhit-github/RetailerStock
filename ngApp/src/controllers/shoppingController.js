@@ -19,5 +19,6 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 
 		};
 
+		$scope.generateBraintreeToken();
 	}
 ]);
