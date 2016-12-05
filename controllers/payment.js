@@ -12,9 +12,8 @@ var app   = express()
 var methods = new Object();
 
 
-var braintree = require('braintree')
-  , gateway = require('../lib/config').BRAINTTREE;
-
+var braintree  = require('braintree')
+  , gatewayBt  = require('../lib/config').BRAINTTREE;
 
 
 /**
@@ -25,7 +24,6 @@ var braintree = require('braintree')
 
 
 
-
 /*
  |--------------------------------------------------
  | Retrieving Braintree Client Token
@@ -33,12 +31,11 @@ var braintree = require('braintree')
  */
 methods.getBrainteeToken = function(req, res) {
 
-    gateway.clientToken.generate({}, function (err, response) {
+    gatewayBt.clientToken.generate({}, function (err, response) {
         console.log(response);
         return res.status(200).json({ success: true, _token_braintree: response.clientToken });
     });
 };
-
 
 /*
  |--------------------------------------------------
@@ -47,7 +44,7 @@ methods.getBrainteeToken = function(req, res) {
  */
 methods.makePayment = function (req, res) {
 
-    var saleOptions = {
+    var options = {
         amount: "18.00", // this is static amount currently, you need to retrieve amount by using database query
         paymentMethodNonce: req.body.card_info.nonce,
         options: {
@@ -55,7 +52,7 @@ methods.makePayment = function (req, res) {
         }
     };
 
-    gateway.transaction.sale(saleOptions, function (err, result) {
+    gatewayBt.transaction.sale(options, function (err, result) {
         if(err) {
             res.status(200).json({ success: false, message: msg.PAYMENT_FAILED });
         } else if(result.success) {
@@ -63,7 +60,6 @@ methods.makePayment = function (req, res) {
         }
     });
 };
-
 
 
 
