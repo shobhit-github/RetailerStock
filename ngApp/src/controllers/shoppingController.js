@@ -19,7 +19,7 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 		$scope.makePayment = function (product) {
 
 			var error = function (res, status) {
-				console.log(res);
+				$api.handleError(res);
 			};
 
 			var success = function (res, status) {
