@@ -4,8 +4,8 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
-	function shoppingCtrl($rootScope, $scope, $api, $state) {
+app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert',
+	function shoppingCtrl($rootScope, $scope, $api, $state, $sweetAlert) {
 
 		$scope.generateBraintreeToken = function () {
 
@@ -18,17 +18,21 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 
 		$scope.makePayment = function (product) {
 
+			$scope.paymentPopup = true;
+
 			var error = function (res, status) {
-				$api.handleError(res);
+				$sweetAlert.error(undefined, res.data.message);
 			};
 
 			var success = function (res, status) {
-				console.log(res);
+				$sweetAlert.success("Success", res.data.message);
 			};
 
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form',
 				onPaymentMethodReceived: function (obj) {
+
+					$scope.paymentPopup = false;
 
 					$api.makePayment({
 						card_info: obj,

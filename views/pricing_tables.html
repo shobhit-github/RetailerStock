@@ -196,10 +196,10 @@
 
 
 
-  <div class="payment-form-popup">
+  <div ng-show="paymentPopup" class="payment-form-popup">
     <form id="checkout" method="post">
       <input type="hidden" ng-model="product._id" />
       <div id="payment-form"></div>
-      <button type="submit" class="btn btn-success btn-round" >Pay $25</button>
+      <button type="submit" class="btn btn-success pay-btn" >Pay $25</button>
     </form>
   </div>

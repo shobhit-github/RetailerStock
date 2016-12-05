@@ -16,7 +16,7 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 				console.log(res);
 			}
 
-		}
+		};
 
 
 
@@ -25,7 +25,7 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 
 			var success = function(res, status) {
 				$sweetAlert.success("Success", res.data.message);
-			}
+			};
 
 			$api.updateUserProfile({
 				_id:data._id,
@@ -38,7 +38,7 @@ app.controller('profileCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 				$api.handleError(res);
 			});
 
-		}
+		};
 
 
 		// change user password 
