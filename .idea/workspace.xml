@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="Integrating Payment Gateway">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
+    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/config.js" afterPath="$PROJECT_DIR$/lib/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -401,14 +398,7 @@
       <workItem from="1480567328810" duration="7493000" />
       <workItem from="1480648891392" duration="8164000" />
       <workItem from="1480674561195" duration="5746000" />
-      <workItem from="1480916492949" duration="16668000" />
-    </task>
-    <task id="LOCAL-00014" summary="Make Changes in AuthController">
-      <created>1480513391052</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1480513391052</updated>
+      <workItem from="1480916492949" duration="16707000" />
     </task>
     <task id="LOCAL-00015" summary="Make Changes in AuthController">
       <created>1480514728313</created>
@@ -746,11 +736,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480935153153</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Integrating Payment Gateway">
+      <created>1480936964223</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1480936964223</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64853000" />
+    <option name="totallyTimeSpent" value="64892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
