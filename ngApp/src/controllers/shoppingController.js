@@ -9,7 +9,7 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 
 
 		$scope.generateBraintreeToken = function () {
-
+			$scope.product._id = 54;
 			$api.getBraintreeToken().then( function (res, status) {
 				$scope._token_braintree = res.data._token_braintree;
 			}, function () { console.error(res) });
@@ -23,8 +23,8 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 			});
 		};
 
-		$scope.makePayment = function (element) {
-			console.log(element)
+		$scope.makePayment = function (product_data) {
+			console.log(product_data);
 		};
 
 		$scope.generateBraintreeToken();

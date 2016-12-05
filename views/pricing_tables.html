@@ -197,9 +197,9 @@
 
 
   <div class="payment-form-popup">
-    <form id="checkout" method="post" ng-submit="makePayment(this)">
-      <input type="hidden" name="product_id" value="54">
+    <form id="checkout" method="post">
+      <input type="hidden" ng-model="product._id" />
       <div id="payment-form"></div>
-      <input type="submit" value="Pay $25">
+      <button class="btn btn-success btn-round" ng-click="makePayment(product)" type="submit" value="Pay $25">
     </form>
   </div>
