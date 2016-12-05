@@ -10,16 +10,18 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 
 		$scope.generateBraintreeToken = function () {
 
-			var error = function (res) {
-				console.log(res);
-			};
-
 			$api.getBraintreeToken().then( function (res, status) {
-				braintree.setup(res.data._token_braintree, 'dropin', {
-					container: 'payment-form'
-				});
-			}, error );
+				$scope._token_braintree = res.data._token_braintree;
+			}, function () { console.error(res) });
 
+		};
+
+
+		$scope.makePayment =function () {
+			console.log($scope);
+			/*braintree.setup(res.data._token_braintree, 'dropin', {
+				container: 'payment-form'
+			});*/
 		};
 
 		$scope.generateBraintreeToken();
