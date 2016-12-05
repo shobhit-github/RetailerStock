@@ -57,10 +57,9 @@ methods.makePayment = function (req, res) {
 
     gateway.transaction.sale(saleOptions, function (err, result) {
         if(err) {
-            console.error(err);res.status(200).json(err);
+            res.status(200).json({ success: false, message: msg.PAYMENT_FAILED });
         }
-        console.log(result);
-        res.status(200).json(result);
+        res.status(200).json({ success: true, message: msg.PAYMENT_SUCCESS });
     });
 };
 
