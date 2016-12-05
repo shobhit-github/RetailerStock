@@ -40,7 +40,11 @@ methods.getBrainteeToken = function(req, res) {
 };
 
 
-
+/*
+ |--------------------------------------------------
+ | Making Payment through the Braintree
+ |--------------------------------------------------
+ */
 methods.makePayment = function (req, res) {
 
 
