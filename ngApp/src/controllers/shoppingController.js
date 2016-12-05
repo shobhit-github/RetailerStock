@@ -7,12 +7,8 @@
 app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 	function shoppingCtrl($rootScope, $scope, $api, $state) {
 
-		var product = new Object();
-
 		$scope.generateBraintreeToken = function () {
-			$scope.product = {
-				_id: 54
-			};
+
 			$api.getBraintreeToken().then( function (res, status) {
 				$scope._token_braintree = res.data._token_braintree;
 			}, function () { console.error(res) });
@@ -20,21 +16,28 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 		};
 
 
-		$scope.checkoutProceed = function () {
+		$scope.makePayment = function (product) {
+
+			var error = function (res, status) {
+				console.log(res);
+			};
+
+			var success = function (res, status) {
+				console.error(res);
+			};
+
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form',
-				enableCORS: true,
-				dataCollector: { aypal: false },
 				onPaymentMethodReceived: function (obj) {
-					console.log(obj);
-					//doSomethingWithTheNonce(obj.nonce);
+
+					$api.makePayment({
+						card_info: obj,
+						product_info: product
+					}).then(success, error);
 				}
 			});
 		};
 
-		$scope.makePayment = function (product_data) {
-			console.log(product_data);
-		};
 
 		$scope.generateBraintreeToken();
 	}

@@ -49,7 +49,7 @@ router.all('/all_users', help.ensureAuthenticated, UserController.getAllUsers);
 /* Routes for Payment Module
  |........................................ */
 router.get('/braintree_token', help.ensureAuthenticated, PaymentController.getBrainteeToken);
-
+router.post('/checkout', help.ensureAuthenticated, PaymentController.makePayment);
 
 
 

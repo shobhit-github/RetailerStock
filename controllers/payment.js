@@ -41,7 +41,22 @@ methods.getBrainteeToken = function(req, res) {
 
 
 
+methods.makePayment = function (req, res) {
 
+
+    console.log(req.body);
+
+    /*var saleOptions = {
+        amount: "25.00", // this is static amount currently, you need to retrieve amount by using database query
+        paymentMethodNonce: nonceFromTheClient,
+        options: {
+            submitForSettlement: true
+        }
+    };
+
+    gateway.transaction.sale(saleOptions, function (err, result) {
+    });*/
+};
 
 
 
