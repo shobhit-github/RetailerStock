@@ -15,8 +15,7 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 			};
 
 			$api.getBraintreeToken().then( function (res, status) {
-				console.log(res);
-				braintree.setup(res._token_braintree, 'dropin', {
+				braintree.setup(res.data._token_braintree, 'dropin', {
 					container: 'payment-form'
 				});
 			}, error );
