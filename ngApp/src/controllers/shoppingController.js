@@ -30,6 +30,11 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state', '$swee
 
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form',
+				paypal: {
+					singleUse: true,
+					amount: 10.00,
+					currency: 'USD'
+				},
 				onPaymentMethodReceived: function (obj) {
 
 					$scope.paymentPopup = false;
