@@ -4174,6 +4174,13 @@ input.go-to {
   color: #C00 !important;
 }
 
+.payment-form-popup {
+  position: absolute;
+  top: 47%;
+  left: 43%;
+  background: beige;
+}
+
 .social-login-sec {
     margin-top: 10px;
 }
