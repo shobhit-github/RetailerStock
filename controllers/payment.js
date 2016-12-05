@@ -48,7 +48,7 @@ methods.getBrainteeToken = function(req, res) {
 methods.makePayment = function (req, res) {
 
     var saleOptions = {
-        amount: "25.00", // this is static amount currently, you need to retrieve amount by using database query
+        amount: "18.00", // this is static amount currently, you need to retrieve amount by using database query
         paymentMethodNonce: req.body.card_info.nonce,
         options: {
             submitForSettlement: true
