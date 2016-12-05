@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="Integrating Payment Gateway">
+    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/pricing_tables.html" afterPath="$PROJECT_DIR$/views/pricing_tables.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,21 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shoppingController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="shoppingController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="26" />
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pricing_tables.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pricing_tables.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/pricing_tables.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
-              <caret line="111" column="114" selection-start-line="111" selection-start-column="114" selection-end-line="111" selection-end-column="114" />
+              <caret line="111" column="112" selection-start-line="111" selection-start-column="112" selection-end-line="111" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -166,8 +166,8 @@
         <option value="$PROJECT_DIR$/lib/config.js" />
         <option value="$PROJECT_DIR$/ngApp/src/services/httpService.js" />
         <option value="$PROJECT_DIR$/controllers/payment.js" />
-        <option value="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" />
         <option value="$PROJECT_DIR$/views/pricing_tables.html" />
+        <option value="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" />
       </list>
     </option>
   </component>
@@ -416,7 +416,7 @@
       <workItem from="1480567328810" duration="7493000" />
       <workItem from="1480648891392" duration="8164000" />
       <workItem from="1480674561195" duration="5746000" />
-      <workItem from="1480916492949" duration="2256000" />
+      <workItem from="1480916492949" duration="2470000" />
     </task>
     <task id="LOCAL-00001" summary="Modified UserController">
       <created>1480405886214</created>
@@ -705,11 +705,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480918672969</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Integrating Payment Gateway">
+      <created>1480918805793</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1480918805793</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50441000" />
+    <option name="totallyTimeSpent" value="50655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1103,18 +1110,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js">
+    <entry file="file://$PROJECT_DIR$/views/pricing_tables.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="26" />
+        <state relative-caret-position="540">
+          <caret line="111" column="112" selection-start-line="111" selection-start-column="112" selection-end-line="111" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/pricing_tables.html">
+    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="111" column="114" selection-start-line="111" selection-start-column="114" selection-end-line="111" selection-end-column="114" />
+        <state relative-caret-position="380">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding />
         </state>
       </provider>
