@@ -77,8 +77,8 @@
       <file leaf-file-name="config.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+            <state relative-caret-position="500">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -369,14 +369,7 @@
       <workItem from="1480567328810" duration="7493000" />
       <workItem from="1480648891392" duration="8164000" />
       <workItem from="1480674561195" duration="5746000" />
-      <workItem from="1480916492949" duration="17774000" />
-    </task>
-    <task id="LOCAL-00020" summary="Make Changes in AuthController">
-      <created>1480650044709</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1480650044709</updated>
+      <workItem from="1480916492949" duration="18108000" />
     </task>
     <task id="LOCAL-00021" summary="Make Changes in AuthController">
       <created>1480675042737</created>
@@ -714,11 +707,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480937894900</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Integrating Payment Gateway">
+      <created>1480938058787</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1480938058787</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65959000" />
+    <option name="totallyTimeSpent" value="66293000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1132,8 +1132,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        <state relative-caret-position="500">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
           <folding />
         </state>
       </provider>
