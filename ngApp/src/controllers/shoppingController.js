@@ -7,6 +7,7 @@
 app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 	function shoppingCtrl($rootScope, $scope, $api, $state) {
 
+		var product = new Object();
 
 		$scope.generateBraintreeToken = function () {
 			$scope.product._id = 54;
