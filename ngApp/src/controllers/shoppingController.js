@@ -23,7 +23,7 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 			};
 
 			var success = function (res, status) {
-				console.error(res);
+				console.log(res);
 			};
 
 			braintree.setup($scope._token_braintree, 'dropin', {
