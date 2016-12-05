@@ -17,10 +17,14 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 		};
 
 
-		$scope.makePayment = function () {
+		$scope.checkoutProceed = function () {
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form'
 			});
+		};
+
+		$scope.makePayment = function (element) {
+			console.log(element)
 		};
 
 		$scope.generateBraintreeToken();
