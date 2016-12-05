@@ -23,7 +23,9 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 		$scope.checkoutProceed = function () {
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form',
-				paypal: false
+				dataCollector: {
+					paypal: true
+				}
 			});
 		};
 
