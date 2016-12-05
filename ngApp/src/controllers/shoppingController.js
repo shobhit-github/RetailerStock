@@ -23,12 +23,11 @@ app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state',
 		$scope.checkoutProceed = function () {
 			braintree.setup($scope._token_braintree, 'dropin', {
 				container: 'payment-form',
-				dataCollector: {
-					paypal: false
-				},
+				enableCORS: true,
+				dataCollector: { aypal: false },
 				onPaymentMethodReceived: function (obj) {
 					console.log(obj);
-					doSomethingWithTheNonce(obj.nonce);
+					//doSomethingWithTheNonce(obj.nonce);
 				}
 			});
 		};
