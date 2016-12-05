@@ -13,7 +13,7 @@ var methods = new Object();
 
 
 var braintree = require('braintree')
-  , gateway = require('../lib/config').GATEWAY;
+  , gateway = require('../lib/config').BRAINTTREE;
 
 
 
