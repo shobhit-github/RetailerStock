@@ -14,6 +14,7 @@ app.service('$msg', [
 		'NOT_FOUND_ERROR'		: 	"There was an error due to requested url not found, please contact to the website / software administrator !",
 		'AUTHENTICATION_ERROR'	: 	"There was an error due to unauthorized access from the client end, please contact to the software administrator !",
 		'SESSION_EXPIRE'		: 	"Session has been expired !",
+		'BAD_REQUEST'			:	"There was bad request due to some tecnhnical issue, please try it again !",
 
 		// Information Massages
 		'LOGIN_REQUIRE'			: 	"You've to login to start session again!",

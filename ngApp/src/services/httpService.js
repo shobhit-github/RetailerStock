@@ -87,6 +87,7 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
   this.handleError = function(res) {
 
     switch (res.status) {
+      case 400: $sweetAlert.error(res.statusText, $msg.AUTHENTICATION_ERROR); break;
       case 403: $sweetAlert.error(res.statusText, $msg.AUTHENTICATION_ERROR); break;
       case 500: $sweetAlert.error(res.statusText, $msg.INTERNAL_SERVER_ERROR); break;
       case 503: $sweetAlert.error(res.statusText, $msg.SERVICE_UNAVAILABLE); break;
