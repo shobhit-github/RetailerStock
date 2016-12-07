@@ -13,14 +13,14 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 				'module_name': 'members',
 				'paging_info': { 'page': parseInt(data.currentPage), 'sort': data.sort || { 'created_at': -1 }, 'limit': parseInt(data.limit)	}
 			}
-		} 
+		};
 
 		// pagination initializations
 		var pagination = {
 			'limit': 10,
 			'currentPage': 1,
 			'maxSize': 10
-		}
+		};
 		var postData = new Object();
 
 		// initial functionalities
@@ -43,7 +43,7 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 					'currentPage': (res.data.data.page > res.data.data.pages) ? res.data.data.pages : res.data.data.page,
 					'numPages': res.data.data.pages,
 					'maxSize': pageData.maxSize
-				}
+				};
 				if(pageData.search) $scope.pagination.search = pageData.search ; 
 				if(res.data.data.total == 0) $scope.pagination.message = res.data.message;
 				

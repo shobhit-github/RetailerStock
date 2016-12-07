@@ -102,7 +102,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'setting.html',
+        templateUrl: HTTP_ROOT+'setting.html'
 
     }).state('home.pricetable', {
       url: '/pricetable',
@@ -110,14 +110,29 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       resolve: {
         checkPermission:function($q, $api, $state, $rootScope, $msg) {
           var deferred = $q.defer();
-          $api.isAuthorized('profile').success(function (res, status) { deferred.resolve(res);
+          $api.isAuthorized('shop').success(function (res, status) { deferred.resolve(res);
             if(status === 200) $rootScope.user = res.response;
           }).error(function (res, status) { deferred.reject();
             if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
           });
         }
       },
-      templateUrl: HTTP_ROOT+'pricing_tables.html',
+      templateUrl: HTTP_ROOT+'pricing_tables.html'
+
+    }).state('home.messanger', {
+      url: '/chat',
+      controller:'chatCtrl',
+      resolve: {
+        checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          var deferred = $q.defer();
+          $api.isAuthorized('chat').success(function (res, status) { deferred.resolve(res);
+            if(status === 200) $rootScope.user = res.response;
+          }).error(function (res, status) { deferred.reject();
+            if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
+          });
+        }
+      },
+      templateUrl: HTTP_ROOT+'messanger.html',
     })
 
 
