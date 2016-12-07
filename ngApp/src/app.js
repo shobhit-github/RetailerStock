@@ -6,7 +6,7 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', /*'ui.calendar',
     */'ngAnimate', 'ngMessages'/*,'ngValidate','ngFileUpload', 'angular-confirm','textAngular' ,'chart.js' ,'angularMoment','uiSwitch'*/])
         .constant({
-          'SERVER_URI':'https://retailerstock.herokuapp.com/'
+          'SERVER_URI':'http://localhost:3000/'
 });
 
 app.run(['$rootScope', '$state', 'SERVER_URI', '$templateCache',
