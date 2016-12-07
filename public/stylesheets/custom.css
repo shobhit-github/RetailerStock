@@ -4233,7 +4233,7 @@ button.pay-btn {
     CSS Spinner Loader
 -------------------------*/
 .loader {
-    position: absolute;
+    position: fixed;
     z-index: 15000;
     top: 30%;
     left: 53%;
