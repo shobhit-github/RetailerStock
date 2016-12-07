@@ -6,17 +6,15 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', /*'ui.calendar',
     */'ngAnimate', 'ngMessages'/*,'ngValidate','ngFileUpload', 'angular-confirm','textAngular' ,'chart.js' ,'angularMoment','uiSwitch'*/])
         .constant({
-          'HTTP_ROOT':'https://retailerstock.herokuapp.com/views/',
-          'IMG_URL':'https://retailerstock.herokuapp.com/images/',
-          'FILE_URL':'https://retailerstock.herokuapp.com/files/'
+          'SERVER_URI':'https://retailerstock.herokuapp.com/'
 });
 
-app.run(['$rootScope', '$state', 'HTTP_ROOT', 'IMG_URL', 'FILE_URL', '$templateCache',
-  function($rootScope, $state, HTTP_ROOT, IMG_URL, FILE_URL, $templateCache) {
+app.run(['$rootScope', '$state', 'SERVER_URI', '$templateCache',
+  function($rootScope, $state, SERVER_URI, $templateCache) {
 
-    $rootScope.HTTP_ROOT = HTTP_ROOT;
-    $rootScope.IMG_URL   = IMG_URL;
-    $rootScope.FILE_URL  = FILE_URL;
+    $rootScope.TEMPLATE_URL = SERVER_URI+'views/';
+    $rootScope.IMG_URL      = SERVER_URI+'images/';
+    $rootScope.FILE_URL     = SERVER_URI+'files/';
 
     $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();

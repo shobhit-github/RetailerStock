@@ -5,8 +5,8 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
-  function($stateProvider, $urlRouterProvider, HTTP_ROOT ) {
+app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URI', '$rootScope',
+  function($stateProvider, $urlRouterProvider, SERVER_URI, $rootScope ) {
 
 
     $urlRouterProvider.when("", "/login");
@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
     $stateProvider.
       state('login', {
         url: '/login',
-        templateUrl: HTTP_ROOT+'login.html',
+        templateUrl: $rootScope.TEMPLATE_URL+'login.html',
         controller: 'authCtrl',
         resolve: {
           checkPermission:function($q,$api,$state, $rootScope, $msg) {  var deferred = $q.defer();
@@ -39,7 +39,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'home.html',
+        templateUrl: $rootScope.TEMPLATE_URL+'home.html',
         controller: function($rootScope) {
           $rootScope.bodyClass = "nav-md";
         }
@@ -57,7 +57,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },        
-        templateUrl: HTTP_ROOT+'dashboard.html'
+        templateUrl: $rootScope.TEMPLATE_URL+'dashboard.html'
 
       }).state('home.profile', {
         url: '/profile',
@@ -72,7 +72,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'profile.html'
+        templateUrl: $rootScope.TEMPLATE_URL+'profile.html'
 
       }).state('home.members', {
         url: '/members',
@@ -87,7 +87,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'members.html'
+        templateUrl: $rootScope.TEMPLATE_URL+'members.html'
 
       }).state('home.setting', {
         url: '/setting',
@@ -102,7 +102,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'setting.html'
+        templateUrl: $rootScope.TEMPLATE_URL+'setting.html'
 
     }).state('home.pricetable', {
       url: '/pricetable',
@@ -117,7 +117,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
           });
         }
       },
-      templateUrl: HTTP_ROOT+'pricing_tables.html'
+      templateUrl: $rootScope.TEMPLATE_URL+'pricing_tables.html'
 
     }).state('home.messanger', {
       url: '/chat',
@@ -132,7 +132,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
           });
         }
       },
-      templateUrl: HTTP_ROOT+'messanger.html',
+      templateUrl: $rootScope.TEMPLATE_URL+'messanger.html',
     })
 
 
@@ -148,7 +148,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  404 Not Found Exception
       .state('404', {
         url : '/404',
-        templateUrl: HTTP_ROOT+'page_404.html',
+        templateUrl: $rootScope.TEMPLATE_URL+'page_404.html',
         controller: function($scope, $rootScope) {
           $rootScope.bodyClass = 'nav-md';
         }
@@ -156,7 +156,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  403 Unauthorized Exception
       }).state('403', {
         url : '/403',
-        templateUrl: HTTP_ROOT+'page_403.html',
+        templateUrl: $rootScope.TEMPLATE_URL+'page_403.html',
         controller: function($scope, $rootScope, $q) {
           $rootScope.bodyClass = 'nav-md'; $q.defer().reject();
         }
@@ -164,7 +164,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  500 Internal Server Error Exception
       }).state('500', {
         url : '/500',
-        templateUrl: HTTP_ROOT+'page_500.html',
+        templateUrl: $rootScope.TEMPLATE_URL+'page_500.html',
         controller: function($scope, $rootScope, $q) {
           $rootScope.bodyClass = 'nav-md'; $q.defer().reject();
         }
