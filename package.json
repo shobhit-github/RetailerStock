@@ -30,6 +30,7 @@
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
     "querystring": "^0.2.0",
+    "razorpay": "^1.1.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
     "bluebird": "~3.4.6"

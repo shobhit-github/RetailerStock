@@ -69,8 +69,10 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg',
     return $http.get(SERVER_URI+'braintree_token', config);
   };
 
+  this.makePayment = function (data) {
 
-
+    return $http.post(SERVER_URI+'checkout', data, config);
+  };
 
 
 

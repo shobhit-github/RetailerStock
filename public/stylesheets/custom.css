@@ -4174,6 +4174,29 @@ input.go-to {
   color: #C00 !important;
 }
 
+.payment-form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+form#checkout {
+  width: 17%;
+  top: 42%;
+  position: absolute;
+  left: 42%;
+  border: 5px solid white;
+  background: white;
+}
+button.pay-btn {
+  border: none;
+  padding: 8px;
+  font-size: 15px;
+  width: 100%;
+}
 .social-login-sec {
     margin-top: 10px;
 }

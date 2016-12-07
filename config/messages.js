@@ -28,6 +28,10 @@ module.exports = {
     "PROFILE_UPDATED_DONE"    :   "User profile has been updated successfully !",
     "INVALID_PASSWORD"        :   "The password that you've entered is invalid !",
     "PASSWORD_UPDATED_DONE"   :   "User password has been updated successfully !",
-    "USERS_DELETED"           :   "User(s) profile has been deleted successfully"
-    
+    "USERS_DELETED"           :   "User(s) profile has been deleted successfully",
+
+    // Payment Module
+    "PAYMENT_SUCCESS"         :   "Payment Successfull",
+    "PAYMENT_FAILED"         :    "Payment has been cancelled due to internal error !"
+
 };
