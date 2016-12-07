@@ -5,19 +5,20 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
-  function($stateProvider, $urlRouterProvider, HTTP_ROOT ) {
+app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
+  function($stateProvider, $urlRouterProvider, SERVER_URL ) {
 
+    const TEMPLATE_URL = SERVER_URL+'views/';
 
     $urlRouterProvider.when("", "/login");
     $urlRouterProvider.when("/", "/login");
     $urlRouterProvider.otherwise("/404");
 
-     
+
     $stateProvider.
       state('login', {
         url: '/login',
-        templateUrl: HTTP_ROOT+'login.html',
+        templateUrl: TEMPLATE_URL+'login.html',
         controller: 'authCtrl',
         resolve: {
           checkPermission:function($q,$api,$state, $rootScope, $msg) {  var deferred = $q.defer();
@@ -39,7 +40,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'home.html',
+        templateUrl: TEMPLATE_URL+'home.html',
         controller: function($rootScope) {
           $rootScope.bodyClass = "nav-md";
         }
@@ -57,7 +58,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },        
-        templateUrl: HTTP_ROOT+'dashboard.html',
+        templateUrl: TEMPLATE_URL+'dashboard.html'
 
       }).state('home.profile', {
         url: '/profile',
@@ -72,7 +73,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'profile.html',
+        templateUrl: TEMPLATE_URL+'profile.html'
 
       }).state('home.members', {
         url: '/members',
@@ -87,7 +88,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'members.html',
+        templateUrl: TEMPLATE_URL+'members.html'
 
       }).state('home.setting', {
         url: '/setting',
@@ -102,7 +103,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'setting.html',
+        templateUrl: TEMPLATE_URL+'setting.html'
 
     }).state('home.pricetable', {
       url: '/pricetable',
@@ -110,14 +111,29 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       resolve: {
         checkPermission:function($q, $api, $state, $rootScope, $msg) {
           var deferred = $q.defer();
-          $api.isAuthorized('profile').success(function (res, status) { deferred.resolve(res);
+          $api.isAuthorized('shop').success(function (res, status) { deferred.resolve(res);
             if(status === 200) $rootScope.user = res.response;
           }).error(function (res, status) { deferred.reject();
             if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
           });
         }
       },
-      templateUrl: HTTP_ROOT+'pricing_tables.html',
+      templateUrl: TEMPLATE_URL+'pricing_tables.html'
+
+    }).state('home.messanger', {
+      url: '/chat',
+      controller:'chatCtrl',
+      resolve: {
+        checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          var deferred = $q.defer();
+          $api.isAuthorized('chat').success(function (res, status) { deferred.resolve(res);
+            if(status === 200) $rootScope.user = res.response;
+          }).error(function (res, status) { deferred.reject();
+            if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');
+          });
+        }
+      },
+      templateUrl: TEMPLATE_URL+'messanger.html'
     })
 
 
@@ -133,7 +149,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  404 Not Found Exception
       .state('404', {
         url : '/404',
-        templateUrl: HTTP_ROOT+'page_404.html',
+        templateUrl: TEMPLATE_URL+'page_404.html',
         controller: function($scope, $rootScope) {
           $rootScope.bodyClass = 'nav-md';
         }
@@ -141,7 +157,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  403 Unauthorized Exception
       }).state('403', {
         url : '/403',
-        templateUrl: HTTP_ROOT+'page_403.html',
+        templateUrl: TEMPLATE_URL+'page_403.html',
         controller: function($scope, $rootScope, $q) {
           $rootScope.bodyClass = 'nav-md'; $q.defer().reject();
         }
@@ -149,7 +165,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
       //  500 Internal Server Error Exception
       }).state('500', {
         url : '/500',
-        templateUrl: HTTP_ROOT+'page_500.html',
+        templateUrl: TEMPLATE_URL+'page_500.html',
         controller: function($scope, $rootScope, $q) {
           $rootScope.bodyClass = 'nav-md'; $q.defer().reject();
         }

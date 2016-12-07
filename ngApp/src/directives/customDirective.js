@@ -22,10 +22,7 @@ app.directive('loader',
         `
       }
     }
-
-
-
-})
+});
 
 app.directive('selectLimit', 
   function () {
@@ -105,12 +102,12 @@ app.directive('checkBox',
               $rootScope.checkedArray.push(value._id); value.selected = true;
             } else { value.selected = false; }
           })
-        }
+        };
         $scope.selectOne = function() { 
           $rootScope.checkedArray = new Array(); 
           angular.forEach($scope.allRecords, function(value, index) {
             if($scope.allRecords[index].selected) { $rootScope.checkedArray.push(value._id); }
-          })
+          });
           if($rootScope.checkedArray.length == 0) $scope.allRecords.isCheckAll = false ;
         }
       },
