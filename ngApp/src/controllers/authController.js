@@ -6,7 +6,7 @@
 
 app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token', '$timeout',
 	function authCtrl($rootScope, $scope, $api, $location, $token, $timeout) {
-    
+		
 	$rootScope.bodyClass = "login";
 	$scope.loginSec = true;
 

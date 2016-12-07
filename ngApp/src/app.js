@@ -6,28 +6,28 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', /*'ui.calendar',
     */'ngAnimate', 'ngMessages'/*,'ngValidate','ngFileUpload', 'angular-confirm','textAngular' ,'chart.js' ,'angularMoment','uiSwitch'*/])
         .constant({
-          'SERVER_URI':'http://localhost:3000/'
+          'SERVER_URL': function ($location) {
+            if (location.hostname === "localhost" || $location.hostname === "127.0.0.1")
+              return 'http://localhost:3000/';
+            else return 'http://https://retailerstock.herokuapp.com/';
+          }
+
 });
 
-app.run(['$rootScope', '$state', 'SERVER_URI', '$templateCache',
-  function($rootScope, $state, SERVER_URI, $templateCache) {
+app.run(['$rootScope', 'SERVER_URL', '$templateCache',
+  function($rootScope, SERVER_URL, $templateCache) {
 
-    $rootScope.TEMPLATE_URL = SERVER_URI+'views/';
-    $rootScope.IMG_URL      = SERVER_URI+'images/';
-    $rootScope.FILE_URL     = SERVER_URI+'files/';
 
-    $rootScope.$on('$viewContentLoaded', function() {
+    $rootScope.TEMPLATE_URL = SERVER_URL+'views/';
+    $rootScope.IMG_URL      = SERVER_URL+'images/';
+    $rootScope.FILE_URL     = SERVER_URL+'files/';
+
+    var removeTemplateCache = function () {
       $templateCache.removeAll();
-    });
-    $rootScope.$on('$stateChangeStart', function() {
-      $templateCache.removeAll();
-    });
+    };
 
-    $rootScope.$on('loading:progress', function () {
-      $rootScope.rootLoader = $rootScope.mainContentLoader = true;
-    });
-    $rootScope.$on('loading:finish', function () {
-      $rootScope.rootLoader = $rootScope.mainContentLoader = false;
-    });
+    $rootScope.$on('$viewContentLoaded', removeTemplateCache);
+    $rootScope.$on('$stateChangeStart', removeTemplateCache);
+
 
 }]);

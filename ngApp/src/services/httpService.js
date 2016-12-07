@@ -4,10 +4,11 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URI',
-  function ($http, $token, $q, $sweetAlert, $msg, SERVER_URI) {
+app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URL',
+  function ($http, $token, $q, $sweetAlert, $msg, SERVER_URL) {
 
-  const SERVER_URI = SERVER_URI+'api/';
+  const SERVER_URI = SERVER_URL+'api/';
+    
   var config = {
     headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }  
   };

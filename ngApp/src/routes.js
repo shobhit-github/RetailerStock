@@ -5,10 +5,10 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URI',
-  function($stateProvider, $urlRouterProvider, SERVER_URI ) {
+app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
+  function($stateProvider, $urlRouterProvider, SERVER_URL ) {
 
-    const TEMPLATE_URL = SERVER_URI+'views/';
+    const TEMPLATE_URL = SERVER_URL+'views/';
 
     $urlRouterProvider.when("", "/login");
     $urlRouterProvider.when("/", "/login");
@@ -133,7 +133,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URI',
           });
         }
       },
-      templateUrl: TEMPLATE_URL+'messanger.html',
+      templateUrl: TEMPLATE_URL+'messanger.html'
     })
 
 
