@@ -57,7 +57,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },        
-        templateUrl: HTTP_ROOT+'dashboard.html',
+        templateUrl: HTTP_ROOT+'dashboard.html'
 
       }).state('home.profile', {
         url: '/profile',
@@ -72,7 +72,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'profile.html',
+        templateUrl: HTTP_ROOT+'profile.html'
 
       }).state('home.members', {
         url: '/members',
@@ -87,7 +87,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'HTTP_ROOT',
             });
           }
         },
-        templateUrl: HTTP_ROOT+'members.html',
+        templateUrl: HTTP_ROOT+'members.html'
 
       }).state('home.setting', {
         url: '/setting',
