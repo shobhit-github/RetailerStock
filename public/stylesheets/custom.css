@@ -675,7 +675,15 @@ footer {
   left: 0px;
   bottom: 0px;
   width: 100%; }
-
+.header_fixed {
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 100;
+}
+.mid_section{
+  margin-top: 46px;
+}
 @media (min-width: 768px) {
   .footer_fixed footer {
     margin-left: 0; } }
