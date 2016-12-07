@@ -9,7 +9,7 @@ app.controller('chatCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAle
 
 
 		$scope.getChatMember = function () {
-			console.log($scope);
+			console.log($state);
 		};
 
 		$scope.getChatMember();

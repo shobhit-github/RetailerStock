@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/messanger.html" afterPath="$PROJECT_DIR$/views/messanger.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1710">
@@ -75,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chatController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chatController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -146,10 +145,10 @@
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/membersController.js" />
         <option value="$PROJECT_DIR$/views/elements/sidebar.html" />
-        <option value="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/messanger.html" />
         <option value="$PROJECT_DIR$/ngApp/src/routes.js" />
+        <option value="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
       </list>
     </option>
   </component>
@@ -459,14 +458,7 @@
       <workItem from="1480916492949" duration="22495000" />
       <workItem from="1481000635765" duration="2693000" />
       <workItem from="1481025220015" duration="1096000" />
-      <workItem from="1481101957508" duration="4523000" />
-    </task>
-    <task id="LOCAL-00032" summary="Integrating Payment Gateway">
-      <created>1480679524707</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1480679524707</updated>
+      <workItem from="1481101957508" duration="4975000" />
     </task>
     <task id="LOCAL-00033" summary="Integrating Payment Gateway">
       <created>1480679568510</created>
@@ -804,11 +796,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481106922845</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Integrating Chat Module">
+      <created>1481106992845</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1481106992845</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78992000" />
+    <option name="totallyTimeSpent" value="79444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1187,14 +1186,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/elements/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1211,6 +1202,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1710">
+          <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/messanger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1219,10 +1218,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
+    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1710">
-          <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
+        <state relative-caret-position="220">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
