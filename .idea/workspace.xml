@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" afterPath="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/custom.css" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,6 +74,35 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="customDirective.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ngApp/src/directives/customDirective.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <marker date="1481116301020" expanded="true" signature="372:579" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="930:1488" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1006:1471" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1048:1452" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1079:1367" ph="..." />
+                <marker date="1481116301020" expanded="false" signature="1398:1414" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1846:2200" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1919:2185" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="1959:2168" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="3947:4256" ph="..." />
+                <marker date="1481116301020" expanded="false" signature="3971:3987" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="4976:5291" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="5010:5276" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="5050:5258" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="5640:6243" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="5730:6228" ph="..." />
+                <marker date="1481116301020" expanded="true" signature="5762:6211" ph="..." />
+                <marker date="1481116301020" expanded="false" signature="5991:6000" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,7 +113,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
@@ -159,8 +186,8 @@
         <option value="$PROJECT_DIR$/controllers/auth.js" />
         <option value="$PROJECT_DIR$/ngApp/src/app.js" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
-        <option value="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
+        <option value="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" />
       </list>
     </option>
   </component>
@@ -506,14 +533,7 @@
       <workItem from="1480916492949" duration="22495000" />
       <workItem from="1481000635765" duration="2693000" />
       <workItem from="1481025220015" duration="1096000" />
-      <workItem from="1481101957508" duration="13113000" />
-    </task>
-    <task id="LOCAL-00039" summary="Integrating Payment Gateway">
-      <created>1480918302262</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1480918302262</updated>
+      <workItem from="1481101957508" duration="13140000" />
     </task>
     <task id="LOCAL-00040" summary="Integrating Payment Gateway">
       <created>1480918470060</created>
@@ -851,11 +871,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481112390131</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Integrating Chat Module">
+      <created>1481116281971</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1481116281971</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87582000" />
+    <option name="totallyTimeSpent" value="87609000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1249,14 +1276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1273,38 +1292,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/directives/customDirective.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
-          <folding>
-            <marker date="1481115187333" expanded="true" signature="624:831" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="1182:1740" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="1258:1723" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="1300:1704" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="1331:1619" ph="..." />
-            <marker date="1481115187333" expanded="false" signature="1650:1666" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="2098:2452" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="2171:2437" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="2211:2420" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="4199:4508" ph="..." />
-            <marker date="1481115187333" expanded="false" signature="4223:4239" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="5228:5543" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="5262:5528" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="5302:5510" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="5892:6495" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="5982:6480" ph="..." />
-            <marker date="1481115187333" expanded="true" signature="6014:6463" ph="..." />
-            <marker date="1481115187333" expanded="false" signature="6243:6252" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="4235" column="19" selection-start-line="4235" selection-start-column="19" selection-end-line="4235" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/src/directives/customDirective.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <marker date="1481116301020" expanded="true" signature="372:579" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="930:1488" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1006:1471" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1048:1452" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1079:1367" ph="..." />
+            <marker date="1481116301020" expanded="false" signature="1398:1414" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1846:2200" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1919:2185" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="1959:2168" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="3947:4256" ph="..." />
+            <marker date="1481116301020" expanded="false" signature="3971:3987" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="4976:5291" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="5010:5276" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="5050:5258" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="5640:6243" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="5730:6228" ph="..." />
+            <marker date="1481116301020" expanded="true" signature="5762:6211" ph="..." />
+            <marker date="1481116301020" expanded="false" signature="5991:6000" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

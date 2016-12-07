@@ -10,13 +10,6 @@ app.directive('loader',
 
     return {
       restrict:'E',
-      controller: function ($http) { console.log($http.pendingRequests.length);
-          for (var i = $http.pendingRequests.length - 1; i >= 0; i--) {
-            //if($http.pendingRequests[i].url === ('/someURL')) return true;
-          }
-
-
-      },
       template: function($element, $attrs) {
         return `
           <div class="spinner">
