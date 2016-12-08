@@ -32,7 +32,6 @@ var braintree  = require('braintree')
 methods.getBrainteeToken = function(req, res) {
 
     gatewayBt.clientToken.generate({}, function (err, response) {
-        console.log(response);
         return res.status(200).json({ success: true, _token_braintree: response.clientToken });
     });
 };

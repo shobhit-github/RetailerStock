@@ -64,7 +64,7 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 					}, $api.handleError );
 				}
 			});
-		}
+		};
 
 
 		$scope.paginateMembers = function(pageParams) {

@@ -8,10 +8,18 @@ app.controller('chatCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAle
 	function chatCtrl($rootScope, $scope, $api, $state, $sweetAlert, $controller) {
 
 
-		$scope.getChatMember = function () {
-			
+		var getChatList = function () {
+			$api.getChatList({'module_name': 'members'}).then( function(res, status) {
+				console.log(res);
+				$scope.records	= res.data.data.docs;
+			}, function(res, status) {
+				console.error(res);
+			});
 		};
 
-		$scope.getChatMember();
+		getChatList();
+
+
+
 	}
 ]);
