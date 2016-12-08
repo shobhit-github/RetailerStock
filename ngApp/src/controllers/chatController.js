@@ -4,8 +4,8 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.controller('chatCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert', '$controller',
-	function chatCtrl($rootScope, $scope, $api, $state, $sweetAlert, $controller) {
+app.controller('chatCtrl', ['$rootScope', '$scope', '$api',
+	function chatCtrl($rootScope, $scope, $api) {
 
 
 		var getChatList = function () {
