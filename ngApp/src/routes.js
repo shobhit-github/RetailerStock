@@ -15,7 +15,6 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
     $urlRouterProvider.otherwise("/404");
 
 
-
     $stateProvider.
       state('login', {
         url: '/login',
@@ -50,7 +49,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         url: '/dashboard',
         controller:'dashboardCtrl',
         resolve: {
-          checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
             $api.isAuthorized('dashboard').success(function (res, status) { deferred.resolve(res);
                 if(status === 200) $rootScope.user = res.response; 
@@ -65,7 +64,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         url: '/profile',
         controller:'profileCtrl',
         resolve: {
-          checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
             $api.isAuthorized('profile').success(function (res, status) { deferred.resolve(res);
               if(status === 200) $rootScope.user = res.response; 
@@ -80,7 +79,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         url: '/members',
         controller:'membersCtrl',
         resolve: {
-          checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
             $api.isAuthorized('members').success(function (res, status) { deferred.resolve(res);
               if(status === 200) $rootScope.user = res.response; 
@@ -95,7 +94,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         url: '/setting',
         controller:'profileCtrl',
         resolve: {
-          checkPermission:function($q, $api, $state, $rootScope, $msg) {
+          checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
             $api.isAuthorized('profile').success(function (res, status) { deferred.resolve(res);
               if(status === 200) $rootScope.user = res.response; 
@@ -110,7 +109,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
       url: '/pricetable',
       controller:'shoppingCtrl',
       resolve: {
-        checkPermission:function($q, $api, $state, $rootScope, $msg) {
+        checkPermission:function($q, $api, $state, $rootScope) {
           var deferred = $q.defer();
           $api.isAuthorized('shop').success(function (res, status) { deferred.resolve(res);
             if(status === 200) $rootScope.user = res.response;
@@ -125,7 +124,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
       url: '/chat',
       controller:'chatCtrl',
       resolve: {
-        checkPermission:function($q, $api, $state, $rootScope, $msg) {
+        checkPermission:function($q, $api, $state, $rootScope) {
           var deferred = $q.defer();
           $api.isAuthorized('chat').success(function (res, status) { deferred.resolve(res);
             if(status === 200) $rootScope.user = res.response;
