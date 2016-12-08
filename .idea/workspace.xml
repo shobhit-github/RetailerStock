@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="Integrating Chat Module">
+    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/chat.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/chats.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/stylesheets/messanger.css" />
@@ -504,14 +504,7 @@
       <workItem from="1481000635765" duration="2693000" />
       <workItem from="1481025220015" duration="1096000" />
       <workItem from="1481101957508" duration="13264000" />
-      <workItem from="1481173215423" duration="18235000" />
-    </task>
-    <task id="LOCAL-00041" summary="Integrating Payment Gateway">
-      <created>1480918672969</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1480918672969</updated>
+      <workItem from="1481173215423" duration="18306000" />
     </task>
     <task id="LOCAL-00042" summary="Integrating Payment Gateway">
       <created>1480918805793</created>
@@ -849,11 +842,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481116312849</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Integrating Chat Module">
+      <created>1481199460504</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1481199460543</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105968000" />
+    <option name="totallyTimeSpent" value="106039000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
