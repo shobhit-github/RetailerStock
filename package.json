@@ -35,7 +35,9 @@
   },
   "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shobhit-github/RetailerStock.git"

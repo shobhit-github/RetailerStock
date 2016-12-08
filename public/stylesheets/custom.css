@@ -198,6 +198,7 @@
 
 .nav-md .container.body .col-md-3.left_col.menu_fixed {
   height: 100%;
+  z-index: 15;
   position: fixed; }
 
 body .container.body .right_col {
@@ -672,6 +673,7 @@ footer {
 
 .footer_fixed footer {
   position: fixed;
+  z-index: 10;
   left: 0px;
   bottom: 0px;
   width: 100%; }
@@ -1777,7 +1779,8 @@ button,
   width: 100%;
   border-bottom: 1px solid #DBDBDB;
   margin-bottom: 2px;
-  display: inline-block; }
+  display: inline-block;
+  padding: 10px 0; }
 
 .mail_list .left {
   width: 5%;
@@ -1785,8 +1788,11 @@ button,
   margin-right: 3%; }
 
 .mail_list .right {
-  width: 90%;
-  float: left; }
+  width: 82%;
+  float: right; }
+
+.chat-list-img {
+  border-radius: 44px; }
 
 .mail_list h3 {
   font-size: 15px;
@@ -4237,7 +4243,6 @@ button.pay-btn {
     z-index: 15000;
     top: 30%;
     left: 53%;
-    display: none;
 }
 .spinner {
   margin: 100px auto;

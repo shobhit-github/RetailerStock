@@ -15,6 +15,7 @@ var app  = express()
 ..........................................*/
 var AuthController    =   require('../controllers/auth')
   , PaymentController =   require('../controllers/payment')
+  , ChatController    =   require('../controllers/chat')
   , UserController    =   require('../controllers/users');
 
 
@@ -37,7 +38,6 @@ router.get('/logout', AuthController.logout);
 router.get('/check_auth', help.ensureAuthenticated, AuthController.checkAuth);
 
 
-
 /* Routes for User Module
  |........................................ */
 router.put('/update_profile', help.ensureAuthenticated, UserController.updateProfile);
@@ -52,10 +52,9 @@ router.get('/braintree_token', help.ensureAuthenticated, PaymentController.getBr
 router.post('/checkout', help.ensureAuthenticated, PaymentController.makePayment);
 
 
-
-
-
-
+/* Routes for Chat Module
+ |........................................ */
+router.get('/chat_list', help.ensureAuthenticated, ChatController.chatList);
 
 
 

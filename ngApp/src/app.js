@@ -17,12 +17,11 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
     $rootScope.IMG_URL      = SERVER_URL+'images/';
     $rootScope.FILE_URL     = SERVER_URL+'files/';
 
-    var removeTemplateCache = function () {
+    var clearTemplateCache = function () {
       $templateCache.removeAll();
     };
 
-    $rootScope.$on('$viewContentLoaded', removeTemplateCache);
-    $rootScope.$on('$stateChangeStart', removeTemplateCache);
+    $rootScope.$on('$stateChangeStart', clearTemplateCache);
 
 
 }]);

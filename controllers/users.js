@@ -31,7 +31,7 @@ var app = express()
  |--------------------------------------------------
  */
 methods.updateProfile = function(req, res) {
-    
+
   User.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }, function(err) {
     if (err) {
       return res.status(500).json({success: false, message: msg.INTERNAL_ERROR});
