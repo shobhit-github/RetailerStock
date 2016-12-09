@@ -10,8 +10,8 @@ var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies'
 
 });
 
-app.run(['$rootScope', 'SERVER_URL', '$templateCache',
-  function($rootScope, SERVER_URL, $templateCache) {
+app.run(['$rootScope', 'SERVER_URL', '$templateCache', '$qProvider',
+  function($rootScope, SERVER_URL, $templateCache, $qProvider) {
 
     $rootScope.TEMPLATE_URL = SERVER_URL+'views/';
     $rootScope.IMG_URL      = SERVER_URL+'images/';
