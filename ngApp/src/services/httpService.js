@@ -8,11 +8,14 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URL
   function ($http, $token, $q, $sweetAlert, $msg, SERVER_URL) {
 
   const SERVER_URI = SERVER_URL+'api/';
-    
+
   var config = {
-    headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }  
+    headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }
   };
 
+  this.loader = function () {
+    console.log(this);
+  }
 
   /* Authentication Service
   ----------------------------------------------*/
