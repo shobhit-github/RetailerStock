@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
             $api.isAuthorized('dashboard').success(function (res, status) { deferred.reject();
                 $rootScope.authSuccess = $rootScope.authWarning = $rootScope.authError = false; $rootScope.authInfo = $msg.ALREADY_LOGIN;
                 $state.go('home.dashboard');
-            });
+            }).error(function(res){ console.log(res) });
           }
         }
 
