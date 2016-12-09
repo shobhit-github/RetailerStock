@@ -5,14 +5,10 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL', '$qProvider',
-  function($stateProvider, $urlRouterProvider, SERVER_URL, $qProvider) {
-
-    $qProvider.errorOnUnhandledRejections(false);
+app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
+  function($stateProvider, $urlRouterProvider, SERVER_URL) {
 
     const TEMPLATE_URL = SERVER_URL+'views/';
-
-
 
     $urlRouterProvider.when("", "/login");
     $urlRouterProvider.when("/", "/login");
