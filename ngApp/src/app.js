@@ -17,6 +17,12 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
     $rootScope.IMG_URL      = SERVER_URL+'images/';
     $rootScope.FILE_URL     = SERVER_URL+'files/';
 
+    var $injector2 = window.angular.injector(['ng']);
+    $injector2.invoke(['$qProvider', function($qProvider) {
+      $qProvider.errorOnUnhandledRejections(false);
+    }]);
+
+
     var clearTemplateCache = function () {
       $templateCache.removeAll();
     };
