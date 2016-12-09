@@ -6,7 +6,7 @@
 
 
 app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
-  function($stateProvider, $urlRouterProvider, SERVER_URL ) {
+  function($stateProvider, $urlRouterProvider, SERVER_URL) {
 
     const TEMPLATE_URL = SERVER_URL+'views/';
 
