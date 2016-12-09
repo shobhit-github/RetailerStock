@@ -6,12 +6,12 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', /*'ui.calendar',
     */'ngAnimate', 'ngMessages'/*,'ngValidate','ngFileUpload', 'angular-confirm','textAngular' ,'chart.js' ,'angularMoment','uiSwitch'*/])
         .constant({
-          'SERVER_URL': (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'http://localhost:3000/' : 'https://retailerstock.herokuapp.com/'
+          'SERVER_URL': location.protocol+'//'+((location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'localhost:3000' : 'retailerstock.herokuapp.com')+'/'
 
 });
 
-app.run(['$rootScope', 'SERVER_URL', '$templateCache',
-  function($rootScope, SERVER_URL, $templateCache) {
+app.run(['$rootScope', 'SERVER_URL', '$templateCache', '$httpPreConfig',
+  function($rootScope, SERVER_URL, $templateCache, $httpPreConfig) {
 
     $rootScope.TEMPLATE_URL = SERVER_URL+'views/';
     $rootScope.IMG_URL      = SERVER_URL+'images/';
@@ -20,8 +20,17 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
     var clearTemplateCache = function () {
       $templateCache.removeAll();
     };
+    
+    var httpRequest = function () {
+      $rootScope.loader = !$rootScope.loader ? true : false;console.log($rootScope.loader);
+    };
+
 
     $rootScope.$on('$stateChangeStart', clearTemplateCache);
+    $rootScope.$on('$stateChangeSuccess', clearTemplateCache);
+    $rootScope.$on('$viewContentLoaded', clearTemplateCache);
 
+    $rootScope.$on('httpCallStarted', httpRequest);
+    $rootScope.$on('httpCallCompleted', httpRequest);
 
 }]);

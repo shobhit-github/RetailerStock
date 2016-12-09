@@ -4,8 +4,8 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URL',
-  function ($http, $token, $q, $sweetAlert, $msg, SERVER_URL) {
+app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SERVER_URL',
+  function ($http, $token, $rootScope, $sweetAlert, $msg, SERVER_URL) {
 
   const SERVER_URI = SERVER_URL+'api/';
 
@@ -13,9 +13,6 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URL
     headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() }
   };
 
-  this.loader = function () {
-    console.log(this);
-  }
 
   /* Authentication Service
   ----------------------------------------------*/
@@ -108,7 +105,10 @@ app.service('$api', ['$http', '$token', '$q', '$sweetAlert', '$msg', 'SERVER_URL
         
       default:  $sweetAlert.error(res.statusText, $msg.INTERNAL_SERVER_ERROR); break;
     }
-  }
+  };
+
+    
+
 
 }]);
 
