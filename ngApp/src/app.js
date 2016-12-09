@@ -17,9 +17,7 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
     $rootScope.IMG_URL      = SERVER_URL+'images/';
     $rootScope.FILE_URL     = SERVER_URL+'files/';
 
-    $rootScope.loader = true;
     var clearTemplateCache = function () {
-      $rootScope.loader = !$rootScope.loader ? true : false;
       $templateCache.removeAll();
     };
 

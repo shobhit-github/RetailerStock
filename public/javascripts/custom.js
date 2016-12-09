@@ -55,7 +55,7 @@ var eventUtilities = function() {
     
     // Sidebar
 
-        // TODO: This is some kind of easy fix, maybe we can improve this
+    // TODO: This is some kind of easy fix, maybe we can improve this
         var setContentHeight = function () {
             // reset height
             $RIGHT_COL.css('min-height', $(window).height());

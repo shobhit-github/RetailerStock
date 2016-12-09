@@ -1,11 +1,6 @@
-var dashboardUtilities = function() {
 
-  $(document).ajaxStart(function() {
-    $('.spinner').show();
-  })
-  $(document).ajaxStart(function() {
-    $('.spinner').hide();
-  })
+
+var dashboardUtilities = function() {
 
         //random data
   var d1 = [

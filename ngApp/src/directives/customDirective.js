@@ -5,13 +5,11 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.directive('loader', 
+app.directive('mainLoader',
   function() {
-
     return {
-      restrict:'E',
-      template: function($element, $attrs) {
-        return `
+      restrict:'EA',
+      template: `
           <div class="spinner">
             <div class="rect1"></div>
             <div class="rect2"></div>
@@ -20,8 +18,7 @@ app.directive('loader',
             <div class="rect5"></div>
           </div>
         `
-      }
-    }
+    };
 });
 
 app.directive('selectLimit', 
