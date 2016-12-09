@@ -56,8 +56,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+            <state relative-caret-position="360">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -445,14 +445,7 @@
       <workItem from="1481025220015" duration="1096000" />
       <workItem from="1481101957508" duration="13264000" />
       <workItem from="1481173215423" duration="19196000" />
-      <workItem from="1481268185245" duration="1012000" />
-    </task>
-    <task id="LOCAL-00047" summary="Integrating Payment Gateway">
-      <created>1480921489546</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1480921489546</updated>
+      <workItem from="1481268185245" duration="1063000" />
     </task>
     <task id="LOCAL-00048" summary="Integrating Payment Gateway">
       <created>1480921591518</created>
@@ -790,11 +783,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481269164459</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Integrating Chat Module">
+      <created>1481269205591</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1481269205591</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107941000" />
+    <option name="totallyTimeSpent" value="107992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1206,8 +1206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+        <state relative-caret-position="360">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
