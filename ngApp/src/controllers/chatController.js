@@ -17,7 +17,7 @@ app.controller('chatCtrl', ['$rootScope', '$scope', '$api',
 			});
 		};
 
-		getChatList();
+		//getChatList();
 
 
 
