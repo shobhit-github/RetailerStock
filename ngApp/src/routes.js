@@ -5,8 +5,10 @@
 // Which makes no sense for a constant, use wisely if you do this
 
 
-app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
-  function($stateProvider, $urlRouterProvider, SERVER_URL) {
+app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL', '$qProvider',
+  function($stateProvider, $urlRouterProvider, SERVER_URL, $qProvider) {
+
+    $qProvider.errorOnUnhandledRejections(false);
 
     const TEMPLATE_URL = SERVER_URL+'views/';
 
