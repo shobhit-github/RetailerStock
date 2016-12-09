@@ -14,7 +14,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
     $urlRouterProvider.when("/", "/login");
     $urlRouterProvider.otherwise("/404");
 
-    console.log("dffff");
+
     $stateProvider.
       state('login', {
         url: '/login',
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
             $api.isAuthorized('dashboard').success(function (res, status) { deferred.reject();
                 $rootScope.authSuccess = $rootScope.authWarning = $rootScope.authError = false; $rootScope.authInfo = $msg.ALREADY_LOGIN;
                 $state.go('home.dashboard');
-            }).error(function(res){ console.log(res) });
+            })
           }
         }
 
