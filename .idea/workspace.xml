@@ -545,14 +545,7 @@
       <workItem from="1481101957508" duration="13140000" />
       <workItem from="1481209864247" duration="750000" />
       <workItem from="1481210640364" duration="6337000" />
-      <workItem from="1481306367282" duration="1480000" />
-    </task>
-    <task id="LOCAL-00046" summary="Integrating Payment Gateway">
-      <created>1480921263055</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1480921263055</updated>
+      <workItem from="1481306367282" duration="1512000" />
     </task>
     <task id="LOCAL-00047" summary="Integrating Payment Gateway">
       <created>1480921489546</created>
@@ -890,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481307794507</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Additional Changes">
+      <created>1481307867376</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1481307867376</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96176000" />
+    <option name="totallyTimeSpent" value="96208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="24" width="1317" height="744" extended-state="6" />
