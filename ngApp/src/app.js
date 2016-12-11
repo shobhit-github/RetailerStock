@@ -20,17 +20,16 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache', '$httpPreConfig',
     var clearTemplateCache = function () {
       $templateCache.removeAll();
     };
-    
+
     var httpRequest = function () {
       $rootScope.loader = !$rootScope.loader ? true : false;console.log($rootScope.loader);
     };
 
+    $rootScope.$on('httpCallStarted', httpRequest);
+    $rootScope.$on('httpCallCompleted', httpRequest);
 
     $rootScope.$on('$stateChangeStart', clearTemplateCache);
     $rootScope.$on('$stateChangeSuccess', clearTemplateCache);
     $rootScope.$on('$viewContentLoaded', clearTemplateCache);
-
-    $rootScope.$on('httpCallStarted', httpRequest);
-    $rootScope.$on('httpCallCompleted', httpRequest);
 
 }]);
