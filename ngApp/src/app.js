@@ -20,6 +20,7 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache', '$httpPreConfig',
     var clearTemplateCache = function () {
       $templateCache.removeAll();
     };
+    
 
     var httpRequest = function () {
       $rootScope.loader = !$rootScope.loader ? true : false;console.log($rootScope.loader);
