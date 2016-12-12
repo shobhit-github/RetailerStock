@@ -10,11 +10,12 @@ app.directive('mainLoader',
     return {
       restrict:'EA',
       link: function () {
-        var loaderBehaviour = function () {
-          $rootScope.mainLoader = !$rootScope.mainLoader ? true : false;
-        };
-        $rootScope.$on('$stateChangeStart', loaderBehaviour);
-        $rootScope.$on('$stateChangeSuccess', loaderBehaviour);
+        $rootScope.$on('$stateChangeStart', function() {  $rootScope.mainLoader = true; });
+        $rootScope.$on('$stateChangeSuccess', function () {
+          setTimeout(function () { $rootScope.$apply(function () {
+            $rootScope.mainLoader =  false;
+          }) }, 2000);
+        });
       },
       template: `
           <div class="spinner">
