@@ -78,7 +78,8 @@ methods.signUp = function(req, res) {
  |--------------------------------------------------
  */
 methods.login = function(req, res) {
-  
+
+
   User.findOne({ username: req.body.username }, function(err, user) {
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });

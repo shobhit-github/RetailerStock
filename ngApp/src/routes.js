@@ -14,6 +14,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
     $urlRouterProvider.when("/", "/login");
     $urlRouterProvider.otherwise("/404");
 
+    
     $stateProvider.
       state('login', {
         url: '/login',
@@ -24,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
             $api.isAuthorized('dashboard').success(function (res, status) { deferred.reject();
                 $rootScope.authSuccess = $rootScope.authWarning = $rootScope.authError = false; $rootScope.authInfo = $msg.ALREADY_LOGIN;
                 $state.go('home.dashboard');
-            })
+            });
           }
         }
 
@@ -50,7 +51,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         resolve: {
           checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
-            $api.isAuthorized('dashboard').success(function (res, status) { deferred.resolve(res);
+            $api.isAuthorized('dashboard').success(function (res, status) { deferred.resolve(res); console.log(res);
                 if(status === 200) $rootScope.user = res.response; 
             }).error(function (res, status) { deferred.reject();
                 if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');

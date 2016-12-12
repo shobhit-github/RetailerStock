@@ -21,7 +21,6 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
       $templateCache.removeAll();
     };
 
-    $rootScope.$on('$viewContentLoaded', clearTemplateCache);
     $rootScope.$on('$stateChangeStart', clearTemplateCache);
 
 

@@ -7,5 +7,7 @@
 app.controller('dashboardCtrl', ['$rootScope', '$scope', '$api', '$state',
 	function dashboardCtrl($rootScope, $scope, $api, $state) {
 	    $scope.$on('$stateChangeSuccess', dashboardUtilities);
+
+		console.log($api.loader);
 	}
 ]);
