@@ -51,7 +51,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
         resolve: {
           checkPermission:function($q, $api, $state, $rootScope) {
             var deferred = $q.defer();
-            $api.isAuthorized('dashboard').success(function (res, status) { deferred.resolve(res); console.log(res);
+            $api.isAuthorized('dashboard').success(function (res, status) { deferred.resolve(res); 
                 if(status === 200) $rootScope.user = res.response; 
             }).error(function (res, status) { deferred.reject();
                 if(status === 401) $state.go('login'); if(status === 403) $state.go('403'); if(status === 500) $state.go('500');

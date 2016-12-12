@@ -6,9 +6,16 @@
 
 
 app.directive('mainLoader',
-  function() {
+  function($rootScope) {
     return {
       restrict:'EA',
+      link: function () {
+        var loaderBehaviour = function () {
+          $rootScope.mainLoader = !$rootScope.mainLoader ? true : false;
+        };
+        $rootScope.$on('$stateChangeStart', loaderBehaviour);
+        $rootScope.$on('$stateChangeSuccess', loaderBehaviour);
+      },
       template: `
           <div class="spinner">
             <div class="rect1"></div>

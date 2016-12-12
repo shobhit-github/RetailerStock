@@ -11,13 +11,3 @@ app.config(function($httpProvider) {
     $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
 
 });
-
-app.factory('$httpPreConfig', ['$http', '$rootScope', function($http, $rootScope) {
-    $http.defaults.transformRequest.push(function () {
-        $rootScope.$broadcast('httpCallStarted');
-    });
-    $http.defaults.transformResponse.push(function(){
-        $rootScope.$broadcast('httpCallCompleted');
-    });
-    return $http;
-}]);
