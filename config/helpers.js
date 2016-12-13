@@ -22,7 +22,7 @@ var jwt = require('jwt-simple')
 var helper = new Object();
   
 
-  
+
 /**
  |======================================================================================
  |    Helper Methods that will user globally in this app

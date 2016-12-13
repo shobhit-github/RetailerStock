@@ -10,6 +10,8 @@ var router = express.Router();
 var User   = require(config.MODEL_DIR+'users');
 
 var app   = express()
+  , twilio = require('twilio')
+  , client = twilio('ACe035de026484641307a00abf53dcce0a', '0da3d8e0e3109a423728a2dfa1c0c3ca')
   , help  = require(config.CONF_DIR+'helpers');
   
 var methods = new Object();
@@ -32,6 +34,11 @@ var methods = new Object();
  */
 methods.checkAuth = function(req, res) {
 
+  client.sendMessage( { to:'+919041155693', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
+
+    if(err) console.log(err);
+    else console.log(data);
+  });
   return res.status(200).json({ success: true, response: req.user });
 };
 

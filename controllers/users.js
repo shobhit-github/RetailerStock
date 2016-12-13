@@ -75,7 +75,6 @@ methods.deleteUser = function(req, res) {
 
 methods.changePassword = function(req, res) {
 
-  
   req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password 
     if(!isMatch) {
       return res.status(200).json({ success: false, message: msg.INVALID_PASSWORD });

@@ -33,7 +33,8 @@
     "passport-local": "~1.0.0",
     "querystring": "^0.2.0",
     "request": "^2.79.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "twilio": "^2.11.1"
   },
   "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
   "main": "app.js",
