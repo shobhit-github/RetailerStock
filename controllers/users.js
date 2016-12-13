@@ -4,11 +4,11 @@
 
 var express = require('express')
   , config = require('../config/config')
-  , msg = require('../config/messages')
-  , help = require('../config/helpers'); // helper functions
+  , msg = require(config.CONF_DIR+'messages')
+  , help = require(config.CONF_DIR+'helpers'); // helper functions
   
 var router = express.Router()
-  , User = require('../models/users');
+  , User = require(config.MODEL_DIR+'users');
 
 var app = express()
   , methods = new Object();

@@ -5,7 +5,8 @@
  ---------------------------------------------*/
 
 var express = require('express')
-  , router  = express.Router();
+  , router  = express.Router()
+  , config  = require('./config');
 
 var app  = express()
   , help = require('./helpers');
@@ -13,10 +14,10 @@ var app  = express()
 
 /*  controller dependencies
 ..........................................*/
-var AuthController    =   require('../controllers/auth')
-  , PaymentController =   require('../controllers/payment')
-  , ChatController    =   require('../controllers/chat')
-  , UserController    =   require('../controllers/users');
+var AuthController    =   require(config.CTRL_DIR+'auth')
+  , PaymentController =   require(config.CTRL_DIR+'payment')
+  , ChatController    =   require(config.CTRL_DIR+'chat')
+  , UserController    =   require(config.CTRL_DIR+'users');
 
 
 

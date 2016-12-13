@@ -21,7 +21,7 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
       $templateCache.removeAll();
     };
     
-   // console.log(io);
+
     $rootScope.$on('$stateChangeStart', clearTemplateCache);
 
 

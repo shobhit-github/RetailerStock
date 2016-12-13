@@ -3,6 +3,7 @@
 ---------------------------*/
 var env  = require('node-env-file')('./.env');
 var info = new Object();
+var root = require('app-root-path').path+'/';
 
 
 
@@ -15,6 +16,25 @@ info.NODE_ENV            =    process.env.NODE_ENV;
 info.MONGO_URI           =    process.env.MONGO_URI;
 
 info.SERVER_URI          =    process.env.SERVER_URI;
+
+
+
+/* App Directory Paths
+..................*/
+
+info.IMG_DIR            =    root+'public/images/';
+
+info.APP_DIR            =    root
+
+info.FILE_DIR           =    root+'public/files/';
+
+info.CONF_DIR           =    __dirname+'/';
+
+info.LIB_DIR            =    root+'lib/';
+
+info.CTRL_DIR           =    root+'controllers/';
+
+info.MODEL_DIR          =    root+'models/'
 
 
 

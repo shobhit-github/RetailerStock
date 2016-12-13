@@ -5,7 +5,7 @@
 var express = require('express')
   , config = require('./config');
   
-var User   = require('../models/users')
+var User   = require(config.MODEL_DIR+'users')
   , msg = require('./messages');
   
 var crypto = require('crypto')
@@ -95,7 +95,7 @@ helper.encrypt = function(str) {   // Encryption
   
   return crypted;
 };
- 
+ false
  
 helper.decrypt = function(str) {   // Decryption 
   
@@ -118,20 +118,13 @@ helper.decrypt = function(str) {   // Decryption
 
 helper.sendEmail = function(mailOption, callback) {
 
-  // send mail with defined transport object 
-  transporter.sendMail({
-    'from'    : mailOption.from,
-    'to'      : mailOption.to,
-    'subject' : mailOption.subject,
-    'html'    : mailOption.html
-    
-  }, function(error, info){
-      if(error){
-        callback(false);
-      }
-      callback(true);
+  // send mail with defined transport object
+  transporter.sendMail(mailOption, function(error, info){
+    if(error){
+      callback(info);
+    }
+    callback(info);
   });
-  
 
 };
  

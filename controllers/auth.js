@@ -4,18 +4,15 @@
 
 var express = require('express')
   , config  = require('../config/config')
-  , msg     = require('../config/messages');
+  , msg     = require(config.CONF_DIR+'messages');
   
 var router = express.Router();
-var User   = require('../models/users');
+var User   = require(config.MODEL_DIR+'users');
 
 var app   = express()
-  , help  = require('../config/helpers');
+  , help  = require(config.CONF_DIR+'helpers');
   
 var methods = new Object();
-
-
-
 
 
 
@@ -103,14 +100,15 @@ methods.login = function(req, res) {
  |--------------------------------------------------
  */
 methods.resetPassword = function(req, res) {
-  
+
   var encryptedEmail = help.encrypt(req.body.email);
 
   var isSent = function(resp) {  // check email sending status
+
     if(!resp) {
-      res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
+      return res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
     }
-    res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
+    return res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
   };
   
   
@@ -119,24 +117,14 @@ methods.resetPassword = function(req, res) {
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
-    
+    //return res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
     help.sendEmail({
-      'from'    :   'shobhit.musiclover.sharma1@gmail.com',
-      'to'      :   req.body.email,
-      'subject' :   'Reset Password',
-      'html'    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>',
-      'attachments' : [
-        {   // utf-8 string as an attachment
-          filename:"img.jpg",
-          path: config.SERVER_URI+'public/images/img.jpg'
-        },
-        {   // binary buffer as an attachment
-          filename: 'completed-task-bms.pdf',
-          path: config.SERVER_URI+'public/files/completed-task-bms.pdf'
-        }
-      ]
+      from    :   'rsaloneboy@gmail.com',
+      to      :   req.body.email,
+      subject :   'Reset Password',
+      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
     }, isSent );
-    
+
   })
 };
 

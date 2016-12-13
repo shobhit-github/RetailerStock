@@ -4,16 +4,16 @@
 
 var express = require('express')
   , config  = require('../config/config')
-  , msg     = require('../config/messages');
+  , msg     = require(config.CONF_DIR+'messages');
 
 var app   = express()
-  , help  = require('../config/helpers');
+  , help  = require(config.CONF_DIR+'helpers');
 
 var methods = new Object();
 
 
 var braintree  = require('braintree')
-  , gatewayBt  = require('../lib/config').BRAINTTREE;
+  , gatewayBt  = require(config.LIB_DIR+'config').BRAINTTREE;
 
 
 /**
