@@ -14,7 +14,7 @@ app.directive('mainLoader',
         $rootScope.$on('$stateChangeSuccess', function () {
           setTimeout(function () { $rootScope.$apply(function () {
             $rootScope.mainLoader =  false;
-          }) }, 2000);
+          }) }, 1500);
         });
       },
       template: `
