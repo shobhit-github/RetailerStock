@@ -116,7 +116,7 @@ helper.decrypt = function(str) {   // Decryption
  */
 
 helper.sendMail = function(mailOption, callback) {
-  console.log(mailOption);
+
   // send mail with defined transport object
   transporter.sendMail(mailOption, function(error, info){
     if(error){
