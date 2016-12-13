@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/auth.js" afterPath="$PROJECT_DIR$/controllers/auth.js" />
     </list>
     <ignored path="RetailerStock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/auth.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
-              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="40" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -114,7 +115,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
+      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="heroku" target-branch="master" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -449,13 +450,6 @@
       <workItem from="1481618710892" duration="33000" />
       <workItem from="1481618751144" duration="10226000" />
       <workItem from="1481630867319" duration="17000" />
-    </task>
-    <task id="LOCAL-00061" summary="Integrating Payment Gateway">
-      <created>1480930105835</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1480930105835</updated>
     </task>
     <task id="LOCAL-00062" summary="Integrating Payment Gateway">
       <created>1480935153153</created>
@@ -793,11 +787,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481632373013</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="SMS Gateway Integration">
+      <created>1481632393361</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1481632393361</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138338000" />
+    <option name="totallyTimeSpent" value="138967000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="63" y="24" width="1857" height="1056" extended-state="6" />
@@ -1318,7 +1319,7 @@
     <entry file="file://$PROJECT_DIR$/controllers/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="40" selection-end-column="7" />
           <folding />
         </state>
       </provider>

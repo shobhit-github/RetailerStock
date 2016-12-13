@@ -34,11 +34,11 @@ var methods = new Object();
  */
 methods.checkAuth = function(req, res) {
 
-  //client.sendMessage( { to:'+917837098699', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
+  /*client.sendMessage( { to:'+917837098699', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
 
     if(err) console.log(err);
     else console.log(data);
-  });
+  });*/
   return res.status(200).json({ success: true, response: req.user });
 };
 
