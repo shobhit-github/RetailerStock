@@ -117,8 +117,7 @@ methods.resetPassword = function(req, res) {
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
-    //return res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
-    help.sendEmail({
+    help.sendMail({
       from    :   'rsaloneboy@gmail.com',
       to      :   req.body.email,
       subject :   'Reset Password',

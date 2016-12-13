@@ -95,8 +95,7 @@ helper.encrypt = function(str) {   // Encryption
   
   return crypted;
 };
- false
- 
+
 helper.decrypt = function(str) {   // Decryption 
   
   var decipher = crypto.createDecipher(algorithm, cryptoKey);
@@ -116,8 +115,8 @@ helper.decrypt = function(str) {   // Decryption
  |--------------------------------------------------
  */
 
-helper.sendEmail = function(mailOption, callback) {
-
+helper.sendMail = function(mailOption, callback) {
+  console.log(mailOption);
   // send mail with defined transport object
   transporter.sendMail(mailOption, function(error, info){
     if(error){
