@@ -124,7 +124,17 @@ methods.resetPassword = function(req, res) {
       'from'    :   'shobhit.musiclover.sharma1@gmail.com',
       'to'      :   req.body.email,
       'subject' :   'Reset Password',
-      'html'    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
+      'html'    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>',
+      'attachments' : [
+        {   // utf-8 string as an attachment
+          filename:"img.jpg",
+          path: config.SERVER_URI+'public/images/img.jpg'
+        },
+        {   // binary buffer as an attachment
+          filename: 'completed-task-bms.pdf',
+          path: config.SERVER_URI+'public/files/completed-task-bms.pdf'
+        }
+      ]
     }, isSent );
     
   })
