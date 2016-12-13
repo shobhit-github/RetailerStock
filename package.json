@@ -7,7 +7,7 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
-    "app-root-path": "^2.0.1",
+    "app-root-path": "~2.0.1",
     "async": "^2.1.2",
     "bcrypt": "^0.8.7",
     "bluebird": "~3.4.6",
@@ -34,7 +34,7 @@
     "querystring": "^0.2.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
-    "twilio": "^2.11.1"
+    "twilio": "~2.11.1"
   },
   "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
   "main": "app.js",

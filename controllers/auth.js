@@ -4,6 +4,7 @@
 
 var express = require('express')
   , config  = require('../config/config')
+  , fs      = require('fs')
   , msg     = require(config.CONF_DIR+'messages');
   
 var router = express.Router();
@@ -128,7 +129,17 @@ methods.resetPassword = function(req, res) {
       from    :   'rsaloneboy@gmail.com',
       to      :   req.body.email,
       subject :   'Reset Password',
-      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
+      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>',
+      attachments : [
+        {
+          filename:'img.jpg',
+          content: fs.createReadStream(config.IMG_DIR+'img.jpg')
+        },
+        {
+          filename:'new.pdf',
+          content: fs.createReadStream(config.FILE_DIR+'new.pdf')
+        }
+      ]
     }, isSent );
 
   })
