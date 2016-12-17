@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/RetailerStock.iml" afterPath="$PROJECT_DIR$/.idea/RetailerStock.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/RetailerStock_node_modules.xml" afterPath="$PROJECT_DIR$/.idea/libraries/RetailerStock_node_modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RetailerStock.iws" />
@@ -107,6 +102,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Shobhit Shobhit Sharma &lt;shobhit.musiclover.sharma1@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -263,14 +263,7 @@
       <workItem from="1481999831874" duration="12000" />
       <workItem from="1482001776135" duration="1350000" />
       <workItem from="1482004593202" duration="211000" />
-      <workItem from="1482004817255" duration="545000" />
-    </task>
-    <task id="LOCAL-00051" summary="Integrating Payment Gateway">
-      <created>1480924424321</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1480924424321</updated>
+      <workItem from="1482004817255" duration="595000" />
     </task>
     <task id="LOCAL-00052" summary="Integrating Payment Gateway">
       <created>1480924515148</created>
@@ -608,11 +601,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481649711042</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Additional Changes">
+      <created>1482005390935</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1482005390937</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115139000" />
+    <option name="totallyTimeSpent" value="115189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
