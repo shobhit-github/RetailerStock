@@ -4,22 +4,27 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.controller('chatCtrl', ['$rootScope', '$scope', '$api',
-	function chatCtrl($rootScope, $scope, $api) {
+app.controller('chatCtrl', ['$scope', '$socket',
+	function chatCtrl($scope, $socket) {
 
 
-		var getChatList = function () {
-			$api.getChatList({'module_name': 'members'}).then( function(res, status) {
-				console.log(res);
-				$scope.records	= res.data.data.docs;
-			}, function(res, status) {
-				console.error(res);
-			});
+		$socket.on('chat:get-user', function (data) {
+			console.log("All Users : ", data)
+		});
+		
+		$socket.on('chat:message-receive', function (data) {
+			console.log("Received Message : ", data)
+		});
+
+		$scope.joinUser = function (user_id) {
+
+			$socket.emit('chat:join-user', user_id);
 		};
 
-		//getChatList();
+		$scope.sendMessage = function (data) {
 
+			$socket.emit('chat:send-message', data);
+		};
+		
 
-
-	}
-]);
+}]);

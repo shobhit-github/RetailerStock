@@ -3,8 +3,7 @@ var mongoose          =   require('mongoose')
 
 var mongoosePaginate  =   require('mongoose-paginate');
 
-var config            =   require('../config/config')
-  , moment            =   require('moment');
+var moment            =   require('moment');
 
 
 /**      User Schema

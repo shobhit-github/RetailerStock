@@ -3,16 +3,12 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , config = require('../config/config')
-  , msg = require(config.CONF_DIR+'messages')
-  , help = require(config.CONF_DIR+'helpers'); // helper functions
-  
-var router = express.Router()
-  , User = require(config.MODEL_DIR+'users')
-  , Chat = require(config.MODEL_DIR+'chats');
+  , msg     = require(CONF_ROOT+'messages')
+  , socket  = require('socket.io');
 
-var app = express()
-  , methods = new Object();
+var User = require(MODEL_ROOT+'users')
+  , Chat = require(MODEL_ROOT+'chats');
+
 
  
 
@@ -31,26 +27,44 @@ var app = express()
  | Retrieve all Users
  |--------------------------------------------------
  */
-methods.chatList = function(req, res) {
+var chatList = function() {
   
   var conditions = { $or: [ { role: { $ne: "Administrator" } }, { _id: { $ne: req.user._id } } ] };
-  var options = {
-    'select' : "_id firstname lastname picture" // specific fields to be show
-  };
+  var options = { select : "_id firstname lastname picture" }; // specific fields to be show ;
   
   User.find(conditions, options, function(err, result) {
     
     if(result.total == 0) {
-      return res.status(200).json({ success: true, message: msg.NO_RECORD, data: result });
+      return { message: msg.NO_RECORD, data: result };
     }
     
-    return res.status(200).json({ success: true, data: result });
+    return { data: result };
   })
 
+};
+
+
+/*
+ |--------------------------------------------------
+ | Saving Messages to database
+ |--------------------------------------------------
+ */
+var saveMessage = function (data, callback) {
+
+  var chat = new Chat(data);
+  
+  chat.save(function (err, res) {
+    if(err)
+      return console.log(err);
+
+    console.log(res);
+  });
 };
 
 
 
 
 
-module.exports = methods;
+
+
+

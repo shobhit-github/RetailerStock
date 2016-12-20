@@ -1,6 +1,5 @@
 var express = require('express')
   , path = require('path')
-  , config = require('./config/config')
   , favicon = require('serve-favicon');
 
 var logger = require('morgan')
@@ -11,8 +10,10 @@ var http = require('http')
   , bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , app = express();
-  
 
+
+// intializations
+require('./config/config');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +22,7 @@ app.set('view engine', 'jade');
 // Database Connectivity
 var port = process.env.PORT || 3002;
 mongoose.Promise = require('bluebird'); // implement if mongoose mpromise will deprecate
-mongoose.connect(config.MONGO_URI);
+mongoose.connect(MONGO_CONNECT);
 
 // uncomment after placing your favicon in /public
 app.use(logger('dev'));
@@ -43,7 +44,7 @@ app.get('/', function(req, res) {
 
 // REST-APIs routes
 app.use(cors());
-app.use('/api',  require('./config/routes'));
+app.use('/api',  require(CONF_ROOT+'routes'));
 
 
 

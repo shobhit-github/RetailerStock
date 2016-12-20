@@ -2,12 +2,10 @@ var mongoose          =   require('mongoose')
   , Schema            =   mongoose.Schema
   , bcrypt            =   require('bcrypt');
   
-var msg               =   require('../config/messages')
-  , mongoosePaginate  =   require('mongoose-paginate')
+var mongoosePaginate  =   require('mongoose-paginate')
   , jwt               =   require('jwt-simple');
 
-var config            =   require('../config/config')
-  , moment            =   require('moment');
+var moment            =   require('moment');
 
 
 /**      User Schema
@@ -30,7 +28,12 @@ var UserSchema = new Schema({
   
   picture: { type: String },
   
-  status : { resetpass: { type : String, enum:["YES","NO"], default: "NO" }, profile: { type : String, enum:["YES","NO"], default: "YES" }, deleted: { type : String, enum:["YES","NO"], default: "NO" } }
+  status : {
+    resetpass: { type : String, enum:["YES","NO"], default: "NO" },
+    profile: { type : String, enum:["YES","NO"], default: "YES" },
+    deleted: { type : String, enum:["YES","NO"], default: "NO" },
+    login: { type: String, enum:["YES","NO"], default: "NO" }
+  }
   
   //datetime: { created_at: { type: Date, default: Date.now }, updated_at: { type: Date, default: Date.now } }
   

@@ -3,17 +3,12 @@
  ---------------------------------------------*/
 
 var express = require('express')
-  , config  = require('../config/config')
-  , msg     = require(config.CONF_DIR+'messages');
-
-var app   = express()
-  , help  = require(config.CONF_DIR+'helpers');
+  , msg     = require(CONF_ROOT+'messages');
 
 var methods = new Object();
 
-
 var braintree  = require('braintree')
-  , gatewayBt  = require(config.LIB_DIR+'config').BRAINTTREE;
+  , gatewayBt  = require(CONF_ROOT+'config').BRAINTTREE;
 
 
 /**

@@ -4,7 +4,6 @@
 
 var express = require('express')
   , config  = require('../config/config')
-  , fs      = require('fs')
   , msg     = require(config.CONF_DIR+'messages');
   
 var router = express.Router();
@@ -35,7 +34,7 @@ var methods = new Object();
  */
 methods.checkAuth = function(req, res) {
 
-  /*client.sendMessage( { to:'+919041155693', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
+  /*client.sendMessage( { to:'+917837098699', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
 
     if(err) console.log(err);
     else console.log(data);
@@ -129,17 +128,7 @@ methods.resetPassword = function(req, res) {
       from    :   'rsaloneboy@gmail.com',
       to      :   req.body.email,
       subject :   'Reset Password',
-      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>',
-      attachments : [
-        {
-          filename:'img.jpg',
-          content: fs.createReadStream(config.IMG_DIR+'img.jpg')
-        },
-        {
-          filename:'new.pdf',
-          content: fs.createReadStream(config.FILE_DIR+'new.pdf')
-        }
-      ]
+      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
     }, isSent );
 
   })

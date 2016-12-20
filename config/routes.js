@@ -4,20 +4,18 @@
 /*      Dependencies
  ---------------------------------------------*/
 
-var express = require('express')
-  , router  = express.Router()
-  , config  = require('./config');
+var express           = require('express')
+  , router            = express.Router();
 
-var app  = express()
-  , help = require('./helpers');
+var mid               = require(HELP_ROOT+'auth');
 
 
 /*  controller dependencies
 ..........................................*/
-var AuthController    =   require(config.CTRL_DIR+'auth')
-  , PaymentController =   require(config.CTRL_DIR+'payment')
-  , ChatController    =   require(config.CTRL_DIR+'chat')
-  , UserController    =   require(config.CTRL_DIR+'users');
+var AuthController    =   require(CTRL_ROOT+'auth')
+  , PaymentController =   require(CTRL_ROOT+'payment')
+  , ChatController    =   require(CTRL_ROOT+'chat')
+  , UserController    =   require(CTRL_ROOT+'users');
 
 
 
@@ -36,26 +34,26 @@ router.post('/signup', AuthController.signUp);
 router.post('/login', AuthController.login);
 router.post('/reset_password', AuthController.resetPassword);
 router.get('/logout', AuthController.logout);
-router.get('/check_auth', help.ensureAuthenticated, AuthController.checkAuth);
+router.get('/check_auth', mid.ensureAuthenticated, AuthController.checkAuth);
 
 
 /* Routes for User Module
  |........................................ */
-router.put('/update_profile', help.ensureAuthenticated, UserController.updateProfile);
-router.delete('/remove_profile/:ids', help.ensureAuthenticated, UserController.deleteUser);
-router.put('/modify_password', help.ensureAuthenticated, UserController.changePassword);
-router.all('/all_users', help.ensureAuthenticated, UserController.getAllUsers);
+router.put('/update_profile', mid.ensureAuthenticated, UserController.updateProfile);
+router.delete('/remove_profile/:ids', mid.ensureAuthenticated, UserController.deleteUser);
+router.put('/modify_password', mid.ensureAuthenticated, UserController.changePassword);
+router.all('/all_users', mid.ensureAuthenticated, UserController.getAllUsers);
 
 
 /* Routes for Payment Module
  |........................................ */
-router.get('/braintree_token', help.ensureAuthenticated, PaymentController.getBrainteeToken);
-router.post('/checkout', help.ensureAuthenticated, PaymentController.makePayment);
+router.get('/braintree_token', mid.ensureAuthenticated, PaymentController.getBrainteeToken);
+router.post('/checkout', mid.ensureAuthenticated, PaymentController.makePayment);
 
 
 /* Routes for Chat Module
  |........................................ */
-router.get('/chat_list', help.ensureAuthenticated, ChatController.chatList);
+//router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
 
 
 

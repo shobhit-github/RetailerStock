@@ -3,20 +3,12 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , config = require('../config/config')
-  , msg = require(config.CONF_DIR+'messages')
-  , help = require(config.CONF_DIR+'helpers'); // helper functions
-  
-var router = express.Router()
-  , User = require(config.MODEL_DIR+'users');
+  , msg = require(CONF_ROOT+'messages');
 
-var app = express()
+var User = require(MODEL_ROOT+'users')
   , methods = new Object();
 
- 
-
-
- 
+  
  
  /**
  |======================================================================================
@@ -56,7 +48,7 @@ methods.deleteUser = function(req, res) {
   
   User.removeByIds(ids, function(err) {
     if (err) {
-      return res.status(500).json({ success: false, message: err.message });
+      return res.status(500).json({ success: false, message: err.messagereturn });
 	}
       return res.status(200).json({
         success: true, 

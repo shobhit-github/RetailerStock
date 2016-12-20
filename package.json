@@ -34,7 +34,12 @@
     "querystring": "^0.2.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
+<<<<<<< acd743ceef5fe0e8df6151a5ff20aa7081245116
     "twilio": "~2.11.1"
+=======
+    "socket.io": "^1.7.2",
+    "twilio": "^2.11.1"
+>>>>>>> Chnaged Code Structure
   },
   "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
   "main": "app.js",
