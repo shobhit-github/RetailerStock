@@ -9,6 +9,8 @@ var crypto = require('crypto')
   , cryptoKey = TOKEN_SECRET;
   
 var nodeMailer  = require('nodemailer')
+  , twilio = require('twilio')
+  , client = twilio('ACe035de026484641307a00abf53dcce0a', '0da3d8e0e3109a423728a2dfa1c0c3ca')
   , transporter = nodeMailer.createTransport('smtps://'+SMTP_USER+':'+SMTP_PASS+'@'+SMTP_HOST+'');
 
 var jwt = require('jwt-simple')
@@ -90,7 +92,6 @@ global.sendMail = function(mailOption, callback) {
   });
 
 };
- 
 
 
 
@@ -100,6 +101,19 @@ global.sendMail = function(mailOption, callback) {
 
 
 
+/*
+ |--------------------------------------------------
+ | SMS Sender
+ |--------------------------------------------------
+ */
+global.sendSMS = function (from, to, text) {
+
+  client.sendMessage( { to:to, from:from, body:text }, function( err, data ) {
+
+    if(err) console.log(err);
+    else console.log(data);
+  });
+};
 
 
 

@@ -3,18 +3,10 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , config  = require('../config/config')
-  , msg     = require(config.CONF_DIR+'messages');
+  , msg     = require(CONF_ROOT+'messages');
   
-var router = express.Router();
-var User   = require(config.MODEL_DIR+'users');
-
-var app   = express()
-  , twilio = require('twilio')
-  , client = twilio('ACe035de026484641307a00abf53dcce0a', '0da3d8e0e3109a423728a2dfa1c0c3ca')
-  , help  = require(config.CONF_DIR+'helpers');
-  
-var methods = new Object();
+var User   = require(MODEL_ROOT+'users')
+  , methods = new Object();
 
 
 
@@ -34,11 +26,6 @@ var methods = new Object();
  */
 methods.checkAuth = function(req, res) {
 
-  /*client.sendMessage( { to:'+917837098699', from:'+14698282295', body:'NodeJS Test SMS Gateway by Shobhit Sharma' }, function( err, data ) {
-
-    if(err) console.log(err);
-    else console.log(data);
-  });*/
   return res.status(200).json({ success: true, response: req.user });
 };
 
@@ -67,7 +54,7 @@ methods.signUp = function(req, res) {
         return res.status(200).json({
           success: true, 
           message: msg.REGISTERATION_DONE,
-          token: help.createJWT(result)
+          token: createJWT(result)
         });      
     });
     
@@ -94,7 +81,7 @@ methods.login = function(req, res) {
         return res.status(401).json({  success: false, message: msg.INCORRECT_PASSWORD });
       }
       
-      return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ help.createJWT(user) });
+      return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
     });
   });
 };
@@ -108,7 +95,7 @@ methods.login = function(req, res) {
  */
 methods.resetPassword = function(req, res) {
 
-  var encryptedEmail = help.encrypt(req.body.email);
+  var encryptedEmail = encrypt(req.body.email);
 
   var isSent = function(resp) {  // check email sending status
 
@@ -124,7 +111,8 @@ methods.resetPassword = function(req, res) {
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
-    help.sendMail({
+
+    sendMail({
       from    :   'rsaloneboy@gmail.com',
       to      :   req.body.email,
       subject :   'Reset Password',
