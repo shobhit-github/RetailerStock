@@ -15,7 +15,7 @@ var conf = new Object();
  |==========================================================
  */
 
-  var braintree = require('braintree')
+  var braintree = require('braintree');
 
  /* Braintree
  ..................*/

@@ -10,6 +10,7 @@ module.exports = {
     // Authentication Module
     NOT_EXIST               :   "Username that you've entered is not exist !",
     TOKEN_EXPIRE            :   "Session has been expired !",
+    TOKEN_MISMATCH          :   "Please make sure your request has an Authorization header",
     INCORRECT_PASSWORD      :   "Password that you've entered is incorrect for this user !",
     ALREADY_EXIST           :   "User that you've entered is already exist !",
     ALREADY_LOGIN           :   "User is already logged in",
@@ -32,6 +33,6 @@ module.exports = {
 
     // Payment Module
     PAYMENT_SUCCESS         :   "Payment Successfull",
-    PAYMENT_FAILED          :    "Payment has been cancelled due to internal error !"
+    PAYMENT_FAILED          :   "Payment has been cancelled due to internal error !"
 
 };

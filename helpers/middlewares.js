@@ -36,7 +36,7 @@ helper.ensureAuthenticated = function (req, res, next) {
   if (!req.header('Authorization')) {
     return res.status(401).json({
       success: false,
-      message: 'Please make sure your request has an Authorization header'
+      message: msg.TOKEN_MISMATCH
     });
   }
   var token = req.header('Authorization').split(' ')[1];
