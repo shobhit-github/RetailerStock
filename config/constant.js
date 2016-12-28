@@ -33,9 +33,12 @@ global.HELP_ROOT           =    ROOT + process.env.HELP_DIR;
 
 global.LIB_ROOT            =    ROOT + process.env.LIB_DIR;
 
+global.TEMPLATE_ROOT       =    ROOT + process.env.TEMPLATE_DIR;
+
 global.CTRL_ROOT           =    ROOT + process.env.CTRL_DIR;
 
 global.MODEL_ROOT          =    ROOT + process.env.MODEL_DIR;
+
 
 
 

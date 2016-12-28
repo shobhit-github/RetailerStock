@@ -110,12 +110,7 @@ methods.resetPassword = function(req, res) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
 
-    sendMail({
-      from    :   'rsaloneboy@gmail.com',
-      to      :   req.body.email,
-      subject :   'Reset Password',
-      html    :   '<a href="'+SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
-    }, isSent );
+    sendMail({ from:'rsaloneboy@gmail.com', to:req.body.email, subject:'Reset Password',html:'<a href="'+SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'}, isSent );
 
   })
 };
