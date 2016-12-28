@@ -6,6 +6,7 @@ var express = require('express')
   , msg     = require(CONF_ROOT+'messages');
   
 var User   = require(MODEL_ROOT+'users')
+  , jade   = require(HELP_ROOT+'jade.compiler')
   , methods = new Object();
 
 
@@ -95,22 +96,25 @@ methods.resetPassword = function(req, res) {
 
   var encryptedEmail = encrypt(req.body.email);
 
-  var isSent = function(resp) {  // check email sending status
-
-    if(!resp) {
-      return res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
-    }
-    return res.status(200).json({ success: true, message: msg.EMAIL_SENT});
-  };
-  
-  
   User.count({email: req.body.email}, function(err, user) {
     
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
 
-    sendMail({ from:'rsaloneboy@gmail.com', to:req.body.email, subject:'Reset Password',html:'<a href="'+SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'}, isSent );
+
+    jade.compile('reset_pass', new Object(), function (err, html) {
+        if(err)
+          return res.status(400).json({ success: false, message: msg.BAD_REQUEST });
+
+      sendMail({ to:req.body.email, subject:'Reset Password',html:html}, function(resp) {  // check email sending status
+        if(!resp) {
+          return res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
+        }
+        return res.status(200).json({ success: true, message: msg.EMAIL_SENT});
+      });
+    });
+
 
   })
 };

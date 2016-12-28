@@ -3,6 +3,7 @@ module.exports = {
     // Error Messages
     INTERNAL_ERROR          :   "There was an internal server error, please contact to the software administrator !",
     NOT_FOUND               :   "There was an error due to requested url not found, please contact to the software administrator !",
+    BAD_REQUEST             :   "There was an error due to bad requested params, please contact to the software administrator !",
     NO_RECORD               :   "Record was not found, please try it with different parameters !",
     
     // Common Messages
