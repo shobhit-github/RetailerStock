@@ -22,7 +22,7 @@ module.exports = {
 
     // Newsletter(Email) Module
     EMAIL_FAILED            :   "Email was not sent due to an internal error !",
-    EMAIL_SUCCESS           :   "Email has been sent successfully !",
+    EMAIL_SENT              :   "Email has been sent successfully !",
     
     // User Module
     REGISTERATION_DONE      :   "You've been registered successfully, your account will be activate within 24 hours !",

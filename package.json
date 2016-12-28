@@ -36,6 +36,7 @@
     "body-parser": "^1.15.2",
     "bower": "^1.8.0",
     "braintree": "^1.44.0",
+    "chalk": "^1.1.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.1",
     "crypto": "0.0.3",
@@ -51,6 +52,7 @@
     "morgan": "^1.7.0",
     "node-env-file": "^0.1.8",
     "nodemailer": "^2.6.4",
+    "nodemon": "^1.11.0",
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
     "querystring": "^0.2.0",
@@ -59,5 +61,4 @@
     "socket.io": "^1.7.2",
     "twilio": "^2.11.1"
   }
-
 }

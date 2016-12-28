@@ -17,8 +17,6 @@ var User   = require(MODEL_ROOT+'users')
  */
 
 
-
-  
 /*
  |--------------------------------------------------
  | Login Required Middleware
@@ -102,7 +100,7 @@ methods.resetPassword = function(req, res) {
     if(!resp) {
       return res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
     }
-    return res.status(200).json({ success: true, message: msg.EMAIL_SUCCESS });
+    return res.status(200).json({ success: true, message: msg.EMAIL_SENT});
   };
   
   
@@ -116,7 +114,7 @@ methods.resetPassword = function(req, res) {
       from    :   'rsaloneboy@gmail.com',
       to      :   req.body.email,
       subject :   'Reset Password',
-      html    :   '<a href="'+config.SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
+      html    :   '<a href="'+SERVER_URI+encryptedEmail+'" target="_BLANK">SET NEW PASSWORD</a>'
     }, isSent );
 
   })

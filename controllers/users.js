@@ -9,7 +9,8 @@ var User = require(MODEL_ROOT+'users')
   , methods = new Object();
 
   
- 
+
+
  /**
  |======================================================================================
  |    User Module start here... 
