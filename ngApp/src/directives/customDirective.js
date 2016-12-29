@@ -10,11 +10,11 @@ app.directive('splashScreen',
     return {
       restrict:'A',
       link: function () {
-        $rootScope.$on('$stateChangeStart', function() {  $rootScope.mainLoader = true; });
+        $rootScope.$on('$stateChangeStart', function() { $rootScope.loader = true; });
         $rootScope.$on('$stateChangeSuccess', function () {
           setTimeout(function () { $rootScope.$apply(function () {
-            $rootScope.mainLoader =  false;
-          }) }, 1300);
+            $rootScope.loader = false;
+          }) }, 1200);
         });
       },
       template: `

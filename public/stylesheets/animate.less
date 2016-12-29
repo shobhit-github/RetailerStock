@@ -1,4 +1,15 @@
 
+@zoomIn: 800ms;
+@bounceIn: 1s;
+@flip: 1s;
+@flipIn-x: 1s;
+@fadeIn: 1s;
+@fadeIn-left: 1s;
+@fadeIn-down: 1s;
+@slideIn-right: 1s;
+@slideIn-down: 1s;
+
+
 
 /*		ANIMATION EFFECTS
 ---------------------------------------------------*/
@@ -6,21 +17,21 @@
 /*  ZOOM Effects*/
 .animate-zoomin {
 
-    -webkit-animation: zoomIn 1s;
-    -moz-animation: zoomIn 1s;
-    -o-animation: zoomIn 1s;
-    -ms-animation: zoomIn 1s;
-    animation: zoomIn 1s;
+    -webkit-animation: zoomIn @zoomIn;
+    -moz-animation: zoomIn @zoomIn;
+    -o-animation: zoomIn @zoomIn;
+    -ms-animation: zoomIn @zoomIn;
+    animation: zoomIn @zoomIn;
 }
 
 /*  Bounce Effects*/
 .animate-bouncein {
 
-    -webkit-animation: bounceIn 1s;
-    -moz-animation: bounceIn 1s;
-    -o-animation: bounceIn 1s;
-    -ms-animation: bounceIn 1s;
-    animation: bounceIn 1s;
+    -webkit-animation: bounceIn @bounceIn;
+    -moz-animation: bounceIn @bounceIn;
+    -o-animation: bounceIn @bounceIn;
+    -ms-animation: bounceIn @bounceIn;
+    animation: bounceIn @bounceIn;
     
 }
 
@@ -49,20 +60,20 @@
 /*  Fade Effects */
 .animate-fadein {
 
-    -webkit-animation: fadeIn 1s;
-    -moz-animation: fadeIn 1s;
-    -o-animation: fadeIn 1s;
-    -ms-animation: fadeIn 1s;
+    -webkit-animation: fadeIn @fadeIn;
+    -moz-animation: fadeIn @fadeIn;
+    -o-animation: fadeIn @fadeIn;
+    -ms-animation: fadeIn @fadeIn;
     animation: fadeIn 2s;
 }
 
 .animate-fadein-left {
 
-    -webkit-animation: fadeInLeft 1s;
-    -moz-animation: fadeInLeft 1s;
-    -o-animation: fadeInLeft 1s;
-    -ms-animation: fadeInLeft 1s;
-    animation: fadeInLeft 1s;
+    -webkit-animation: fadeInLeft @fadeIn-left;
+    -moz-animation: fadeInLeft @fadeIn-left;
+    -o-animation: fadeInLeft @fadeIn-left;
+    -ms-animation: fadeInLeft @fadeIn-left;
+    animation: fadeInLeft @fadeIn-left;
 }
 
 .animate-fadein-down {
@@ -77,20 +88,20 @@
 /*  Slide Effects*/
 .animate-slidein-down {
 
-    -webkit-animation: slideInDown 1s;
-    -moz-animation: slideInDown 1s;
-    -o-animation: slideInDown 1s;
-    -ms-animation: slideInDown 1s;
-    animation: slideInDown 1s;
+    -webkit-animation: slideInDown @slideIn-down;
+    -moz-animation: slideInDown @slideIn-down;
+    -o-animation: slideInDown @slideIn-down;
+    -ms-animation: slideInDown @slideIn-down;
+    animation: slideInDown @slideIn-down;
 }
 
 .animate-slidein-right {
 
-    -webkit-animation: slideInRight 1s;
-    -moz-animation: slideInRight 1s;
-    -o-animation: slideInRight 1s;
-    -ms-animation: slideInRight 1s;
-    animation: slideInRight 1s;
+    -webkit-animation: slideInRight @slideIn-right;
+    -moz-animation: slideInRight @slideIn-right;
+    -o-animation: slideInRight @slideIn-right;
+    -ms-animation: slideInRight @slideIn-right;
+    animation: slideInRight @slideIn-right;
 }
 
 
