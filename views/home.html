@@ -1,15 +1,15 @@
     <div class="container body" >
       <div class="main_container">
 
-        <div main-loader ng-show="mainLoader" class="loader"></div>
-
         <!-- Sidebar -->
         <aside ng-include="'views/elements/sidebar.html'"></aside>
 
         <!--  Header -->
         <header ng-include="'views/elements/header.html'" ></header>
 
-        <section ui-view></section>
+        <section ui-view>
+            <div splash-screen class="inner-splash"></div>
+        </section>
 
         <!-- Footer -->
         <footer class="footer_fixed" ng-include="'views/elements/footer.html'" ></footer>

@@ -18,16 +18,16 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 
 	$scope.loginUser = function(users) {
 
+		$scope.authSuccess = $scope.authError = $scope.authWarning = $scope.authInfo = false;
+
 	    var error = function(response, status) {
 	      $scope.authError = response.data.message;
-	      $scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
 	    };
 
 		$api.authenticate(users).then( function(response, status) {
 	    	$token.saveToAllStorage(response.data.token);
 	    	$scope.authSuccess = response.data.message;
 
-	    	$scope.authError = $scope.authWarning = $scope.authInfo = false;	    	
 	    	$timeout(function() { $location.path('dashboard'); }, 2000);
 	    }, error );
 	};
@@ -35,14 +35,14 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 
 	$scope.resetPassword = function(users) {
 
+		$scope.authError = $scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
+
 	    var error = function(response, status) {
 			$scope.authError = response.data.message;
-			$scope.authSuccess = $scope.authWarning = $scope.authInfo = false;
 	    };
 
 		$api.resetPassword(users).then( function(response, status) {
 			$scope.authSuccess= response.data.message;
-			$scope.authError  = $scope.authWarning = $scope.authInfo = false;
 	    }, error );
 	}
 

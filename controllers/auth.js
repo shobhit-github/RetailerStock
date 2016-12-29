@@ -103,7 +103,7 @@ methods.resetPassword = function(req, res) {
     }
 
 
-    jade.compile('reset_pass', new Object(), function (err, html) {
+    jade.compile('password_recovery', new Object(), function (err, html) {
         if(err)
           return res.status(400).json({ success: false, message: msg.BAD_REQUEST });
 

@@ -4251,6 +4251,55 @@ button.pay-btn {
   text-align: center;
   font-size: 10px;
 }
+.splash{
+  position:fixed;
+  z-index:2000;
+  background:#2a3f54;
+  color:#f7f7f7;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0
+}
+
+.inner-splash {
+  position: fixed;
+  z-index: 9;
+  background: #f7f7f7;
+  color: #2a3f54;
+  top: 0;
+  bottom: 0;
+  left: 12%;
+  right: 0;
+}
+.inner-splash .splash-title{
+  text-align:center;
+  margin:9% auto;
+  padding:20px
+}
+
+.inner-splash .splash-title .spinner > div {
+  background-color: #2a3f54;
+}
+
+
+.splash-title{
+  text-align:center;
+  max-width:500px;
+  margin:9% auto;
+  padding:20px
+}
+.splash-title h1{
+  font-size:26px
+}
+.splash-title .spinner {
+  margin: 0 auto;
+  width: 50px;
+}
+.splash-title .spinner > div {
+  background-color: #f7f7f7;
+}
+
 
 .spinner > div {
   background-color: #2a3f54;

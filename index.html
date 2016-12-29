@@ -41,7 +41,9 @@
   </head>
 
   <body ng-app="retailerStock" class="{{ bodyClass }}">
-    <main id="view" ui-view></main>
+    <main id="view" ui-view>
+      <div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Sunbuk </h1><p>Please wait while we are loading page content. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
+    </main>
   </body>
 
     <script src="/javascripts/helpers/ui-bootstrap-tpls-1.0.3.js"></script>
