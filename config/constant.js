@@ -45,6 +45,7 @@ global.MODEL_ROOT          =    ROOT + process.env.MODEL_DIR;
 /* App Secret Keys
 ..................*/
 
+// Secret ids
 global.TOKEN_SECRET        =    process.env.TOKEN_SECRET;
 
 global.FACEBOOK_SECRET     =    process.env.FACEBOOK_SECRET;
@@ -71,7 +72,8 @@ global.SPOTIFY_SECRET      =    process.env.SPOTIFY_SECRET;
 
 global.TWITTER_SECRET      =    process.env.TWITTER_SECRET;
 
-
+// App ids
+global.FACEBOOK_APP_ID     =    process.env.FACEBOOK_APP_ID;
 
 
 /* SMTP Settings
