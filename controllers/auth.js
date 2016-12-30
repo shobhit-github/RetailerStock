@@ -82,7 +82,7 @@ methods.login = function(req, res) {
       
       return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
     });
-  });
+  })
 };
 
 
@@ -96,14 +96,15 @@ methods.resetPassword = function(req, res) {
 
   var encryptedEmail = encrypt(req.body.email);
 
-  User.count({email: req.body.email}, function(err, user) {
+  User.findOne({email: req.body.email}, function(err, user) {
     
     if (!user) {
       return res.status(401).json({ success: false, message: msg.NOT_EXIST });
     }
 
+     user.reset_link = SERVER_URI+'#/set-password/:'+encryptedEmail;
 
-    jade.compile('password_recovery', new Object(), function (err, html) {
+    jade.compile('reset_password', user, function (err, html) {
         if(err)
           return res.status(400).json({ success: false, message: msg.BAD_REQUEST });
 
@@ -115,8 +116,7 @@ methods.resetPassword = function(req, res) {
       });
     });
 
-
-  })
+  }).select({password:0, picture:0, role:0, status:0, updated_at:0});
 };
 
 
