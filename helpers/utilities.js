@@ -110,7 +110,7 @@ global.sendSMS = function (from, to, text) {
 
   client.sendMessage( { to:to, from:from, body:text }, function( err, data ) {
 
-    if(err) console.log(err);
+    if(err) console.error(err);
     else console.log(data);
   });
 };
