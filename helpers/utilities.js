@@ -86,9 +86,9 @@ global.sendMail = function(mailOption, callback) {
   // send mail with defined transport object
   transporter.sendMail(mailOption, function(error, info){
     if(error){
-      callback(info);
+      callback(error, null);
     }
-    callback(info);
+    callback(null, info);
   });
 
 };

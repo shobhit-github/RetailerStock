@@ -107,9 +107,9 @@ methods.resetPassword = function(req, res) {
         if(err)
           return res.status(400).json({ success: false, message: msg.BAD_REQUEST });
 
-      sendMail({ to:req.body.email, subject:'Reset Password',html:html}, function(resp) {  // check email sending status
-        if(!resp) {
-          return res.status(500).json({ success: false, message: msg.EMAIL_FAILED });
+      sendMail({ to:req.body.email, subject:'Reset Password',html:html}, function(err, resp) {  // check email sending status
+        if(err) {
+          return res.status(500).json({ success: false, message: msg.EMAIL_FAILED, description: err });
         }
         return res.status(200).json({ success: true, message: msg.EMAIL_SENT});
       });
