@@ -18,7 +18,6 @@ app.directive('splashScreen',
         });
       },
       template: `
-          <div class="color-line"></div>
           <div class="splash-title">
             <h1>Sunbuk </h1> <p>Please wait while we are loading page content. </p>
             <div class="spinner">

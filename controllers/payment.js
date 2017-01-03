@@ -23,12 +23,12 @@ const cancelUrl = SERVER_URI+'#/cancelPayment';
 
 /*
  |--------------------------------------------------
- | Retrieving Braintree Client Token
+ | Create Payment through the Paypal
  |--------------------------------------------------
  */
 methods.createPayment = function(req, res) {
 
-    var links = {};
+    var links = new Object();
 
     payReq.transactions = [{ amount:{ total:'96', currency:'GBP' }, description:'This is the payment transaction description.' }];
 
@@ -58,14 +58,12 @@ methods.createPayment = function(req, res) {
 
 /*
  |--------------------------------------------------
- | Making Payment through the Braintree
+ | Making Payment through the Paypal
  |--------------------------------------------------
  */
 methods.executePayment = function (req, res) {
 
    paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment){
-
-       console.log(error);
 
         if(error) return res.status(400).json({
            status:false, message: msg.PAYMENT_FAILED

@@ -3,7 +3,6 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , msg     = require(CONF_ROOT+'messages')
   , socket  = require('socket.io');
 
 var User = require(MODEL_ROOT+'users')
@@ -27,7 +26,7 @@ var User = require(MODEL_ROOT+'users')
  | Retrieve all Users
  |--------------------------------------------------
  */
-var chatList = function() {
+exports.chatList = function() {
   
   var conditions = { $or: [ { role: { $ne: "Administrator" } }, { _id: { $ne: req.user._id } } ] };
   var options = { select : "_id firstname lastname picture" }; // specific fields to be show ;
