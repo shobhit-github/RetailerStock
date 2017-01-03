@@ -47,8 +47,8 @@ router.all('/all_users', mid.ensureAuthenticated, UserController.getAllUsers);
 
 /* Routes for Payment Module
  |........................................ */
-router.get('/braintree_token', mid.ensureAuthenticated, PaymentController.getBrainteeToken);
-router.post('/checkout', mid.ensureAuthenticated, PaymentController.makePayment);
+router.get('/create_payment', mid.ensureAuthenticated, PaymentController.createPayment);
+router.get('/execute_payment', mid.ensureAuthenticated, PaymentController.executePayment);
 
 
 /* Routes for Chat Module

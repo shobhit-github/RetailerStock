@@ -2,14 +2,16 @@
 /*      Dependencies
  ---------------------------------------------*/
 
-var express = require('express')
-  , msg     = require(CONF_ROOT+'messages');
+var express = require('express');
+
+var paypal  = require('paypal-rest-sdk')
+  , gatewayBt  = require(CONF_ROOT+'config').PAYPAL;
+
 
 var methods = new Object();
 
-var braintree  = require('braintree')
-  , gatewayBt  = require(CONF_ROOT+'config').BRAINTTREE;
-
+const returnUrl = SERVER_URI+'#/processPayment';
+const cancelUrl = SERVER_URI+'#/cancelPayment';
 
 /**
  |======================================================================================
@@ -17,17 +19,40 @@ var braintree  = require('braintree')
  |======================================================================================
  */
 
-
+ var payReq = { intent:'sale', redirect_urls:{ return_url:returnUrl, cancel_url: cancelUrl  }, payer:{ payment_method:'paypal' } };
 
 /*
  |--------------------------------------------------
  | Retrieving Braintree Client Token
  |--------------------------------------------------
  */
-methods.getBrainteeToken = function(req, res) {
+methods.createPayment = function(req, res) {
 
-    gatewayBt.clientToken.generate({}, function (err, response) {
-        return res.status(200).json({ success: true, _token_braintree: response.clientToken });
+    var links = {};
+
+    payReq.transactions = [{ amount:{ total:'96', currency:'GBP' }, description:'This is the payment transaction description.' }];
+
+    paypal.payment.create(JSON.stringify(payReq), function(err, payment){
+
+        if(err) return res.status(400).json({
+            status: false, message: msg.PAYMENT_FAILED
+        });
+
+            payment.links.forEach(function(linkObj){
+                links[linkObj.rel] = {
+                    href: linkObj.href,
+                    method: linkObj.method
+                };
+            });
+
+        if (links.hasOwnProperty('approval_url')){
+            return res.status(200).json({ status:true, pay_url:links['approval_url'].href });
+        } else {
+            res.status(400).json({
+                status: false, message: msg.BAD_REQUEST
+            });
+        }
+
     });
 };
 
@@ -36,22 +61,20 @@ methods.getBrainteeToken = function(req, res) {
  | Making Payment through the Braintree
  |--------------------------------------------------
  */
-methods.makePayment = function (req, res) {
+methods.executePayment = function (req, res) {
 
-    var options = {
-        amount: "18.00", // this is static amount currently, you need to retrieve amount by using database query
-        paymentMethodNonce: req.body.card_info.nonce,
-        options: {
-            submitForSettlement: true
-        }
-    };
+   paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment){
 
-    gatewayBt.transaction.sale(options, function (err, result) {
-        if(err) {
-            res.status(200).json({ success: false, message: msg.PAYMENT_FAILED });
-        } else if(result.success) {
-            res.status(200).json({ success: true, message: msg.PAYMENT_SUCCESS });
-        }
+       console.log(error);
+
+        if(error) return res.status(400).json({
+           status:false, message: msg.PAYMENT_FAILED
+        });
+
+        if (payment.state == 'approved')
+            return res.status(200).json({ status:true, message: msg.PAYMENT_SUCCESS });
+
+        return res.status(400).json({ status:true, message: msg.PAYMENT_FAILED});
     });
 };
 

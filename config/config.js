@@ -3,6 +3,7 @@
 ---------------------------*/
 var env  = require('node-env-file')('./.env');
 require('./constant');
+require('./messages');
 require(HELP_ROOT+'utilities');
 require(HELP_ROOT+'jade.compiler');
 
@@ -17,6 +18,7 @@ var conf = new Object();
  */
 
   var braintree = require('braintree');
+  var paypal    = require('paypal-rest-sdk');
 
  /* Braintree
  ..................*/
@@ -29,6 +31,11 @@ conf.BRAINTTREE = braintree.connect({
 
 
 
+conf.PAYPAL = paypal.configure({
+  mode: 'sandbox', // Sandbox or live
+  client_id: process.env.PAYPAL_CLIENTID,
+  client_secret: process.env.PAYPAL_SECRET
+});
 
 
 

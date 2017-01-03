@@ -120,6 +120,18 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
       },
       templateUrl: TEMPLATE_URL+'pricing_tables.html'
 
+    }).state('payment', {
+      url: '/processPayment',
+      controller: function ($api, $location, $window, $sweetAlert) {
+        var queryString = $location.search();
+        $api.makePayment({paymentId: queryString.paymentId, payerId: queryString.PayerID}).then(function (res) {
+          if(res.data.status) {
+            $sweetAlert.success("Success", res.data.message);
+          } else { $sweetAlert.error("Oops!", res.data.message); }
+        }, function (res) { $sweetAlert.error("Oops!", res.data.message); });
+      },
+      template:`<div splash-screen class="splash"></div>`
+
     }).state('home.messanger', {
       url: '/chat',
       controller:'chatCtrl',

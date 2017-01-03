@@ -1,4 +1,4 @@
-module.exports = {
+global.msg = {
   
     // Error Messages
     INTERNAL_ERROR          :   "There was an internal server error, please contact to the software administrator !",

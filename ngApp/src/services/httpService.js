@@ -64,14 +64,14 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   /* Shop Service
    ----------------------------------------------*/
 
-  this.getBraintreeToken = function () {
+  this.createPayment = function () {
 
-    return $http.get(SERVER_URI+'braintree_token', config);
+    return $http.get(SERVER_URI+'create_payment', config);
   };
 
-  this.makePayment = function (data) {
-
-    return $http.post(SERVER_URI+'checkout', data, config);
+  this.makePayment = function (params) {
+    config.params = params;
+    return $http.get(SERVER_URI+'execute_payment', config);
   };
 
 

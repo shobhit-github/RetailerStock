@@ -52,6 +52,7 @@ helper.ensureAuthenticated = function (req, res, next) {
   if (payload.exp <= moment().unix()) {
     return res.status(401).json({ success: false, message: msg.TOKEN_EXPIRE });
   }
+
   req.user = payload.sub;
   next();
 

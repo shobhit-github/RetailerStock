@@ -109,7 +109,7 @@
                           </div>
                         </div>
                         <div class="pricing_footer">
-                          <a href="javascript:void(0);" class="btn btn-primary btn-block" ng-click="makePayment(54);" role="button">Buy <span> now!</span></a>
+                          <a href="javascript:void(0);" class="btn btn-primary btn-block" ng-click="makePayment();" role="button">Buy <span> now!</span></a>
                           <p>
                             <a href="javascript:void(0);">Sign up</a>
                           </p>
@@ -192,14 +192,3 @@
     </div>
   </div>
 
-
-
-
-
-  <div ng-show="paymentPopup" class="payment-form-popup">
-    <form id="checkout" method="post">
-      <input type="hidden" ng-model="product._id" />
-      <div id="payment-form"></div>
-      <button type="submit" class="btn btn-success pay-btn" >Pay $25</button>
-    </form>
-  </div>

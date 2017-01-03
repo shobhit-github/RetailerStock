@@ -4,48 +4,23 @@
 // Keep in mind the values in the object mean they can be modified
 // Which makes no sense for a constant, use wisely if you do this
 
-app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert',
-	function shoppingCtrl($rootScope, $scope, $api, $state, $sweetAlert) {
+app.controller('shoppingCtrl', ['$rootScope', '$scope', '$api', '$window', '$sweetAlert',
+	function shoppingCtrl($rootScope, $scope, $api, $window, $sweetAlert) {
 
-		$scope.generateBraintreeToken = function () {
-
-			$api.getBraintreeToken().then( function (res, status) {
-				$scope._token_braintree = res.data._token_braintree;
-			}, function () { console.error(res) });
-
+		var error = function(res, status) {
+			$api.handleError(res);
 		};
 
-
-		$scope.makePayment = function (product) {
-
-			$scope.paymentPopup = true;
-
-			var error = function (res, status) {
-				$sweetAlert.error(undefined, res.data.message);
-			};
-
-			var success = function (res, status) {
-				$sweetAlert.success("Success", res.data.message);
-			};
-
-			braintree.setup($scope._token_braintree, 'dropin', {
-				container: 'payment-form',
-				onError: function (obj) {
-					console.log(obj);
-				},
-				onPaymentMethodReceived: function (obj) {
-
-					$scope.paymentPopup = false;
-
-					$api.makePayment({
-						card_info: obj,
-						product_info: product
-					}).then(success, error);
-				}
-			});
+		$scope.makePayment = function () {
+			$api.createPayment().then(function (res) {
+				window.open(res.data.pay_url, "Payment", "width=650,height=800,left="+(screen.width/2 - 650/2)+",top="+(screen.height/2 - 800/2));
+			}, error );
 		};
 
-
-		$scope.generateBraintreeToken();
+		$scope.executePayment = function () {
+			$api.makePayment().then(function (res) { console.log(res);
+				if(res.data.status)	$sweetAlert.success("Success", res.data.message);
+			}, error );
+		}
 	}
 ]);

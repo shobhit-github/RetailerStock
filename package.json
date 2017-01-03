@@ -53,13 +53,14 @@
     "node-env-file": "^0.1.8",
     "nodemailer": "^2.6.4",
     "nodemon": "^1.11.0",
+    "passport": "~0.3.2",
+    "passport-facebook": "~2.1.1",
     "passport-local": "~1.0.0",
+    "paypal-rest-sdk": "^1.7.1",
     "querystring": "^0.2.0",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.7.2",
-    "twilio": "^2.11.1",
-    "passport": "~0.3.2",
-    "passport-facebook": "~2.1.1"
+    "twilio": "^2.11.1"
   }
 }
