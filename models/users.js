@@ -110,7 +110,7 @@ UserSchema.statics =  {
   },
   
   /**
-   * Delete Users - Paginated form - removinf multiple user by ids in array
+   * Delete Users - Paginated form - removing multiple user by ids in array
    */
   removeByIds : function(idsArray, callback) {
     return this.remove({ _id: { $in: idsArray } }, callback);
@@ -161,7 +161,7 @@ UserSchema.methods =  {
     })
   }
    
-}
+};
 
 
 

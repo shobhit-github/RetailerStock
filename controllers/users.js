@@ -3,10 +3,7 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , msg = require(CONF_ROOT+'messages');
-
-var User = require(MODEL_ROOT+'users')
-  , methods = new Object();
+  , User = require(MODEL_ROOT+'users');
 
   
 
@@ -23,7 +20,7 @@ var User = require(MODEL_ROOT+'users')
  | Update Existing User Account
  |--------------------------------------------------
  */
-methods.updateProfile = function(req, res) {
+exports.updateProfile = function(req, res) {
 
   User.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }, function(err) {
     if (err) {
@@ -42,7 +39,7 @@ methods.updateProfile = function(req, res) {
  | Delete Existing User Account
  |--------------------------------------------------
  */
-methods.deleteUser = function(req, res) {
+exports.deleteUser = function(req, res) {
   
   var ids = req.params.ids.split(',');
   var options;
@@ -66,7 +63,7 @@ methods.deleteUser = function(req, res) {
  |--------------------------------------------------
  */
 
-methods.changePassword = function(req, res) {
+exports.changePassword = function(req, res) {
 
   req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password 
     if(!isMatch) {
@@ -100,13 +97,14 @@ methods.changePassword = function(req, res) {
  | Retrieve all Users account
  |--------------------------------------------------
  */
-methods.getAllUsers = function(req, res) {
+exports.getAllUsers = function(req, res) {
   
   var condition1 = { $or: [ { role: { $ne: "Administrator" } }, { _id: { $ne: req.user._id } } ] },
       condition2 = new Object();
   var options = JSON.parse(req.query.paging_info);
 
   if(req.method == "POST") {
+    
     var keyword = new RegExp(req.body.keyword, "i");
     
     condition2 = { $or: [ 
@@ -132,6 +130,3 @@ methods.getAllUsers = function(req, res) {
 
 
 
-
-
-module.exports = methods;

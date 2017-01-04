@@ -3,11 +3,9 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , msg     = require(CONF_ROOT+'messages');
   
 var User   = require(MODEL_ROOT+'users')
-  , jade   = require(HELP_ROOT+'jade.compiler')
-  , methods = new Object();
+  , jade   = require(HELP_ROOT+'jade.compiler');
 
 
 
@@ -23,7 +21,7 @@ var User   = require(MODEL_ROOT+'users')
  | Login Required Middleware
  |--------------------------------------------------
  */
-methods.checkAuth = function(req, res) {
+exports.checkAuth = function(req, res) {
 
   return res.status(200).json({ success: true, response: req.user });
 };
@@ -35,7 +33,7 @@ methods.checkAuth = function(req, res) {
  | Create Email and Password Account
  |--------------------------------------------------
  */
-methods.signUp = function(req, res) {
+exports.signUp = function(req, res) {
   
   User.findOne({ email: req.body.email }, function(err, existingUser) {
     
@@ -67,7 +65,7 @@ methods.signUp = function(req, res) {
  | Log in with Email
  |--------------------------------------------------
  */
-methods.login = function(req, res) {
+exports.login = function(req, res) {
 
 
   User.findOne({ username: req.body.username }, function(err, user) {
@@ -92,7 +90,7 @@ methods.login = function(req, res) {
  | Reset password with email send
  |--------------------------------------------------
  */
-methods.resetPassword = function(req, res) {
+exports.resetPassword = function(req, res) {
 
   var encryptedEmail = encrypt(req.body.email);
 
@@ -128,7 +126,7 @@ methods.resetPassword = function(req, res) {
  | Logout User
  |--------------------------------------------------
  */
-methods.logout = function(req, res) {
+exports.logout = function(req, res) {
   
   req.logout();
   
@@ -144,4 +142,3 @@ methods.logout = function(req, res) {
 
 
 
-module.exports = methods;

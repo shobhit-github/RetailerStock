@@ -2,13 +2,11 @@
 /*      Dependencies
  ---------------------------------------------*/
 
-var express = require('express');
+var express = require('express')
+  , async   = require('async')
+  , paypal  = require('paypal-rest-sdk');
 
-var paypal  = require('paypal-rest-sdk')
-  , gatewayBt  = require(CONF_ROOT+'config').PAYPAL;
 
-
-var methods = new Object();
 
 const returnUrl = SERVER_URI+'#/processPayment';
 const cancelUrl = SERVER_URI+'#/cancelPayment';
@@ -26,7 +24,7 @@ const cancelUrl = SERVER_URI+'#/cancelPayment';
  | Create Payment through the Paypal
  |--------------------------------------------------
  */
-methods.createPayment = function(req, res) {
+exports.createPayment = function(req, res) {
 
     var links = new Object();
 
@@ -48,7 +46,7 @@ methods.createPayment = function(req, res) {
         if (links.hasOwnProperty('approval_url')){
             return res.status(200).json({ status:true, pay_url:links['approval_url'].href });
         } else {
-            res.status(400).json({
+            return res.status(400).json({
                 status: false, message: msg.BAD_REQUEST
             });
         }
@@ -61,7 +59,7 @@ methods.createPayment = function(req, res) {
  | Making Payment through the Paypal
  |--------------------------------------------------
  */
-methods.executePayment = function (req, res) {
+exports.executePayment = function (req, res) {
 
    paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment){
 
@@ -79,5 +77,3 @@ methods.executePayment = function (req, res) {
 
 
 
-
-module.exports = methods;
