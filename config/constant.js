@@ -16,7 +16,7 @@ global.MONGO_CONNECT       =    process.env.MONGO_URI;
 
 global.SERVER_URI          =    process.env.SERVER_URI;
 
-
+global.IMG_URI             =    process.env.IMG_URL
 
 /* App Directory Paths
 ..................*/
@@ -72,8 +72,6 @@ global.SPOTIFY_SECRET      =    process.env.SPOTIFY_SECRET;
 
 global.TWITTER_SECRET      =    process.env.TWITTER_SECRET;
 
-// App ids
-global.FACEBOOK_APP_ID     =    process.env.FACEBOOK_APP_ID;
 
 
 /* SMTP Settings

@@ -37,6 +37,9 @@ router.get('/logout', AuthController.logout);
 router.get('/check_auth', mid.ensureAuthenticated, AuthController.checkAuth);
 
 
+router.post('/facebook', AuthController.facebook);
+
+
 /* Routes for User Module
  |........................................ */
 router.put('/update_profile', mid.ensureAuthenticated, UserController.updateProfile);

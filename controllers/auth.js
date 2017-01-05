@@ -3,10 +3,11 @@
 ---------------------------------------------*/
 
 var express = require('express')
+  , env  = require('node-env-file')('./.env')
+  , request = require('request');
   
 var User   = require(MODEL_ROOT+'users')
   , jade   = require(HELP_ROOT+'jade.compiler');
-
 
 
 /**
@@ -83,7 +84,47 @@ exports.login = function(req, res) {
   })
 };
 
+/*
+ |--------------------------------------------------------------------------
+ | Login with Facebook
+ |--------------------------------------------------------------------------
+ */
+exports.facebook =  function(req, res) {
 
+  var fields = '?fields=id,first_name,last_name,email,picture{url},gender';
+
+  request.get({ url: process.env.FB_TOKEN_URL, qs: {
+      code: req.body.code,
+      client_id: req.body.clientId,
+      client_secret: FACEBOOK_SECRET,
+      redirect_uri: req.body.redirectUri
+    }, json: true }, function(err, response, accessToken) {
+
+      if (response.statusCode !== 200) {
+        return res.status(500).json({ status:false, message: accessToken.error.message });
+      }
+
+      request.get({ url: process.env.FB_GRF_API+fields, qs: accessToken, json: true }, function(err, response, profile) {
+
+        var username = profile.first_name.toLowerCase()+profile.last_name.toLowerCase();
+        var userData = { firstname: profile.first_name, lastname: profile.last_name, username: username, password: generateString(8), social: { facebook: profile.id }, picture: profile.picture.data.url, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
+        var user = new User(userData);
+
+        if (response.statusCode !== 200) {
+          return res.status(500).send({ status: false, message: profile.error.message });
+        }
+
+        User.findOne( { social: { facebook: profile.id } }, function(err, existingUser) {
+          if (existingUser)
+            return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+
+          user.save(function(err, result) {
+            return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(user) });
+          });
+        });
+      });
+  });
+};
 
 /*
  |--------------------------------------------------

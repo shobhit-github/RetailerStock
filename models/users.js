@@ -24,9 +24,18 @@ var UserSchema = new Schema({
   
   email: { type: String, unique: true, lowercase: true, required: true },
   
-  phone: { type: String, unique: true, required: true },
+  phone: { type: String, unique: true },
   
   picture: { type: String },
+
+  social: {
+    facebook: { type: String, unique: true },
+    google: { type: String, unique: true },
+    twitter: { type: String, unique: true },
+    linkedin: { type: String, unique: true }
+  },
+
+  gender: { type: String, enum:["M","F","O"] },
   
   status : {
     resetpass: { type : String, enum:["YES","NO"], default: "NO" },
@@ -91,7 +100,14 @@ UserSchema.statics =  {
   findById : function(id, callback) {
     return this.findOne({ _id: id }, callback);
   },
-  
+
+  /**
+   * User Existance - fetching the data through any user's condition
+   */
+  isExist : function(condition, callback) {
+    return this.count(condition, callback);
+  },
+
   /**
    * All Users With Specific Fields - fetching all user data with the fields
    */

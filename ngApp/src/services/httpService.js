@@ -17,7 +17,7 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   /* Authentication Service
   ----------------------------------------------*/
 
-  this.isAuthorized = function(module_name) { // Check Authorization 
+  this.isAuthorized = function(module_name) { // Check Authorization
     return $http.get(SERVER_URI+'check_auth', {
       headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() } ,
       params : { 'module_name': module_name }

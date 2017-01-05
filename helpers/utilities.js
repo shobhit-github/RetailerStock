@@ -74,6 +74,24 @@ global.decrypt = function(str) {   // Decryption
 
 
 
+/*
+ |--------------------------------------------------
+ | String related functions
+ |--------------------------------------------------
+ */
+global.generateString = function(len, charSet) {
+
+  // random string generator
+  var str, charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (var i = 0; i < len; i++) {
+    var randomPoz = Math.floor(Math.random() * charSet.length);
+    str += charSet.substring(randomPoz,randomPoz+1);
+  }
+  return str;
+};
+
+
 
 /*
  |--------------------------------------------------
