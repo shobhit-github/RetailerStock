@@ -20,4 +20,9 @@ app.config(function($httpProvider, $authProvider) {
         url: '/api/facebook',
     });
 
+    $authProvider.google({
+        clientId: '272365508948-potcnrtdqvkkcmd5nnjri8v31ubm0gj9.apps.googleusercontent.com',
+        url: '/api/google',
+    });
+
 });

@@ -126,6 +126,50 @@ exports.facebook =  function(req, res) {
   });
 };
 
+
+/*
+ |--------------------------------------------------------------------------
+ | Login with Google
+ |--------------------------------------------------------------------------
+ */
+exports.facebook =  function(req, res) {
+
+  request.post(process.env.GOOGLE_TOKEN_URL, { json: true, form:
+    { code: req.body.code,  client_id: req.body.clientId, client_secret: GOOGLE_SECRET, redirect_uri: req.body.redirectUri }
+
+  }, function(err, response, token) {
+
+    request.get({ url: process.env.GOOGLE_API_URL, headers: { Authorization: 'Bearer ' + token.access_token }, json: true }, function(err, response, profile) {
+
+      console.log(profile);
+
+      if (profile.error) {
+        return res.status(500).json({ status:false, message: profile.error.message});
+      }
+
+      User.findOne({ google: profile.sub }, function(err, existingUser) {
+
+        var username = profile.first_name.toLowerCase()+profile.last_name.toLowerCase();
+        var userData = { firstname: profile.first_name, lastname: profile.last_name, username: username, password: generateString(8), social: { facebook: profile.id }, picture: profile.picture.data.url, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
+        var user = new User(userData);
+
+        if (existingUser) {
+          return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+        }
+        var user = new User();
+        user.google = profile.sub;
+        user.picture = profile.picture.replace('sz=50', 'sz=200');
+        user.displayName = profile.name;
+        /*user.save(function(err) {
+          var token = createJWT(user);
+          res.send({ token: token });
+        });*/res.send({ token: token });
+      })
+    });
+  });
+};
+
+
 /*
  |--------------------------------------------------
  | Reset password with email send
