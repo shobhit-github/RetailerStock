@@ -135,7 +135,7 @@ exports.facebook =  function(req, res) {
 exports.google =  function(req, res) {
 
   request.post(process.env.GOOGLE_TOKEN_URL, { json: true, form:
-    { code: req.body.code,  client_id: req.body.clientId, client_secret: GOOGLE_SECRET, redirect_uri: req.body.redirectUri }
+    { code: req.body.code,  client_id: req.body.clientId, client_secret: GOOGLE_SECRET, redirect_uri: req.body.redirectUri, grant_type: 'authorization_code' }
 
   }, function(err, response, token) {
 
