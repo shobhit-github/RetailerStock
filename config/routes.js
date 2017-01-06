@@ -38,6 +38,7 @@ router.get('/check_auth', mid.ensureAuthenticated, AuthController.checkAuth);
 
 
 router.post('/facebook', AuthController.facebook);
+router.post('/google', AuthController.google);
 
 
 /* Routes for User Module
@@ -56,7 +57,7 @@ router.get('/execute_payment', mid.ensureAuthenticated, PaymentController.execut
 
 /* Routes for Chat Module
  |........................................ */
-//router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
+router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
 
 
 

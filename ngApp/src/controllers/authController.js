@@ -24,7 +24,7 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 	      $scope.authError = response.data.message;
 	    };
 
-		$api.authenticate(users).then( function(response, status) {
+		$api.authenticate(users).then( function(response, status) { console.log(response);
 	    	$token.saveToAllStorage(response.data.token);
 	    	$scope.authSuccess = response.data.message;
 
