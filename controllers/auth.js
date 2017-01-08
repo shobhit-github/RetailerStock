@@ -149,21 +149,17 @@ exports.google =  function(req, res) {
 
       User.findOne({ google: profile.sub }, function(err, existingUser) {
 
-        var username = profile.first_name.toLowerCase()+profile.last_name.toLowerCase();
-        var userData = { firstname: profile.first_name, lastname: profile.last_name, username: username, password: generateString(8), social: { facebook: profile.id }, picture: profile.picture.data.url, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
+        var username = profile.given_name.toLowerCase()+profile.family_name.toLowerCase();
+        var userData = { firstname: profile.given_name, lastname: profile.family_name, username: username, password: generateString(8), social: { google: profile.sub }, picture: profile.picture, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
         var user = new User(userData);
 
         if (existingUser) {
-          return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+          return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
         }
-        var user = new User();
-        user.google = profile.sub;
-        user.picture = profile.picture.replace('sz=50', 'sz=200');
-        user.displayName = profile.name;
-        /*user.save(function(err) {
-          var token = createJWT(user);
-          res.send({ token: token });
-        });*/res.send({ token: token });
+
+        user.save(function(err, result) { console.error(err, result);
+          return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
+        });
       })
     });
   });
