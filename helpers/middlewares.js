@@ -43,7 +43,7 @@ helper.ensureAuthenticated = function (req, res, next) {
   var payload = null;
 
   try {
-    payload = jwt.decode(token, TOKEN_SECRET);
+    payload = jwt.decode(token, TOKEN_SECRET); 
   }
   catch (err) {
     return res.status(401).json({ success: false, message: err.message });
