@@ -167,6 +167,47 @@ exports.google =  function(req, res) {
 
 
 /*
+ |--------------------------------------------------------------------------
+ | Login with LinkedIn
+ |--------------------------------------------------------------------------
+ */
+exports.linkedin =  function(req, res) {
+
+  var fields = '~:(id,first-name,last-name,email-address,picture-url,phone-number)';
+
+  request.post(process.env.LKDN_TOKEN_URL, { json: true, form:
+    { code: req.body.code,  client_id: req.body.clientId, client_secret: LINKEDIN_SECRET, redirect_uri: req.body.redirectUri, grant_type: 'authorization_code' }
+
+  }, function(err, response, token) {
+
+    request.get({ url: process.env.LKDN_PROFILE_URL + fields, qs: { oauth2_access_token: token.access_token, format: 'json' }, json: true }, function(err, response, profile) {
+
+      console.log(profile);
+
+      if (profile.error) {
+        return res.status(500).json({ status:false, message: profile.error.message});
+      }
+
+      User.findOne({ google: profile.sub }, function(err, existingUser) {
+
+        var username = profile.firstName.toLowerCase()+profile.lastName.toLowerCase();
+        var userData = { firstname: profile.firstName, lastname: profile.lastName, username: username, password: generateString(8), social: { linkedin: profile.id }, picture: profile.pictureUrl, email: profile.emailAddress, gender: profile.gender==='male' ? "M" : "F" };
+        var user = new User(userData);
+
+        if (existingUser) {
+          return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+        }
+        res.json('done');
+        /*user.save(function(err, result) { console.error(err, result);
+          return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
+        });*/
+      })
+    });
+  });
+};
+
+
+/*
  |--------------------------------------------------
  | Reset password with email send
  |--------------------------------------------------

@@ -17,16 +17,17 @@ app.config(function($httpProvider, $authProvider) {
     */
     $authProvider.facebook({
         clientId: '1816822548595817',
-        url: '/api/facebook',
+        url: '/api/facebook'
     });
 
     $authProvider.google({
         clientId: '272365508948-potcnrtdqvkkcmd5nnjri8v31ubm0gj9.apps.googleusercontent.com',
-        url: '/api/google',
+        url: '/api/google'
     });
 
     $authProvider.linkedin({
-        clientId: 'LinkedIn Client ID'
+        clientId: '81ectx5uetkc8v',
+        url: '/api/linkedin'
     });
 
 
