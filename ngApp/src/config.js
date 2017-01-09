@@ -25,4 +25,9 @@ app.config(function($httpProvider, $authProvider) {
         url: '/api/google',
     });
 
+    $authProvider.linkedin({
+        clientId: 'LinkedIn Client ID'
+    });
+
+
 });

@@ -36,7 +36,6 @@ router.post('/reset_password', AuthController.resetPassword);
 router.get('/logout', AuthController.logout);
 router.get('/check_auth', mid.ensureAuthenticated, AuthController.checkAuth);
 
-
 router.post('/facebook', AuthController.facebook);
 router.post('/google', AuthController.google);
 

@@ -12,9 +12,9 @@ var moment            =   require('moment');
 ---------------------------------*/
 var UserSchema = new Schema({ 
 
-  firstname: { type: String, required: true },
+  firstname: { type: String, required:true },
   
-  lastname: { type: String, required: true },
+  lastname: { type: String, required:true },
   
   username: { type: String, unique: true, required: true },
   
@@ -24,7 +24,7 @@ var UserSchema = new Schema({
   
   email: { type: String, unique: true, lowercase: true, required: true },
   
-  phone: { type: String, unique: true, sparse: true },
+  phone: { type: String, },
   
   picture: { type: String },
 
@@ -53,7 +53,7 @@ var UserSchema = new Schema({
 ---------------------------------*/
 UserSchema.post('validate', function(doc) {
   
-  console.log("UserSchema validate middleware called", doc.email);                     // code will here soon...
+  console.log("UserSchema validate middleware called");                     // code will here soon...
 });
 
 
