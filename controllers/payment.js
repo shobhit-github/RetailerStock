@@ -30,7 +30,7 @@ exports.createPayment = function(req, res) {
 
     payReq.transactions = [{ amount:{ total:'96', currency:'GBP' }, description:'This is the payment transaction description.' }];
 
-    paypal.payment.create(JSON.stringify(payReq), function(err, payment){
+    paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
         if(err) return res.status(400).json({
             status: false, message: msg.PAYMENT_FAILED
@@ -43,7 +43,7 @@ exports.createPayment = function(req, res) {
                 };
             });
 
-        if (links.hasOwnProperty('approval_url')){
+        if (links.hasOwnProperty('approval_url')) {
             return res.status(200).json({ status:true, pay_url:links['approval_url'].href });
         } else {
             return res.status(400).json({
@@ -61,7 +61,7 @@ exports.createPayment = function(req, res) {
  */
 exports.executePayment = function (req, res) {
 
-   paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment){
+   paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment) {
 
         if(error) return res.status(400).json({
            status:false, message: msg.PAYMENT_FAILED
