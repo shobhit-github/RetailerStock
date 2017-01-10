@@ -65,7 +65,8 @@ exports.deleteUser = function(req, res) {
 
 exports.changePassword = function(req, res) {
 
-  req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password 
+
+  req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password
     if(!isMatch) {
       return res.status(200).json({ success: false, message: msg.INVALID_PASSWORD });
     }
@@ -77,9 +78,8 @@ exports.changePassword = function(req, res) {
       return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
     }
     User.findOneAndUpdate({ password: req.user.password }, { $set: { password: pass } }, function(err) {
-      if (err) {
-        return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
-      }
+
+        if(err) return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
 
         return res.status(200).json({
           success: true, 

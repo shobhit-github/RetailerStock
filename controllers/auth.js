@@ -141,8 +141,6 @@ exports.google =  function(req, res) {
 
     request.get({ url: process.env.GOOGLE_API_URL, headers: { Authorization: 'Bearer ' + token.access_token }, json: true }, function(err, response, profile) {
 
-      console.log(profile);
-
       if (profile.error) {
         return res.status(500).json({ status:false, message: profile.error.message});
       }
@@ -197,7 +195,6 @@ exports.linkedin =  function(req, res) {
         if (existingUser) {
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
         }
-        res.json('done');
         /*user.save(function(err, result) { console.error(err, result);
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
         });*/

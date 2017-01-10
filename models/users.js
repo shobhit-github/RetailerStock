@@ -24,7 +24,7 @@ var UserSchema = new Schema({
   
   email: { type: String, unique: true, lowercase: true, required: true },
   
-  phone: { type: String, },
+  phone: { type: String },
   
   picture: { type: String },
 
@@ -39,7 +39,7 @@ var UserSchema = new Schema({
   
   status : {
     resetpass: { type : String, enum:["YES","NO"], default: "NO" },
-    profile: { type : String, enum:["YES","NO"], default: "YES" },
+    activity: { type : String, enum:["YES","NO"], default: "YES" },
     deleted: { type : String, enum:["YES","NO"], default: "NO" },
     login: { type: String, enum:["YES","NO"], default: "NO" }
   }
