@@ -84,7 +84,6 @@ exports.executePayment = function (req, res) {
 exports.paypalNotifications = function (req, res) {
 
    console.log(req);
-
     res.json(req);
 };
 
