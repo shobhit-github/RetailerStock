@@ -53,6 +53,7 @@ router.all('/all_users', mid.ensureAuthenticated, UserController.getAllUsers);
  |........................................ */
 router.get('/create_payment', mid.ensureAuthenticated, PaymentController.createPayment);
 router.get('/execute_payment', mid.ensureAuthenticated, PaymentController.executePayment);
+router.get('/paypal_notify', mid.ensureAuthenticated, PaymentController.paypalNotifications);
 
 
 /* Routes for Chat Module

@@ -3,6 +3,7 @@ var mongoose          =   require('mongoose')
   , bcrypt            =   require('bcrypt');
   
 var mongoosePaginate  =   require('mongoose-paginate')
+  , validators        =   require('mongoose-validators')
   , jwt               =   require('jwt-simple');
 
 var moment            =   require('moment');
@@ -12,7 +13,7 @@ var moment            =   require('moment');
 ---------------------------------*/
 var UserSchema = new Schema({ 
 
-  firstname: { type: String, required:true },
+  firstname: { type: String, required: true },
   
   lastname: { type: String, required:true },
   
@@ -21,10 +22,10 @@ var UserSchema = new Schema({
   password: { type:String, required: true },
   
   role:  { type : String, enum:["Administrator","Dealer","Distributor"], default: "Dealer" },
-  
+
+  phone: { type: String, unique:true },
+
   email: { type: String, unique: true, lowercase: true, required: true },
-  
-  phone: { type: String },
   
   picture: { type: String },
 
@@ -53,7 +54,7 @@ var UserSchema = new Schema({
 ---------------------------------*/
 UserSchema.post('validate', function(doc) {
   
-  console.log("UserSchema validate middleware called");                     // code will here soon...
+  console.log("UserSchema validate middleware called", doc);                     // code will here soon...
 });
 
 

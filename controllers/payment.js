@@ -76,4 +76,18 @@ exports.executePayment = function (req, res) {
 
 
 
+/*
+ |--------------------------------------------------
+ | Get all paypal webhooks notification events
+ |--------------------------------------------------
+ */
+exports.paypalNotifications = function (req, res) {
+
+   console.log(req);
+
+    res.json(req);
+};
+
+
+
 

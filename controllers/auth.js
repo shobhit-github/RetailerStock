@@ -3,7 +3,7 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , env  = require('node-env-file')('./.env')
+  , env     = require('node-env-file')('./.env')
   , request = require('request');
   
 var User   = require(MODEL_ROOT+'users')
@@ -35,8 +35,22 @@ exports.checkAuth = function(req, res) {
  |--------------------------------------------------
  */
 exports.signUp = function(req, res) {
-  
-  User.findOne({ email: req.body.email }, function(err, existingUser) {
+
+  var profile = new User(req.body);
+
+  profile.save(function(err, result) {
+    if (err) {
+      return res.status(500).json({ success:false, message: err });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: msg.REGISTERATION_DONE,
+      token: createJWT(result)
+    });
+  });
+
+  /*User.findOne({ email: req.body.email }, function(err, existingUser) {
     
     var profile = new User(req.body);
     
@@ -56,7 +70,7 @@ exports.signUp = function(req, res) {
         });      
     });
     
-  });
+  });*/
 };
 
 
@@ -116,10 +130,10 @@ exports.facebook =  function(req, res) {
 
         User.findOne( { social: { facebook: profile.id } }, function(err, existingUser) {
           if (existingUser)
-            return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+            return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
 
           user.save(function(err, result) {
-            return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(user) });
+            return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
           });
         });
       });
@@ -154,14 +168,15 @@ exports.google =  function(req, res) {
         if (existingUser) {
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
         }
-
-        user.save(function(err, result) { console.error(err, result);
+        user.save(function(err, result) {
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
         });
       })
     });
   });
 };
+
+
 
 
 /*
@@ -195,18 +210,20 @@ exports.linkedin =  function(req, res) {
         if (existingUser) {
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
         }
-        /*user.save(function(err, result) { console.error(err, result);
+        user.save(function(err, result) {
           return res.status(200).json({ success: true, message: msg.LOGIN_SUCCESS, token: createJWT(result) });
-        });*/
+        });
       })
     });
   });
 };
 
 
+
+
 /*
  |--------------------------------------------------
- | Reset password with email send
+ | Reset password with email
  |--------------------------------------------------
  */
 exports.resetPassword = function(req, res) {
