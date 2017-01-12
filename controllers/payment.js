@@ -114,6 +114,7 @@ exports.paypalNotifications = function (req, res) {
                 console.log("It was a failed verification");
             }
         }
+        res.send(response.verification_status);
     });
 };
 
