@@ -98,8 +98,23 @@ exports.getTransactions = function (req, res) {
  |--------------------------------------------------
  */
 exports.paypalNotifications = function (req, res) {
-   console.log(req); res.send("DONE");
+    console.log(req.headers);
+    var headers     = { 'paypal-auth-algo': req.headers.paypal-auth-algo, 'paypal-cert-url': req.headers.paypal-cert-url, 'paypal-transmission-id': req.headers.paypal-transmission-id, 'paypal-transmission-sig': req.headers.paypal-transmission-sig, 'paypal-transmission-time': req.headers.paypal-transmission-time };
+    
+    paypal.notification.webhookEvent.verify(headers, req.body, '73B67500R3338843F', function (error, response) {
+        if (error) {
+            console.log(error);
+            throw error;
+        } else {
+            console.log(response);
 
+            if (response.verification_status === "SUCCESS") {
+                console.log("It was a success.");
+            } else {
+                console.log("It was a failed verification");
+            }
+        }
+    });
 };
 
 
