@@ -21,7 +21,7 @@ const cancelUrl = SERVER_URI+'#/cancelPayment';
 
 /*
  |--------------------------------------------------
- | Create Payment through the Paypal
+ | Create Payment through the PayPal
  |--------------------------------------------------
  */
 exports.createPayment = function(req, res) {
@@ -56,7 +56,7 @@ exports.createPayment = function(req, res) {
 
 /*
  |--------------------------------------------------
- | Making Payment through the Paypal
+ | Making Payment through the PayPal
  |--------------------------------------------------
  */
 exports.executePayment = function (req, res) {
@@ -78,20 +78,28 @@ exports.executePayment = function (req, res) {
 
 /*
  |--------------------------------------------------
+ | Get PayPal Transactions List
+ |--------------------------------------------------
+ */
+exports.getTransactions = function (req, res) {
+
+    paypal.payment.list({ start_index: 1 }, function (error, transactions) {
+        if (error)
+            return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
+
+        return res.status(200).json( { status: true, count:transactions.payments.length, response: transactions.payments } );
+    });
+};
+
+
+/*
+ |--------------------------------------------------
  | Get all paypal webhooks notification events
  |--------------------------------------------------
  */
 exports.paypalNotifications = function (req, res) {
-   console.log(req.body);
-    paypal.notification.webhookEvent.getAndVerify(req.body, function (error, response) {
-        if (error) {
-            console.log(error);
-            throw error;
-        } else {
-            console.log(response);
-            res.send(response);
-        }
-    });
+   console.log(req); res.send("DONE");
+
 };
 
 

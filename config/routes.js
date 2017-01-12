@@ -53,6 +53,7 @@ router.all('/all_users', mid.ensureAuthenticated, UserController.getAllUsers);
  |........................................ */
 router.get('/create_payment', mid.ensureAuthenticated, PaymentController.createPayment);
 router.get('/execute_payment', mid.ensureAuthenticated, PaymentController.executePayment);
+router.get('/transations_list', mid.ensureAuthenticated, PaymentController.getTransactions);
 router.post('/paypal_notify', PaymentController.paypalNotifications);
 
 
