@@ -28,7 +28,7 @@ exports.createPayment = function(req, res) {
 
     var links = new Object();
 
-    payReq.transactions = [{ amount:{ total:'18', currency:'GBP' }, description:'This is the payment transaction description.' }];
+    payReq.transactions = [{ amount:{ total:'18', currency:'USD' }, description:'This is the payment transaction description.' }];
 
     paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
@@ -83,7 +83,7 @@ exports.executePayment = function (req, res) {
  */
 exports.getTransactions = function (req, res) {
 
-    paypal.payment.list({ start_index: 1 }, function (error, transactions) {
+    paypal.payment.list({ start_index: 0 }, function (error, transactions) {
         if (error)
             return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
 
