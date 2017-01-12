@@ -99,24 +99,17 @@ exports.getTransactions = function (req, res) {
  */
 exports.paypalNotifications = function (req, res) {
 
-    console.log("INFO-->");
-    // console.log(req.headers.paypal-auth-algo);
     // var headers     = { 'paypal-auth-algo': req.headers.paypal-auth-algo, 'paypal-cert-url': req.headers.paypal-cert-url, 'paypal-transmission-id': req.headers.paypal-transmission-id, 'paypal-transmission-sig': req.headers.paypal-transmission-sig, 'paypal-transmission-time': req.headers.paypal-transmission-time };
-    // console.log(headers);
-    paypal.notification.webhookEvent.verify(req.headers, req.body, '73B67500R3338843F', function (error, response) {
-        if (error) {
-            console.log(error);
-            throw error;
-        } else {
-            console.log(response);
 
-            if (response.verification_status === "SUCCESS") {
-                console.log("It was a success.");
-            } else {
-                console.log("It was a failed verification");
-            }
-        }
-        res.send(response.verification_status);
+    paypal.notification.webhookEvent.verify(req.headers, req.body, '73B67500R3338843F', function (error, response) {
+        if (error) 
+            return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
+
+        console.log(response);
+        // if (response.verification_status === 'SUCCESS')
+        //     return res.status(400).json({ status: false, message: msg.PAYMENT_VERIFIED});
+        //
+        // return res.status(200).json({ status: false, message: msg.PAYMENT_NOT_VERIFIED});
     });
 };
 
