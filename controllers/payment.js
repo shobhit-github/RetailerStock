@@ -28,7 +28,7 @@ exports.createPayment = function(req, res) {
 
     var links = new Object();
 
-    payReq.transactions = [{ amount:{ total:'96', currency:'GBP' }, description:'This is the payment transaction description.' }];
+    payReq.transactions = [{ amount:{ total:'18', currency:'GBP' }, description:'This is the payment transaction description.' }];
 
     paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
@@ -82,9 +82,8 @@ exports.executePayment = function (req, res) {
  |--------------------------------------------------
  */
 exports.paypalNotifications = function (req, res) {
-
-   console.log(req);
-    res.json(req);
+   console.log(req.body);
+    res.send(req.body);
 };
 
 
