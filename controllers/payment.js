@@ -100,10 +100,10 @@ exports.getTransactions = function (req, res) {
 exports.paypalNotifications = function (req, res) {
 
     console.log("INFO-->");
-    console.log(req.headers.paypal-auth-algo);
-    var headers     = { 'paypal-auth-algo': req.headers.paypal-auth-algo, 'paypal-cert-url': req.headers.paypal-cert-url, 'paypal-transmission-id': req.headers.paypal-transmission-id, 'paypal-transmission-sig': req.headers.paypal-transmission-sig, 'paypal-transmission-time': req.headers.paypal-transmission-time };
-    console.log(headers);
-    paypal.notification.webhookEvent.verify(headers, req.body, '73B67500R3338843F', function (error, response) {
+    // console.log(req.headers.paypal-auth-algo);
+    // var headers     = { 'paypal-auth-algo': req.headers.paypal-auth-algo, 'paypal-cert-url': req.headers.paypal-cert-url, 'paypal-transmission-id': req.headers.paypal-transmission-id, 'paypal-transmission-sig': req.headers.paypal-transmission-sig, 'paypal-transmission-time': req.headers.paypal-transmission-time };
+    // console.log(headers);
+    paypal.notification.webhookEvent.verify(req.headers, req.body, '73B67500R3338843F', function (error, response) {
         if (error) {
             console.log(error);
             throw error;
