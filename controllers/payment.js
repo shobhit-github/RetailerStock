@@ -83,7 +83,15 @@ exports.executePayment = function (req, res) {
  */
 exports.paypalNotifications = function (req, res) {
    console.log(req.body);
-    res.send(req.body);
+    paypal.notification.webhookEvent.getAndVerify(req.body, function (error, response) {
+        if (error) {
+            console.log(error);
+            throw error;
+        } else {
+            console.log(response);
+            res.send(response);
+        }
+    });
 };
 
 
