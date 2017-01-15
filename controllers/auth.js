@@ -186,7 +186,7 @@ exports.google =  function(req, res) {
  */
 exports.linkedin =  function(req, res) {
 
-  var fields = '~:(id,first-name,last-name,email-address,picture-url,phone-number)';
+  var fields = '~:(id,first-name,last-name,email-address,picture-url,phone-numbers)';
 
   request.post(process.env.LKDN_TOKEN_URL, { json: true, form:
     { code: req.body.code,  client_id: req.body.clientId, client_secret: LINKEDIN_SECRET, redirect_uri: req.body.redirectUri, grant_type: 'authorization_code' }
@@ -195,7 +195,7 @@ exports.linkedin =  function(req, res) {
 
     request.get({ url: process.env.LKDN_PROFILE_URL + fields, qs: { oauth2_access_token: token.access_token, format: 'json' }, json: true }, function(err, response, profile) {
 
-      console.log(profile);
+      res.json(profile);
 
       if (profile.error) {
         return res.status(500).json({ status:false, message: profile.error.message});

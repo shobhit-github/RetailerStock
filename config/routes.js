@@ -38,7 +38,7 @@ router.get('/check_auth', mid.ensureAuthenticated, AuthController.checkAuth);
 
 router.post('/facebook', AuthController.facebook);
 router.post('/google', AuthController.google);
-router.post('/linkedn', AuthController.linkedin);
+router.post('/linkedin', AuthController.linkedin);
 
 
 /* Routes for User Module

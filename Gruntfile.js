@@ -1,59 +1,72 @@
+module.exports = function(grunt){
+    "use strict";
 
+    require("load-grunt-tasks")(grunt);
 
-    module.exports = function(grunt) {
+    grunt.initConfig({
 
-        grunt.initConfig({
-            pkg: grunt.file.readJSON('package.json'),
-            concat: {
-                options: {
-                    separator: '|'
-                },
-                dist: {
-                    src: ['ngApp/src/**/*.js'],
-                    dest: 'ngApp/dist/script.js'
-                }
-            },
-            uglify: {
-                options: {
-                 //   banner: '/*! <%= pkg.name %> <%= grunt.template.today() %> */\n'
-                },
-                dist: {
-                    files: {
-                        'ngApp/dist/script.min.js': ['ngApp/src/**/*.js']
-                    }
-                }
-            },
-            jshint: {
-                // define the files to lint
-                files: ['dist/script.js'],
-                // configure JSHint
-                options: {
-                    // more options here if you want to override JSHint defaults
-                    globals: {
-                        jQuery: true
-                    }
-                }
-            },
-            babel: {
-                compile: {
-                    options: {
-                        sourceMap: true,
-                        presets: ['es2015']
-                    },
-                    files: ['dist/script.js']
-                }
-            },
-            watch: {
-                files: ['ngApp/src/**/*.js'],
-                tasks: ['jshint']
+        jshint: {
+            files: ["ngApp/src/**/*.js"],
+            options: {
+                "curly": true,
+                "eqeqeq": true,
+                "undef": true,
+                "unused": "vars",
+                "esnext":true,
+                "devel":true,
+                "node":true,
+                "noyield":true
             }
-        });
+        },
 
-        grunt.loadNpmTasks('grunt-contrib-uglify');
-        grunt.loadNpmTasks('grunt-contrib-jshint');
-        grunt.loadNpmTasks('grunt-contrib-watch');
-        grunt.loadNpmTasks('grunt-contrib-concat');
+        es6transpiler: {
+            dist: {
+                files: {
+                    "dist/ng/app.trans.js": ["ngApp/src/**/*.js"]
+                }
+            }
+        },
 
-        grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'babel']);
+        regenerator: {
+            options: {
+                includeRuntime: true
+            },
+            dist: {
+                files: {
+                    "dist/ng/app.es5.js": "dist/ng/app.trans.js"
+                }
+            }
+        },
 
-    };
+
+        uglify: {
+            main: {
+                files: {
+                    "dist/ng/app.min.js":["dist/ng/app.es5.js"]
+                }
+            },
+            options: {
+                mangle:{toplevel:true},
+                sourceMap: true,
+                sourceMapName: "app.js.map",
+                sourceMapIncludeSources: true,
+                compress:true
+            }
+        },
+
+        watch: {
+            all: {
+                files:["app.js"],
+                tasks:["jshint","es6transpiler","regenerator","uglify"],
+                options:{
+                    spawn:false
+                }
+            }
+        }
+
+    });
+
+
+    grunt.registerTask("build", ["jshint","es6transpiler","regenerator","uglify", "watch"]);
+
+};
