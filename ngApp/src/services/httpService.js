@@ -1,8 +1,10 @@
 
 'use strict';
-// Storing multiple constant values inside of an object
-// Keep in mind the values in the object mean they can be modified
-// Which makes no sense for a constant, use wisely if you do this
+/**
+ * Storing multiple constant values inside of an object
+ * Keep in mind the values in the object mean they can be modified
+ * Which makes no sense for a constant, use wisely if you do this
+ */
 
 app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SERVER_URL',
   function ($http, $token, $rootScope, $sweetAlert, $msg, SERVER_URL) {
@@ -17,22 +19,22 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   /* Authentication Service
   ----------------------------------------------*/
 
-  this.isAuthorized = function(module_name) { // Check Authorization
+  this.isAuthorized = function(module_name) {
     return $http.get(SERVER_URI+'check_auth', {
       headers: { 'Authorization': $token.getFromCookie() || $token.getFromLocal() || $token.getFromSession() } ,
       params : { 'module_name': module_name }
     });
   };
   
-  this.authenticate = function(data) { // Authenticate User
+  this.authenticate = function(data) {
     return $http.post(SERVER_URI+'login', data);
   };
 
-  this.resetPassword = function(email) { // Reset Password
+  this.resetPassword = function(email) {
     return $http.post(SERVER_URI+'reset_password', email);
   };
  
-  this.exit = function() { // Get Logout
+  this.exit = function() {
     return $token.deleteFromAllStorage();
   };
 
@@ -41,7 +43,7 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   /* User Service
   ----------------------------------------------*/
 
-  this.findMember = function(params) {  // Find user profile
+  this.findMember = function(params) {
     config.params = params;
     if(params.search) {
       return $http.post(SERVER_URI+'all_users', params.search, config);
@@ -54,7 +56,7 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
     return $http.delete(SERVER_URI+'remove_profile/'+data, config);
   };
 
-  this.updateUserProfile = function(data) { // Update user profile
+  this.updateUserProfile = function(data) {
 
     return $http.put(SERVER_URI+'update_profile', data, config);
   };

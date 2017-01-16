@@ -1,8 +1,10 @@
 
 'use strict';
-// Storing multiple constant values inside of an object
-// Keep in mind the values in the object mean they can be modified
-// Which makes no sense for a constant, use wisely if you do this
+/**
+ * Storing multiple constant values inside of an object
+ * Keep in mind the values in the object mean they can be modified
+ * Which makes no sense for a constant, use wisely if you do this
+ */
 
 app.service('$sweetAlert', [ '$timeout', '$window', '$msg',
 	function ($timeout, $window, $msg) {
@@ -22,25 +24,25 @@ app.service('$sweetAlert', [ '$timeout', '$window', '$msg',
                 }
             }, 'warning');
         }, time);
-    }
+    };
 
 	this.success = function (title, message) {
         $timeout(function () {
             swal(title, message, 'success');
         }, time);
-    }
+    };
 
     this.error = function (title, message) {
         $timeout(function () {
             swal(title || "Oh shit !!" , message, 'error');
         }, time);
-    }
+    };
 
     this.warning = function (title, message) {
         $timeout(function () {
             swal(title, message, 'warning');
         }, time);
-    }
+    };
 
     this.info = function (title, message) {
         $timeout(function () {

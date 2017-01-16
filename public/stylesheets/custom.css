@@ -4306,7 +4306,7 @@ button.pay-btn {
   height: 100%;
   width: 6px;
   display: inline-block;
-  
+  margin: 0 1.5px !important;
   -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
