@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ngApp/app.min.js" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/ngApp/app.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/app.js" afterPath="$PROJECT_DIR$/ngApp/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/config.js" afterPath="$PROJECT_DIR$/ngApp/src/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/authController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/authController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/dashboardController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/dashboardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/headerController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/headerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/membersController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/membersController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/profileController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/profileController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/shoppingController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/sidebarController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/sidebarController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" afterPath="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/directives/eventBasedDirective.js" afterPath="$PROJECT_DIR$/ngApp/src/directives/eventBasedDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/directives/socialAuthDirective.js" afterPath="$PROJECT_DIR$/ngApp/src/directives/socialAuthDirective.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/routes.js" afterPath="$PROJECT_DIR$/ngApp/src/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/httpService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/httpService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/messageService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/messageService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/socketService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/socketService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/sweetAlertService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/sweetAlertService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/tokenService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/tokenService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <list id="ccc84b25-db24-4daf-b92f-9330d338f204" name="New changelist" comment="New changelist" />
     <ignored path="RetailerStock.iws" />
@@ -89,7 +71,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="917">
@@ -99,42 +81,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ngApp/src/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="380">
+              <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngApp/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1484570003612" expanded="true" signature="7562:7930" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="7684:7913" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="8213:8771" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="8289:8754" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="8331:8735" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="8362:8650" ph="..." />
-                <marker date="1484570003612" expanded="false" signature="8681:8697" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="9070:9424" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="9143:9409" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="9183:9392" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="11055:11364" ph="..." />
-                <marker date="1484570003612" expanded="false" signature="11079:11095" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12040:12355" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12074:12340" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12114:12322" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12645:13248" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12735:13233" ph="..." />
-                <marker date="1484570003612" expanded="true" signature="12767:13216" ph="..." />
-                <marker date="1484570003612" expanded="false" signature="12996:13005" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -144,6 +96,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="733">
+              <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -266,7 +228,6 @@
         <option value="$PROJECT_DIR$/ngApp/dist/style.css" />
         <option value="$PROJECT_DIR$/ngApp/dist/script.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/authController.js" />
         <option value="$PROJECT_DIR$/ngApp/src/app.js" />
         <option value="$PROJECT_DIR$/ngApp/src/config.js" />
@@ -277,6 +238,7 @@
         <option value="$PROJECT_DIR$/ngApp/src/controllers/profileController.js" />
         <option value="$PROJECT_DIR$/ngApp/app.js" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -651,14 +613,7 @@
       <workItem from="1484546555132" duration="4482000" />
       <workItem from="1484552303281" duration="8000" />
       <workItem from="1484552330953" duration="15000" />
-      <workItem from="1484552364253" duration="17473000" />
-    </task>
-    <task id="LOCAL-00063" summary="Integrating Payment Gateway">
-      <created>1480936964223</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1480936964223</updated>
+      <workItem from="1484552364253" duration="17609000" />
     </task>
     <task id="LOCAL-00064" summary="Integrating Payment Gateway">
       <created>1480936992655</created>
@@ -996,19 +951,26 @@
       <option name="project" value="LOCAL" />
       <updated>1484569215419</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="Changes -&gt; changes made on all angular src files based on the 'use strict' to &quot;use strict&quot;">
+      <created>1484570146654</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1484570146654</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218959000" />
+    <option name="totallyTimeSpent" value="219095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1863" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14492753" sideWeight="0.46700507" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14492753" sideWeight="0.46700507" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14492753" sideWeight="0.5329949" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14492753" sideWeight="0.5329949" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24" sideWeight="0.50569475" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11631664" sideWeight="0.5035533" order="2" side_tool="true" content_ui="tabs" />
@@ -1061,7 +1023,8 @@
     <MESSAGE value="Changes -&gt; changes made on enc file" />
     <MESSAGE value="Changes -&gt; changes made on ng-src files in ngApp directory.&#10;Implementation -&gt; grunt task runner implemented." />
     <MESSAGE value="Added -&gt; added app.js in ngApp directory of angular src min file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added -&gt; added app.js in ngApp directory of angular src min file" />
+    <MESSAGE value="Changes -&gt; changes made on all angular src files based on the 'use strict' to &quot;use strict&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes -&gt; changes made on all angular src files based on the 'use strict' to &quot;use strict&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1344,14 +1307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1416,67 +1371,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ngApp/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484570003612" expanded="true" signature="7562:7930" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="7684:7913" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8213:8771" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8289:8754" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8331:8735" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8362:8650" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="8681:8697" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9070:9424" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9143:9409" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9183:9392" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="11055:11364" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="11079:11095" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12040:12355" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12074:12340" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12114:12322" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12645:13248" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12735:13233" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12767:13216" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="12996:13005" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484570003612" expanded="true" signature="7562:7930" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="7684:7913" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8213:8771" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8289:8754" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8331:8735" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="8362:8650" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="8681:8697" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9070:9424" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9143:9409" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="9183:9392" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="11055:11364" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="11079:11095" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12040:12355" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12074:12340" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12114:12322" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12645:13248" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12735:13233" ph="..." />
-            <marker date="1484570003612" expanded="true" signature="12767:13216" ph="..." />
-            <marker date="1484570003612" expanded="false" signature="12996:13005" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1484,6 +1383,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="917">
           <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="78" column="24" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/src/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
           <folding />
         </state>
       </provider>
