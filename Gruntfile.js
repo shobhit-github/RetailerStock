@@ -10,7 +10,7 @@ module.exports = function(grunt){
     grunt.initConfig({
 
         jshint: {
-            files: ["ngApp/app.js"],
+            files: ["ngApp/app.min.js"],
             options: {
                 globals: {
                     jQuery: true
@@ -21,21 +21,21 @@ module.exports = function(grunt){
         concat: {
             ng: {
                 src: ['ngApp/src/**/*.js'],
-                dest: 'ngApp/app.js'
+                dest: 'ngApp/app.min.js'
             }
         },
 
         comments: {
             js: {
                 options: { singleline: true, multiline: true },
-                src: [ 'ngApp/app.js' ]
+                src: [ 'ngApp/app.min.js' ]
             }
         },
 
         minifyPolymer: {
             default: {
                 files: {
-                    'ngApp/app.js': 'ngApp/app.js'
+                    'ngApp/app.min.js': 'ngApp/app.min.js'
                 }
             }
         }

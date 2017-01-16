@@ -1,5 +1,5 @@
 
-'use strict';
+"use strict";
 /**
  * Storing multiple constant values inside of an object
  * Keep in mind the values in the object mean they can be modified
