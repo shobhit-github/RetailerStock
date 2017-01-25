@@ -165,9 +165,8 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
       templateUrl: TEMPLATE_URL+'products.html'
 
     }).state('home.product_detail', {
-      url: '/product_detail',
+      url: '/product_detail/:id',
       controller:"productCtrl",
-      params: { id: null },
       resolve: {
         checkPermission:function($q, $api, $state, $rootScope) {
           var deferred = $q.defer();

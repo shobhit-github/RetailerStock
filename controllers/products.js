@@ -2,7 +2,10 @@
 /*      Dependencies 
 ---------------------------------------------*/
 
-var Product = require(MODEL_ROOT+'products');
+var Product = require(MODEL_ROOT+'products')
+  , Payment = require(CTRL_ROOT+'payment');
+
+var async   = require('async');
 
   
 
@@ -53,5 +56,34 @@ exports.productById = function(req, res) {
     }
     return res.status(200).json({ success: true, data: result });
   })
+
+};
+
+
+/*
+ |--------------------------------------------------
+ | Get One Product Detail
+ |--------------------------------------------------
+ */
+exports.buyProduct = function(req, res) {
+
+  async.waterfall([
+      function (callback) {
+        Product.findById(req.query.id, function(err, product) {
+          if(err) callback(err, null);
+          callback(null, product);
+        })
+      },
+      function (request, callback) {
+        Payment.createPayment([{ amount:{ total:request.price, currency:'USD' }, description:request.description }], function (err, resp) {
+          if(err) callback(err, null);
+          callback(null, resp);
+        })
+      }
+  ], function (err, result) {
+      if(err) return res.status(400).json({ status: false, message: msg.BAD_REQUEST, err_description: err});
+      return res.status(200).json(result);
+  })
+
 
 };

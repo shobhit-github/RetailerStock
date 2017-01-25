@@ -70,9 +70,17 @@ app.controller('productCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 
 		if(STATE_NAME=='home.product_detail') productDetails($stateParams.id);
 
+		$scope.checkOut = function (product_id) {
+			$api.buyProduct({id:product_id}).
+				then(function (res, status) {
+					window.open(res.data.pay_url, "Payment", "width=650,height=800,left="+(screen.width/2 - 650/2)+",top="+(screen.height/2 - 800/2));
+			}, function (res, status) {
+				$api.handleError(res);
+			})
+		};
 		
 		$scope.paginateMembers = function(pageParams) {
-			getMembers(pageParams);
+			getProducts(pageParams);
 		}
 
 		

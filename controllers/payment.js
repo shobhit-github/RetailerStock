@@ -24,17 +24,14 @@ const cancelUrl = SERVER_URI+'#/cancelPayment';
  | Create Payment through the PayPal
  |--------------------------------------------------
  */
-exports.createPayment = function(req, res) {
+exports.createPayment = function(transationDetail, callback) {
 
     var links = new Object();
-
-    payReq.transactions = [{ amount:{ total:'18', currency:'USD' }, description:'This is the payment transaction description.' }];
+    payReq.transactions = transationDetail;
 
     paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
-        if(err) return res.status(400).json({
-            status: false, message: msg.PAYMENT_FAILED
-        });
+        if(err) callback({ status: false, message: msg.PAYMENT_FAILED }, false);
 
             payment.links.forEach(function(linkObj){
                 links[linkObj.rel] = {
@@ -44,11 +41,9 @@ exports.createPayment = function(req, res) {
             });
 
         if (links.hasOwnProperty('approval_url')) {
-            return res.status(200).json({ status:true, pay_url:links['approval_url'].href });
+            callback(false, { status:true, pay_url:links['approval_url'].href });
         } else {
-            return res.status(400).json({
-                status: false, message: msg.BAD_REQUEST
-            });
+            callback({ status: false, message: msg.BAD_REQUEST }, false);
         }
 
     });

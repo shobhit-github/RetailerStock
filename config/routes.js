@@ -67,6 +67,7 @@ router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
  |........................................ */
 router.get('/product_list', mid.ensureAuthenticated, ProductController.getAllProducts);
 router.get('/product_detail', mid.ensureAuthenticated, ProductController.productById);
+router.get('/buy_product', mid.ensureAuthenticated, ProductController.buyProduct);
 
 
 

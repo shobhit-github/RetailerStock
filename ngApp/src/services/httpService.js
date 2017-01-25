@@ -66,11 +66,6 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   /* Shop Service
    ----------------------------------------------*/
 
-  this.createPayment = function () {
-
-    return $http.get(SERVER_URI+'create_payment', config);
-  };
-
   this.makePayment = function (params) {
     config.params = params;
     return $http.get(SERVER_URI+'execute_payment', config);
@@ -105,6 +100,11 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
   this.productDetail = function(id) {
     config.params = {id:id};
     return $http.get(SERVER_URI+'product_detail', config);
+  };
+
+  this.buyProduct = function(params) {
+    config.params = params;
+    return $http.get(SERVER_URI+'buy_product', config);
   };
 
 
