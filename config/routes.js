@@ -12,10 +12,11 @@ var mid               = require(HELP_ROOT+'middlewares');
 
 /*  controller dependencies
 ..........................................*/
-var AuthController    =   require(CTRL_ROOT+'auth')
-  , PaymentController =   require(CTRL_ROOT+'payment')
-  , ChatController    =   require(CTRL_ROOT+'chat')
-  , UserController    =   require(CTRL_ROOT+'users');
+var AuthController              =   require(CTRL_ROOT+'auth')
+  , PaymentController           =   require(CTRL_ROOT+'payment')
+  , ChatController              =   require(CTRL_ROOT+'chat')
+  , UserController              =   require(CTRL_ROOT+'users')
+  , ProductController           =   require(CTRL_ROOT+'products');
 
 
 
@@ -60,6 +61,12 @@ router.post('/paypal_notify', PaymentController.paypalNotifications);
 /* Routes for Chat Module
  |........................................ */
 router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
+
+
+/* Routes for Product Module
+ |........................................ */
+router.get('/product_list', mid.ensureAuthenticated, ProductController.getAllProducts);
+router.get('/product_detail', mid.ensureAuthenticated, ProductController.productById);
 
 
 

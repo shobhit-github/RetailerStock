@@ -27,5 +27,4 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache',
 
     $rootScope.$on('$stateChangeStart', clearTemplateCache);
 
-
 }]);

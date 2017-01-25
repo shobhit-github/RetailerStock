@@ -83,13 +83,29 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
 
   this.getChatList = function (params) {
     config.params = params;
-    return $http.get(SERVER_URI+'chat_list', config);
+   // return $http.get(SERVER_URI+'chat_list', config);
   };
 
   this.getConversation = function () {
 
   };
 
+
+    /* Product Service
+     ----------------------------------------------*/
+
+  this.products = function(params) {
+    config.params = params;
+    if(params.search) {
+      return $http.post(SERVER_URI+'product_list', params.search, config);
+    }
+    return $http.get(SERVER_URI+'product_list', config);
+  };
+
+  this.productDetail = function(id) {
+    config.params = {id:id};
+    return $http.get(SERVER_URI+'product_detail', config);
+  };
 
 
 

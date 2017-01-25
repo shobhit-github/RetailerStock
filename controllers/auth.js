@@ -159,7 +159,7 @@ exports.google =  function(req, res) {
         return res.status(500).json({ status:false, message: profile.error.message});
       }
 
-      User.findOne({ google: profile.sub }, function(err, existingUser) {
+      User.findOne({ social: { google: profile.sub } }, function(err, existingUser) {
 
         var username = profile.given_name.toLowerCase()+profile.family_name.toLowerCase();
         var userData = { firstname: profile.given_name, lastname: profile.family_name, username: username, password: generateString(8), social: { google: profile.sub }, picture: profile.picture, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
@@ -195,13 +195,11 @@ exports.linkedin =  function(req, res) {
 
     request.get({ url: process.env.LKDN_PROFILE_URL + fields, qs: { oauth2_access_token: token.access_token, format: 'json' }, json: true }, function(err, response, profile) {
 
-      res.json(profile);
-
       if (profile.error) {
         return res.status(500).json({ status:false, message: profile.error.message});
       }
 
-      User.findOne({ google: profile.sub }, function(err, existingUser) {
+      User.findOne({ social: { linkedin: profile.sub } }, function(err, existingUser) {
 
         var username = profile.firstName.toLowerCase()+profile.lastName.toLowerCase();
         var userData = { firstname: profile.firstName, lastname: profile.lastName, username: username, password: generateString(8), social: { linkedin: profile.id }, picture: profile.pictureUrl, email: profile.emailAddress, gender: profile.gender==='male' ? "M" : "F" };
