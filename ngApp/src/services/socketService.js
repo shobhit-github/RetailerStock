@@ -6,22 +6,20 @@
  * Which makes no sense for a constant, use wisely if you do this
  */
 
-app.service('$socket', ['$rootScope', '$sweetAlert', '$msg', 'SERVER_URL',
-  function ($rootScope, $sweetAlert, $msg, SERVER_URL) {
+app.service('$socket', ['SERVER_URL',
+  function (SERVER_URL) {
 
-  const socket = io.connect(SERVER_URL+'api/chat/');
+    console.log(io);
+  const socket = io.connect(SERVER_URL+'noti');
 
-      
+    console.log(socket);
+
   this.on = function (eventName, callback) {
-    socket.on(eventName, function (r) {
-      console.log(r);
-    })  
+    //socket.on(eventName, callback);
   };
     
-  this.emit = function (eventName, data, callback) {
-    socket.emit(eventName, function (data) {
-      
-    })
+  this.emit = function (eventName, data) {
+    //socket.emit(eventName, data);
   };
 
 
