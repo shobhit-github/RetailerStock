@@ -6,11 +6,13 @@
  * Which makes no sense for a constant, use wisely if you do this
  */
 
-app.controller('productCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert', '$msg', '$stateParams',
-	function productCtrl($rootScope, $scope, $api, $state, $sweetAlert, $msg, $stateParams) {
+app.controller('productCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert', '$msg', '$stateParams', '$socket',
+	function productCtrl($rootScope, $scope, $api, $state, $sweetAlert, $msg, $stateParams, $socket) {
 		$scope.$on('$stateChangeSuccess', dashboardUtilities);
 
 		var STATE_NAME = $state.current.name;
+
+		//$socket.emit('add-customer', ">>>>>>>>>>>>DAT");
 
 		var pageParams = function(data) {
 			return {	

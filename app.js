@@ -6,10 +6,13 @@ var logger = require('morgan')
   , cors = require('cors')
   , mongoose = require('mongoose');
   
-var http = require('http')
-  , bodyParser = require('body-parser')
+var bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , app = express();
+
+// Socket Connection
+var http  = require('http').Server(app)
+  , io    = require('socket.io')(http);
 
 
 // intializations
@@ -36,6 +39,7 @@ app.use('/views', express.static(path.join(__dirname + '/views')));
 app.use(express.static(path.join(__dirname, 'ngApp')));
 
 
+
 // Starting index.html file 
 app.get('/', function(req, res) {
   res.status(200).sendfile('./index.html');
@@ -46,6 +50,8 @@ app.get('/', function(req, res) {
 app.use(cors());
 app.use('/api',  require(CONF_ROOT+'routes'));
 
+// Routes for sockets
+//io.of("/noti").on("connection", require(CTRL_ROOT+'socket').notification);
 
 
 // Catch 404 and forward to error handler
