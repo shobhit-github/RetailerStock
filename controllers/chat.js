@@ -1,19 +1,15 @@
 
-/*      Dependencies 
+/*      Dependencies
 ---------------------------------------------*/
 
 var express = require('express')
-  , socket  = require('socket.io');
+  , socket  = require('socket.io')(require('http').createServer(express));
 
 var User = require(MODEL_ROOT+'users')
   , Chat = require(MODEL_ROOT+'chats');
 
 
- 
 
-
- 
- 
  /**
  |======================================================================================
  |    Chat Module start here...
@@ -27,16 +23,21 @@ var User = require(MODEL_ROOT+'users')
  |--------------------------------------------------
  */
 exports.chatList = function() {
-  
+
+
+    socket.on('socket:hello', function(client){
+        console.log(client);
+    });
+
   var conditions = { $or: [ { role: { $ne: "Administrator" } }, { _id: { $ne: req.user._id } } ] };
   var options = { select : "_id firstname lastname picture" }; // specific fields to be show ;
-  
+
   User.find(conditions, options, function(err, result) {
-    
+
     if(result.total == 0) {
       return { message: msg.NO_RECORD, data: result };
     }
-    
+
     return { data: result };
   })
 
@@ -51,7 +52,7 @@ exports.chatList = function() {
 var saveMessage = function (data, callback) {
 
   var chat = new Chat(data);
-  
+
   chat.save(function (err, res) {
     if(err)
       return console.log(err);

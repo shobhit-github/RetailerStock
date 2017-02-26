@@ -12,7 +12,9 @@ app.controller('productCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 
 		var STATE_NAME = $state.current.name;
 
-		//$socket.emit('add-customer', ">>>>>>>>>>>>DAT");
+		$socket.on("customer-added", function (data) {
+			console.log(data);
+        });
 
 		var pageParams = function(data) {
 			return {	

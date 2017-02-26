@@ -60,7 +60,6 @@ router.post('/paypal_notify', PaymentController.paypalNotifications);
 
 /* Routes for Chat Module
  |........................................ */
-router.get('/chat_list', mid.ensureAuthenticated, ChatController.chatList);
 
 
 /* Routes for Product Module

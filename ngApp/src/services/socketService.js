@@ -9,13 +9,10 @@
 app.service('$socket', ['SERVER_URL',
   function (SERVER_URL) {
 
-    console.log(io);
-  const socket = io.connect(SERVER_URL+'noti');
-
-    console.log(socket);
+  const socket = io.connect();
 
   this.on = function (eventName, callback) {
-    //socket.on(eventName, callback);
+    socket.on(eventName, callback);
   };
     
   this.emit = function (eventName, data) {

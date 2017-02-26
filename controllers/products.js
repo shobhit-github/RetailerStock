@@ -3,7 +3,8 @@
 ---------------------------------------------*/
 
 var Product = require(MODEL_ROOT+'products')
-  , Payment = require(CTRL_ROOT+'payment');
+  , Payment = require(CTRL_ROOT+'payment')
+  , Notify  = require(CTRL_ROOT+'socket') ;
 
 var async   = require('async');
 
@@ -34,7 +35,7 @@ exports.getAllProducts = function(req, res) {
     if(result.total == 0) {
       return res.status(200).json({ success: true, message: msg.NO_RECORD, data: result });
     }
-    
+
     return res.status(200).json({ success: true, data: result });
   })
 
@@ -54,6 +55,8 @@ exports.productById = function(req, res) {
     if(!result) {
       return res.status(200).json({ success: true, message: msg.NO_RECORD });
     }
+
+    Notify.customerAdded({ status: true, message: msg.PASSWORD_UPDATED_DONE });
     return res.status(200).json({ success: true, data: result });
   })
 

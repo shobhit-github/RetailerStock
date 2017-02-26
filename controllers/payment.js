@@ -100,7 +100,7 @@ exports.paypalNotifications = function (req, res) {
         if (error) 
             return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
 
-        console.log(response);
+        console.log("WEBHOOK ->", response);
         // if (response.verification_status === 'SUCCESS')
         //     return res.status(400).json({ status: false, message: msg.PAYMENT_VERIFIED});
         //

@@ -1,16 +1,14 @@
 
-/*      Dependencies 
----------------------------------------------*/
+
+/*      Dependencies
+ ---------------------------------------------*/
+
+var express = require('express')
+  , http    = require('http').Server(express())
+  , io      = require('socket.io')(http);
 
 
-var User = require(MODEL_ROOT+'users')
-  , Chat = require(MODEL_ROOT+'chats');
 
-
-
-
- 
- 
  /**
  |======================================================================================
  |    Socket Module start here...
@@ -18,25 +16,20 @@ var User = require(MODEL_ROOT+'users')
  */
 
 
-exports.notification = function (socket) {
+/*
+ |--------------------------------------------------
+ | Retrieve all Users
+ |--------------------------------------------------
+ */
 
+ exports.customerAdded = function (data) {
 
-  /*
-   |--------------------------------------------------
-   | Retrieve all Users
-   |--------------------------------------------------
-   */
+     io.on('connection', function(socket) {
+         socket.emit('customer-added', data);
+     });
+ };
+ 
 
-  socket.on('add-customer', function(customer) {
-    console.log(customer);
-    /*io.emit('notification', {
-      message: 'new customer',
-      customer: customer+" Sharma"
-    });*/
-  });
-
-
-};
 
 
 

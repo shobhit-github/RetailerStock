@@ -1,3 +1,8 @@
+
+// intializations
+require('./config/config');
+
+
 var express = require('express')
   , path = require('path')
   , favicon = require('serve-favicon');
@@ -10,13 +15,9 @@ var bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , app = express();
 
-// Socket Connection
-var http  = require('http').Server(app)
-  , io    = require('socket.io')(http);
+var http    = require('http').Server(app)
+  , io      = require('socket.io')(http);
 
-
-// intializations
-require('./config/config');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +38,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
 app.use(express.static(path.join(__dirname + '/public')));
 app.use('/views', express.static(path.join(__dirname + '/views')));
 app.use(express.static(path.join(__dirname, 'ngApp')));
-
+app.use(express.static(path.join(__dirname + '/')));
 
 
 // Starting index.html file 
@@ -50,9 +51,9 @@ app.get('/', function(req, res) {
 app.use(cors());
 app.use('/api',  require(CONF_ROOT+'routes'));
 
-// Routes for sockets
-//io.of("/noti").on("connection", require(CTRL_ROOT+'socket').notification);
 
+
+require(CTRL_ROOT+'socket');
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

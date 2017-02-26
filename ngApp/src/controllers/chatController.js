@@ -9,14 +9,18 @@
 app.controller('chatCtrl', ['$scope', '$socket',
 	function chatCtrl($scope, $socket) {
 
+		console.log(">>");
+        /*$socket.emit('hello', {"fff":"This is data"}, function (e, v) {
+            console.log(e, v);
+        });*/
 
-		/*$socket.on('chat:get-user', function (data) {
-			console.log("All Users : ", data)
-		});
-		
-		$socket.on('chat:message-receive', function (data) {
-			console.log("Received Message : ", data)
-		});*/
+        /*$socket.on('chat:get-user', function (data) {
+            console.log("All Users : ", data)
+        });
+
+        $socket.on('chat:message-receive', function (data) {
+            console.log("Received Message : ", data)
+        });*/
 
 		$scope.joinUser = function (user_id) {
 
