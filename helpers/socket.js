@@ -2,15 +2,16 @@
 
 /*      Dependencies
  ---------------------------------------------*/
-//
-// var express = require('express')
-//   , http    = require('http').Server(express())
-//   , io      = require('socket.io')(http.listen(2300));
-//
+
+// var server = require('../bin/www')
+//   , io      = require('socket.io').listen(server);
+
+
+
 
  /**
  |======================================================================================
- |    Socket Module start here...
+ |    Notification Module start here...
  |======================================================================================
  */
 

@@ -4,10 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var color = require('chalk');
-var debug = require('debug')('RetailerStock:server');
-var http = require('http');
+var app     = require('../app');
+var color   = require('chalk');
+var debug   = require('debug')('RetailerStock:server');
+var http    = require('http');
+var socket  = require('socket.io')
 
 /**
  * Get port from environment and store in Express.
