@@ -9,7 +9,7 @@
 app.service('$socket', ['SERVER_URL',
   function (SERVER_URL) {
 
-  const socket = io.connect();
+  const socket = io.connect(SERVER_URL);
 
   this.on = function (eventName, callback) {
     socket.on(eventName, callback);

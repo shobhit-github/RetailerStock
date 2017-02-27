@@ -7,7 +7,7 @@
 var express           = require('express')
   , router            = express.Router();
 
-var mid               = require(HELP_ROOT+'middlewares');
+var mid               = require(CTRL_ROOT+'middlewares');
 
 
 /*  controller dependencies

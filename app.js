@@ -15,9 +15,6 @@ var bodyParser = require('body-parser')
   , cookieParser = require('cookie-parser')
   , app = express();
 
-var http    = require('http').Server(app)
-  , io      = require('socket.io')(http);
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -52,8 +49,6 @@ app.use(cors());
 app.use('/api',  require(CONF_ROOT+'routes'));
 
 
-
-require(CTRL_ROOT+'socket');
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

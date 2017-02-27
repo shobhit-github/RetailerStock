@@ -2,12 +2,11 @@
 
 /*      Dependencies
  ---------------------------------------------*/
-
-var express = require('express')
-  , http    = require('http').Server(express())
-  , io      = require('socket.io')(http);
-
-
+//
+// var express = require('express')
+//   , http    = require('http').Server(express())
+//   , io      = require('socket.io')(http.listen(2300));
+//
 
  /**
  |======================================================================================

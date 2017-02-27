@@ -26,9 +26,22 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
+
+/**
+ * creating socket connection, on all network interfaces.
+ */
+global.io = require('socket.io').listen(server);
+require(HELP_ROOT+'socket');
+
+
+/**
+ * handling errors, on all network interfaces.
+ */
 server.on('error', onError);
 server.on('listening', onListening);
 console.log("\n", color.bold.cyan(debug.namespace), "Listening on port", port, color.cyan("+0ms"));
+
+
 /**
  * Normalize a port into a number, string, or false.
  */
