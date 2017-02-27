@@ -60,7 +60,8 @@ app.controller('productCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 
 
 		var productDetails = function (product_id) {
-			$api.productDetail(product_id).
+
+           $api.productDetail(product_id).
 				success(function (res, status) {
 					$scope.product = res.data;
 			}).error(function (res, status) {

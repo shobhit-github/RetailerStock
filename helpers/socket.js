@@ -25,7 +25,7 @@
  exports.customerAdded = function (data) {
 
      io.on('connection', function(socket) {
-         socket.emit('customer-added', data);
+         io.emit('customer-added', data);
      });
  };
  

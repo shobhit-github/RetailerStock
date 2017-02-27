@@ -11,7 +11,7 @@ app.controller('headerCtrl', ['$scope', '$socket', '$notify',
 	function headerCtrl($scope, $socket, $notify) {
 
         $socket.on("customer-added", function (data) {
-        	console.log(data);
+            console.log(data);
             $notify.default(undefined, data.message);
         });
 	}
