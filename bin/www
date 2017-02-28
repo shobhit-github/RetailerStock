@@ -8,7 +8,7 @@ var app     = require('../app');
 var color   = require('chalk');
 var debug   = require('debug')('RetailerStock:server');
 var http    = require('http');
-var socket  = require('socket.io')
+var socket  = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -31,9 +31,7 @@ server.listen(port);
 /**
  * creating socket connection, on all network interfaces.
  */
-global.io = require('socket.io').listen(server);
-require(HELP_ROOT+'socket');
-
+global.io = socket.listen(server);
 
 /**
  * handling errors, on all network interfaces.

@@ -14,27 +14,27 @@ app.service('$notify', [ '$timeout', '$window', '$msg',
 
     this.default = function(title, message) {
 
-        return new PNotify({ title: title || "Notification", text: message, type: 'info', styling: styling, addclass: 'dark', hide: false });
+        new PNotify({ title: title || "Notification", text: message, type: 'info', styling: styling, addclass: 'dark' });
     };
 
 	this.success = function (title, message) {
 
-        new PNotify({ title: title || "Success", text: message, type: 'success', styling: styling, hide: false });
+        new PNotify({ title: title || "Success", text: message, type: 'success', styling: styling });
     };
 
     this.error = function (title, message) {
 
-        new PNotify({ title: title || "Oh Shit !!", text: message, type: 'error', styling: styling, hide: false });
+        new PNotify({ title: title || "Oh Shit !!", text: message, type: 'error', styling: styling });
     };
 
     this.warning = function (title, message) {
 
-        new PNotify({ title: title || "Warning !", text: message, styling: styling, hide: false });
+        new PNotify({ title: title || "Warning !", text: message, styling: styling });
     };
 
     this.info = function (title, message) {
 
-        new PNotify({ title: title || "Information", text: message, type: 'info', styling: styling, hide: false });
+        new PNotify({ title: title || "Information", text: message, type: 'info', styling: styling });
     }
 
 

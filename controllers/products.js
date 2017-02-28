@@ -4,7 +4,7 @@
 
 var Product = require(MODEL_ROOT+'products')
   , Payment = require(CTRL_ROOT+'payment')
-  , Notify  = require(HELP_ROOT+'socket') ;
+  , Notify  = require(HELP_ROOT+'notify');
 
 var async   = require('async');
 
