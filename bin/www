@@ -22,22 +22,16 @@ app.set('port', port);
  */
 var server = http.createServer(app);
 
+
+
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-
-/**
- * creating socket connection, on all network interfaces.
- */
-global.io = socket.listen(server);
-
-/**
- * handling errors, on all network interfaces.
- */
 server.on('error', onError);
 server.on('listening', onListening);
+global.io = socket.listen(server);
 console.log("\n", color.bold.cyan(debug.namespace), "Listening on port", port, color.cyan("+0ms"));
 
 
