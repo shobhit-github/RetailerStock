@@ -84,7 +84,8 @@
     "angular-messages": "1.5.8",
     "ngSweetAlert": "angular-sweetalert#^1.1.2",
     "satellizer": "^0.15.5",
-    "angular-socket-io": "^0.7.0"
+    "angular-socket-io": "^0.7.0",
+    "socket.io": "^1.7.3"
   },
   "resolutions": {
     "jquery": "^2.2.3",

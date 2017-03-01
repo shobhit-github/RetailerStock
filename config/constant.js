@@ -16,7 +16,7 @@ global.MONGO_CONNECT       =    process.env.MONGO_URI;
 
 global.SERVER_URI          =    process.env.SERVER_URI;
 
-global.IMG_URI             =    process.env.IMG_URL
+global.IMG_URI             =    process.env.IMG_URL;
 
 /* App Directory Paths
 ..................*/
@@ -32,6 +32,8 @@ global.CONF_ROOT           =    ROOT + process.env.CONF_DIR;
 global.HELP_ROOT           =    ROOT + process.env.HELP_DIR;
 
 global.LIB_ROOT            =    ROOT + process.env.LIB_DIR;
+
+global.LNG_ROOT            =    ROOT + process.env.LNG_DIR;
 
 global.TEMPLATE_ROOT       =    ROOT + process.env.TEMPLATE_DIR;
 

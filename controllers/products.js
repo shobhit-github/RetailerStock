@@ -3,8 +3,7 @@
 ---------------------------------------------*/
 
 var Product = require(MODEL_ROOT+'products')
-  , Payment = require(CTRL_ROOT+'payment')
-  , Notify  = require(HELP_ROOT+'notify');
+  , Payment = require(CTRL_ROOT+'payment');
 
 var async   = require('async');
 
@@ -56,7 +55,6 @@ exports.productById = function(req, res) {
       return res.status(200).json({ success: true, message: msg.NO_RECORD });
     }
 
-    Notify.customerAdded({ status: true, message: msg.PASSWORD_UPDATED_DONE });
     return res.status(200).json({ success: true, data: result });
   })
 

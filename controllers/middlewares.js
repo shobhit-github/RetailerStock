@@ -2,9 +2,10 @@
 /*      Dependencies 
 ---------------------------------------------*/
 
-var express = require('express')
+var express = require('express');
 
-var msg = require(CONF_ROOT+'messages');
+var msg = require(CONF_ROOT+'messages')
+  , lng = require(LNG_ROOT+'setting');
   
 var crypto = require('crypto')
   , algorithm = 'aes-256-ctr'
@@ -16,22 +17,24 @@ var nodeMailer  = require('nodemailer')
 var jwt = require('jwt-simple')
   , moment = require('moment');
 
-var helper = new Object();
-  
+var middleware = new Object();
+
 
 
 /**
  |======================================================================================
- |    Helper Methods for Authentication module
+ |    Middleware Module start here...
  |======================================================================================
  */
-  
+
+
+
 /*
  |--------------------------------------------------
  | Ensure Authentication (Middleware 1)
  |--------------------------------------------------
  */
-helper.ensureAuthenticated = function (req, res, next) {
+middleware.ensureAuthenticated = function (req, res, next) {
 
   if (!req.header('Authorization')) {
     return res.status(401).json({
@@ -59,6 +62,30 @@ helper.ensureAuthenticated = function (req, res, next) {
 };
 
 
+/*
+ |--------------------------------------------------
+ | Language Checker (Middleware 2)
+ |--------------------------------------------------
+ */
+middleware.languageSetter = function (req, res, next) {
+
+    var placeholders
+      , lang = req.header('Language');
+
+    if( !req.header('Language') ) {
+        placeholders = 'en';
+    }
+    else {
+        placeholders = lang;
+    }
+
+
+    var placeholders = lng(placeholders);
+
+    global.txt = placeholders;
+    next();
+
+};
 
 
 
@@ -74,4 +101,8 @@ helper.ensureAuthenticated = function (req, res, next) {
 
 
 
-module.exports = helper;
+module.exports = middleware;
+
+
+
+
