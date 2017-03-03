@@ -22,7 +22,7 @@ var languageSetter = function (lang) {
         case 'en': return en; break;
 
         default:
-            console.log("INVALID LANGUAGE"); break;
+            console.error("INVALID LANGUAGE"); break;
     }
 
 };
