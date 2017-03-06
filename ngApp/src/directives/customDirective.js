@@ -15,7 +15,7 @@ app.directive('splashScreen',
         $rootScope.$on('$stateChangeSuccess', function () {
           setTimeout(function () { $rootScope.$apply(function () {
             $rootScope.loader = false;
-          }) }, 1200);
+          }) }, 30000);
         });
       },
       template: `

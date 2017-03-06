@@ -40,7 +40,7 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 			$api.findMember( params ).then( function(res, status) {
 				$scope.records	= res.data.data.docs;
 				$scope.pagination = {
-					'limit': res.data.data.limit,
+					'limit': res.data.data.limit,	
 					'totalItems': res.data.data.total,
 					'currentPage': (res.data.data.page > res.data.data.pages) ? res.data.data.pages : res.data.data.page,
 					'numPages': res.data.data.pages,
