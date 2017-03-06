@@ -19,7 +19,7 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 
 		// pagination initializations
 		var pagination = {
-			'limit': 10,
+			'limit': 500,
 			'currentPage': 1,
 			'maxSize': 10
 		};
