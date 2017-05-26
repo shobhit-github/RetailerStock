@@ -1,16 +1,13 @@
+/*      Dependencies
+ ---------------------------------------------*/
 
-/*      Dependencies 
----------------------------------------------*/
+var Product = require(MODEL_ROOT + 'products')
+    , Payment = require(CTRL_ROOT + 'payment');
 
-var Product = require(MODEL_ROOT+'products')
-  , Payment = require(CTRL_ROOT+'payment');
-
-var async   = require('async');
-
-  
+var async = require('async');
 
 
- /**
+/**
  |======================================================================================
  |    Product Module start here...
  |======================================================================================
@@ -22,41 +19,21 @@ var async   = require('async');
  | Retrieve all Products Listings
  |--------------------------------------------------
  */
-exports.getAllProducts = function(req, res) {
-  
-  var conditions = new Object()
-    , options = JSON.parse(req.query.paging_info);
+exports.getAllProducts = function (req, res) {
 
-  options.select = "_id title price quantity description"; // specific fields to be show
+    var conditions = new Object()
+        , options = JSON.parse(req.query.paging_info);
 
-  Product.paginate(conditions, options, function(err, result) {
+    options.select = "_id title price quantity description"; // specific fields to be show
 
-    if(result.total == 0) {
-      return res.status(200).json({ success: true, message: msg.NO_RECORD, data: result });
-    }
+    Product.paginate(conditions, options, function (err, result) {
 
-    return res.status(200).json({ success: true, data: result });
-  })
+        if (result.total == 0) {
+            return res.status(200).json({success: true, message: msg.NO_RECORD, data: result});
+        }
 
-};
-
-
-
-/*
- |--------------------------------------------------
- | Get One Product Detail
- |--------------------------------------------------
- */
-exports.productById = function(req, res) {
-
-  Product.findById(req.query.id, function(err, result) {
-
-    if(!result) {
-      return res.status(200).json({ success: true, message: msg.NO_RECORD });
-    }
-
-    return res.status(200).json({ success: true, data: result });
-  })
+        return res.status(200).json({success: true, data: result});
+    })
 
 };
 
@@ -66,25 +43,47 @@ exports.productById = function(req, res) {
  | Get One Product Detail
  |--------------------------------------------------
  */
-exports.buyProduct = function(req, res) {
+exports.productById = function (req, res) {
 
-  async.waterfall([
-      function (callback) {
-        Product.findById(req.query.id, function(err, product) {
-          if(err) callback(err, null);
-          callback(null, product);
-        })
-      },
-      function (request, callback) {
-        Payment.createPayment([{ amount:{ total:request.price, currency:'USD' }, description:request.description }], function (err, resp) {
-          if(err) callback(err, null);
-          callback(null, resp);
-        })
-      }
-  ], function (err, result) {
-      if(err) return res.status(400).json({ status: false, message: msg.BAD_REQUEST, err_description: err});
-      return res.status(200).json(result);
-  })
+    Product.findById(req.query.id, function (err, result) {
+
+        if (!result) {
+            return res.status(200).json({success: true, message: msg.NO_RECORD});
+        }
+
+        return res.status(200).json({success: true, data: result});
+    })
+
+};
+
+
+/*
+ |--------------------------------------------------
+ | Get One Product Detail
+ |--------------------------------------------------
+ */
+exports.buyProduct = function (req, res) {
+
+    async.waterfall([
+        function (callback) {
+            Product.findById(req.query.id, function (err, product) {
+                if (err) callback(err, null);
+                callback(null, product);
+            })
+        },
+        function (request, callback) {
+            Payment.createPayment([{
+                amount: {total: request.price, currency: 'USD'},
+                description: request.description
+            }], function (err, resp) {
+                if (err) callback(err, null);
+                callback(null, resp);
+            })
+        }
+    ], function (err, result) {
+        if (err) return res.status(400).json({status: false, message: msg.BAD_REQUEST, err_description: err});
+        return res.status(200).json(result);
+    })
 
 
 };

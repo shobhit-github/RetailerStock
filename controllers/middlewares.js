@@ -42,8 +42,8 @@ middleware.ensureAuthenticated = function (req, res, next) {
       message: msg.TOKEN_MISMATCH
     });
   }
-  var token = req.header('Authorization').split(' ')[1];
-  var payload = null;
+  let token = req.header('Authorization').split(' ')[1];
+  let payload = null;
 
   try {
     payload = jwt.decode(token, TOKEN_SECRET); 
