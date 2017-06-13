@@ -4,7 +4,7 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
+    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="Changes -&gt; changes made on config file">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
     </list>
@@ -148,11 +148,9 @@
       <file leaf-file-name="bower.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bower.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="85" column="28" lean-forward="true" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
-              <folding>
-                <marker date="1497358437341" expanded="true" signature="512:2817" ph="{&quot;jquery&quot;: &quot;^2.2.3&quot;...}" />
-              </folding>
+            <state relative-caret-position="139">
+              <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -560,6 +558,13 @@
     <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
       <config-file value="" />
       <node-interpreter value="project" />
@@ -761,14 +766,7 @@
       <workItem from="1492268603556" duration="322000" />
       <workItem from="1495782863499" duration="4528000" />
       <workItem from="1495960399918" duration="1713000" />
-      <workItem from="1497355757999" duration="2300000" />
-    </task>
-    <task id="LOCAL-00086" summary="Integrating Chat Module">
-      <created>1481111731288</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1481111731288</updated>
+      <workItem from="1497355757999" duration="2400000" />
     </task>
     <task id="LOCAL-00087" summary="Integrating Chat Module">
       <created>1481112390131</created>
@@ -1106,11 +1104,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497358077394</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="Changes -&gt; changes made on config file">
+      <created>1497358457193</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1497358457193</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374181000" />
+    <option name="totallyTimeSpent" value="374281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1632,11 +1637,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="85" column="28" lean-forward="true" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
-          <folding>
-            <marker date="1497358437341" expanded="true" signature="512:2817" ph="{&quot;jquery&quot;: &quot;^2.2.3&quot;...}" />
-          </folding>
+        <state relative-caret-position="139">
+          <caret line="87" column="30" lean-forward="false" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -85,8 +85,8 @@
     "ngSweetAlert": "angular-sweetalert#^1.1.2",
     "satellizer": "^0.15.5",
     "angular-socket-io": "^0.7.0",
-    "socket.io": "^1.7.3",
-    "angular-toastr": "^2.1.1"
+    "angular-toastr": "^2.1.1",
+    "socket.io": "^1.7.3"
   },
   "resolutions": {
     "jquery": "^2.2.3",
