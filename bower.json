@@ -2,8 +2,7 @@
   "name": "retailer_stock",
   "homepage": "https://localhost:3000/index.html",
   "authors": [
-    "Shobhit Sharma",
-    "Christian Esperar"
+    "Shobhit Sharma"
   ],
   "description": "Retailer Stock is a is basically for the small business application where user can easilu manage their stock.",
   "keywords": [
