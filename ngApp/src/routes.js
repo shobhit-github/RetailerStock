@@ -14,7 +14,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
 
     $urlRouterProvider.when("", "/login");
     $urlRouterProvider.when("/", "/login");
-   // $urlRouterProvider.otherwise("/404");
+    $urlRouterProvider.otherwise("/404");
 
     
     $stateProvider.

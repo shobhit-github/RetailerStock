@@ -14,6 +14,25 @@ app.config(function($httpProvider, $authProvider) {
     $httpProvider.defaults.headers.delete = { "Content-Type": "application/json;charset=utf-8" };
 
 
+
+    /*
+     | Interceptor Configurations
+     |------------------------------------------
+     */
+    /*$httpProvider.interceptors.push(function () {
+
+        return {
+            'request': function (config) {
+                console.log('request intercept');
+            },
+
+            'response': function (response) {
+                console.log('response intercept');
+            }
+        };
+    });*/
+
+
     /*
      | Social Authentication Configurations
      |------------------------------------------
