@@ -1,4 +1,3 @@
-
 "use strict";
 /**
  * Storing multiple constant values inside of an object
@@ -6,31 +5,66 @@
  * Which makes no sense for a constant, use wisely if you do this
  */
 
-app.controller('chatCtrl', ['$scope', '$socket',
-	function chatCtrl($scope, $socket) {
+app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope',
+    function chatCtrl($scope, Pubnub, $token, $rootScope) {
 
-		console.log(">>");
-        /*$socket.emit('hello', {"fff":"This is data"}, function (e, v) {
-            console.log(e, v);
-        });*/
+        $scope.channel = 'Channel-vg2otkim4';
+        $scope.messages = [];
 
-        /*$socket.on('chat:get-user', function (data) {
-            console.log("All Users : ", data)
+        $scope.uuid = $token.getFromLocal().split(' ')[1];
+
+
+
+        Pubnub.init({
+            publish_key: 'pub-c-78a030e7-1460-4af8-a89c-972b1b076826',
+            subscribe_key: 'sub-c-c7efcfde-4ade-11e7-ab90-02ee2ddab7fe',
+            uuid: $scope.uuid
         });
 
-        $socket.on('chat:message-receive', function (data) {
-            console.log("Received Message : ", data)
-        });*/
 
-		$scope.joinUser = function (user_id) {
+        // Send the messages over PubNub Network
+        $scope.sendMessage = function (event) {
 
-			//$socket.emit('chat:join-user', user_id);
-		};
 
-		$scope.sendMessage = function (data) {
+            // Don't send an empty message
+            if (!$scope.messageContent || $scope.messageContent === '') {
+                return;
+            }
 
-			//$socket.emit('chat:send-message', data);
-		};
-		
 
-}]);
+            Pubnub.publish({
+                channel: $scope.channel,
+                message: {
+                    content: { first_name: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent },
+                    sender_uuid: $scope.uuid,
+                    date: new Date()
+                },
+                callback: function (m) {
+                    console.log(m);
+                }
+            });
+            // Reset the messageContent input
+            $scope.messageContent = '';
+
+            event.preventDefault();
+
+        };
+
+
+        // Subscribing to the ‘messages-channel’ and trigering the message callback
+        Pubnub.subscribe({
+            channel: $scope.channel,
+            triggerEvents: ['callback']
+        });
+
+
+        // Listening to the callbacks
+        $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
+
+            $scope.$apply(function () {
+                $scope.messages.push(m.content)
+            });
+        });
+
+
+    }]);

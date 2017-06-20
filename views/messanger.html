@@ -1,7 +1,7 @@
 
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div ng-controller="chatCtrl" class="right_col" role="main">
           <div class="mid_section">
 
             <div class="page-title">
@@ -149,7 +149,7 @@
                         <div class="inbox-body">
                           <div class="chat-message">
                             <ul class="chat">
-                              <li class="left clearfix">
+                              <!--<li class="left clearfix">
                                 <span class="chat-img pull-left">
                                     <img src="http://bootdey.com/img/Content/user_3.jpg" alt="User Avatar">
                                 </span>
@@ -246,18 +246,36 @@
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at.
                                   </p>
                                 </div>
+                              </li>-->
+
+                              <li ng-repeat="message in messages" class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="{{message.avatar}}" alt="User Avatar">
+                                </span>
+                                <div class="chat-body clearfix">
+                                  <div class="header">
+                                    <strong class="primary-font">{{message.firstname}} {{message.lastname}}</strong>
+                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                                  </div>
+                                  <p>
+                                    {{message.chat_message}}
+                                  </p>
+                                </div>
                               </li>
+
                             </ul>
 
                           </div>
 
                           <div class="chat-box bg-white">
-                            <div class="input-group">
-                              <input class="form-control border no-shadow no-rounded" placeholder="Type your message here">
-                              <span class="input-group-btn">
-                                  <button class="btn btn-success no-rounded chat-send-btn" type="button">Send</button>
+                            <form ng-submit="sendMessage($event)">
+                              <div class="input-group">
+                                <input ng-model="messageContent" class="form-control border no-shadow no-rounded" placeholder="Type your message here">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-success no-rounded chat-send-btn" type="submit">Send</button>
                               </span>
-                            </div><!-- /input-group -->
+                              </div><!-- /input-group -->
+                            </form>
                           </div>
 
                         </div>
