@@ -65,6 +65,9 @@ small, .small {
 
 .chat-message {
     padding: 22px 20px 12px;
+    min-height: 500px;
+    max-height: 500px;
+    overflow-x: auto;
 }
 
 .chat {

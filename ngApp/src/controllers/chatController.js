@@ -18,7 +18,8 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope',
         Pubnub.init({
             publish_key: 'pub-c-78a030e7-1460-4af8-a89c-972b1b076826',
             subscribe_key: 'sub-c-c7efcfde-4ade-11e7-ab90-02ee2ddab7fe',
-            uuid: $scope.uuid
+            uuid: $scope.uuid,
+            ssl: true
         });
 
 
