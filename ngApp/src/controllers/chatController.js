@@ -53,7 +53,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
                 return;
             }
 
-            var content = { receiver_id: $scope.selected_user, first_name: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent, chat_align: 'left' };
+            var content = { receiver_id: $scope.selected_user, firstname: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent, chat_align: 'left' };
 
             Pubnub.publish({
                 channel: $scope.channel,
