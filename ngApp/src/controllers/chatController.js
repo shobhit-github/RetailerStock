@@ -13,14 +13,6 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
 
 
 
-        Pubnub.init({
-            publish_key: 'pub-c-78a030e7-1460-4af8-a89c-972b1b076826',
-            subscribe_key: 'sub-c-c7efcfde-4ade-11e7-ab90-02ee2ddab7fe',
-            uuid: $scope.uuid,
-            ssl: true
-        });
-        
-        
         $scope.getUsers = function () {
 
             $api.getChatList().then(
@@ -34,7 +26,6 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
                 }
             );
 
-
         };
 
         $scope.getUsers();
@@ -43,7 +34,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         $scope.selectUserToChat = function (user_id) {
             $scope.selected_user = user_id;
         };
-        
+
         // Send the messages over PubNub Network
         $scope.sendMessage = function (event) {
 
@@ -72,6 +63,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
 
             event.preventDefault();
 
+
         };
 
 
@@ -82,11 +74,10 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         });
 
 
+
+
         // Listening to the callbacks
         $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
-
-
-            console.log(m.content.receiver_id, $rootScope.user._id);
 
             if(m.content.receiver_id == $rootScope.user._id) {
 
