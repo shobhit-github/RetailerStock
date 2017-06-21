@@ -5,6 +5,9 @@
 .friend-list {
     list-style: none;
     margin-left: -40px;
+    min-height: 540px;
+    max-height: 540px;
+    overflow-x: auto;
 }
 
 .friend-list li {

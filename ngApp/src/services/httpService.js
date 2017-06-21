@@ -73,8 +73,8 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
          ----------------------------------------------*/
 
         this.getChatList = function (params) {
-            config.params = params;
-            // return $http.get(SERVER_URI+'chat_list', config);
+
+            return $http.get(SERVER_URI+'chat_list', config);
         };
 
         this.getConversation = function () {

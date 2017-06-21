@@ -24,7 +24,7 @@
             <div class="clearfix"></div>
 
             <div class="row">
-              <div ng-show="!loader" class="col-md-12 animate-zoomin">
+              <div ng-show="!loader && chat_list" class="col-md-12 animate-zoomin">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Inbox Design<small>User Mail</small></h2>
@@ -48,9 +48,10 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-sm-3 mail_list_column">
-                        <input class="form-control" type="search" placeholder="find collegue..." />
+                        <input class="form-control" type="search" ng-model="search_user" placeholder="find collegue..." />
 
                         <ul class="friend-list">
+
                           <li class="active bounceInDown">
                             <a href="#" class="clearfix">
                               <img src="http://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
@@ -62,18 +63,20 @@
                               <small class="chat-alert label label-danger">1</small>
                             </a>
                           </li>
-                          <li>
-                            <a href="#" class="clearfix">
-                              <img src="http://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
+
+                          <li ng-repeat="user in chat_list | filter:search_user" ng-class="{active: selected_user == user._id}" >
+                            <a href="javascript:void(0);" ng-click="selectUserToChat(user._id)" class="clearfix">
+                              <img src="{{user.picture}}" alt="NO IMAGE" class="img-circle">
                               <div class="friend-name">
-                                <strong>Jane Doe</strong>
+                                <strong>{{user.firstname}} {{user.lastname}}</strong>
                               </div>
                               <div class="last-message text-muted">Lorem ipsum dolor sit amet.</div>
                               <small class="time text-muted">5 mins ago</small>
                               <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
                             </a>
                           </li>
-                          <li>
+
+                          <!--<li>
                             <a href="#" class="clearfix">
                               <img src="http://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
                               <div class="friend-name">
@@ -138,7 +141,7 @@
                               <small class="time text-muted">5 mins ago</small>
                               <small class="chat-alert text-muted"><i class="fa fa-check"></i></small>
                             </a>
-                          </li>
+                          </li>-->
                         </ul>
                        
                       </div>
