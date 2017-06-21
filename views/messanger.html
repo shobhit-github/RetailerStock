@@ -248,8 +248,8 @@
                                 </div>
                               </li>-->
 
-                              <li ng-repeat="message in messages" class="left clearfix">
-                                <span class="chat-img pull-left">
+                              <li ng-repeat="message in messages" class="{{message.chat_align}} clearfix">
+                                <span class="chat-img pull-{{message.chat_align}}">
                                     <img src="{{message.avatar}}" alt="User Avatar">
                                 </span>
                                 <div class="chat-body clearfix">

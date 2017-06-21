@@ -32,16 +32,19 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope',
                 return;
             }
 
+            var sender_info = { first_name: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent, chat_align: 'left' };
 
             Pubnub.publish({
                 channel: $scope.channel,
                 message: {
-                    content: { first_name: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent },
+                    sender_info: sender_info,
                     sender_uuid: $scope.uuid,
                     date: new Date()
                 },
                 callback: function (m) {
-                    console.log(m);
+                    $scope.$apply(function () {
+                        $scope.messages.push(sender_info)
+                    });
                 }
             });
             // Reset the messageContent input
@@ -62,8 +65,14 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope',
         // Listening to the callbacks
         $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
 
+
+            if(m.sender_uuid == $token.getFromLocal().split(' ')[1]) {
+                return;
+            }
+
             $scope.$apply(function () {
-                $scope.messages.push(m.content)
+                m.sender_info.chat_align = 'right';
+                $scope.messages.push(m.sender_info)
             });
         });
 
