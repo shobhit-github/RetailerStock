@@ -10,6 +10,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
 
         $scope.channel = 'Channel-vg2otkim4';
         $scope.messages = [];
+        $scope.chat_list = [];
 
 
 
@@ -35,6 +36,28 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
             $scope.selected_user = user_id;
         };
 
+
+        // Send the messages over PubNub Network
+        $scope.typingMessage = function (event) {
+
+
+            var content = { receiver_id: $scope.selected_user, firstname: $rootScope.user.firstname,  lastname: $rootScope.user.lastname };
+
+            Pubnub.publish({
+                channel: $scope.channel,
+                message: {
+                    event:'chat:typing',
+                    content: content,
+                    date: new Date()
+                },
+                callback: function (m) {
+                   // console.log(m)
+                }
+            });
+
+        };
+
+
         // Send the messages over PubNub Network
         $scope.sendMessage = function (event) {
 
@@ -49,6 +72,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
             Pubnub.publish({
                 channel: $scope.channel,
                 message: {
+                    event:'chat:send_message',
                     content: content,
                     date: new Date()
                 },
@@ -79,17 +103,37 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         // Listening to the callbacks
         $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
 
-            if(m.content.receiver_id == $rootScope.user._id) {
+            console.log(m.event, $scope.messages);
 
-                $scope.$apply(function () {
-                    m.content.chat_align = 'right';
-                    $scope.messages.push(m.content)
-                });
+            switch (m.event){
+
+                case 'chat:send_message':
+                    $scope.$apply(function () {
+                        if(m.content.receiver_id == $rootScope.user._id)  {
+                            m.content.chat_align = 'right';  $scope.messages.push(m.content);
+                        }
+                    });
+                    break;
+
+                case 'chat:typing':
+                    $scope.$apply(function () {
+                        $scope.user_typing = m.content;
+                    });
+                    break;
+
+                case 'user:login_status:true':
+                    $scope.$apply(function () {
+                        $scope.chat_list.push(m.content);
+                    });
+                    break;
+
             }
 
-            return;
+
 
         });
+
+
 
 
     }]);

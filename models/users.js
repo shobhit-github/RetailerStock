@@ -131,6 +131,13 @@ UserSchema.statics =  {
    */
   removeByIds : function(idsArray, callback) {
     return this.remove({ _id: { $in: idsArray } }, callback);
+  },
+
+  /**
+   * Login Status - changing login status of the user
+   */
+  loginStatus : function(user_id, status, callback) {
+     return this.update({ _id: user_id }, { status : { login: (!status ? 'NO' : 'YES') } }, callback);
   }
   
 };
@@ -176,7 +183,9 @@ UserSchema.methods =  {
       })
       
     })
-  }
+  },
+
+
    
 };
 

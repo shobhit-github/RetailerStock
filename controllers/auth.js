@@ -7,6 +7,7 @@ var express = require('express')
   , request = require('request');
   
 var User   = require(MODEL_ROOT+'users')
+  , Notify = require(HELP_ROOT+'notify')
   , jade   = require(HELP_ROOT+'jade.compiler');
 
 
@@ -92,8 +93,22 @@ exports.login = function(req, res) {
       if (!isMatch) {
         return res.status(401).json({  success: false, message: msg.INCORRECT_PASSWORD });
       }
-      
-      return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
+
+      User.loginStatus(user._id, true, function (err, status) {
+
+          if(err)
+              return res.status(500).json({ success: false, message:msg.INTERNAL_ERROR, description: err });
+
+
+          Notify.userLogin(user, true, function (err, notify) {
+
+              console.log(err, notify);
+
+              return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
+          })
+
+      });
+
     });
   })
 };
@@ -262,8 +277,8 @@ exports.resetPassword = function(req, res) {
  */
 exports.logout = function(req, res) {
   
-  req.logout();
-  
+    req.logout();
+
     res.status(200).json({
       'success':  true,
       'message':  msg.LOGOUT_SUCCESS

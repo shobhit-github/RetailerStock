@@ -22,7 +22,7 @@ var User = require(MODEL_ROOT + 'users')
 exports.chatList = function (req, res) {
 
 
-    var conditions = {$or: [{role: {$ne: "Administrator"}}, {_id: {$ne: req.user._id}}]};
+    var conditions = {$and : [ {status: {login: "YES"}}, {$or: [{role: {$ne: "Administrator"}}, {_id: {$ne: req.user._id}}]}]};
     var options = {_id:1, firstname:1, lastname:1, picture:1}; // specific fields to be show ;
 
     User.find(conditions, options, function (err, result) {
