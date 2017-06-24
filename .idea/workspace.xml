@@ -7,22 +7,10 @@
     <bookmark url="file://$PROJECT_DIR$/controllers/auth.js" line="25" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="Implementation -&gt; implementation on chat module">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ngApp/src/services/socketService.js" afterPath="" />
+    <list default="true" id="a0058a52-cef3-442c-a625-2ba8c2b19579" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/auth.js" afterPath="$PROJECT_DIR$/controllers/auth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/users.js" afterPath="$PROJECT_DIR$/controllers/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/helpers/notify.js" afterPath="$PROJECT_DIR$/helpers/notify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/app.min.js" afterPath="$PROJECT_DIR$/ngApp/app.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/app.js" afterPath="$PROJECT_DIR$/ngApp/src/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/authController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/authController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/chatController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/dashboardController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/dashboardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/controllers/headerController.js" afterPath="$PROJECT_DIR$/ngApp/src/controllers/headerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/routes.js" afterPath="$PROJECT_DIR$/ngApp/src/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ngApp/src/services/httpService.js" afterPath="$PROJECT_DIR$/ngApp/src/services/httpService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dashboard.html" afterPath="$PROJECT_DIR$/views/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/middlewares.js" afterPath="$PROJECT_DIR$/controllers/middlewares.js" />
     </list>
     <list id="ccc84b25-db24-4daf-b92f-9330d338f204" name="New changelist" comment="New changelist" />
     <ignored path="RetailerStock.iws" />
@@ -84,27 +72,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chatController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ngApp/src/controllers/chatController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1840">
-              <caret line="115" column="35" lean-forward="false" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/auth.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1152">
-              <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+            <state relative-caret-position="-636">
+              <caret line="309" column="95" lean-forward="false" selection-start-line="309" selection-start-column="95" selection-end-line="309" selection-end-column="95" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notify.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="notify.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/helpers/notify.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="482">
@@ -137,7 +115,7 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3616">
+            <state relative-caret-position="306">
               <caret line="226" column="28" lean-forward="false" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
               <folding />
             </state>
@@ -177,8 +155,18 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="178">
+              <caret line="37" column="63" lean-forward="false" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="middlewares.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/middlewares.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="45" column="41" lean-forward="false" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -233,7 +221,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info target-remote="origin" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="heroku" target-branch="master" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -265,7 +253,6 @@
         <option value="$PROJECT_DIR$/ngApp/src/directives/customDirective.js" />
         <option value="$PROJECT_DIR$/lang/setting.js" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/membersController.js" />
-        <option value="$PROJECT_DIR$/controllers/middlewares.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/npm-debug.log" />
         <option value="$PROJECT_DIR$/ngApp/src/config.js" />
@@ -288,8 +275,9 @@
         <option value="$PROJECT_DIR$/ngApp/src/services/httpService.js" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/headerController.js" />
         <option value="$PROJECT_DIR$/ngApp/src/controllers/dashboardController.js" />
-        <option value="$PROJECT_DIR$/controllers/auth.js" />
         <option value="$PROJECT_DIR$/helpers/notify.js" />
+        <option value="$PROJECT_DIR$/controllers/middlewares.js" />
+        <option value="$PROJECT_DIR$/controllers/auth.js" />
       </list>
     </option>
   </component>
@@ -348,10 +336,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="48" />
-    <option name="y" value="-11" />
-    <option name="width" value="1319" />
-    <option name="height" value="780" />
+    <option name="x" value="49" />
+    <option name="y" value="-4" />
+    <option name="width" value="1317" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -608,6 +596,11 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
+    <configuration default="true" type="MongoRunConfiguration" factoryName="Mongo">
+      <setting name="path" value="" />
+      <setting name="shellParams" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
@@ -810,14 +803,7 @@
       <workItem from="1498236651261" duration="598000" />
       <workItem from="1498247115360" duration="28000" />
       <workItem from="1498256173949" duration="11810000" />
-      <workItem from="1498328163426" duration="99000" />
-    </task>
-    <task id="LOCAL-00097" summary="Additional Changes">
-      <created>1481480402232</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1481480402233</updated>
+      <workItem from="1498328163426" duration="2719000" />
     </task>
     <task id="LOCAL-00098" summary="Additional Changes">
       <created>1481480441929</created>
@@ -1155,11 +1141,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498129459500</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="Implementation -&gt; implementation on chat module and realtime functionalities">
+      <created>1498328313999</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1498328313999</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="450913000" />
+    <option name="totallyTimeSpent" value="453533000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1171,17 +1164,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="48" y="-11" width="1319" height="780" extended-state="6" />
+    <frame x="49" y="-4" width="1317" height="772" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26452282" sideWeight="0.2844874" order="15" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25829875" sideWeight="0.25513515" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105882354" sideWeight="0.20206186" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25613496" sideWeight="0.2580645" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2576687" sideWeight="0.25513515" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105882354" sideWeight="0.20604396" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4417178" sideWeight="0.2580645" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.117550574" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25829875" sideWeight="0.7419355" order="13" side_tool="false" content_ui="tabs" x="669" y="354" width="315" height="243" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.13996719" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105882354" sideWeight="0.79793817" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105882354" sideWeight="0.79395604" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10661564" sideWeight="0.18994413" order="5" side_tool="true" content_ui="tabs" x="629" y="482" width="199" height="240" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10873146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10810811" sideWeight="0.3782542" order="4" side_tool="true" content_ui="tabs" />
@@ -1286,7 +1279,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Integrating Payment Gateway" />
     <MESSAGE value="Integrating Chat Module" />
     <MESSAGE value="Additional Changes" />
     <MESSAGE value="Added -&gt; Message -&gt; Middleware Helper &#10;Added -&gt; Message Parameter -&gt; Message Config" />
@@ -1311,7 +1303,8 @@
     <MESSAGE value="Changes -&gt; changes made on .env (environment) file" />
     <MESSAGE value="Changes -&gt; changes made on config file" />
     <MESSAGE value="Implementation -&gt; implementation on chat module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation -&gt; implementation on chat module" />
+    <MESSAGE value="Implementation -&gt; implementation on chat module and realtime functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation -&gt; implementation on chat module and realtime functionalities" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1472,13 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/middlewares.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1539,6 +1525,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="0" column="27485" lean-forward="false" selection-start-line="0" selection-start-column="27485" selection-end-line="0" selection-end-column="27485" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1553,6 +1540,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="149" column="15" lean-forward="false" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1560,6 +1548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="777">
           <caret line="188" column="31" lean-forward="true" selection-start-line="188" selection-start-column="31" selection-end-line="188" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1567,6 +1556,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="10" column="82" lean-forward="false" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1574,6 +1564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="24" column="67" lean-forward="false" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1581,22 +1572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1840">
           <caret line="115" column="35" lean-forward="false" selection-start-line="115" selection-start-column="35" selection-end-line="115" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3616">
-          <caret line="226" column="28" lean-forward="false" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1641,18 +1616,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="72" column="24" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/notify.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="57" column="83" lean-forward="false" selection-start-line="57" selection-start-column="83" selection-end-line="57" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ngApp/src/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="226" column="28" lean-forward="false" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="37" column="63" lean-forward="false" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/middlewares.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="45" column="41" lean-forward="false" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-636">
+          <caret line="309" column="95" lean-forward="false" selection-start-line="309" selection-start-column="95" selection-end-line="309" selection-end-column="95" />
           <folding />
         </state>
       </provider>

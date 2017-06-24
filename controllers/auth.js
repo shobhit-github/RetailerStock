@@ -70,8 +70,6 @@ exports.signUp = function(req, res) {
       return res.status(500).json({ success:false, message: err });
 
 
-    console.log(result);
-
     Notify.newUserRegistered(result, function (err) {
 
         if(err.error)
@@ -180,7 +178,7 @@ exports.facebook =  function(req, res) {
                   if(!response)
                       return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(existingUser) });
+                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
               });
 
           }
@@ -193,7 +191,7 @@ exports.facebook =  function(req, res) {
                   if(!response)
                       return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(result) });
+                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
               });
 
           });
@@ -235,7 +233,7 @@ exports.google =  function(req, res) {
                 if(!response)
                     return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(existingUser) });
+                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
         }
@@ -248,7 +246,7 @@ exports.google =  function(req, res) {
                 if(!response)
                     return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(result) });
+                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
             });
 
         });
@@ -296,7 +294,7 @@ exports.linkedin =  function(req, res) {
                 if(!response)
                     return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(existingUser) });
+                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
         }
@@ -309,7 +307,7 @@ exports.linkedin =  function(req, res) {
                 if(!response)
                     return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(result) });
+                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
             });
 
         });
