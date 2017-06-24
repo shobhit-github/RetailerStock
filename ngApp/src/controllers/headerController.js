@@ -7,11 +7,34 @@
  */
 
 
-app.controller('headerCtrl', ['$scope', '$socket', '$notify',
-	function headerCtrl($scope, $socket, $notify) {
+app.controller('headerCtrl', ['$scope', 'Pubnub', '$notify',
+	function headerCtrl($scope, Pubnub, $notify) {
 
-        $socket.on("customer-added", function (data) {
-            $notify.default(undefined, data.message);
+        $scope.channel = 'Channel-vg2otkim4';
+
+        // Listening to the callbacks
+        $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
+
+
+            switch (m.event){
+
+                case 'user:registration':
+                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" as a new user registered !");
+                    break;
+
+                case 'user:login_status:true':
+                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" has been logged in !");
+                    break;
+
+                case 'user:login_status:false':
+                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" has been logout !");
+                    break;
+            }
+
+
+
         });
+
+
 	}
 ]);

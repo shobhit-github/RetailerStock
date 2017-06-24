@@ -103,8 +103,6 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         // Listening to the callbacks
         $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
 
-            console.log(m.event, $scope.messages);
-
             switch (m.event){
 
                 case 'chat:send_message':

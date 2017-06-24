@@ -30,10 +30,17 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache', 'Pubnub',
 
     /* PubNub Configurations
      ----------------------------------------------*/
+
     Pubnub.init({
       publish_key: 'pub-c-78a030e7-1460-4af8-a89c-972b1b076826',
       subscribe_key: 'sub-c-c7efcfde-4ade-11e7-ab90-02ee2ddab7fe',
       ssl: true
+    });
+
+    // Subscribing to the ‘messages-channel’ and trigering the message callback
+    Pubnub.subscribe({
+        channel: 'Channel-vg2otkim4',
+        triggerEvents: ['callback']
     });
 
 

@@ -34,7 +34,8 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
         };
 
         this.exit = function () {
-            return $token.deleteFromAllStorage();
+            $token.deleteFromAllStorage();
+            return $http.get(SERVER_URI + 'logout',  {params: {user: $rootScope.user} })
         };
 
 
@@ -59,6 +60,12 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
             return $http.put(SERVER_URI + 'update_profile', data, config);
         };
 
+        this.usersCount = function () {
+
+            return $http.get(SERVER_URI + 'users_count', config);
+        };
+
+
 
         /* Shop Service
          ----------------------------------------------*/
@@ -67,6 +74,7 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
             config.params = params;
             return $http.get(SERVER_URI + 'execute_payment', config);
         };
+
 
 
         /* Chat Service
@@ -80,6 +88,9 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
         this.getConversation = function () {
 
         };
+
+
+
 
 
         /* Product Service
@@ -102,6 +113,31 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
             config.params = params;
             return $http.get(SERVER_URI + 'buy_product', config);
         };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         this.handleError = function (res) {

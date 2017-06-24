@@ -44,6 +44,7 @@ router.post('/linkedin', mid.languageSetter, AuthController.linkedin);
 
 /* Routes for User Module
  |........................................ */
+router.get('/users_count', [ mid.languageSetter, mid.ensureAuthenticated ], UserController.usersCount);
 router.put('/update_profile', [ mid.languageSetter, mid.ensureAuthenticated ], UserController.updateProfile);
 router.delete('/remove_profile/:ids', [ mid.languageSetter, mid.ensureAuthenticated ], UserController.deleteUser);
 router.put('/modify_password', [ mid.languageSetter, mid.ensureAuthenticated ], UserController.changePassword);

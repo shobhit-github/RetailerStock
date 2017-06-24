@@ -217,9 +217,17 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
       }).state('logout', {
         url : '/logout',
         controller : function($rootScope, $api, $location, $templateCache, $msg) {
-          $rootScope.authInfo = $rootScope.authWarning = $rootScope.authError = false; 
-          $rootScope.authSuccess = $msg.LOGOUT_SUCCESS;
-          $api.exit(); $location.path('/');
+          $api.exit().then(
+              function (resp) {
+
+                  $rootScope.authInfo = $rootScope.authWarning = $rootScope.authError = false;
+                  $rootScope.authSuccess = $msg.LOGOUT_SUCCESS;
+                  $location.path('/');
+              },
+              function (resp) {
+                  $api.handleError(resp);
+              }
+          );
         }
 
       })

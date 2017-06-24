@@ -38,13 +38,30 @@ exports.userLogin = function (data, status, callback) {
             content:{_id:data._id, firstname:data.firstname, lastname:data.lastname, picture:data.picture}
         }
     }, function (status, response) {
-        console.log(status, response);
+
         callback(status, response);
     })
 
 };
 
+/*
+ |--------------------------------------------------
+ | Notify that new user added..
+ |--------------------------------------------------
+ */
+exports.newUserRegistered = function (data, callback) {
 
+    pNub.publish({
+        channel:pubNubChannel,
+        message:{
+            event:'user:registration',
+            content:{_id:data._id, firstname:data.firstname, lastname:data.lastname}
+        }
+    }, function (status, response) {
 
+        callback(status, response);
+    })
+
+};
 
 

@@ -3,7 +3,8 @@
 ---------------------------------------------*/
 
 var express = require('express')
-  , User = require(MODEL_ROOT+'users');
+  , async  = require('async')
+  , User   = require(MODEL_ROOT+'users');
 
   
 
@@ -129,4 +130,72 @@ exports.getAllUsers = function(req, res) {
 };
 
 
+
+/*
+ |--------------------------------------------------
+ | Retrieve all Users counts
+ |--------------------------------------------------
+ */
+exports.usersCount = function(req, res) {
+
+
+    async.parallel({
+        
+        total_users: function (callback) {
+
+            User.count({}, function(err, count) {
+
+                if(err)
+                  return callback(err, false);
+
+                  callback(false, count);
+            });
+        },
+
+        online_users: function (callback) {
+
+            User.count({status:{login:"YES"}}, function(err, count) {
+
+                if(err)
+                    return callback(err, false);
+
+                callback(false, count);
+            });
+        },
+
+        male_users: function (callback) {
+
+            User.count({gender:"M"}, function(err, count) {
+
+                if(err)
+                    return callback(err, false);
+
+                callback(false, count);
+            });
+
+        },
+
+        female_users: function (callback) {
+
+            User.count({gender:"F"}, function(err, count) {
+
+                if(err)
+                    return callback(err, false);
+
+                callback(false, count);
+            });
+
+        }
+    }, function (err, result) {
+
+        if(err)
+          return res.status(500).json({success:false, message: msg.INTERNAL_ERROR, description:err});
+
+        return res.status(200).json({success:true, data: result});
+
+    })
+
+
+
+};
 
