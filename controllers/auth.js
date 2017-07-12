@@ -73,9 +73,9 @@ exports.signUp = function(req, res) {
     Notify.newUserRegistered(result, function (err) {
 
         if(err.error)
-            return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR, description: err });
+            return res.status(500).json({ success: false, message: txt.INTERNAL_ERROR, description: err });
 
-        return res.status(200).json({ success: true, message: msg.REGISTERATION_DONE, token: createJWT(result) });
+        return res.status(200).json({ success: true, message: txt.REGISTERATION_DONE, token: createJWT(result) });
     });
 
 
@@ -86,7 +86,7 @@ exports.signUp = function(req, res) {
     var profile = new User(req.body);
     
     if (existingUser) {
-      return res.status(409).json({ success: false, message: msg.ALREADY_EXIST });
+      return res.status(409).json({ success: false, message: txt.ALREADY_EXIST });
     }
     
     profile.save(function(err, result) {
@@ -96,7 +96,7 @@ exports.signUp = function(req, res) {
       
         return res.status(200).json({
           success: true, 
-          message: msg.REGISTERATION_DONE,
+          message: txt.REGISTERATION_DONE,
           token: createJWT(result)
         });      
     });
@@ -116,22 +116,22 @@ exports.login = function(req, res) {
 
   User.findOne({ username: req.body.username }, function(err, user) {
     if (!user) {
-      return res.status(401).json({ success: false, message: msg.NOT_EXIST });
+      return res.status(401).json({ success: false, message: txt.NOT_EXIST });
     }
     
     user.comparePassword(req.body.password, function(err, isMatch) {
 
       if (!isMatch) {
-        return res.status(401).json({  success: false, message: msg.INCORRECT_PASSWORD });
+        return res.status(401).json({  success: false, message: txt.INCORRECT_PASSWORD });
       }
 
 
       changeLoginStatus(user, true, function (response) {
 
         if(!response)
-            return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+            return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-          return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
+          return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: "JWT "+ createJWT(user) });
       });
 
     });
@@ -176,9 +176,9 @@ exports.facebook =  function(req, res) {
               changeLoginStatus(existingUser, true, function (response) {
 
                   if(!response)
-                      return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                      return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+                  return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
               });
 
           }
@@ -189,9 +189,9 @@ exports.facebook =  function(req, res) {
               changeLoginStatus(result, true, function (response) {
 
                   if(!response)
-                      return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                      return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                  return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
+                  return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
               });
 
           });
@@ -231,9 +231,9 @@ exports.google =  function(req, res) {
             changeLoginStatus(existingUser, true, function (response) {
 
                 if(!response)
-                    return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
         }
@@ -244,9 +244,9 @@ exports.google =  function(req, res) {
             changeLoginStatus(result, true, function (response) {
 
                 if(!response)
-                    return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
+                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
             });
 
         });
@@ -292,9 +292,9 @@ exports.linkedin =  function(req, res) {
             changeLoginStatus(existingUser, true, function (response) {
 
                 if(!response)
-                    return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(existingUser) });
+                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
         }
@@ -305,9 +305,9 @@ exports.linkedin =  function(req, res) {
             changeLoginStatus(result, true, function (response) {
 
                 if(!response)
-                    return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                return res.status(200).json({ success: true, message:msg.LOGIN_SUCCESS, token: createJWT(result) });
+                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
             });
 
         });
@@ -332,20 +332,20 @@ exports.resetPassword = function(req, res) {
   User.findOne({email: req.body.email}, function(err, user) {
     
     if (!user) {
-      return res.status(401).json({ success: false, message: msg.NOT_EXIST });
+      return res.status(401).json({ success: false, message: txt.NOT_EXIST });
     }
 
      user.reset_link = SERVER_URI+'#/set-password/:'+encryptedEmail;
 
     jade.compile('reset_password', user, function (err, html) {
         if(err)
-          return res.status(400).json({ success: false, message: msg.BAD_REQUEST });
+          return res.status(400).json({ success: false, message: txt.BAD_REQUEST });
 
       sendMail({ to:req.body.email, subject:'Reset Password',html:html}, function(err, resp) {  // check email sending status
         if(err) {
-          return res.status(500).json({ success: false, message: msg.EMAIL_FAILED, description: err });
+          return res.status(500).json({ success: false, message: txt.EMAIL_FAILED, description: err });
         }
-        return res.status(200).json({ success: true, message: msg.EMAIL_SENT});
+        return res.status(200).json({ success: true, message: txt.EMAIL_SENT});
       });
     });
 
@@ -366,9 +366,9 @@ exports.logout = function(req, res) {
     changeLoginStatus(JSON.parse(req.query.user), false, function (response) {
 
         if(!response)
-            return res.status(500).json({ success: true, message:msg.INTERNAL_ERROR});
+            return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-        res.status(200).json({success: true, message: msg.LOGOUT_SUCCESS});
+        res.status(200).json({success: true, message: txt.LOGOUT_SUCCESS});
     });
 
 };

@@ -33,7 +33,7 @@ global.msg = {
     USERS_DELETED                   :   "User(s) profile has been deleted successfully",
 
     // Payment Module
-    PAYMENT_SUCCESS                 :   "Payment Successfull",
+    PAYMENT_SUCCESS                 :   "Payment Successfull !",
     PAYMENT_FAILED                  :   "Payment has been cancelled due to internal error !",
     PAYMENT_VERIFIED                :   "Payment has been varified successfully !",
     PAYMENT_NOT_VERIFIED            :   "Payment varification failed due to internal error !"

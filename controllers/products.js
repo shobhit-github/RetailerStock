@@ -29,7 +29,7 @@ exports.getAllProducts = function (req, res) {
     Product.paginate(conditions, options, function (err, result) {
 
         if (result.total == 0) {
-            return res.status(200).json({success: true, message: msg.NO_RECORD, data: result});
+            return res.status(200).json({success: true, message: txt.NO_RECORD, data: result});
         }
 
         return res.status(200).json({success: true, data: result});
@@ -48,7 +48,7 @@ exports.productById = function (req, res) {
     Product.findById(req.query.id, function (err, result) {
 
         if (!result) {
-            return res.status(200).json({success: true, message: msg.NO_RECORD});
+            return res.status(200).json({success: true, message: txt.NO_RECORD});
         }
 
         return res.status(200).json({success: true, data: result});
@@ -81,7 +81,7 @@ exports.buyProduct = function (req, res) {
             })
         }
     ], function (err, result) {
-        if (err) return res.status(400).json({status: false, message: msg.BAD_REQUEST, err_description: err});
+        if (err) return res.status(400).json({status: false, message: txt.BAD_REQUEST, err_description: err});
         return res.status(200).json(result);
     })
 

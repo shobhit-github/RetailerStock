@@ -31,7 +31,7 @@ exports.createPayment = function(transationDetail, callback) {
 
     paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
-        if(err) callback({ status: false, message: msg.PAYMENT_FAILED }, false);
+        if(err) callback({ status: false, message: txt.PAYMENT_FAILED }, false);
 
             payment.links.forEach(function(linkObj){
                 links[linkObj.rel] = {
@@ -43,7 +43,7 @@ exports.createPayment = function(transationDetail, callback) {
         if (links.hasOwnProperty('approval_url')) {
             callback(false, { status:true, pay_url:links['approval_url'].href });
         } else {
-            callback({ status: false, message: msg.BAD_REQUEST }, false);
+            callback({ status: false, message: txt.BAD_REQUEST }, false);
         }
 
     });
@@ -59,13 +59,13 @@ exports.executePayment = function (req, res) {
    paypal.payment.execute(req.query.paymentId, { payer_id: req.query.payerId }, function(error, payment) {
 
         if(error) return res.status(400).json({
-           status:false, message: msg.PAYMENT_FAILED
+           status:false, message: txt.PAYMENT_FAILED
         });
 
         if (payment.state == 'approved')
-            return res.status(200).json({ status:true, message: msg.PAYMENT_SUCCESS });
+            return res.status(200).json({ status:true, message: txt.PAYMENT_SUCCESS });
 
-        return res.status(400).json({ status:true, message: msg.PAYMENT_FAILED});
+        return res.status(400).json({ status:true, message: txt.PAYMENT_FAILED});
     });
 };
 
@@ -80,7 +80,7 @@ exports.getTransactions = function (req, res) {
 
     paypal.payment.list({ start_index: 0 }, function (error, transactions) {
         if (error)
-            return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
+            return res.status(400).json({ status: false, message: txt.BAD_REQUEST});
 
         return res.status(200).json( { status: true, count:transactions.payments.length, response: transactions.payments } );
     });
@@ -98,13 +98,13 @@ exports.paypalNotifications = function (req, res) {
 
     paypal.notification.webhookEvent.verify(req.headers, req.body, '73B67500R3338843F', function (error, response) {
         if (error) 
-            return res.status(400).json({ status: false, message: msg.BAD_REQUEST});
+            return res.status(400).json({ status: false, message: txt.BAD_REQUEST});
 
         console.log("WEBHOOK ->", response);
         // if (response.verification_status === 'SUCCESS')
-        //     return res.status(400).json({ status: false, message: msg.PAYMENT_VERIFIED});
+        //     return res.status(400).json({ status: false, message: txt.PAYMENT_VERIFIED});
         //
-        // return res.status(200).json({ status: false, message: msg.PAYMENT_NOT_VERIFIED});
+        // return res.status(200).json({ status: false, message: txt.PAYMENT_NOT_VERIFIED});
     });
 };
 

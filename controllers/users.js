@@ -25,11 +25,11 @@ exports.updateProfile = function(req, res) {
 
   User.findByIdAndUpdate(req.body._id, { $set: req.body }, { new: true }, function(err) {
     if (err) {
-      return res.status(500).json({success: false, message: msg.INTERNAL_ERROR});
+      return res.status(500).json({success: false, message: txt.INTERNAL_ERROR});
     }
       return res.status(200).json({
         success: true, 
-        message: msg.PROFILE_UPDATED_DONE
+        message: txt.PROFILE_UPDATED_DONE
       });
   });
 };
@@ -51,7 +51,7 @@ exports.deleteUser = function(req, res) {
 	}
       return res.status(200).json({
         success: true, 
-        message: msg.USERS_DELETED
+        message: txt.USERS_DELETED
       });
   });
 };
@@ -69,22 +69,22 @@ exports.changePassword = function(req, res) {
 
   req.user.comparePassword(req.body.old_pass, function(err, isMatch) {  // matching password
     if(!isMatch) {
-      return res.status(200).json({ success: false, message: msg.INVALID_PASSWORD });
+      return res.status(200).json({ success: false, message: txt.INVALID_PASSWORD });
     }
   });
 
   
   req.user.encryptPassword(req.body.new_pass, function(err, pass) {   // updating password
     if(err) {
-      return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
+      return res.status(500).json({ success: false, message: txt.INTERNAL_ERROR });
     }
     User.findOneAndUpdate({ password: req.user.password }, { $set: { password: pass } }, function(err) {
 
-        if(err) return res.status(500).json({ success: false, message: msg.INTERNAL_ERROR });
+        if(err) return res.status(500).json({ success: false, message: txt.INTERNAL_ERROR });
 
         return res.status(200).json({
           success: true, 
-          message: msg.PASSWORD_UPDATED_DONE
+          message: txt.PASSWORD_UPDATED_DONE
         });
     });
   })
@@ -121,7 +121,7 @@ exports.getAllUsers = function(req, res) {
   User.paginate(conditions, options, function(err, result) {
     
     if(result.total == 0) {
-      return res.status(200).json({ success: true, message: msg.NO_RECORD, data: result });
+      return res.status(200).json({ success: true, message: txt.NO_RECORD, data: result });
     }
     
     return res.status(200).json({ success: true, data: result });
@@ -189,7 +189,7 @@ exports.usersCount = function(req, res) {
     }, function (err, result) {
 
         if(err)
-          return res.status(500).json({success:false, message: msg.INTERNAL_ERROR, description:err});
+          return res.status(500).json({success:false, message: txt.INTERNAL_ERROR, description:err});
 
         return res.status(200).json({success:true, data: result});
 

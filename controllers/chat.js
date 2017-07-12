@@ -28,10 +28,10 @@ exports.chatList = function (req, res) {
     User.find(conditions, options, function (err, result) {
 
         if(err)
-            return res.status(500).json({status:false, message: msg.INTERNAL_ERROR, description: err});
+            return res.status(500).json({status:false, message: txt.INTERNAL_ERROR, description: err});
 
         if (result.total == 0)
-            return res.status(200).json({status:true, message: msg.NO_RECORD, data: result});
+            return res.status(200).json({status:true, message: txt.NO_RECORD, data: result});
 
         return res.status(200).json({success: true, response: result});
     })
