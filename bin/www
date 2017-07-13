@@ -31,7 +31,6 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-global.io = socket.listen(server);
 console.log("\n", color.bold.cyan(debug.namespace), "Listening on port", port, color.cyan("+0ms"));
 
 
