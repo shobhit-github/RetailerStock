@@ -22,21 +22,18 @@ var User   = require(MODEL_ROOT+'users')
 
 var changeLoginStatus = function (user, status, callback) {
 
-
-    console.log(user);
-
     User.loginStatus(user._id, status, function (err, update_status) {
 
         if(err)
             return callback(false);
 
-        Notify.userLogin(user, status, function (err) {
+        Notify.userLogin(user, status, function (err, response) {
 
             if(err.error)
                 return callback(false);
 
             return callback(true);
-        })
+        });
 
     });
 };
@@ -170,7 +167,6 @@ exports.facebook =  function(req, res) {
 
         User.findOne( { social: { facebook: profile.id } }, function(err, existingUser) {
 
-
           if (existingUser) {
 
               changeLoginStatus(existingUser, true, function (response) {
@@ -181,20 +177,20 @@ exports.facebook =  function(req, res) {
                   return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
               });
 
-          }
+          } else {
 
+              user.save(function(err, result) {
 
-          user.save(function(err, result) {
+                  changeLoginStatus(result, true, function (response) {
 
-              changeLoginStatus(result, true, function (response) {
+                      if(!response)
+                          return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                  if(!response)
-                      return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                      return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
+                  });
 
-                  return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
               });
-
-          });
+          }
 
         });
       });
@@ -236,21 +232,20 @@ exports.google =  function(req, res) {
                 return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
-        }
+        } else {
 
+            user.save(function(err, result) {
 
-        user.save(function(err, result) {
+                changeLoginStatus(result, true, function (response) {
 
-            changeLoginStatus(result, true, function (response) {
+                    if(!response)
+                        return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                if(!response)
-                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                    return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
+                });
 
-                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
             });
-
-        });
-
+        }
 
       })
     });
@@ -297,20 +292,20 @@ exports.linkedin =  function(req, res) {
                 return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
 
-        }
+        } else {
 
+            user.save(function(err, result) {
 
-        user.save(function(err, result) {
+                changeLoginStatus(result, true, function (response) {
 
-            changeLoginStatus(result, true, function (response) {
+                    if(!response)
+                        return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
 
-                if(!response)
-                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                    return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
+                });
 
-                return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
             });
-
-        });
+        }
 
       })
     });
