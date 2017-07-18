@@ -54,7 +54,7 @@ var UserSchema = new Schema({
 ---------------------------------*/
 UserSchema.post('validate', function(doc) {
   
-  console.log("UserSchema validate middleware called", doc);                     // code will here soon...
+  console.log("UserSchema validate middleware called");                     // code will here soon...
 });
 
 

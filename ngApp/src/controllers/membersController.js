@@ -6,8 +6,8 @@
  * Which makes no sense for a constant, use wisely if you do this
  */
 
-app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert', '$msg',
-	function membersCtrl($rootScope, $scope, $api, $state, $sweetAlert, $msg) {
+app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweetAlert', '$msg', '$notify',
+	function membersCtrl($rootScope, $scope, $api, $state, $sweetAlert, $msg, $notify) {
 		$scope.$on('$stateChangeSuccess', dashboardUtilities);
 
 		var pageParams = function(data) {
@@ -62,7 +62,10 @@ app.controller('membersCtrl', ['$rootScope', '$scope', '$api', '$state', '$sweet
 			$sweetAlert.confirm("Confirmation", $msg.CONFIRM_DELETE, function(res) {
 				if(res) {
 					$api.removeMember(data).then( function(res, status) {
-						if(res.data.success==true) getMembers($scope.pagination);
+						if(res.data.success==true) {
+							getMembers($scope.pagination);
+                            $notify.success(undefined, $msg.DELETE_SUCCESS);
+                        }
 					}, $api.handleError );
 				}
 			});

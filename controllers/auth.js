@@ -162,7 +162,7 @@ exports.facebook =  function(req, res) {
         var user = new User(userData);
 
         if (response.statusCode !== 200) {
-          return res.status(500).send({ status: false, message: profile.error.message });
+          return res.status(500).json({ status: false, message: profile.error.message });
         }
 
         User.findOne( { social: { facebook: profile.id } }, function(err, existingUser) {
@@ -181,10 +181,13 @@ exports.facebook =  function(req, res) {
 
               user.save(function(err, result) {
 
+                  if(err)
+                      return res.status(400).json({ success: false, message:txt.BAD_REQUEST, description:err});
+
                   changeLoginStatus(result, true, function (response) {
 
                       if(!response)
-                          return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                          return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
                       return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
                   });
@@ -222,12 +225,13 @@ exports.google =  function(req, res) {
         var userData = { firstname: profile.given_name, lastname: profile.family_name, username: username, password: generateString(8), social: { google: profile.sub }, picture: profile.picture, email: profile.email, gender: profile.gender==='male' ? "M" : "F" };
         var user = new User(userData);
 
+
         if (existingUser) {
 
             changeLoginStatus(existingUser, true, function (response) {
 
                 if(!response)
-                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                    return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
                 return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
@@ -236,10 +240,13 @@ exports.google =  function(req, res) {
 
             user.save(function(err, result) {
 
+                if(err)
+                    return res.status(400).json({ success: false, message:txt.BAD_REQUEST, description:err});
+
                 changeLoginStatus(result, true, function (response) {
 
                     if(!response)
-                        return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                        return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
                     return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
                 });
@@ -286,8 +293,8 @@ exports.linkedin =  function(req, res) {
 
             changeLoginStatus(existingUser, true, function (response) {
 
-                if(!response)
-                    return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                if(err)
+                    return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
                 return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(existingUser) });
             });
@@ -296,10 +303,13 @@ exports.linkedin =  function(req, res) {
 
             user.save(function(err, result) {
 
+                if(err)
+                    return res.status(400).json({ success: false, message:txt.BAD_REQUEST, description:err});
+
                 changeLoginStatus(result, true, function (response) {
 
                     if(!response)
-                        return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+                        return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
                     return res.status(200).json({ success: true, message:txt.LOGIN_SUCCESS, token: createJWT(result) });
                 });
@@ -361,7 +371,7 @@ exports.logout = function(req, res) {
     changeLoginStatus(JSON.parse(req.query.user), false, function (response) {
 
         if(!response)
-            return res.status(500).json({ success: true, message:txt.INTERNAL_ERROR});
+            return res.status(500).json({ success: false, message:txt.INTERNAL_ERROR});
 
         res.status(200).json({success: true, message: txt.LOGOUT_SUCCESS});
     });

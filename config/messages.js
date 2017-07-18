@@ -7,6 +7,8 @@ global.msg = {
     NO_RECORD                       :   "Record was not found, please try it with different parameters !",
     
     // Common Messages
+    MESSAGE_SENT                    :   "Message has been sent.",
+    MESSAGE_FAILED                  :   "Message was not sent due to an internal error !",
     
     // Authentication Module
     NOT_EXIST                       :   "Username that you've entered is not exist !",

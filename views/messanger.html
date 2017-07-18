@@ -150,7 +150,7 @@
                       <!-- CONTENT MAIL -->
                       <div class="col-sm-9 mail_view">
                         <div class="inbox-body">
-                          <div class="chat-message">
+                          <div scroll-bottom="messages" class="chat-message">
                             <ul class="chat">
 
                               <li ng-repeat="message in messages" class="{{message.chat_align}} clearfix">
@@ -160,11 +160,11 @@
                                 <div class="chat-body clearfix">
                                   <div class="header">
                                     <strong class="primary-font">{{message.firstname}} {{message.lastname}}</strong>
-                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                                    <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> {{message.date | date : 'h:mm a'}}</small>
                                   </div>
-                                  <p>
-                                    {{message.chat_message}}
-                                  </p>
+                                  <p> {{message.chat_message}} </p>
+                                  <i ng-if="message_status && !message_error" class="fa fa-check message-status message-{{message_status | lowercase}}"></i>
+                                  <i ng-if="message_error" class="fa fa-exclamation-circle message-error"></i>
                                 </div>
                               </li>
 

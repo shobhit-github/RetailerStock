@@ -11,18 +11,23 @@
 app.directive('socialAuth', 
   function () {
 
-    var controller = function($scope, $rootScope, $auth, $location, $timeout, $token) {
+    var controller = function($scope, $rootScope, $auth, $location, $timeout, $token, $msg) {
 
         $scope.socialAuth = function(provider) {
 
             $scope.authSuccess = $scope.authError = $scope.authWarning = $scope.authInfo = false;
+
+            var error = function(response, status) {
+
+                $scope.authError = response.data.message||$msg.BAD_REQUEST;
+            };
 
             $auth.authenticate(provider).then(function(response, status) {
                 $token.saveToAllStorage(response.data.token);
                 $scope.authSuccess = response.data.message;
 
                 $timeout(function() { $location.path('dashboard'); }, 2000);
-            });
+            }, error);
         };
     };
 

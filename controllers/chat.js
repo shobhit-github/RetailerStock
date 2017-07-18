@@ -2,9 +2,15 @@
  ---------------------------------------------*/
 
 var express = require('express');
+var config  = require(CONF_ROOT+'config');
+
 
 var User = require(MODEL_ROOT + 'users')
-    , Chat = require(MODEL_ROOT + 'chats');
+  , Chat = require(MODEL_ROOT + 'chats');
+
+
+
+
 
 
 /**
@@ -14,6 +20,20 @@ var User = require(MODEL_ROOT + 'users')
  */
 
 
+var messageStatus = function (data, status, callback) {
+
+    config.PUBNUB.publish({
+        channel:'chat:message_status:'+status,
+        message:data
+    }, function (status, response) {
+
+        callback(status, response);
+    })
+
+};
+
+
+
 /*
  |--------------------------------------------------
  | Retrieve all Users
@@ -21,8 +41,7 @@ var User = require(MODEL_ROOT + 'users')
  */
 exports.chatList = function (req, res) {
 
-
-    var conditions = {$and : [ {status: {login: "YES"}}, {$or: [{role: {$ne: "Administrator"}}, {_id: {$ne: req.user._id}}]}]};
+    var conditions = {$and : [ {status: {login: "YES"}}, {_id: {$ne: req.user._id}}]};
     var options = {_id:1, firstname:1, lastname:1, picture:1}; // specific fields to be show ;
 
     User.find(conditions, options, function (err, result) {
@@ -44,22 +63,39 @@ exports.chatList = function (req, res) {
  | Saving Messages to database
  |--------------------------------------------------
  */
-var saveMessage = function (data, callback) {
 
-    var chat = new Chat(data);
+exports.saveMessage = function (req, res) {
 
-    chat.save(function (err, res) {
-        if (err)
-            return console.log(err);
+    var chat = new Chat(req.body);
 
-        console.log(res);
+    chat.save(function (err, result) {
+
+        // err = true;
+
+        if (err) {
+            messageStatus(req.body,'error',function (status, response) {
+                res.status(500).json({success:false, message:msg.MESSAGE_FAILED, description:err});
+            }); return;
+        }
+
+        messageStatus(req.body,'delivered',function (status, response) {
+
+            res.status(200).json({success:true, message:msg.MESSAGE_SENT});
+        })
+
     });
 };
 
 
+/*
+ |--------------------------------------------------
+ | Get messages by the users IDs
+ |--------------------------------------------------
+ */
+
+exports.getMessages = function (req, res) {
 
 
+    // Chat.find({})
 
-
-
-
+};

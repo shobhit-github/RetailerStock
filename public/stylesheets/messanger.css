@@ -23,6 +23,22 @@
     right: 32px;
     line-height: 36px;
 }
+.message-status {
+    float: right;
+}
+
+.message-delivered {
+    color:#172D44;
+}
+
+.message-error{
+    float: right;
+    color:#CC0000;
+}
+
+.message-sent {
+    color:#CCCCCC;
+}
 
 .friend-list li a img {
     float: left;

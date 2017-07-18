@@ -85,6 +85,11 @@ app.service('$api', ['$http', '$token', '$rootScope', '$sweetAlert', '$msg', 'SE
             return $http.get(SERVER_URI+'chat_list', config);
         };
 
+        this.saveMessage = function(data) {
+
+            return $http.post(SERVER_URI + 'save_message', data, config);
+        };
+
         this.getConversation = function () {
 
         };

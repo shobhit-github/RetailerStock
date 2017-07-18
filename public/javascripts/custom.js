@@ -36,6 +36,25 @@
 
 
     /**
+     * Global JavaScript methods and prototypes.
+     * To change this template file, choose Tools | Templates
+     * and open the template in the editor.
+     */
+
+     String.prototype.sprintf = function(arguments) {
+        for( var i=1; i < arguments.length; i++ ) {
+            str = this.replace( /%s/, arguments[i] );
+        }
+        return str;
+     };
+
+
+
+
+
+
+
+    /**
      * To change this license header, choose License Headers in Project Properties.
      * To change this template file, choose Tools | Templates
      * and open the template in the editor.

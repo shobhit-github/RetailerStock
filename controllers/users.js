@@ -47,7 +47,7 @@ exports.deleteUser = function(req, res) {
   
   User.removeByIds(ids, function(err) {
     if (err) {
-      return res.status(500).json({ success: false, message: err.messagereturn });
+      return res.status(400).json({ success: false, message: txt.BAD_REQUEST, description:err});
 	}
       return res.status(200).json({
         success: true, 

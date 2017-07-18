@@ -76,7 +76,8 @@ exports.buyProduct = function (req, res) {
                 amount: {total: request.price, currency: 'USD'},
                 description: request.description
             }], function (err, resp) {
-                if (err) callback(err, null);
+                if (err)
+                    return callback(err, null);
                 callback(null, resp);
             })
         }

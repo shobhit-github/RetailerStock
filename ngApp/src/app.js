@@ -32,16 +32,11 @@ app.run(['$rootScope', 'SERVER_URL', '$templateCache', 'Pubnub',
      ----------------------------------------------*/
 
     Pubnub.init({
-      publish_key: 'pub-c-78a030e7-1460-4af8-a89c-972b1b076826',
-      subscribe_key: 'sub-c-c7efcfde-4ade-11e7-ab90-02ee2ddab7fe',
+      publish_key: 'pub-c-c60e55f5-a924-4683-a47f-e96a7b7ce469',
+      subscribe_key: 'sub-c-554fc7be-63a6-11e7-898a-02ee2ddab7fe',
       ssl: true
     });
 
-    // Subscribing to the ‘messages-channel’ and trigering the message callback
-    Pubnub.subscribe({
-        channel: 'Channel-vg2otkim4',
-        triggerEvents: ['callback']
-    });
-
-
 }]);
+
+
