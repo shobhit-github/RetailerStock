@@ -4,7 +4,7 @@
   "private": true,
   "description": "this app will be use for the small level businessmen to manage their stock and day to day transactions",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {

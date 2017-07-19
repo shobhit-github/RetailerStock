@@ -9,7 +9,6 @@ var color   = require('chalk');
 var debug   = require('debug')('RetailerStock:server');
 var http    = require('http');
 
-
 /**
  * Get port from environment and store in Express.
  */

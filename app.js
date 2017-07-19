@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname + '/')));
 
 
 // Starting index.html file 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   res.status(200).sendfile('./index.html');
 });
 
