@@ -37,13 +37,31 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         };
 
 
+        
+        $scope.saveMessage = function (data) {
+            
+            data.chat_align = 'right';
+            $scope.messages.push(data);
+
+
+            $api.saveMessage({sender_id:data.sender_id, receiver_id:data.receiver_id, message: data.chat_message}).then(
+                function (response, status) {
+
+                },
+                function (response, status) {
+
+                }
+            );
+
+        };
+
+
         // Send the messages over PubNub Network
         $scope.typingMessage = function (event) {
 
-
             var content = { receiver_id: $scope.selected_user, firstname: $rootScope.user.firstname,  lastname: $rootScope.user.lastname };
 
-            Pubnub.publish({
+            /*Pubnub.publish({
                 channel: $scope.channel,
                 message: {
                     event:'chat:typing',
@@ -53,7 +71,7 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
                 callback: function (m) {
                    // console.log(m)
                 }
-            });
+            });*/
 
         };
 
@@ -67,21 +85,22 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
                 return;
             }
 
-            var content = { receiver_id: $scope.selected_user, firstname: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent, chat_align: 'left' };
+            var content = { receiver_id: $scope.selected_user, sender_id: $rootScope.user._id, firstname: $rootScope.user.firstname,  lastname: $rootScope.user.lastname, avatar: $rootScope.user.picture, chat_message: $scope.messageContent, chat_align: 'left', date: new Date() };
 
             Pubnub.publish({
                 channel: $scope.channel,
                 message: {
                     event:'chat:send_message',
-                    content: content,
-                    date: new Date()
-                },
-                callback: function (m) {
-                    $scope.$apply(function () {
-                        $scope.messages.push(content)
-                    });
+                    content: content
                 }
+            },function (m) {
+                $scope.message_status = 'SENT';
+                $scope.$apply(function () {
+                    $scope.messages.push(content)
+                });
             });
+
+
             // Reset the messageContent input
             $scope.messageContent = '';
 
@@ -91,27 +110,23 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
         };
 
 
-        // Subscribing to the ‘messages-channel’ and trigering the message callback
-        Pubnub.subscribe({
-            channel: $scope.channel,
-            triggerEvents: ['callback']
-        });
-
-
-
 
         // Listening to the callbacks
         $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
 
-            switch (m.event){
+
+
+
+            switch (m.event) {
 
                 case 'chat:send_message':
                     $scope.$apply(function () {
-                        if(m.content.receiver_id == $rootScope.user._id)  {
-                            m.content.chat_align = 'right';  $scope.messages.push(m.content);
+                        if (m.content.receiver_id == $rootScope.user._id) {
+                            $scope.saveMessage(m.content);
                         }
                     });
                     break;
+
 
                 case 'chat:typing':
                     $scope.$apply(function () {
@@ -126,8 +141,6 @@ app.controller('chatCtrl', ['$scope', 'Pubnub', '$token', '$rootScope', '$api',
                     break;
 
             }
-
-
 
         });
 

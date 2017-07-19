@@ -12,25 +12,31 @@ app.service('$msg', [
 
 	return {
 		// Error Messages
-		'INTERNAL_SERVER_ERROR'	:	"There was an internal server error, please contact to the website / software administrator !",
-		'SERVICE_UNAVAILABLE'	:	"Currently this service is under maintenance, please try after some time !",
-		'NOT_FOUND_ERROR'		: 	"There was an error due to requested url not found, please contact to the website / software administrator !",
-		'AUTHENTICATION_ERROR'	: 	"There was an error due to unauthorized access from the client end, please contact to the software administrator !",
-		'SESSION_EXPIRE'		: 	"Session has been expired !",
-		'BAD_REQUEST'			:	"There was bad request due to some technical issue, please try it again !",
+		"INTERNAL_SERVER_ERROR"	:	"There was an internal server error, please contact to the website / software administrator !",
+		"SERVICE_UNAVAILABLE"	:	"Currently this service is under maintenance, please try after some time !",
+		"NOT_FOUND_ERROR"		: 	"There was an error due to requested url not found, please contact to the website / software administrator !",
+		"AUTHENTICATION_ERROR"	: 	"There was an error due to unauthorized access from the client end, please contact to the software administrator !",
+		"SESSION_EXPIRE"		: 	"Session has been expired !",
+		"BAD_REQUEST"			:	"There was bad request due to some technical issue, please try it again !",
 
 		// Information Massages
-		'LOGIN_REQUIRE'			: 	"You've to login to start session again!",
-		'ALREADY_LOGIN'			: 	"You're already in session !",
+		"LOGIN_REQUIRE"			: 	"You've to login to start session again!",
+		"ALREADY_LOGIN"			: 	"You're already in session !",
 
 		// Success Messages
-		'LOGOUT_SUCCESS'		: 	"Logout successfully",
+		"LOGOUT_SUCCESS"		: 	"Logout successfully",
+		"DELETE_SUCCESS"		: 	"The information deleted successfully!",
 
 		// Confirmation Messages
 		"CONFIRM_DELETE"		: 	"Please make sure once you deleted it you will not be able to recover this imaginary content!",
 
 		// Common Messages
-		"CANCELLED"				: 	"This operation has been cancelled, please try it again if this happened without your concent!"
+		"CANCELLED"				: 	"This operation has been cancelled, please try it again if this happened without your concent!",
+
+		// Notification Messages
+		"USER_X_REGISTERED"		:	"%s as a new user registered!",
+		"USER_X_LOGIN"			:	"%s has been logged in!",
+		"USER_X_LOGOUT"			:	"%s has been logout!"
 	};
 
 

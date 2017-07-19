@@ -19,6 +19,9 @@ var conf = new Object();
 
   var braintree = require('braintree');
   var paypal    = require('paypal-rest-sdk');
+  var PubNub    = require('pubnub');
+
+
 
  /* Braintree
  ..................*/
@@ -30,7 +33,8 @@ conf.BRAINTTREE = braintree.connect({
 });
 
 
-
+/* PayPal
+ ..................*/
 conf.PAYPAL = paypal.configure({
   mode: 'sandbox', // Sandbox or live
   client_id: process.env.PAYPAL_CLIENTID,
@@ -39,8 +43,13 @@ conf.PAYPAL = paypal.configure({
 
 
 
-
-
+/* PubNub
+ ..................*/
+conf.PUBNUB = new PubNub({
+    publishKey: process.env.PUBNUB_PUBLISH,
+    subscribeKey: process.env.PUBNUB_SUBSCRIBE,
+    ssl: true
+});
 
 
 

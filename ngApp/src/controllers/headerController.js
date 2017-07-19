@@ -7,34 +7,21 @@
  */
 
 
-app.controller('headerCtrl', ['$scope', 'Pubnub', '$notify',
-	function headerCtrl($scope, Pubnub, $notify) {
-
-        $scope.channel = 'Channel-vg2otkim4';
+app.controller('headerCtrl', ['$scope', '$notify', '$msg', '$pubNub',
+	function headerCtrl($scope, $notify, $msg, $pubNub) {
 
         // Listening to the callbacks
-        $scope.$on(Pubnub.getMessageEventNameFor($scope.channel), function (ngEvent, m) {
-
-
-            switch (m.event){
-
-                case 'user:registration':
-                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" as a new user registered !");
-                    break;
-
-                case 'user:login_status:true':
-                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" has been logged in !");
-                    break;
-
-                case 'user:login_status:false':
-                    $notify.default(undefined, m.content.firstname+" "+m.content.lastname+" has been logout !");
-                    break;
-            }
-
-
-
+        $pubNub.subscribe('user:registration', function (user) {
+            $notify.default(undefined, $msg.USER_X_REGISTERED.sprintf(user.firstname+' '+user.lastname));
         });
 
+        $pubNub.subscribe('user:login_status:true', function (user) {
+            $notify.default(undefined, $msg.USER_X_LOGIN.sprintf(user.firstname+' '+user.lastname));
+        });
+
+        $pubNub.subscribe('user:login_status:false', function (user) {
+            $notify.default(undefined, $msg.USER_X_LOGOUT.sprintf(user.firstname+' '+user.lastname));
+        });
 
 	}
 ]);

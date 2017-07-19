@@ -62,6 +62,7 @@ router.post('/paypal_notify', mid.languageSetter, PaymentController.paypalNotifi
 /* Routes for Chat Module
  |........................................ */
 router.get('/chat_list', [ mid.languageSetter, mid.ensureAuthenticated ], ChatController.chatList);
+router.post('/save_message', [ mid.languageSetter, mid.ensureAuthenticated ], ChatController.saveMessage);
 
 
 /* Routes for Product Module

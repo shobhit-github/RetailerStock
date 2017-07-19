@@ -10,9 +10,9 @@ var moment            =   require('moment');
 ---------------------------------*/
 var ChatSchema = new Schema({
 
-  sender_id: { type: String, required: true },
+  sender_id: Schema.ObjectId,
   
-  receiver_id: { type: String, required: true },
+  receiver_id: Schema.ObjectId,
   
   message: { type: String, required: true }
 

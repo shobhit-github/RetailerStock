@@ -31,7 +31,8 @@ exports.createPayment = function(transationDetail, callback) {
 
     paypal.payment.create(JSON.stringify(payReq), function(err, payment) {
 
-        if(err) callback({ status: false, message: txt.PAYMENT_FAILED }, false);
+        if(err)
+            return callback({ status: false, message: txt.PAYMENT_FAILED }, false);
 
             payment.links.forEach(function(linkObj){
                 links[linkObj.rel] = {

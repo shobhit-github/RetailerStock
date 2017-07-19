@@ -1,17 +1,21 @@
 
 "use strict";
-/**   * Storing multiple constant values inside of an object  * Keep in mind the values in the object mean they can be modified  * Which makes no sense for a constant, use wisely if you do this  */
+/**
+ * Storing multiple constant values inside of an object  *
+ * Keep in mind the values in the object mean they can be modified  *
+ * Which makes no sense for a constant, use wisely if you do this
+ */
 
 app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token', '$timeout',
 	function authCtrl($rootScope, $scope, $api, $location, $token, $timeout) {
-		
+
 	$rootScope.bodyClass = "login";
 	$scope.loginSec = true;
 
 	$scope.displaySection = function(secName) {
-		if(secName == 'register') { $scope.forgetSec = $scope.loginSec = false; $scope.registerSec = true; } 
+		if(secName == 'register') { $scope.forgetSec = $scope.loginSec = false; $scope.registerSec = true; }
 		if(secName == 'login') { $scope.forgetSec = $scope.registerSec = false; $scope.loginSec = true;  }
-		if(secName == 'forget_pass') { $scope.registerSec = $scope.loginSec = false; $scope.forgetSec = true; } 
+		if(secName == 'forget_pass') { $scope.registerSec = $scope.loginSec = false; $scope.forgetSec = true; }
 	};
 
 	$scope.loginUser = function(users) {
@@ -19,14 +23,18 @@ app.controller('authCtrl', ['$rootScope', '$scope', '$api', '$location', '$token
 		$scope.authSuccess = $scope.authError = $scope.authWarning = $scope.authInfo = false;
 
 	    var error = function(response, status) {
+
 	      $scope.authError = response.data.message;
 	    };
 
 		$api.authenticate(users).then( function(response, status) {
 	    	$token.saveToAllStorage(response.data.token);
+
 	    	$scope.authSuccess = response.data.message;
 
-	    	$timeout(function() { $location.path('dashboard'); }, 2000);
+	    	$timeout(function() {
+	    	    $location.path('dashboard');
+            }, 2000);
 	    }, error );
 	};
 
