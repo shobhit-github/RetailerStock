@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent, RegisterComponent } from './auth/index';
-import {PageNotFoundComponent} from '#elements/';
-import { AuthGuard } from '#guards/';
+import {PageNotFoundComponent} from './elements/index';
+import { AuthGuard } from './_shared/_guards/index';
 
 
 
@@ -9,7 +9,7 @@ const APP_ROUTER_PROVIDERS: Routes = [
 
     {
         path: '',
-        component: HomeComponent,
+        component: LoginComponent,
         canActivate: [AuthGuard]
     },
     {

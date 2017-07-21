@@ -5,6 +5,37 @@
 (function (global) {
 
     // System loader how to load when no filename and/or no extension
+    const ngPackages = [ 'core', 'common', 'compiler', 'platform-browser', 'platform-browser-dynamic', 'http', 'router', 'forms', 'upgrade', 'router-deprecated'];
+
+    // packages tells the System loader how to load when no filename and/or no extension
+    var packages = {
+        'app': {
+            main: 'main.js',
+            defaultExtension: 'js'
+        },
+        'rxjs': {
+            defaultExtension: 'js'
+        },
+        'angular2-in-memory-web-api': {
+            main: 'index.js',
+            defaultExtension: 'js'
+        },
+        '@chart': {
+            main: 'chart.js',
+            defaultExtension: 'js'
+        },
+        'primeng':{
+            main: 'index.js',
+            defaultExtension: 'js'
+        }
+
+    };
+
+
+    ngPackages.forEach(function (pkgUmd) {
+       packages[pkgUmd] = { main: pkgUmd, defaultExtension:'js' };
+    });
+
 
     System.config({
 
@@ -22,13 +53,7 @@
             "@angular": "npm:@angular",
 
             "angular2-in-memory-web-api": "npm:angular2-in-memory-web-api",
-
-            "#pipes": "app/_shared/_pipes",
-            "#services": "app/_shared/_services",
-            "#models": "app/_shared/_models",
-            "#primeng": "npm:primeng",
-            "#elements": "app/elements",
-            "#guards":  "app/_shared/_guards",
+            "primeng": "npm:primeng",
 
             // angular bundles
             '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
@@ -43,47 +68,7 @@
             '@angular/router-deprecated': 'npm:@angular/forms/bundles/router-deprecated.umd.js'
         },
 
-        // packages tells the System loader how to load when no filename and/or no extension
-        packages:{
-            'app': {
-                main: 'main.js',
-                defaultExtension: 'js'
-            },
-            'rxjs': {
-                defaultExtension: 'js'
-            },
-            'angular2-in-memory-web-api': {
-                main: 'index.js',
-                defaultExtension: 'js'
-            },
-            '#guards':{
-                main:'index.ts',
-                defaultExtension: 'ts'
-            },
-            '#models':{
-                main:'index.ts',
-                defaultExtension: 'ts'
-            },
-            '#primeng': {
-                main: 'primeng.js',
-                defaultExtension: 'js'
-            },
-            '#services':{
-                main:'index.ts',
-                defaultExtension: 'ts'
-            },
-            '@chart': {
-                main: 'chart.js',
-                defaultExtension: 'js'
-            },
-            '#pipes':{
-                main:'index.ts',
-                defaultExtension: 'ts'
-            },
-            '#elements':{
-                main:'index.ts',
-                defaultExtension: 'ts'
-            }
-        }
+
+        packages:packages
     });
 })(this);

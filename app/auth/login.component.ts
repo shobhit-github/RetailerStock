@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService } from '#services/';
+import { AuthenticationService } from '../_shared/_services/index';
 
 @Component({
-    moduleId: module.id,
-    templateUrl: 'login.component.html'
+    templateUrl: './login.component.html'
 })
 
 export class LoginComponent implements OnInit {
@@ -16,8 +15,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
         // reset login status
@@ -35,7 +33,6 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    this.alertService.error(error);
                     this.loading = false;
                 });
     }
