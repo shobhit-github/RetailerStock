@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent, RegisterComponent } from './auth/index';
-import {PageNotFoundComponent} from '_elements/';
-import { AuthGuard } from '_guards/';
+import {PageNotFoundComponent} from '#elements/';
+import { AuthGuard } from '#guards/';
 
 
 
