@@ -41,6 +41,7 @@ jspm_packages/
 # Typescript v1 declaration files
 typings/
 dist/
+public/
 
 # Optional npm cache directory
 .npm
@@ -62,12 +63,3 @@ dist/
 .env
 
 
-README.md
-app/
-index.html
-npm-debug.log
-package.json
-public/
-systemjs.config.js
-tsconfig.json
-typings.json
