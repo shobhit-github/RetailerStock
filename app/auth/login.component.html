@@ -1,11 +1,11 @@
 <div class="login row">
-    <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+    <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 animate-zoomin">
         <div class="logo margin-top-30">
-            <img src="assets/images/logo.png" alt="Clip-Two"/>
+            <img src="public/images/logo.png" alt="Clip-Two"/>
         </div>
         <!-- start: LOGIN BOX -->
         <div class="box-login">
-            <form class="form-login" action="index.html">
+            <form class="form-login">
                 <fieldset>
                     <legend>
                         Sign in to your account
@@ -23,7 +23,7 @@
 									<input type="password" class="form-control password" name="password"
                                            placeholder="Password">
 									<i class="fa fa-lock"></i>
-									<a class="forgot" href="login_forgot.html">
+									<a class="forgot" [routerLink]="['/forgot']">
 										I forgot my password
 									</a> </span>
                     </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="new-account">
                         Don't have an account yet?
-                        <a href="login_registration.html">
+                        <a [routerLink]="['/register']">
                             Create an account
                         </a>
                     </div>

@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import * as util from '../_shared/_utilities/index';
 import { AuthenticationService } from '../_shared/_services/index';
 
 @Component({
-    templateUrl: './login.component.html'
+    templateUrl: 'app/auth/login.component.html',
+    providers:[AuthenticationService],
+    animations: [ util.zoomIn ],
+    host:{'[@zoomIn]':''}
 })
 
 export class LoginComponent implements OnInit {

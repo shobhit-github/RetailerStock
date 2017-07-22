@@ -2,7 +2,7 @@
 <div class="row login">
     <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
         <div class="logo margin-top-30">
-            <img src="assets/images/logo.png" alt="Clip-Two"/>
+            <img src="public/images/logo.png" alt="Clip-Two"/>
         </div>
         <!-- start: REGISTER BOX -->
         <div class="box-register">
@@ -69,7 +69,7 @@
                     <div class="form-actions">
                         <p>
                             Already have an account?
-                            <a href="login_signin.html">
+                            <a [routerLink]="['/login']">
                                 Log-in
                             </a>
                         </p>

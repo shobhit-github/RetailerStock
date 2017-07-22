@@ -1784,11 +1784,11 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
   position: fixed;
   right: -260px;
   top: 64px;
-  -moz-transition: all 0.3s !important 0s;
-  -o-transition: all 0.3s !important 0s;
+  -moz-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
   -webkit-transition: all 0.3s !important;
   -webkit-transition-delay: 0s;
-  transition: all 0.3s !important 0s;
+  transition: all 0.3s !important;
   width: 260px;
   z-index: 1091;
   background: #ffffff;
@@ -4359,7 +4359,7 @@ a.text-light:hover {
   animation: heart-pulse 1s linear infinite;
 }
 
-@keyframes "heart-pulse" {
+@keyframes heart-pulse {
   0% {
     color: #a51919;
   }
@@ -4381,7 +4381,7 @@ a.text-light:hover {
     color: red;
   }
 }
-@-webkit-keyframes "heart-pulse" {
+@-webkit-keyframes heart-pulse {
   0% {
     color: #a51919;
   }
@@ -4392,7 +4392,7 @@ a.text-light:hover {
     color: red;
   }
 }
-@-ms-keyframes "heart-pulse" {
+@-ms-keyframes heart-pulse {
   0% {
     color: #a51919;
   }
@@ -11351,4 +11351,60 @@ td.small-width {
 
 [date-picker] .disabled.active, [date-picker] .disabled.now {
   color: #ffffff !important;
+}
+
+
+
+
+/*
+spinner loader
+ */
+
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #007AFF;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
 }

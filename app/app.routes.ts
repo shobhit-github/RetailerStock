@@ -1,7 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent, RegisterComponent } from './auth/index';
+import { LoginComponent, RegisterComponent, ForgotComponent } from './auth/index';
 import {PageNotFoundComponent} from './elements/index';
 import { AuthGuard } from './_shared/_guards/index';
+import {HomeComponent, DashboardComponent} from "./home/home.component";
+
 
 
 
@@ -9,12 +11,27 @@ const APP_ROUTER_PROVIDERS: Routes = [
 
     {
         path: '',
-        component: LoginComponent,
-        canActivate: [AuthGuard]
+        component: HomeComponent,
+        canActivate: [AuthGuard],
+        children:[
+            {
+                path:'',
+                component: DashboardComponent,
+            },
+            {
+                path: '',
+                redirectTo: '/dashbaord',
+                pathMatch: 'full'
+            }
+        ]
     },
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'forgot',
+        component: ForgotComponent
     },
     {
         path: 'register',

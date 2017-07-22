@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as util from '../_shared/_utilities/index';
 
 @Component({
-    templateUrl: './register.component.html'
+    templateUrl: 'app/auth/register.component.html',
+    animations:[util.zoomIn],
+    host:{'[@zoomIn]':''}
 })
 
 export class RegisterComponent {
     model: any = {};
     loading = false;
+    state:string = 'small';
 
     constructor(
         private router: Router) { }
+
 
     register() {
         this.loading = true;
