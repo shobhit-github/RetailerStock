@@ -10,17 +10,18 @@ import {HomeComponent, DashboardComponent} from "./home/home.component";
 const APP_ROUTER_PROVIDERS: Routes = [
 
     {
-        path: '',
+        path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuard],
         children:[
             {
-                path:'',
+                path:'dashboard',
                 component: DashboardComponent,
             },
+
             {
                 path: '',
-                redirectTo: '/dashbaord',
+                redirectTo: 'dashboard',
                 pathMatch: 'full'
             }
         ]
@@ -40,6 +41,11 @@ const APP_ROUTER_PROVIDERS: Routes = [
 
 
 
+    {
+        path: '',
+        redirectTo: '/home/dashboard',
+        pathMatch: 'full'
+    },
     // otherwise redirect to home
     {
         path: '**',
