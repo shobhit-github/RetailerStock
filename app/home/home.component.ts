@@ -1,11 +1,25 @@
 
 
-
 import { Component } from '@angular/core';
+import {trigger, style, state, transition, animate} from "@angular/core"
+
 
 
 @Component({
     selector: 'home',
+    animations:[
+        trigger('footerTransition', [
+            state('in', style({transform: 'translateY(0%)'}) ),
+            transition(':enter', [
+                style({transform: 'translateY(100%)'}),
+                animate('0.5s ease-in-out', style({transform: 'translateY(0%)'}))
+            ]),
+            transition(':leave', [
+                style({transform: 'translateY(0%)'}),
+                animate('0.5s ease-in-out', style({transform: 'translateY(-100%)'}))
+            ])
+        ])
+    ],
     template: `
         <div id="app">
             <div class="app-content">
@@ -18,7 +32,7 @@ import { Component } from '@angular/core';
                 </div>
             </div>
             <!-- start: FOOTER -->
-            <footer>
+            <footer [@footerTransition]="">
                 <div class="footer-inner">
                     <div class="pull-left">
                         &copy; <span class="current-year"></span><span class="text-bold text-uppercase">ClipTheme</span>. <span>All rights reserved</span>
@@ -32,15 +46,6 @@ import { Component } from '@angular/core';
             <aside></aside>
             <setting></setting>    
         </div>
-
-        <script src="public/js/index.js"></script>
-        <script>
-            jQuery(document).ready(function() {
-                Main.init();
-                Index.init();
-            });
-        </script>
-        
     `
 })
 

@@ -1,10 +1,24 @@
-import {Component} from '@angular/core';
+import {animate, Component, state, style, transition, trigger} from '@angular/core';
+
 
 @Component({
     selector: 'app-header',
+    animations:[
+        trigger('headerTransition', [
+            state('void', style({position:'fixed'})),
+            transition(':enter', [
+                style({transform: 'translateY(-100%)'}),
+                animate(500)
+            ]),
+            transition(':leave', [
+                style({transform: 'translateY(0%)'}),
+                animate(500)
+            ])
+        ])
+    ],
     template: `
         <!-- start: TOP NAVBAR -->
-        <header class="navbar navbar-default navbar-static-top">
+        <header [@headerTransition]="" class="navbar navbar-default navbar-static-top">
             <!-- start: NAVBAR HEADER -->
             <div class="navbar-header">
                 <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg"

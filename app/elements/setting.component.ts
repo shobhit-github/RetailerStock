@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'setting',
@@ -119,5 +119,13 @@ import {Component} from '@angular/core';
     `
 })
 
-export class SettingComponent {
+export class SettingComponent implements OnInit{
+
+    constructor() {
+
+    }
+
+    ngOnInit() {
+
+    }
 }

@@ -1,10 +1,24 @@
-import {Component} from '@angular/core';
+import {animate, Component, OnInit, state, style, transition, trigger} from '@angular/core';
+
 
 @Component({
     selector: 'sidebar',
+    animations:[
+        trigger('sidebarTransition', [
+            state('void', style({position:'fixed'})),
+            transition(':enter', [
+                style({transform: 'translateX(-100%)'}),
+                animate('0.5s 0.5s ease-in-out', style({transform: 'translateX(0%)'}))
+            ]),
+            transition(':leave', [
+                style({transform: 'translateX(100%)'}),
+                animate('0.5s 0.5s ease-in-out', style({transform: 'translateX(10%)'}))
+            ])
+        ])
+    ],
     template: `
         <!-- sidebar -->
-        <div class="sidebar app-aside" id="sidebar">
+        <div [@sidebarTransition]="" class="sidebar app-aside" id="sidebar">
             <div class="sidebar-container perfect-scrollbar">
                 <nav>
                     <!-- start: SEARCH FORM -->
@@ -693,8 +707,18 @@ import {Component} from '@angular/core';
             </div>
         </div>
         <!-- / sidebar -->
+        
     `
 })
 
-export class SidebarComponent {
+export class SidebarComponent implements OnInit{
+
+    constructor(){
+
+    }
+
+    ngOnInit() {
+
+    }
+
 }

@@ -1,13 +1,16 @@
 'use strict';
+
 var Main = function() {
+
+    var MEDIAQUERY = {
+        desktopXL: 1200,
+        desktop: 992,
+        tablet: 768,
+        mobile: 480
+    };
+
 	var $html = $('html'), $win = $(window), wrap = $('.app-aside'), MEDIAQUERY = {}, app = $('#app');
 
-	MEDIAQUERY = {
-		desktopXL: 1200,
-		desktop: 992,
-		tablet: 768,
-		mobile: 480
-	};
 	$(".current-year").text((new Date).getFullYear());
 	//sidebar
 	var sidebarHandler = function() {
@@ -424,3 +427,5 @@ var Main = function() {
 		}
 	};
 }();
+
+
