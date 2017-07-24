@@ -161,6 +161,7 @@ h5.over-title {
     font-size: 17px;
 }
 
+
 .ct-callout {
     border-color: #007AFF;
     border-image: none;
@@ -12668,6 +12669,8 @@ spinner loader
     }
 }
 
-.fixed {
+.loader {
     position: fixed;
+    width: 100%;
+    top: 20%;
 }

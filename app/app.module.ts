@@ -11,11 +11,13 @@ import {CurrencyPipe, SymbolPipe} from './_shared/_pipes/index';
 import {AuthGuard} from "./_shared/_guards/index";
 import {HttpModule} from "@angular/http";
 import {HomeComponent, DashboardComponent} from "./home/home.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         SliderModule,
         HttpModule,

@@ -5,7 +5,7 @@
 (function (global) {
 
     // System loader how to load when no filename and/or no extension
-    const ngPackages = [ 'core', 'common', 'compiler', 'platform-browser', 'platform-browser-dynamic', 'http', 'router', 'forms', 'upgrade', 'router-deprecated'];
+    const ngPackages = [ 'core', 'animations', 'common', 'compiler', 'platform-browser', 'platform-browser-dynamic', 'http', 'router', 'forms', 'upgrade', 'router-deprecated'];
 
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
@@ -56,16 +56,18 @@
             "primeng": "npm:primeng",
 
             // angular bundles
-            '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
-            '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
-            '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
-            '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
-            '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-            '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
-            '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
-            '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-            '@angular/upgrade': 'npm:@angular/forms/bundles/upgrade.umd.js',
-            '@angular/router-deprecated': 'npm:@angular/forms/bundles/router-deprecated.umd.js'
+            '@angular/core': 'https://unpkg.com/@angular/core/bundles/core.umd.js',
+            '@angular/animations': 'https://unpkg.com/@angular/animations/bundles/animations.umd.js',
+            '@angular/common': 'https://unpkg.com/@angular/common/bundles/common.umd.js',
+            '@angular/compiler': 'https://unpkg.com/@angular/compiler/bundles/compiler.umd.js',
+            '@angular/http': 'https://unpkg.com/@angular/http/bundles/http.umd.js',
+            '@angular/forms': 'https://unpkg.com/@angular/forms/bundles/forms.umd.js',
+            '@angular/router': 'https://unpkg.com/@angular/router/bundles/router.umd.js',
+            '@angular/platform-browser': 'https://unpkg.com/@angular/platform-browser/bundles/platform-browser.umd.js',
+            '@angular/platform-browser-dynamic': 'https://unpkg.com/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+            '@angular/animations/browser': 'https://unpkg.com/@angular/animations/bundles/animations-browser.umd.js',
+            '@angular/platform-browser/animations': 'https://unpkg.com/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
+            '@angular/cdk': 'https://unpkg.com/@angular/cdk/bundles/cdk.umd.js'
         },
 
 

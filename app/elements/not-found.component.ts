@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import * as util from '../_shared/_utilities/index';
+import {transition, trigger, style, animate} from "@angular/animations";
 
 
 @Component({
@@ -48,8 +48,14 @@ import * as util from '../_shared/_utilities/index';
         <!-- end: 404 -->
     `,
 
-    animations:[util.zoomIn],
-    host: {'[@zoomIn]':''}
+    animations: [
+        trigger('zoomIn', [
+            transition(':enter', [
+                style({transform: 'scale(0)'}),
+                animate('1s ease-in-out', style({transform: 'scale(1)'}))
+            ])
+        ])],
+    host: {'[@zoomIn]': ''}
 })
 export class PageNotFoundComponent {
 
