@@ -213,6 +213,8 @@ var Main = function() {
 	// settings
 	var settingsHandler = function() {
 		var clipSetting = new Object, appSetting = new Object;
+		var app = $('#app');
+
 		clipSetting = {
 			fixedHeader: true,
 			fixedSidebar: true,
@@ -227,6 +229,7 @@ var Main = function() {
 				appSetting = clipSetting;
 			}
 		};
+
 
 		appSetting.fixedHeader ? app.addClass('app-navbar-fixed') : app.removeClass('app-navbar-fixed');
 		appSetting.fixedSidebar ? app.addClass('app-sidebar-fixed') : app.removeClass('app-sidebar-fixed');
@@ -277,11 +280,11 @@ var Main = function() {
 				case "theme-3":
 				case "theme-5":
 				case "theme-6":
-					$(".navbar-brand images").attr("src", "public/images/logo2.png");
+					$(".navbar-brand img").attr("src", "public/images/logo2.png");
 					break;
 
 				default:
-					$(".navbar-brand images").attr("src", "public/images/logo.png");
+					$(".navbar-brand img").attr("src", "public/images/logo.png");
 					break;
 			};
 		};

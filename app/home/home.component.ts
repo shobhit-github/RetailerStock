@@ -1,7 +1,7 @@
 
 
 import { Component } from '@angular/core';
-import {trigger, style, state, transition, animate} from "@angular/core"
+import {trigger, style, state, transition, animate} from "@angular/animations"
 
 
 
