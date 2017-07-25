@@ -1,4 +1,5 @@
-import {animate, Component, OnInit, state, style, transition, trigger} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -23,11 +24,11 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                 <nav>
                     <!-- start: SEARCH FORM -->
                     <div class="search-form">
-                        <a class="s-open" href="#">
+                        <a class="s-open" href="javascript:void(0);">
                             <i class="ti-search"></i>
                         </a>
                         <form class="navbar-form" role="search">
-                            <a class="s-remove" href="#" target=".navbar-form">
+                            <a class="s-remove" href="javascript:void(0);" target=".navbar-form">
                                 <i class="ti-close"></i>
                             </a>
                             <div class="form-group">
@@ -45,7 +46,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                     </div>
                     <ul class="main-navigation-menu">
                         <li class="active open">
-                            <a href="index.html">
+                            <a [routerLink]="['/home/dashboard']">
                                 <div class="item-content">
                                     <div class="item-media">
                                         <i class="ti-home"></i>
@@ -69,72 +70,72 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="ui_elements.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Elements </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_buttons.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Buttons </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_links.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Links </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_icons.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Font Awesome Icons </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_line_icons.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Linear Icons </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_modals.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Modals </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_toggle.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Toggle </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_tabs_accordions.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Tabs &amp; Accordions </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_panels.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Panels </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_notifications.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Notifications </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_treeview.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Treeview </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_media.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Media Object </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_nestable.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Nestable List </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="ui_typography.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Typography </span>
                                     </a>
                                 </li>
@@ -153,17 +154,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="table_basic.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Basic Tables</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="table_responsive.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Responsive Tables</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="table_data.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Advanced Data Tables</span>
                                     </a>
                                 </li>
@@ -182,32 +183,32 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="form_elements.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Form Elements</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form_text_editor.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Text Editor</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form_wizard.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Form Wizard</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form_validation.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Form Validation</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form_image_cropping.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Image Cropping</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form_multiple_upload.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Multiple File Upload</span>
                                     </a>
                                 </li>
@@ -226,22 +227,22 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="login_signin.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Login Form </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login_registration.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Registration Form </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login_forgot.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title"> Forgot Password Form </span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="login_lockscreen.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Lock Screen</span>
                                     </a>
                                 </li>
@@ -260,32 +261,32 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="pages_user_profile.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">User Profile</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="pages_invoice.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Invoice</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="pages_timeline.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Timeline</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="pages_calendar.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Calendar</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="pages_messages.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Messages</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="pages_blank_page.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Blank Page</span>
                                     </a>
                                 </li>
@@ -304,22 +305,22 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="utilities_search_result.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Search Results</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="utilities_error_404.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Error 404</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="utilities_error_500.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Error 500</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="utilities_pricing_table.html">
+                                    <a href="javascript:void(0)">
                                         <span class="title">Pricing Table</span>
                                     </a>
                                 </li>
@@ -343,17 +344,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 1
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 2
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 3
                                             </a>
                                         </li>
@@ -365,17 +366,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 1
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 2
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 3
                                             </a>
                                         </li>
@@ -387,17 +388,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                     </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 1
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 2
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="javascript:void(0);">
                                                 Sample Link 3
                                             </a>
                                         </li>
@@ -428,17 +429,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -450,17 +451,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -472,17 +473,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -501,17 +502,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -523,17 +524,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -545,17 +546,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -574,17 +575,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -596,17 +597,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -618,17 +619,17 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                                             </a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 1
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 2
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="javascript:void(0);">
                                                         Sample Link 3
                                                     </a>
                                                 </li>
@@ -639,7 +640,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </ul>
                         </li>
                         <li>
-                            <a href="maps.html">
+                            <a href="javascript:void(0)">
                                 <div class="item-content">
                                     <div class="item-media">
                                         <i class="ti-location-pin"></i>
@@ -651,7 +652,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                         </li>
                         <li>
-                            <a href="charts.html">
+                            <a href="javascript:void(0)">
                                 <div class="item-content">
                                     <div class="item-media">
                                         <i class="ti-pie-chart"></i>
@@ -670,7 +671,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                     </div>
                     <ul class="folders">
                         <li>
-                            <a href="pages_calendar.html">
+                            <a href="javascript:void(0)">
                                 <div class="item-content">
                                     <div class="item-media">
                                         <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
@@ -682,7 +683,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                             </a>
                         </li>
                         <li>
-                            <a href="pages_messages.html">
+                            <a href="javascript:void(0)">
                                 <div class="item-content">
                                     <div class="item-media">
                                         <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-folder-open-o fa-stack-1x fa-inverse"></i> </span>
@@ -697,7 +698,7 @@ import {animate, Component, OnInit, state, style, transition, trigger} from '@an
                     <!-- end: CORE FEATURES -->
                     <!-- start: DOCUMENTATION BUTTON -->
                     <div class="wrapper">
-                        <a href="documentation.html" class="button-o">
+                        <a href="javascript:void(0)" class="button-o">
                             <i class="ti-help"></i>
                             <span>Documentation</span>
                         </a>

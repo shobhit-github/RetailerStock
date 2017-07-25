@@ -3,16 +3,19 @@ import {trigger, state, style, animate, transition, query, stagger, animateChild
 
 
 export const zoomIn = trigger('zoomIn', [
-    transition(':enter', [
-        style({transform: 'scale(0)'}),
-        animate('1s ease-in-out', style({transform: 'scale(1)'}))
+    state('*', style({transform: 'scale(1)', opacity: 1})),
+    transition('void => *', [
+        style({transform: 'scale(0)', opacity: 1}),
+        animate('0.5s ease-in-out')
+    ]),
+    transition('* => void', [
+        animate('0.5s ease-in-out', style({transform: 'scale(0)', opacity: 0}))
     ])
 ]);
 
 
 export const slideToLeft = trigger('slideToLeft', [
-    state('void', style({position: 'fixed', width: '100%'})),
-    state('*', style({position: 'fixed', width: '100%'})),
+
     transition(':enter', [
         style({transform: 'translateX(100%)'}),
         animate('0.5s ease-in-out', style({transform: 'translateX(0%)'}))

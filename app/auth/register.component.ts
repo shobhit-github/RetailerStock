@@ -1,23 +1,23 @@
-import {animate, Component, OnInit, state, style, transition, trigger} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
     templateUrl: 'app/auth/register.component.html',
     animations: [
         trigger('zoomInOut', [
-            state('void', style({position:'fixed', width:'100%'}) ),
-            state('*', style({position:'fixed', width:'100%'}) ),
+
             transition(':enter', [
-                style({transform: 'scale(0)'}),
+                style({transform: 'scale(0)', position:'fixed', width:'100%'}),
                 animate('0.5s ease-in-out', style({transform: 'scale(1)'}))
             ]),
             transition(':leave', [
-                style({transform: 'scale(1)'}),
+                style({transform: 'scale(1)', position:'fixed', width:'100%'}),
                 animate('0.5s ease-in-out', style({transform: 'scale(0)'}))
             ])
         ])
     ],
-    host:{'[@zoomInOut]':''}
+    host:{'[@zoomInOut]':'true'}
 })
 
 export class RegisterComponent {

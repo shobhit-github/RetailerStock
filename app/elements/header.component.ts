@@ -1,4 +1,5 @@
-import {animate, Component, state, style, transition, trigger} from '@angular/core';
+import {Component} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
@@ -21,15 +22,10 @@ import {animate, Component, state, style, transition, trigger} from '@angular/co
         <header [@headerTransition]="" class="navbar navbar-default navbar-static-top">
             <!-- start: NAVBAR HEADER -->
             <div class="navbar-header">
-                <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg"
-                   class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app"
-                   data-toggle-click-outside="#sidebar">
-                    <i class="ti-align-justify"></i>
-                </a>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" [routerLink]="['/login']" >
                     <img src="public/images/logo.png" alt="Clip-Two"/>
                 </a>
-                <a href="#" class="sidebar-toggler pull-right visible-md visible-lg"
+                <a href="javascript:void(0)" class="sidebar-toggler pull-right visible-md visible-lg"
                    data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
                     <i class="ti-align-justify"></i>
                 </a>
