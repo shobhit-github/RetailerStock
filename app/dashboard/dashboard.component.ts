@@ -1,7 +1,7 @@
 
 
 
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as animation from './dashboard.animation';
 
 
@@ -14,15 +14,15 @@ import * as animation from './dashboard.animation';
     ]
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements AfterViewInit {
 
 
     constructor() {
 
     }
 
-    ngOnInit() {
-
+    ngAfterViewInit() {
+        Index.init()
     }
 
 

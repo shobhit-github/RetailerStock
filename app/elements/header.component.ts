@@ -22,8 +22,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         <header [@headerTransition]="" class="navbar navbar-default navbar-static-top">
             <!-- start: NAVBAR HEADER -->
             <div class="navbar-header">
-                <a class="navbar-brand" [routerLink]="['/login']" >
-                    <img src="public/images/logo.png" alt="Clip-Two"/>
+                <a class="navbar-brand" [routerLink]="['/']" >
+                    <img src="/public/images/logo.png" alt="Clip-Two"/>
                 </a>
                 <a href="javascript:void(0)" class="sidebar-toggler pull-right visible-md visible-lg"
                    data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
@@ -56,7 +56,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
                                             <a href="javascript:;" class="unread">
                                                 <div class="clearfix">
                                                     <div class="thread-image">
-                                                        <img src="./public/images/avatar-2.jpg" alt="">
+                                                        <img src="/public/images/avatar-2.jpg" alt="">
                                                     </div>
                                                     <div class="thread-content">
                                                         <span class="author">Nicole Bell</span>
@@ -70,7 +70,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
                                             <a href="javascript:;" class="unread">
                                                 <div class="clearfix">
                                                     <div class="thread-image">
-                                                        <img src="./public/images/avatar-3.jpg" alt="">
+                                                        <img src="/public/images/avatar-3.jpg" alt="">
                                                     </div>
                                                     <div class="thread-content">
                                                         <span class="author">Steven Thompson</span>
@@ -84,7 +84,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
                                             <a href="javascript:;">
                                                 <div class="clearfix">
                                                     <div class="thread-image">
-                                                        <img src="./public/images/avatar-5.jpg" alt="">
+                                                        <img src="/public/images/avatar-5.jpg" alt="">
                                                     </div>
                                                     <div class="thread-content">
                                                         <span class="author">Kenneth Ross</span>
@@ -118,7 +118,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
                                 <div class="drop-down-wrapper ps-container">
                                     <div class="list-group no-margin">
                                         <a class="media list-group-item" href="">
-                                            <img class="img-circle" alt="..." src="public/images/avatar-1.jpg">
+                                            <img class="img-circle" alt="..." src="/public/images/avatar-1.jpg">
                                             <span class="media-body block no-margin"> Use awesome animate.css <small
                                                     class="block text-grey">10 minutes ago</small> </span>
                                         </a>
@@ -164,32 +164,32 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
                     <!-- start: USER OPTIONS DROPDOWN -->
                     <li class="dropdown current-user">
                         <a href class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="public/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i
+                            <img src="/public/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i
                                 class="ti-angle-down"></i></span>
                         </a>
                         <ul class="dropdown-menu dropdown-dark">
                             <li>
-                                <a href="pages_user_profile.html">
+                                <a href="javascript:void(0);">
                                     My Profile
                                 </a>
                             </li>
                             <li>
-                                <a href="pages_calendar.html">
+                                <a href="javascript:void(0);">
                                     My Calendar
                                 </a>
                             </li>
                             <li>
-                                <a hef="pages_messages.html">
+                                <a hef="javascript:void(0);">
                                     My Messages (3)
                                 </a>
                             </li>
                             <li>
-                                <a href="login_lockscreen.html">
+                                <a href="javascript:void(0);">
                                     Lock Screen
                                 </a>
                             </li>
                             <li>
-                                <a href="login_signin.html">
+                                <a [routerLink]="['/login']">
                                     Log Out
                                 </a>
                             </li>

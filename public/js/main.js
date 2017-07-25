@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 var Main = function() {
 
     var MEDIAQUERY = {
@@ -231,7 +233,7 @@ var Main = function() {
 			} else {
 				appSetting = clipSetting;
 			}
-		};
+		}
 
 
 		appSetting.fixedHeader ? app.addClass('app-navbar-fixed') : app.removeClass('app-navbar-fixed');
@@ -289,8 +291,8 @@ var Main = function() {
 				default:
 					$(".navbar-brand img").attr("src", "public/images/logo.png");
 					break;
-			};
-		};
+			}
+		}
 		function defaultSetting() {
 			$('#fixed-header').prop('checked', true);
 			$('#fixed-sidebar').prop('checked', true);
@@ -299,7 +301,7 @@ var Main = function() {
 			$('#skin_color').attr("href", "public/css/themes/theme-1.css");
 			$(".navbar-brand img").attr("src", "public/images/logo.png");
 
-		};
+		}
 	};
 	// function to allow a button or a link to open a tab
 	var showTabHandler = function(e) {
@@ -311,7 +313,7 @@ var Main = function() {
 					$('a[href="' + tabToShow + '"]').tab('show');
 				}
 			});
-		};
+		}
 	};
 	// function to enable panel scroll with perfectScrollbar
 	var panelScrollHandler = function() {
@@ -411,7 +413,7 @@ var Main = function() {
 			return true;
 		} else {
 			return false;
-		};
+		}
 	}
 
 	return {
@@ -434,5 +436,4 @@ var Main = function() {
 		}
 	};
 }();
-
 

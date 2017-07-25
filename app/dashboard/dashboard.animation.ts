@@ -3,7 +3,6 @@ import {trigger, state, style, animate, transition, query, stagger, animateChild
 
 
 export const zoomIn = trigger('zoomIn', [
-    state('*', style({transform: 'scale(1)', opacity: 1})),
     transition('void => *', [
         style({transform: 'scale(0)', opacity: 1}),
         animate('0.5s ease-in-out')

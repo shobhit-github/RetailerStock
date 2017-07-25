@@ -1,6 +1,5 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Component, OnInit} from '@angular/core';
-
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'sidebar',
@@ -708,18 +707,17 @@ import {Component, OnInit} from '@angular/core';
             </div>
         </div>
         <!-- / sidebar -->
-        
     `
 })
 
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements AfterViewInit{
 
     constructor(){
 
     }
 
-    ngOnInit() {
-
+    ngAfterViewInit() {
+        Main.init();
     }
 
 }
