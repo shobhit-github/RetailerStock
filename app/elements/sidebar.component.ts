@@ -707,12 +707,13 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
             </div>
         </div>
         <!-- / sidebar -->
+        
     `
 })
 
 export class SidebarComponent implements AfterViewInit{
 
-    constructor(){
+    constructor() {
 
     }
 

@@ -16,7 +16,8 @@ var Main = function() {
 	$(".current-year").text((new Date).getFullYear());
 	//sidebar
 	var sidebarHandler = function() {
-		var eventObject = isTouch() ? 'click' : 'mouseenter', elem = $('#sidebar'), ul = "", menuTitle, _this;
+		var eventObject = isTouch() ? 'click' : 'mouseenter', elem = $('#sidebar'), ul = "", menuTitle, _this, wrap = $('.app-aside');
+
 
 		elem.on('click', 'a', function(e) {
 
@@ -26,6 +27,8 @@ var Main = function() {
 
 			_this.closest("ul").find(".open").not(".active").children("ul").not(_this.next()).slideUp(200).parent('.open').removeClass("open");
 			if(_this.next().is('ul') && _this.parent().toggleClass('open')) {
+
+
 
 				_this.next().slideToggle(200, function() {
 					$win.trigger("resize");
@@ -39,24 +42,29 @@ var Main = function() {
 			}
 		});
 		elem.on(eventObject, 'a', function(e) {
+
 			if(!isSidebarClosed() || isSmallDevice())
 				return;
 			_this = $(this);
 
 			if(!_this.parent().hasClass('hover') && !_this.closest("ul").hasClass("sub-menu")) {
-				wrapLeave();
+
+                wrapLeave();
 				_this.parent().addClass('hover');
-				menuTitle = _this.find(".item-inner").clone();
+				menuTitle = _this.find("div.item-inner").clone();
 				if(_this.parent().hasClass('active')) {
 					menuTitle.addClass("active");
 				}
 				var offset = $("#sidebar").position().top;
 				var itemTop = isSidebarFixed() ? _this.parent().position().top + offset : (_this.parent().position().top);
+
 				menuTitle.css({
 					position: isSidebarFixed() ? 'fixed' : 'absolute',
 					height: _this.outerHeight(),
 					top: itemTop
 				}).appendTo(wrap);
+
+
 				if(_this.next().is('ul')) {
 					ul = _this.next().clone(true);
 
@@ -113,23 +121,28 @@ var Main = function() {
 		}
 
 		$(document).on("mousedown touchstart", toggleNavbar);
+
 		function toggleNavbar(e) {
 			if(navbar.has(e.target).length === 0//checks if descendants of $box was clicked
 			&& !navbar.is(e.target)//checks if the $box itself was clicked
-			&& navbar.parent().hasClass("collapse in"))  {
+			&& navbar.parent().hasClass("collapse in")
+			)  {
 				collapseButton.trigger("click");
 				//$(document).off("mousedown touchstart", toggleNavbar);
 			}
 		}
 	};
+
 	// tooltips handler
 	var tooltipHandler = function() {
 		$('[data-toggle="tooltip"]').tooltip();
 	};
+
 	// popovers handler
 	var popoverHandler = function() {
 		$('[data-toggle="popover"]').popover();
 	};
+
 	// perfect scrollbar
 	var perfectScrollbarHandler = function() {
 		var pScroll = $(".perfect-scrollbar");
@@ -144,6 +157,7 @@ var Main = function() {
 
 		}
 	};
+
 	//toggle class
 	var toggleClassOnElement = function() {
 		var toggleAttribute = $('*[data-toggle-class]');
@@ -168,7 +182,6 @@ var Main = function() {
 
 					outsideElement = $(_this.attr('data-toggle-click-outside'));
 					$(document).on("mousedown touchstart", toggleOutside);
-
 				}
 
 			});
@@ -185,6 +198,7 @@ var Main = function() {
 
 		});
 	};
+
 	//switchery
 	var switcheryHandler = function() {
 		var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -193,6 +207,7 @@ var Main = function() {
 			var switchery = new Switchery(html);
 		});
 	};
+
 	//search form
 	var searchHandler = function() {
 		var elem = $('.search-form');
@@ -215,6 +230,7 @@ var Main = function() {
 			}
 		};
 	};
+
 	// settings
 	var settingsHandler = function() {
 		var clipSetting = new Object, appSetting = new Object;
@@ -303,6 +319,7 @@ var Main = function() {
 
 		}
 	};
+
 	// function to allow a button or a link to open a tab
 	var showTabHandler = function(e) {
 		if($(".show-tab").length) {
@@ -315,6 +332,7 @@ var Main = function() {
 			});
 		}
 	};
+
 	// function to enable panel scroll with perfectScrollbar
 	var panelScrollHandler = function() {
 		var panelScroll = $(".panel-scroll");
@@ -324,6 +342,7 @@ var Main = function() {
 			});
 		}
 	};
+
 	//function to activate the panel tools
 	var panelToolsHandler = function() {
 
@@ -367,6 +386,7 @@ var Main = function() {
 		});
 
 	};
+
 	// function to activate the Go-Top button
     var goTopHandler = function(e) {
         $('.go-top').on('click', function(e) {
@@ -389,6 +409,7 @@ var Main = function() {
 		});
 	};
 	function wrapLeave() {
+        wrap = $('.app-aside');
 		wrap.trigger('mouseleave');
 	}
 
