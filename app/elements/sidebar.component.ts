@@ -711,7 +711,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
     `
 })
 
-export class SidebarComponent implements AfterViewInit{
+export class SidebarComponent implements AfterViewInit {
 
     constructor() {
 

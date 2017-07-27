@@ -5124,14 +5124,16 @@ select[multiple="multiple"]:focus option {
 }
 
 .has-error .form-control {
-    color: #5b5b60;
-    border-color: #F8F8F8;
-    border-bottom-color: #a94442 !important;
-    border-bottom-width: 1px !important;
-    border-bottom-style: dotted;
     border-color: #a94442 !important;
     border-width: 1px !important;
-    border-style: dotted;
+    border-style: dashed;
+    color: #A94442 !important;
+}
+.has-error .form-control:focus {
+    border-color: #a94442 !important;
+}
+.has-error .fa {
+    color: #A94442 !important;
 }
 
 .has-error .form-control:focus, .has-error .form-control:hover {

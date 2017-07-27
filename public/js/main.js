@@ -402,12 +402,14 @@ var Main = function() {
 			new SelectFx(el);
 		});
 	};
+
 	// Window Resize Function
 	var resizeHandler = function(func, threshold, execAsap) {
 		$(window).resize(function() {
 			navbarHandler();
 		});
 	};
+
 	function wrapLeave() {
         wrap = $('.app-aside');
 		wrap.trigger('mouseleave');
