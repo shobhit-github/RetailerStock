@@ -36,9 +36,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="block">
-                            Gender
-                        </label>
+
                         <div class="clip-radio radio-primary">
                             <input type="radio" checked id="rg-female" name="gender" value="female">
                             <label for="rg-female">
@@ -84,13 +82,10 @@
                     </div>
                     <div class="form-group">
                         <div class="checkbox clip-check check-primary">
-                            <input #agree="ngModel" [(ngModel)]="user.agree" required type="checkbox" id="agree" value=true />
+                            <input required type="checkbox" id="agree" value=true />
                             <label for="agree">
                                 I agree
                             </label>
-                            <div *ngIf="(agree.errors && (agree.touched || agree.dirty) || user.password!=user.password_again)">
-                                <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!agree.errors.required"> You've to agree the terms and conditions ! </i>
-                            </div>
                         </div>
                     </div>
                     <div class="form-actions">

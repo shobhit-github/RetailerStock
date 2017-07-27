@@ -1,32 +1,44 @@
-import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AuthenticationService } from '../_services/authentication.service';
+import {Injectable} from '@angular/core';
+import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {Http, Headers, Response} from '@angular/http';
+import {CONFIG} from "../../app.config";
+import "rxjs/add/operator/map";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+    private headers:Headers = new Headers();
+
     constructor(private router: Router,
-                private auth:AuthenticationService) { }
+                private http: Http) {
+        this.headers.append('Authorization', localStorage.getItem('_token'));
+    }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+
         if (localStorage.getItem('_token')) {
-            // logged in so return true
-            this.auth.checkAuthorization().subscribe(
-                data=>{
-                    return true;
-                },
-                error =>{
 
-                    // not logged in so redirect to login page with the return url
-                    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
-                    return false;
-                }
-            );
-
+            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
+                .map((response: Response) => response.json())
+                .subscribe(
+                    data => {
+                        if (data && data.token) {
+                            // store user details and jwt token in local storage to keep user logged in between page refreshes
+                            localStorage.setItem('_token', JSON.stringify(data.token));
+                            // logged in so return true
+                            return true;
+                        }
+                    },
+                    error => {
+                        // not logged in so redirect to login page with the return url
+                        this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
+                        return false;
+                    }
+                )
         }
 
         // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+        this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
         return false;
     }
 }
