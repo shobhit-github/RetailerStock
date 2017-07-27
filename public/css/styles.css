@@ -161,7 +161,6 @@ h5.over-title {
     font-size: 17px;
 }
 
-
 .ct-callout {
     border-color: #007AFF;
     border-image: none;
@@ -4499,7 +4498,7 @@ a.text-light:hover {
     border: none !important;
     color: #ffffff !important;
     cursor: default !important;
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    /*filter: progid:DXImageTransform.Microsoft.Alpha(enabled =false);*/
     opacity: 1;
 }
 
@@ -5120,18 +5119,20 @@ select[multiple="multiple"]:focus option {
 }
 
 .has-error .error {
-    color: #a94442;
+    color: #A94442;
 }
 
 .has-error .form-control {
-    border-color: #a94442 !important;
+    border-color: #A94442 !important;
     border-width: 1px !important;
     border-style: dashed;
     color: #A94442 !important;
 }
+
 .has-error .form-control:focus {
-    border-color: #a94442 !important;
+    border-color: #A94442 !important;
 }
+
 .has-error .fa {
     color: #A94442 !important;
 }
@@ -12676,3 +12677,4 @@ spinner loader
     width: 100%;
     top: 20%;
 }
+

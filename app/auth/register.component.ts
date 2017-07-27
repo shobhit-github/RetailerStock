@@ -21,12 +21,15 @@ import { Router } from '@angular/router';
 })
 
 export class RegisterComponent {
-    model: any = {};
+    user: any = {};
     loading = false;
     state:string = 'small';
+    userForm: any;
 
     constructor(
-        private router: Router) { }
+        private router: Router) {
+
+    }
 
 
     register() {

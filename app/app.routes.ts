@@ -18,7 +18,6 @@ const APP_ROUTER_PROVIDERS: Routes = [
                 path:'dashboard',
                 component: DashboardComponent,
             },
-
             {
                 path: '',
                 redirectTo: 'dashboard',

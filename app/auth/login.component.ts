@@ -23,7 +23,7 @@ import { AuthenticationService } from '../_shared/_services/index';
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
+    user: any = {};
     loading = false;
     returnUrl: string;
 
@@ -42,14 +42,15 @@ export class LoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.user.username, this.user.password)
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
                     this.loading = false;
-                });
+                }
+            );
     }
 
 }

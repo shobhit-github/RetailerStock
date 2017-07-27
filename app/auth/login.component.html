@@ -1,11 +1,11 @@
 <div class="login row">
     <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 animate-zoomin">
         <div class="logo margin-top-30">
-            <img src="public/images/logo.png" alt="Clip-Two"/>
+            <img src="/public/images/logo.png" alt="Clip-Two"/>
         </div>
         <!-- start: LOGIN BOX -->
         <div class="box-login">
-            <form class="form-login">
+                <form (ngSubmit)="login()" class="form-login" novalidate>
                 <fieldset>
                     <legend>
                         Sign in to your account
@@ -13,19 +13,26 @@
                     <p>
                         Please enter your name and password to log in.
                     </p>
-                    <div class="form-group">
-								<span class="input-icon">
-									<input type="text" class="form-control" name="username" placeholder="Username">
-									<i class="fa fa-user"></i> </span>
+                    <div class="form-group" [ngClass]="{'has-error':username.errors && (username.dirty || username.touched)}" >
+                        <span class="input-icon">
+                            <input [(ngModel)] = "user.username" type="text" class="form-control" name="username" placeholder="Username" required #username="ngModel" />
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <div *ngIf="username.errors && (username.dirty || username.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!username.errors.required"> You've to enter your username ! </i>
+                        </div>
                     </div>
-                    <div class="form-group form-actions">
-								<span class="input-icon">
-									<input type="password" class="form-control password" name="password"
-                                           placeholder="Password">
-									<i class="fa fa-lock"></i>
-									<a class="forgot" [routerLink]="['/forgot']">
-										I forgot my password
-									</a> </span>
+                    <div class="form-group form-actions" [ngClass]="{'has-error':password.errors && (password.dirty || password.touched)}">
+                        <span class="input-icon">
+                            <input [(ngModel)] = "user.password" type="password" class="form-control password" name="password" placeholder="Password" required #password="ngModel" />
+                            <i class="fa fa-lock"></i>
+                            <a class="forgot" [routerLink]="['/forgot']">
+                                I forgot my password
+                            </a>
+                        </span>
+                        <div *ngIf="password.errors && (password.dirty || password.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password.errors.required"> You've to enter your password ! </i>
+                        </div>
                     </div>
                     <div class="form-actions">
                         <div class="checkbox clip-check check-primary">
@@ -33,10 +40,10 @@
                             <label for="remember">
                                 Keep me signed in
                             </label>
+                            <button [disabled]="(password.errors && username.errors)||loading" type="submit" class="btn btn-primary pull-right">
+                                Login <i class="fa fa-arrow-circle-right" [ngClass]="(!loading)?'fa-arrow-circle-right':'fa-circle-o-notch fa-spin'"></i>
+                            </button>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right">
-                            Login <i class="fa fa-arrow-circle-right"></i>
-                        </button>
                     </div>
                     <div class="new-account">
                         Don't have an account yet?

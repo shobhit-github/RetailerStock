@@ -2,11 +2,11 @@
 <div class="row login">
     <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
         <div class="logo margin-top-30">
-            <img src="public/images/logo.png" alt="Clip-Two"/>
+            <img src="/public/images/logo.png" alt="Clip-Two"/>
         </div>
         <!-- start: REGISTER BOX -->
         <div class="box-register">
-            <form class="form-register">
+            <form (ngSubmit)="register()" class="form-register" novalidate>
                 <fieldset>
                     <legend>
                         Sign Up
@@ -14,21 +14,33 @@
                     <p>
                         Enter your personal details below:
                     </p>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="full_name" placeholder="Full Name">
+                    <div class="form-group" [ngClass]="{'has-error':(fullname.errors && (fullname.touched || fullname.dirty))}">
+                        <input #fullname="ngModel" [(ngModel)]="user.fullname" type="text" class="form-control" name="full_name" placeholder="Full Name" required minlength="5" maxlength="15" />
+                        <div *ngIf="fullname.errors && (fullname.dirty || fullname.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!fullname.errors.required"> You've to enter your full name ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!fullname.errors.minlength || !fullname.errors.maxlength)"> You've enter chars length between 5 to 15 ! </i>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="address" placeholder="Address">
+                    <div class="form-group" [ngClass]="{'has-error':(username.errors && (username.touched || username.dirty))}">
+                        <input #username="ngModel" [(ngModel)]="user.username" type="text" class="form-control" name="address" placeholder="Username" required minlength="5" maxlength="10" />
+                        <div *ngIf="username.errors && (username.dirty || username.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!username.errors.required"> You've to enter your username ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!username.errors.minlength || !username.errors.maxlength)"> You've enter chars length between 5 to 10 ! </i>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="city" placeholder="City">
+                    <div class="form-group" [ngClass]="{'has-error':(phone.errors && (phone.touched || phone.dirty))}">
+                        <input type="tel" class="form-control" name="phone" #phone="ngModel"  [(ngModel)]="user.phone" placeholder="Phone" required minlength="10" maxlength="10"/>
+                        <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!phone.errors.required"> You've to enter your phone number ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!phone.errors.minlength || !phone.errors.maxlength)"> You've to enter valid phone number ! </i>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="block">
                             Gender
                         </label>
                         <div class="clip-radio radio-primary">
-                            <input type="radio" id="rg-female" name="gender" value="female">
+                            <input type="radio" checked id="rg-female" name="gender" value="female">
                             <label for="rg-female">
                                 Female
                             </label>
@@ -41,29 +53,44 @@
                     <p>
                         Enter your account details below:
                     </p>
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'has-error':(email.errors && (email.touched || email.dirty))}">
 								<span class="input-icon">
-									<input type="email" class="form-control" name="email" placeholder="Email">
+									<input #email="ngModel" [(ngModel)]="user.email" type="email" class="form-control" name="email" placeholder="Email" required />
 									<i class="fa fa-envelope"></i> </span>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!email.errors.required"> You've to enter your email ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!email.errors.email)"> You've to enter valid email ! </i>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'has-error':(password.errors && (password.touched || password.dirty) || user.password!=user.password_again)}">
 								<span class="input-icon">
-									<input type="password" class="form-control" id="password" name="password"
-                                           placeholder="Password">
-									<i class="fa fa-lock"></i> </span>
+									<input #password="ngModel" [(ngModel)]="user.password" type="password" class="form-control" id="password" name="password"
+                                           placeholder="Password" required />
+									<i class="fa fa-lock fa-lg"></i> </span>
+                        <div *ngIf="(password.errors && (password.touched || password.dirty) || user.password!=user.password_again)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password.errors.required"> You've to enter your password ! </i>
+                            </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'has-error':(password_again.errors && (password_again.touched || password.dirty) || user.password!=user.password_again)}">
 								<span class="input-icon">
-									<input type="password" class="form-control" name="password_again"
-                                           placeholder="Password Again">
-									<i class="fa fa-lock"></i> </span>
+                                    {{user.password_again}}
+									<input #password_again="ngModel" [(ngModel)]="user.password_again" type="password" class="form-control" name="password_again"
+                                           placeholder="Password Again" required />
+									<i class="fa fa-lock fa-lg"></i> </span>
+                        <div *ngIf="(password_again.errors && (password_again.touched || password_again.dirty) || user.password!=user.password_again)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password_again.errors.required"> You've to enter your password again ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(user.password!=user.password_again)"> You've to enter same password ! </i>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="checkbox clip-check check-primary">
-                            <input type="checkbox" id="agree" value="agree">
+                            <input #agree="ngModel" [(ngModel)]="user.agree" required type="checkbox" id="agree" value=true />
                             <label for="agree">
                                 I agree
                             </label>
+                            <div *ngIf="(agree.errors && (agree.touched || agree.dirty) || user.password!=user.password_again)">
+                                <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!agree.errors.required"> You've to agree the terms and conditions ! </i>
+                            </div>
                         </div>
                     </div>
                     <div class="form-actions">
@@ -73,7 +100,9 @@
                                 Log-in
                             </a>
                         </p>
-                        <button type="submit" class="btn btn-primary pull-right">
+                        <button
+                                [disabled]="loading"
+                                type="submit" class="btn btn-primary pull-right">
                             Submit <i class="fa fa-arrow-circle-right"></i>
                         </button>
                     </div>
