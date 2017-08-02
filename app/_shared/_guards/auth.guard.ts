@@ -1,24 +1,27 @@
 import {Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {Http, Headers, Response} from '@angular/http';
+import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import {CONFIG} from "../../app.config";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    private headers:Headers = new Headers();
+    private headers: Headers = new Headers();
+    private options: any;
 
     constructor(private router: Router,
                 private http: Http) {
+
         this.headers.append('Authorization', localStorage.getItem('_token'));
+        this.headers.append('Language', localStorage.getItem('_lang'));
     }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
         if (localStorage.getItem('_token')) {
 
-            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
+            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers:this.headers})
                 .map((response: Response) => response.json())
                 .subscribe(
                     data => {
@@ -30,6 +33,7 @@ export class AuthGuard implements CanActivate {
                         }
                     },
                     error => {
+                        console.log(error);
                         // not logged in so redirect to login page with the return url
                         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
                         return false;
@@ -41,4 +45,5 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
         return false;
     }
+
 }

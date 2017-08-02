@@ -6,7 +6,6 @@ import {trigger, style, state, transition, animate} from "@angular/animations"
 
 
 @Component({
-    selector: 'home',
     animations:[
         trigger('footerTransition', [
             state('in', style({transform: 'translateY(0%)'}) ),

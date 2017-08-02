@@ -45,6 +45,8 @@ const APP_ROUTER_PROVIDERS: Routes = [
         redirectTo: '/home/dashboard',
         pathMatch: 'full'
     },
+
+
     // otherwise redirect to home
     {
         path: '**',
