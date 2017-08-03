@@ -1,12 +1,12 @@
 
-/*      Dependencies 
+/*      Dependencies
 ---------------------------------------------*/
 
 var express = require('express')
   , async   = require('async')
   , env     = require('node-env-file')('./.env')
   , request = require('request');
-  
+
 var User   = require(MODEL_ROOT+'users')
   , Notify = require(HELP_ROOT+'notify')
   , jade   = require(HELP_ROOT+'jade.compiler');
@@ -14,7 +14,7 @@ var User   = require(MODEL_ROOT+'users')
 
 /**
  |======================================================================================
- |    Authentication Module start here... 
+ |    Authentication Module start here...
  |======================================================================================
  */
 
@@ -79,25 +79,25 @@ exports.signUp = function(req, res) {
   });
 
   /*User.findOne({ email: req.body.email }, function(err, existingUser) {
-    
+
     var profile = new User(req.body);
-    
+
     if (existingUser) {
       return res.status(409).json({ success: false, message: txt.ALREADY_EXIST });
     }
-    
+
     profile.save(function(err, result) {
       if (err) {
         return res.status(500).json({ success:false, message: err.message });
       }
-      
+
         return res.status(200).json({
-          success: true, 
+          success: true,
           message: txt.REGISTERATION_DONE,
           token: createJWT(result)
-        });      
+        });
     });
-    
+
   });*/
 };
 
@@ -114,7 +114,7 @@ exports.login = function(req, res) {
     if (!user) {
       return res.status(401).json({ success: false, message: txt.NOT_EXIST });
     }
-    
+
     user.comparePassword(req.body.password, function(err, isMatch) {
 
       if (!isMatch) {
@@ -326,7 +326,7 @@ exports.linkedin =  function(req, res) {
 
 /*
  |--------------------------------------------------
- | Reset password with email
+ | Forgot password with email
  |--------------------------------------------------
  */
 exports.forgotPassword = function(req, res) {
@@ -334,7 +334,7 @@ exports.forgotPassword = function(req, res) {
   var encryptedEmail = encrypt(req.body.email);
 
   User.findOne({email: req.body.email}, function(err, user) {
-    
+
     if (!user) {
       return res.status(401).json({ success: false, message: txt.NOT_EXIST });
     }
@@ -358,6 +358,32 @@ exports.forgotPassword = function(req, res) {
 
 
 
+
+/*
+ |--------------------------------------------------
+ | Forgot password with email
+ |--------------------------------------------------
+ */
+exports.resetPassword = function(req, res) {
+
+    var decryptedEmail = decrypt(req.body.email);
+
+    User.findOne({email: decryptedEmail}, function (err, user) {
+
+        if (!user) {
+            return res.status(401).json({success: false, message: txt.NOT_EXIST});
+        }
+
+        user.encryptPassword(req.body.password, function (err, hash) {
+
+            User.update({_id: user._id}, {$set: {password: hash}}, function (err, result) {
+
+                console.log(err, result);
+                return res.status(200).json({success: true, message: txt.NOT_EXIST});
+            })
+        });
+    });
+}
 
 
 /*
