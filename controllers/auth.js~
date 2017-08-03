@@ -131,7 +131,7 @@ exports.login = function(req, res) {
       });
 
     });
-  }).select({password:0});
+  })
 };
 
 /*

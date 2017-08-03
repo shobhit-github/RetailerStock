@@ -66,7 +66,9 @@ middleware.ensureAuthenticated = function (req, res, next) {
  |--------------------------------------------------
  */
 middleware.languageSetter = function (req, res, next) {
-     
+    
+	console.log( req );
+ 
     var placeholders
       , lang = req.header('Language');
 
