@@ -38,6 +38,7 @@ module.exports = {
     INVALID_PASSWORD                            :          "The password that you've entered is invalid !",
     PASSWORD_UPDATED_DONE                       :          "User password has been updated successfully !",
     USERS_DELETED                               :          "User(s) profile has been deleted successfully",
+    PASSWORD_RESET                              :          "Your password has been reset, now you can login with your new credentials !",
 
     // Payment Module
     PAYMENT_SUCCESS                             :          "Payment Successfull !",

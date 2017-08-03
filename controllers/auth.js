@@ -335,11 +335,11 @@ exports.forgotPassword = function(req, res) {
 
   User.findOne({email: req.body.email}, function(err, user) {
 
-    if (!user) {
+    if (!user||err) {
       return res.status(401).json({ success: false, message: txt.NOT_EXIST });
     }
 
-     user.reset_link = SERVER_URI+'#/set-password/:'+encryptedEmail;
+     user.reset_link = SERVER_URI+'#/set-password/'+encryptedEmail;
 
     jade.compile('reset_password', user, function (err, html) {
         if(err)
@@ -368,22 +368,50 @@ exports.resetPassword = function(req, res) {
 
     var decryptedEmail = decrypt(req.body.email);
 
-    User.findOne({email: decryptedEmail}, function (err, user) {
+    async.waterfall([
+        function(callback) {
 
-        if (!user) {
-            return res.status(401).json({success: false, message: txt.NOT_EXIST});
+            User.findOne({email: decryptedEmail}, function (err, user) {
+                if(err)
+                    return callback(err, false);
+                if(!user)
+                    return callback(401, false);
+
+                callback(false, user);
+            });
+
+        },
+        function(userData, callback) {
+
+            userData.encryptPassword(req.body.password, function (err, hash) {
+                if(err)
+                    return callback(err, false);
+
+                callback(false, {user:userData, hashed: hash});
+            });
+        },
+        function(userDetail, callback) {
+            User.update({_id: userDetail.user._id}, {$set: {password: userDetail.hashed}}, function (err, result) {
+                if(err)
+                    return callback(err, false);
+
+                callback(false, {username:userDetail.user.username, password:req.body.password});
+            });
+
+        }
+    ], function (err, result) {
+
+        if(err) {
+            if(err==401)
+                return res.status(401).json({status:false, message: txt.NOT_EXIST});
+            return res.status(400).json({status:false, message: txt.BAD_REQUEST, decription:err});
         }
 
-        user.encryptPassword(req.body.password, function (err, hash) {
-
-            User.update({_id: user._id}, {$set: {password: hash}}, function (err, result) {
-
-                console.log(err, result);
-                return res.status(200).json({success: true, message: txt.NOT_EXIST});
-            })
-        });
+        return res.status(200).json({status:true, message: txt.PASSWORD_RESET, data: result});
     });
-}
+
+
+};
 
 
 /*

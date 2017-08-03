@@ -34,6 +34,7 @@ var AuthController              =   require(CTRL_ROOT+'auth')
 router.post('/signup', mid.languageSetter, AuthController.signUp);
 router.post('/login', mid.languageSetter, AuthController.login);
 router.post('/forgot_password', mid.languageSetter, AuthController.forgotPassword);
+router.post('/reset_password', mid.languageSetter, AuthController.resetPassword);
 router.get('/logout', AuthController.logout);
 router.get('/check_auth', [ mid.languageSetter, mid.ensureAuthenticated ], AuthController.checkAuth);
 
