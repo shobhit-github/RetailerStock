@@ -55,6 +55,10 @@
             "angular2-in-memory-web-api": "npm:angular2-in-memory-web-api",
             "primeng": "npm:primeng",
 
+            // third party libraries
+            'ng2-validation': 'npm:ng2-validation/bundles/ng2-validation.umd.js',
+            'libphonenumber-js' : 'npm:libphonenumber-js/bundle/libphonenumber-js.min.js',
+
             // angular bundles
             '@angular/core': 'https://unpkg.com/@angular/core/bundles/core.umd.js',
             '@angular/animations': 'https://unpkg.com/@angular/animations/bundles/animations.umd.js',

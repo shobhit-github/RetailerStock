@@ -13,7 +13,6 @@ export class AuthenticationService {
     }
 
 
-
     login(username: string, password: string) {
         return this.http.post(CONFIG.SERVER_URL+'login', { username: username, password: password})
             .map((response: Response) => {
@@ -26,6 +25,11 @@ export class AuthenticationService {
             });
     }
 
+
+    forgotPassword(email: string) {
+        return this.http.post(CONFIG.SERVER_URL+'forgot_password', {email: email})
+            .map((res: Response)=>res.json())
+    }
 
 
     logout() {

@@ -24,7 +24,7 @@ import { AuthenticationService } from '../_shared/_services/index';
 
 export class LoginComponent implements OnInit {
     user: any = {};
-    loading = false;
+    loading:boolean = false;
     returnUrl: string;
     loginError: string;
 

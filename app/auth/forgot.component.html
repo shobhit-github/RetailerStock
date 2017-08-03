@@ -2,11 +2,11 @@
 <div class="row login">
     <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
         <div class="logo margin-top-30">
-            <img src="public/images/logo.png" alt="Clip-Two"/>
+            <img src="/public/images/logo.png" alt="Clip-Two"/>
         </div>
         <!-- start: FORGOT BOX -->
         <div class="box-forgot">
-            <form class="form-forgot">
+            <form (ngSubmit)="forgotPassword()" class="form-forgot">
                 <fieldset>
                     <legend>
                         Forget Password?
@@ -14,17 +14,25 @@
                     <p>
                         Enter your e-mail address below to reset your password.
                     </p>
-                    <div class="form-group">
-								<span class="input-icon">
-									<input type="email" class="form-control" name="email" placeholder="Email">
-									<i class="fa fa-envelope-o"></i> </span>
+                    <div class="form-group" [ngClass]="{'has-error':email.errors && (email.dirty || email.touched)}">
+                            <span class="input-icon">
+                                <input type="email" [(ngModel)]="user.email" class="form-control" name="email" placeholder="Email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
+                                <i class="fa fa-envelope-o"></i> </span>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)">
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!email.errors?.pattern">You've to enter your valid email address !</i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!email.errors?.required"> You've to enter yours registered email address ! </i>
+                        </div>
                     </div>
                     <div class="form-actions">
+                        <div *ngIf="user.message" style="text-align: center;margin-bottom: 20px;" class="check-primary">
+                            <em [ngStyle]="{'color':'#A94442'}" *ngIf="user.status=='error'"><i class="fa fa-ban"></i> {{user.message}}</em>
+                            <em [ngStyle]="{'color':'#01820C'}" *ngIf="user.status=='success'"><i class="fa fa-check"></i> {{user.message}}</em>
+                        </div>
                         <a class="btn btn-primary btn-o" [routerLink]="['/login']">
                             <i class="fa fa-chevron-circle-left"></i> Log-In
                         </a>
-                        <button type="submit" class="btn btn-primary pull-right">
-                            Submit <i class="fa fa-arrow-circle-right"></i>
+                        <button [disabled]="(email.errors || loading)" type="submit" class="btn btn-primary pull-right">
+                            Submit <i [ngClass]="(!loading)?'fa fa-arrow-circle-right':'fa fa-circle-o-notch fa-spin'"></i>
                         </button>
                     </div>
                 </fieldset>

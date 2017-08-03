@@ -43,8 +43,8 @@
                             <label for="remember">
                                 Keep me signed in
                             </label>
-                            <button [disabled]="(password.errors && username.errors)||loading" type="submit" class="btn btn-primary pull-right">
-                                Login <i class="fa fa-arrow-circle-right" [ngClass]="(!loading)?'fa-arrow-circle-right':'fa-circle-o-notch fa-spin'"></i>
+                            <button [disabled]="(password.errors || username.errors || loading)" type="submit" class="btn btn-primary pull-right">
+                                Login <i [ngClass]="(!loading)?'fa fa-arrow-circle-right':'fa fa-circle-o-notch fa-spin'"></i>
                             </button>
                         </div>
                     </div>

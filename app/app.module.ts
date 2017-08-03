@@ -6,6 +6,7 @@ import {RegisterComponent, LoginComponent, ForgotComponent} from "./auth/index";
 import {PageNotFoundComponent, AsideComponent, SidebarComponent, HeaderComponent, SettingComponent} from './elements/index';
 import {SliderModule, InputMaskModule, ChartModule} from 'primeng/primeng';
 import {Routing} from "./app.routes";
+import { CustomFormsModule } from 'ng2-validation';
 import {AuthenticationService} from "./_shared/_services/index";
 import {CurrencyPipe, SymbolPipe} from './_shared/_pipes/index';
 import {AuthGuard} from "./_shared/_guards/index";
@@ -18,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        CustomFormsModule,
         FormsModule,
         SliderModule,
         HttpModule,
