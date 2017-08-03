@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent, RegisterComponent, ForgotComponent } from './auth/index';
+import { LoginComponent, RegisterComponent, ForgotComponent, ResetPasswordComponent } from './auth/index';
 import {PageNotFoundComponent} from './elements/index';
 import { AuthGuard } from './_shared/_guards/index';
 import {HomeComponent, DashboardComponent} from "./home/home.component";
@@ -32,6 +32,10 @@ const APP_ROUTER_PROVIDERS: Routes = [
     {
         path: 'forgot',
         component: ForgotComponent
+    },
+    {
+        path: 'reset-pass/:id',
+        component: ResetPasswordComponent
     },
     {
         path: 'register',

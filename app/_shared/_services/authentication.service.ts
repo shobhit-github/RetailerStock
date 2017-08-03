@@ -26,6 +26,12 @@ export class AuthenticationService {
     }
 
 
+    resetPassword(encryptedId: string, password: string) {
+        return this.http.post(CONFIG.SERVER_URL+'reset_password', {email: encryptedId, password: password})
+            .map((response: Response) => response.json());
+    }
+
+
     forgotPassword(email: string) {
         return this.http.post(CONFIG.SERVER_URL+'forgot_password', {email: email})
             .map((res: Response)=>res.json())
@@ -36,4 +42,6 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('_token');
     }
+
+
 }

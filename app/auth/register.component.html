@@ -6,7 +6,7 @@
         </div>
         <!-- start: REGISTER BOX -->
         <div class="box-register">
-            <form (ngSubmit)="register()" class="form-register" novalidate>
+            <form (ngSubmit)="register()" class="form-register" #userFrm="ngForm" novalidate>
                 <fieldset>
                     <legend>
                         Sign Up
@@ -18,21 +18,21 @@
                         <input #fullname="ngModel" [(ngModel)]="user.fullname" type="text" class="form-control" name="full_name" placeholder="Full Name" required minlength="5" maxlength="15" />
                         <div *ngIf="fullname.errors && (fullname.dirty || fullname.touched)">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!fullname.errors.required"> You've to enter your full name ! </i>
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!fullname.errors.minlength || !fullname.errors.maxlength)"> You've enter chars length between 5 to 15 ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!fullname.errors.minlength"> You've enter chars length between 5 to 15 ! </i>
                         </div>
                     </div>
                     <div class="form-group" [ngClass]="{'has-error':(username.errors && (username.touched || username.dirty))}">
                         <input #username="ngModel" [(ngModel)]="user.username" type="text" class="form-control" name="address" placeholder="Username" required minlength="5" maxlength="10" />
                         <div *ngIf="username.errors && (username.dirty || username.touched)">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!username.errors.required"> You've to enter your username ! </i>
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!username.errors.minlength || !username.errors.maxlength)"> You've enter chars length between 5 to 10 ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!username.errors.minlength"> You've enter chars length between 5 to 10 ! </i>
                         </div>
                     </div>
                     <div class="form-group" [ngClass]="{'has-error':(phone.errors && (phone.touched || phone.dirty))}">
-                        <input type="tel" class="form-control" name="phone" #phone="ngModel"  [(ngModel)]="user.phone" placeholder="Phone" required minlength="10" maxlength="10"/>
+                        <input type="tel" class="form-control" name="phone" #phone="ngModel"  [(ngModel)]="user.phone" placeholder="Phone" required pattern="^\d{10}$" />
                         <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!phone.errors.required"> You've to enter your phone number ! </i>
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!phone.errors.minlength || !phone.errors.maxlength)"> You've to enter valid phone number ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!phone.errors.pattern)"> You've to enter valid phone number ! </i>
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,31 +53,30 @@
                     </p>
                     <div class="form-group" [ngClass]="{'has-error':(email.errors && (email.touched || email.dirty))}">
 								<span class="input-icon">
-									<input #email="ngModel" [(ngModel)]="user.email" type="email" class="form-control" name="email" placeholder="Email" required />
+									<input #email="ngModel" [(ngModel)]="user.email" type="email" class="form-control" name="email" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
 									<i class="fa fa-envelope"></i> </span>
                         <div *ngIf="email.errors && (email.dirty || email.touched)">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!email.errors.required"> You've to enter your email ! </i>
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!email.errors.email)"> You've to enter valid email ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(!email.errors.pattern)"> You've to enter valid email ! </i>
                         </div>
                     </div>
-                    <div class="form-group" [ngClass]="{'has-error':(password.errors && (password.touched || password.dirty) || user.password!=user.password_again)}">
+                    <div class="form-group" [ngClass]="{'has-error':(password.errors && (password.touched || password.dirty))}">
 								<span class="input-icon">
 									<input #password="ngModel" [(ngModel)]="user.password" type="password" class="form-control" id="password" name="password"
                                            placeholder="Password" required />
 									<i class="fa fa-lock fa-lg"></i> </span>
-                        <div *ngIf="(password.errors && (password.touched || password.dirty) || user.password!=user.password_again)">
+                        <div *ngIf="(password.errors && (password.touched || password.dirty))">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password.errors.required"> You've to enter your password ! </i>
-                            </div>
+                        </div>
                     </div>
-                    <div class="form-group" [ngClass]="{'has-error':(password_again.errors && (password_again.touched || password.dirty) || user.password!=user.password_again)}">
-								<span class="input-icon">
-                                    {{user.password_again}}
-									<input #password_again="ngModel" [(ngModel)]="user.password_again" type="password" class="form-control" name="password_again"
-                                           placeholder="Password Again" required />
-									<i class="fa fa-lock fa-lg"></i> </span>
-                        <div *ngIf="(password_again.errors && (password_again.touched || password_again.dirty) || user.password!=user.password_again)">
+                    <div class="form-group" [ngClass]="{'has-error':(password_again.errors && (password_again.touched || password_again.dirty))}">
+                        <span class="input-icon">
+                            <input #password_again="ngModel" [(ngModel)]="user.password_again" type="password" class="form-control" name="password_again"
+                                   placeholder="Password Again" required pattern="{{user.password}}" />
+                            <i class="fa fa-lock fa-lg"></i> </span>
+                        <div *ngIf="(password_again.errors && (password_again.touched || password_again.dirty))">
                             <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password_again.errors.required"> You've to enter your password again ! </i>
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="(user.password!=user.password_again)"> You've to enter same password ! </i>
+                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password_again.errors.pattern"> You've to enter same password ! </i>
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,7 +95,7 @@
                             </a>
                         </p>
                         <button
-                                [disabled]="loading"
+                                [disabled]="loading || userFrm.invalid"
                                 type="submit" class="btn btn-primary pull-right">
                             Submit <i class="fa fa-arrow-circle-right"></i>
                         </button>

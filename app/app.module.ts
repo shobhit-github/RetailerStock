@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
-import {RegisterComponent, LoginComponent, ForgotComponent} from "./auth/index";
+import {RegisterComponent, LoginComponent, ForgotComponent, ResetPasswordComponent} from "./auth/index";
 import {PageNotFoundComponent, AsideComponent, SidebarComponent, HeaderComponent, SettingComponent} from './elements/index';
 import {SliderModule, InputMaskModule, ChartModule} from 'primeng/primeng';
 import {Routing} from "./app.routes";
@@ -39,6 +39,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         RegisterComponent,
         LoginComponent,
         ForgotComponent,
+        ResetPasswordComponent,
         CurrencyPipe,
         SymbolPipe
     ],
