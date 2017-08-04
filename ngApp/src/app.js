@@ -9,7 +9,7 @@
 var app = angular.module('retailerStock', ['ui.router', 'ngStorage', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.bootstrap', 'satellizer',
     'ngAnimate', 'ngMessages'/*,'ngFileUpload'*/,'toastr' /*,'chart.js' ,'angularMoment'*/, 'pubnub.angular.service'])
         .constant({
-          'SERVER_URL': (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'http://localhost:3000/' : 'https://retailerstock.herokuapp.com/'
+          'SERVER_URL': (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'http://localhost:3500/' : 'https://retailerstock.herokuapp.com/'
 
 });
 

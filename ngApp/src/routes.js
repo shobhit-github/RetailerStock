@@ -132,7 +132,7 @@ app.config(['$stateProvider', '$urlRouterProvider', 'SERVER_URL',
           } else { $sweetAlert.error("Oops!", res.data.message); }
         }, function (res) { $sweetAlert.error("Oops!", res.data.message); });
       },
-      template:`<div splash-screen class="splash"></div>`
+      template:'<div splash-screen class="splash"></div>'
 
     }).state('home.messanger', {
       url: '/chat',
