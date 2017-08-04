@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import {CONFIG} from "../../app.config";
-import "rxjs/add/operator/map";
+import {Observable} from "rxjs/Rx";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -23,6 +23,7 @@ export class AuthGuard implements CanActivate {
 
             this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers:this.headers})
                 .map((response: Response) => response.json())
+                .catch((e) => Observable.throw( this.handleError(e) ) )
                 .subscribe(
                     data => {
                         if (data && data.token) {
@@ -33,17 +34,35 @@ export class AuthGuard implements CanActivate {
                         }
                     },
                     error => {
-                        console.log(error);
                         // not logged in so redirect to login page with the return url
                         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
                         return false;
                     }
                 )
+
         }
 
         // not logged in so redirect to login page with the return url
         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
         return false;
+    }
+
+
+
+
+    private handleError(error) {
+
+        switch (error.status) {
+            case 400:
+                break;
+            case 500:
+                this.router.navigate(['/500']);
+                break;
+
+            default:
+                this.router.navigate(['/500']);
+                break;
+        }
     }
 
 }

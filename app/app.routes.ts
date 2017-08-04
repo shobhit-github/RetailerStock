@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent, RegisterComponent, ForgotComponent, ResetPasswordComponent } from './auth/index';
-import {PageNotFoundComponent} from './elements/index';
+import {PageNotFoundComponent, InternalErrorComponent} from './elements/index';
 import { AuthGuard } from './_shared/_guards/index';
 import {HomeComponent, DashboardComponent} from "./home/home.component";
 
@@ -50,7 +50,11 @@ const APP_ROUTER_PROVIDERS: Routes = [
         pathMatch: 'full'
     },
 
-
+    // otherwise redirect to home
+    {
+        path: '500',
+        component: InternalErrorComponent
+    },
     // otherwise redirect to home
     {
         path: '**',

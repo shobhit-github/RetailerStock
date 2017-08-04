@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {RegisterComponent, LoginComponent, ForgotComponent, ResetPasswordComponent} from "./auth/index";
-import {PageNotFoundComponent, AsideComponent, SidebarComponent, HeaderComponent, SettingComponent} from './elements/index';
+import {PageNotFoundComponent, InternalErrorComponent, AsideComponent, SidebarComponent, HeaderComponent, SettingComponent} from './elements/index';
 import {SliderModule, InputMaskModule, ChartModule} from 'primeng/primeng';
 import {Routing} from "./app.routes";
 import { CustomFormsModule } from 'ng2-validation';
@@ -32,6 +32,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         HomeComponent,
         DashboardComponent,
         PageNotFoundComponent,
+        InternalErrorComponent,
         HeaderComponent,
         AsideComponent,
         SidebarComponent,

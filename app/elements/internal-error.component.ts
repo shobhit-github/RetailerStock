@@ -7,7 +7,7 @@ import {transition, trigger, style, animate} from "@angular/animations";
 
     template: `
         <!-- start: 500 -->
-        <div class="error-full-page">
+        <div [@zoomIn]="" class="error-full-page">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 page-error">
