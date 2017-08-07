@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AuthenticationService {
 
-    headers:Headers = new Headers();
+    headers: Headers = new Headers();
 
     constructor(
         private http: Http) {
@@ -43,6 +43,7 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('_token');
     }
+
 
 
 }

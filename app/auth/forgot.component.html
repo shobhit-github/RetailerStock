@@ -24,9 +24,9 @@
                         </div>
                     </div>
                     <div class="form-actions">
-                        <div *ngIf="user.message" style="text-align: center;margin-bottom: 20px;" class="check-primary">
-                            <em [ngStyle]="{'color':'#A94442'}" *ngIf="user.status=='error'"><i class="fa fa-ban"></i> {{user.message}}</em>
-                            <em [ngStyle]="{'color':'#01820C'}" *ngIf="user.status=='success'"><i class="fa fa-check"></i> {{user.message}}</em>
+                        <div *ngIf="user.status" style="text-align: center;margin-bottom: 20px;" class="check-primary">
+                            <em [ngStyle]="{'color':'#A94442'}" *ngIf="errorMessage"><i class="fa fa-ban"></i> {{errorMessage}}</em>
+                            <em [ngStyle]="{'color':'#01820C'}" *ngIf="successMessage"><i class="fa fa-check"></i> {{successMessage}}</em>
                         </div>
                         <a class="btn btn-primary btn-o" [routerLink]="['/login']">
                             <i class="fa fa-chevron-circle-left"></i> Log-In

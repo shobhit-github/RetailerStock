@@ -52,7 +52,7 @@ const APP_ROUTER_PROVIDERS: Routes = [
 
     // otherwise redirect to home
     {
-        path: '500',
+        path: 'error_page',
         component: InternalErrorComponent
     },
     // otherwise redirect to home

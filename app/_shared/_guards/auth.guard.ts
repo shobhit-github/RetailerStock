@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {Http, Headers, Response, RequestOptions} from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
 import {CONFIG} from "../../app.config";
 import {Observable} from "rxjs/Rx";
 
@@ -8,7 +8,6 @@ import {Observable} from "rxjs/Rx";
 export class AuthGuard implements CanActivate {
 
     private headers: Headers = new Headers();
-    private options: any;
 
     constructor(private router: Router,
                 private http: Http) {
@@ -21,9 +20,9 @@ export class AuthGuard implements CanActivate {
 
         if (localStorage.getItem('_token')) {
 
-            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers:this.headers})
+            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
                 .map((response: Response) => response.json())
-                .catch((e) => Observable.throw( this.handleError(e) ) )
+                .catch( (e) =>  Observable.throw(this.handleError(e)) )
                 .subscribe(
                     data => {
                         if (data && data.token) {
@@ -49,20 +48,10 @@ export class AuthGuard implements CanActivate {
 
 
 
+    private handleError(error): void {
 
-    private handleError(error) {
-
-        switch (error.status) {
-            case 400:
-                break;
-            case 500:
-                this.router.navigate(['/500']);
-                break;
-
-            default:
-                this.router.navigate(['/500']);
-                break;
-        }
+        this.router.navigate(['error_page'], {queryParams: {errorCode: error.status}});
     }
+
 
 }

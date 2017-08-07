@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {transition, trigger, style, animate} from "@angular/animations";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -12,10 +13,10 @@ import {transition, trigger, style, animate} from "@angular/animations";
                 <div class="row">
                     <div class="col-sm-12 page-error">
                         <div class="error-number text-red">
-                            500
+                            {{errorCode}}
                         </div>
                         <div class="error-details col-sm-6 col-sm-offset-3">
-                            <h3>Oops! You are stuck at 500</h3>
+                            <h3>Oops! You are stuck at {{errorCode}}</h3>
                             <p>
                                 Something's wrong!
                                 <br>
@@ -40,7 +41,19 @@ import {transition, trigger, style, animate} from "@angular/animations";
         ])],
     host: {'[@zoomIn]': ''}
 })
-export class InternalErrorComponent {
 
 
+export class InternalErrorComponent implements OnInit{
+
+    errorCode:number;
+
+
+    constructor(private route: ActivatedRoute){
+
+    }
+
+    ngOnInit() {
+
+        this.errorCode = this.route.snapshot.queryParams['errorCode'] || 500;
+    }
 }

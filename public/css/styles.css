@@ -91,6 +91,14 @@ body.bg_style_5 {
     background: url("../images/bg_5.png") transparent !important;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-moz-viewport-scroll {
+    display: none;
+}
+
 ::-moz-selection {
     background: #5F8295;
     text-shadow: none;
