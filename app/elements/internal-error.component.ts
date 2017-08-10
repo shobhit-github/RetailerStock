@@ -36,7 +36,7 @@ import {ActivatedRoute} from "@angular/router";
         trigger('zoomIn', [
             transition(':enter', [
                 style({transform: 'scale(0)'}),
-                animate('1s ease-in-out', style({transform: 'scale(1)'}))
+                animate('600ms ease-in-out', style({transform: 'scale(1)'}))
             ])
         ])],
     host: {'[@zoomIn]': ''}

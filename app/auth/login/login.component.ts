@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../_shared/_services/index';
+import { AuthenticationService } from '../../_shared/_services/index';
 
 @Component({
-    templateUrl: 'app/auth/login.component.html',
+    templateUrl: 'app/auth/login/login.component.html',
     providers:[AuthenticationService],
     animations: [
         trigger('zoomInOut', [

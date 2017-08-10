@@ -1,3 +1,4 @@
+export * from './internal-error.component';
 export * from './not-found.component';
 export * from './internal-error.component';
 export * from './header.component';

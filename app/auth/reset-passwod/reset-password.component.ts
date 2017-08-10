@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import { AuthenticationService } from '../_shared/_services/index';
+import { AuthenticationService } from '../../_shared/_services/index';
 
 @Component({
-    templateUrl: 'app/auth/reset-password.component.html',
+    templateUrl: 'app/auth/reset-passwod/reset-password.component.html',
     providers:[AuthenticationService],
     animations: [
         trigger('zoomInOut', [

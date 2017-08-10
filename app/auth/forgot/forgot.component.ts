@@ -1,12 +1,11 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import {AuthenticationService} from "../../_shared/_services/index";
 
 @Component({
-    templateUrl: 'app/auth/register.component.html',
+    templateUrl: 'app/auth/forgot/forgot.component.html',
     animations: [
         trigger('zoomInOut', [
-
             transition(':enter', [
                 style({transform: 'scale(0)', position:'fixed', width:'100%'}),
                 animate('0.5s ease-in-out', style({transform: 'scale(1)'}))
@@ -20,27 +19,33 @@ import { Router } from '@angular/router';
     host:{'[@zoomInOut]':'true'}
 })
 
-export class RegisterComponent {
-    user: any = {};
-    loading = false;
-    state:string = 'small';
-    userForm: any;
+export class ForgotComponent {
 
-    constructor(
-        private router: Router) {
+    loading: boolean = false;
+    user: any = {};
+    errorMessage: string;
+    successMessage: string;
+
+    constructor(private authenticationService: AuthenticationService){
+
 
     }
 
+    forgotPassword() {
 
-    register() {
         this.loading = true;
-        /*this.userService.create(this.model)
+        this.errorMessage = this.successMessage = null;
+
+        this.authenticationService.forgotPassword(this.user.email)
             .subscribe(
-                data => {
-                    this.router.navigate(['/login']);
+                data=>{
+                    this.successMessage = data.message;
+                    this.loading = false;
                 },
                 error => {
+                    this.errorMessage = error.json().message;
                     this.loading = false;
-                });*/
+                }
+            );
     }
 }
