@@ -1,4 +1,4 @@
-# Get Started with Angular 2
+# FatRider
 
 Angular 2 is the great new framework that will provide us a great deal of flexibility and power when building our apps.
 
