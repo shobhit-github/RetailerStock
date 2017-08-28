@@ -42,22 +42,22 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
-    login() {
+    login(): void {
 
         this.loading = true;
         this.loginError = null;
 
         this.authenticationService.login(this.user.username, this.user.password)
             .subscribe(
-                data => {
-
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.loading = error.json().status;
-                    this.loginError = error.json().message;
-                }
+                result => this.router.navigate([this.returnUrl]),
+                error =>  this.handleError(error)
             );
+    }
+
+
+    private handleError(error): void {
+      this.loginError = error.json().message;
+      this.loading = false;
     }
 
 }
