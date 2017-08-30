@@ -26,7 +26,7 @@ const APP_ROUTER_PROVIDER: Routes = [
     },
     {
         path: 'auth',
-        loadChildren: () => AuthModule
+        loadChildren: './auth/auth.module#AuthModule'
     },
 
 
