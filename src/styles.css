@@ -1281,8 +1281,9 @@ and (max-device-width: 650px) {
   .ripples {
     left: 27%;
   }
+
   .loader-content {
-    margin-top: 19%;
+    margin-top: 21%;
     left: 12%;
   }
 }
@@ -1294,8 +1295,9 @@ and (max-width: 375px) {
   .ripples {
     left: 10%;
   }
+
   .loader-content {
-    margin-top: 36%;
+    margin-top: 38%;
     left: 25%;
   }
 }
@@ -1317,6 +1319,10 @@ and (orientation: landscape) {
     margin-top: 8%;
     left: 35%;
   }
+  .loader-content {
+    margin-top: 13%;
+    left: 8%;
+  }
 }
 
 /* iPads (portrait) ----------- */
@@ -1329,6 +1335,10 @@ and (orientation: portrait) {
     margin-top: 21%;
     left: 31%;
   }
+  .loader-content {
+    margin-top: 17%;
+    left: 11%;
+  }
 }
 
 /* Desktops and laptops ----------- */
@@ -1340,6 +1350,10 @@ and (max-width: 1524px) {
     left: 37%;
   }
 
+  .loader-content {
+    margin-top: 10%;
+    left: 43%;
+  }
 }
 
 /* Large screens ----------- */
@@ -1361,6 +1375,10 @@ and (orientation: landscape) {
     left: 24%;
     margin-top: -9px;
   }
+  .loader-content {
+    left: 15%;
+    margin-top: 22%;
+  }
 }
 
 /* iPhone 5 (portrait)----------- */
@@ -1374,9 +1392,9 @@ and (orientation: portrait) {
   }
 }
 
-/* iPhone 6 (landscape)----------- */
+/* iPhone 6 plus (landscape)----------- */
 @media only screen
-and (min-device-width: 730px)
+and (min-device-width: 665px)
 and (max-device-width: 750px)
 and (orientation: landscape) {
   /* STYLES GO HERE */
@@ -1384,13 +1402,14 @@ and (orientation: landscape) {
     left: 30%;
     margin-top: -9px;
   }
+
   .loader-content {
-    left: 11%;
-    margin-top: 20%;
+    left: 13%;
+    margin-top: 19%;
   }
 }
 
-/* iPhone 6 (portrait)----------- */
+/* iPhone 6 plus (portrait)----------- */
 @media only screen
 and (min-device-width: 410px)
 and (max-device-width: 435px)
@@ -1406,18 +1425,6 @@ and (orientation: portrait) {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 ul.sub-menu li ul.sub-menu li a {
   padding-left: 60px !important;
