@@ -1279,7 +1279,8 @@ and (min-device-width: 640px)
 and (max-device-width: 650px) {
   /* STYLES GO HERE */
   .ripples {
-    left: 27%;
+    left: 26%;
+    margin-top: -5%;
   }
 
   .loader-content {
@@ -1352,7 +1353,7 @@ and (max-width: 1524px) {
 
   .loader-content {
     margin-top: 10%;
-    left: 43%;
+    left: 45%;
   }
 }
 
@@ -1373,11 +1374,11 @@ and (orientation: landscape) {
   /* STYLES GO HERE */
   .ripples {
     left: 24%;
-    margin-top: -9px;
+    margin-top: -53px;
   }
   .loader-content {
     left: 15%;
-    margin-top: 22%;
+    margin-top: 25%;
   }
 }
 
@@ -1390,6 +1391,10 @@ and (orientation: portrait) {
   .ripples {
     left: 4%;
   }
+  .loader-content {
+    margin-top: 40%;
+    left: 28%;
+  }
 }
 
 /* iPhone 6 plus (landscape)----------- */
@@ -1400,12 +1405,12 @@ and (orientation: landscape) {
   /* STYLES GO HERE */
   .ripples {
     left: 30%;
-    margin-top: -9px;
+    margin-top: -29px;
   }
 
   .loader-content {
     left: 13%;
-    margin-top: 19%;
+    margin-top: 21%;
   }
 }
 
@@ -1417,10 +1422,11 @@ and (orientation: portrait) {
   /* STYLES GO HERE */
   .ripples {
     left: 14%;
+    margin-top: 9%;
   }
 
   .loader-content {
-    left: 19%;
+    left: 25%;
     margin-top: 34%;
   }
 
@@ -12871,6 +12877,7 @@ spinner loader
 .loader-content h3 {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+  font-size: 17px;
 }
 
 .loader-content span {
