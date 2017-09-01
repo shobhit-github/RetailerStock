@@ -1285,7 +1285,7 @@ and (max-device-width: 650px) {
 
   .loader-content {
     margin-top: 21%;
-    left: 12%;
+    left: 17%;
   }
 }
 
@@ -1295,11 +1295,12 @@ and (max-width: 375px) {
   /* STYLES GO HERE */
   .ripples {
     left: 10%;
+    margin-top: 11%;
   }
 
   .loader-content {
     margin-top: 38%;
-    left: 25%;
+    left: 28%;
   }
 }
 
@@ -1377,7 +1378,7 @@ and (orientation: landscape) {
     margin-top: -53px;
   }
   .loader-content {
-    left: 15%;
+    left: 19%;
     margin-top: 25%;
   }
 }
@@ -1393,7 +1394,7 @@ and (orientation: portrait) {
   }
   .loader-content {
     margin-top: 40%;
-    left: 28%;
+    left: 36%;
   }
 }
 
@@ -1404,13 +1405,13 @@ and (max-device-width: 750px)
 and (orientation: landscape) {
   /* STYLES GO HERE */
   .ripples {
-    left: 30%;
+    left: 27%;
     margin-top: -29px;
   }
 
   .loader-content {
-    left: 13%;
-    margin-top: 21%;
+    left: 16%;
+    margin-top: 19%;
   }
 }
 
@@ -1530,7 +1531,6 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
     top: 0;
     padding: 13px 0;
     border-bottom: none !important;
-    width: 260px;
     background: #efeff0;
     margin-left: 0;
     z-index: 1051;
@@ -1707,7 +1707,6 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
     border-bottom: 1px solid #c8c7cc;
     border-right: 1px solid #c8c7cc;
     border-top: 1px solid #c8c7cc;
-    top: 0;
     position: absolute;
     width: 210px;
     z-index: 1;
@@ -1788,7 +1787,6 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
 .navbar-form .form-control {
   background: transparent;
   border: medium none;
-  border-radius: 0;
   box-shadow: none;
   color: #8e8e93;
   display: block;
