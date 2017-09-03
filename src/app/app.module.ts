@@ -1,22 +1,14 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {
-  PageNotFoundComponent,
-  InternalErrorComponent,
-  AsideComponent,
-  SidebarComponent,
-  HeaderComponent,
-  SettingComponent
-} from './elements/index';
+import {PageNotFoundComponent, InternalErrorComponent, AsideComponent, SidebarComponent, HeaderComponent, SettingComponent} from './elements';
 import {SliderModule, InputMaskModule, ChartModule} from 'primeng/primeng';
 import {Routing} from './app.routes';
-import {CurrencyPipe, SymbolPipe} from './_shared/_pipes/index';
-import {AuthGuard} from './_shared/_guards/index';
+import {CurrencyPipe, SymbolPipe} from './_shared/_pipes';
+import {AuthGuard} from './_shared/_guards';
 import {HttpModule} from '@angular/http';
 import {HomeComponent, DashboardComponent} from './home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 
 import {AuthModule} from './auth/auth.module';
 

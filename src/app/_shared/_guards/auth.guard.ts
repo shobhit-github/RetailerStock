@@ -33,22 +33,27 @@ export class AuthGuard implements CanActivate {
                         }
                     },
                     error => {
+
                         // not logged in so redirect to login page with the return url
                         this.router.navigate(['/auth/login'], {queryParams: {returnUrl: state.url}});
                         return false;
                     }
                 );
 
+        } else {
+
+            // not logged in so redirect to login page with the return url
+            this.router.navigate(['/auth/login'], {queryParams: {returnUrl: state.url}});
+            return false;
         }
 
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/auth/login'], {queryParams: {returnUrl: state.url}});
-        return false;
     }
 
 
 
     private handleError(error): void {
+
+        console.log(error.json());
 
         this.router.navigate(['error_page'], {queryParams: {errorCode: error.status}});
     }
