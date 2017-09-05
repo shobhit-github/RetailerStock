@@ -16,18 +16,19 @@ export class AuthGuard implements CanActivate {
         this.headers.append('Language', localStorage.getItem('_lang'));
     }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
 
         if (localStorage.getItem('_token')) {
 
-            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
+            /*this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
                 .map((response: Response) => response.json())
-                .catch( (e) =>  Observable.throw(this.handleError(e)) )
+                .catch( (e) =>  Observable.throw( this.handleError(e)) )
                 .subscribe(
                     data => {
+
                         if (data && data.token) {
                             // store user details and jwt token in local storage to keep user logged in between page refreshes
-                            localStorage.setItem('_token', JSON.stringify(data.token));
+                            localStorage.setItem('_token', data.token);
                             // logged in so return true
                             return true;
                         }
@@ -38,8 +39,8 @@ export class AuthGuard implements CanActivate {
                         this.router.navigate(['/auth/login'], {queryParams: {returnUrl: state.url}});
                         return false;
                     }
-                );
-
+                );*/
+          return true;
         } else {
 
             // not logged in so redirect to login page with the return url
@@ -50,11 +51,10 @@ export class AuthGuard implements CanActivate {
     }
 
 
-
+    // `private` method for handling the error
     private handleError(error): void {
 
-        console.log(error.json());
-
+        console.error(error);
         this.router.navigate(['error_page'], {queryParams: {errorCode: error.status}});
     }
 

@@ -1,4 +1,4 @@
-/* ---------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------
 >>> TABLE OF CONTENT
 -------------------------------------------------------------------------
 1 - Basic Elements & Classes
@@ -1552,7 +1552,6 @@ ul.sub-menu li ul.sub-menu li ul.sub-menu li a {
         padding: 10px 10px 10px 0;
         display: none;
         bottom: -1px;
-        top: -1px;
     }
 
     .app-sidebar-closed #sidebar .navbar-form .form-group input {

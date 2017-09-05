@@ -439,13 +439,15 @@ var Index = function() {
 			}
 		});
 	};
-	return {
-		init: function() {
+
+	window.jQ.Index = function() {
 			chart1Handler();
 			chart2Handler();
 			chart3Handler();
 			chart4Handler();
 			sparklineHandler();
-		}
+
 	};
+
+
 }();

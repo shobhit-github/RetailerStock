@@ -1,29 +1,29 @@
-
-
-
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as animation from './dashboard.animation';
+import {WindowRef} from '../_shared/_helpers/window.ref';
 
 
 @Component({
-    templateUrl: './dashboard.component.html',
-    animations: [
-        animation.zoomIn,
-        animation.slideToLeft,
-        animation.fadeInOut
-    ]
+  templateUrl: './dashboard.component.html',
+  animations: [
+    animation.zoomIn,
+    animation.slideToLeft,
+    animation.fadeInOut
+  ],
+  providers: [WindowRef]
 })
-
 export class DashboardComponent implements AfterViewInit {
 
 
-    constructor() {
+  constructor(public windowRef: WindowRef) {
 
-    }
+  }
 
-    ngAfterViewInit() {
-        // Index.init()
-    }
+  ngAfterViewInit() {
+
+    this.windowRef.nativeWindow.jQ.Index();
+  }
 
 
 }
+

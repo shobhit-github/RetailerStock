@@ -367,7 +367,7 @@ var Main = function() {
 		$('body').on('click', '.panel-refresh', function(e) {
 			var $this = $(this), csspinnerClass = 'csspinner', panel = $this.parents('.panel').eq(0), spinner = $this.data('spinner') || "load1";
 			panel.addClass(csspinnerClass + ' ' + spinner);
-			
+
 			window.setTimeout(function() {
 				panel.removeClass(csspinnerClass);
 			}, 1000);
@@ -439,8 +439,7 @@ var Main = function() {
 		}
 	}
 
-	return {
-		init: function() {
+	window.jQ.Main = function() {
 			settingsHandler();
 			toggleClassOnElement();
 			sidebarHandler();
@@ -456,7 +455,7 @@ var Main = function() {
 			panelToolsHandler();
 			customSelectHandler();
 			goTopHandler();
-		}
+
 	};
 }();
 

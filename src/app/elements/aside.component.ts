@@ -33,7 +33,7 @@ import {Component} from '@angular/core';
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
                                                 <i class="fa fa-circle status-online"></i>
-                                                <img alt="..." src="public/images/avatar-2.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-2.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Nicole Bell</h4>
                                                     <span> Content Designer </span>
@@ -46,7 +46,7 @@ import {Component} from '@angular/core';
                                                     <span class="label label-success">3</span>
                                                 </div>
                                                 <i class="fa fa-circle status-online"></i>
-                                                <img alt="..." src="public/images/avatar-3.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-3.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Steven Thompson</h4>
                                                     <span> Visual Designer </span>
@@ -56,7 +56,7 @@ import {Component} from '@angular/core';
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
                                                 <i class="fa fa-circle status-online"></i>
-                                                <img alt="..." src="public/images/avatar-4.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-4.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Ella Patterson</h4>
                                                     <span> Web Editor </span>
@@ -66,7 +66,7 @@ import {Component} from '@angular/core';
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
                                                 <i class="fa fa-circle status-online"></i>
-                                                <img alt="..." src="public/images/avatar-5.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Kenneth Ross</h4>
                                                     <span> Senior Designer </span>
@@ -78,7 +78,7 @@ import {Component} from '@angular/core';
                                     <ul class="media-list">
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
-                                                <img alt="..." src="public/images/avatar-6.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-6.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Nicole Bell</h4>
                                                     <span> Content Designer </span>
@@ -90,7 +90,7 @@ import {Component} from '@angular/core';
                                                 <div class="user-label">
                                                     <span class="label label-success">3</span>
                                                 </div>
-                                                <img alt="..." src="public/images/avatar-7.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-7.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Steven Thompson</h4>
                                                     <span> Visual Designer </span>
@@ -99,7 +99,7 @@ import {Component} from '@angular/core';
                                         </li>
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
-                                                <img alt="..." src="public/images/avatar-8.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-8.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Ella Patterson</h4>
                                                     <span> Web Editor </span>
@@ -108,7 +108,7 @@ import {Component} from '@angular/core';
                                         </li>
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
-                                                <img alt="..." src="public/images/avatar-9.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-9.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Kenneth Ross</h4>
                                                     <span> Senior Designer </span>
@@ -117,7 +117,7 @@ import {Component} from '@angular/core';
                                         </li>
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
-                                                <img alt="..." src="public/images/avatar-10.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-10.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Ella Patterson</h4>
                                                     <span> Web Editor </span>
@@ -126,7 +126,7 @@ import {Component} from '@angular/core';
                                         </li>
                                         <li class="media">
                                             <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
-                                                <img alt="..." src="public/images/avatar-5.jpg" class="media-object">
+                                                <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
                                                 <div class="media-body">
                                                     <h4 class="media-heading">Kenneth Ross</h4>
                                                     <span> Senior Designer </span>
@@ -153,7 +153,7 @@ import {Component} from '@angular/core';
                                                         Hi, Nicole
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="message">
@@ -164,7 +164,7 @@ import {Component} from '@angular/core';
                                                         How are you?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -177,7 +177,7 @@ import {Component} from '@angular/core';
                                                         Hi, i am good
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -190,7 +190,7 @@ import {Component} from '@angular/core';
                                                         Glad to see you ;)
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -206,7 +206,7 @@ import {Component} from '@angular/core';
                                                         What do you think about my new Dashboard?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -222,7 +222,7 @@ import {Component} from '@angular/core';
                                                         Alo...
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="message">
@@ -233,7 +233,7 @@ import {Component} from '@angular/core';
                                                         Are you there?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -246,7 +246,7 @@ import {Component} from '@angular/core';
                                                         Hi, i am here
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="message">
@@ -257,7 +257,7 @@ import {Component} from '@angular/core';
                                                         Your Dashboard is great
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -273,7 +273,7 @@ import {Component} from '@angular/core';
                                                         How does the binding and digesting work in AngularJS?, Peter?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -286,7 +286,7 @@ import {Component} from '@angular/core';
                                                         oh that's your question?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="message">
@@ -297,7 +297,7 @@ import {Component} from '@angular/core';
                                                         little reduntant, no?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="message">
@@ -308,7 +308,7 @@ import {Component} from '@angular/core';
                                                         literally we get the question daily
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -321,7 +321,7 @@ import {Component} from '@angular/core';
                                                         I know. I, however, am not a nerd, and want to know
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -334,7 +334,7 @@ import {Component} from '@angular/core';
                                                         for this type of question, wouldn't it be better to try Google?
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-1.jpg" alt="">
+                                                        <img src="assets/images/avatar-1.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -347,7 +347,7 @@ import {Component} from '@angular/core';
                                                         Lucky for us :)
                                                     </div>
                                                     <div class="message-avatar">
-                                                        <img src="public/images/avatar-2.jpg" alt="">
+                                                        <img src="assets/images/avatar-2.jpg" alt="">
                                                     </div>
                                                 </div>
                                             </li>
@@ -375,7 +375,7 @@ import {Component} from '@angular/core';
                                 <ul class="media-list">
                                     <li class="media">
                                         <a href="#">
-                                            <img alt="..." src="public/images/avatar-7.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-7.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Nicole Bell</h4>
                                                 <span> Content Designer </span>
@@ -387,7 +387,7 @@ import {Component} from '@angular/core';
                                             <div class="user-label">
                                                 <span class="label label-success">3</span>
                                             </div>
-                                            <img alt="..." src="public/images/avatar-6.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-6.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Steven Thompson</h4>
                                                 <span> Visual Designer </span>
@@ -396,7 +396,7 @@ import {Component} from '@angular/core';
                                     </li>
                                     <li class="media">
                                         <a href="#">
-                                            <img alt="..." src="public/images/avatar-10.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-10.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Ella Patterson</h4>
                                                 <span> Web Editor </span>
@@ -405,7 +405,7 @@ import {Component} from '@angular/core';
                                     </li>
                                     <li class="media">
                                         <a href="#">
-                                            <img alt="..." src="public/images/avatar-2.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-2.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Kenneth Ross</h4>
                                                 <span> Senior Designer </span>
@@ -414,7 +414,7 @@ import {Component} from '@angular/core';
                                     </li>
                                     <li class="media">
                                         <a href="#">
-                                            <img alt="..." src="public/images/avatar-4.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-4.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Ella Patterson</h4>
                                                 <span> Web Editor </span>
@@ -423,7 +423,7 @@ import {Component} from '@angular/core';
                                     </li>
                                     <li class="media">
                                         <a href="#">
-                                            <img alt="..." src="public/images/avatar-5.jpg" class="media-object">
+                                            <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
                                             <div class="media-body">
                                                 <h4 class="media-heading">Kenneth Ross</h4>
                                                 <span> Senior Designer </span>

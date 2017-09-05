@@ -1,5 +1,5 @@
 export const CONFIG = {
 
-    SERVER_URL: 'http://localhost:3500/api/'
+    SERVER_URL: 'http://localhost:3000/api/'
 
 };

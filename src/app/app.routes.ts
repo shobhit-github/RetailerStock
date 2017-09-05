@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AuthModule } from './auth/auth.module';
 import {PageNotFoundComponent, InternalErrorComponent} from './elements/index';
 import { AuthGuard } from './_shared/_guards/index';
 import {HomeComponent, DashboardComponent} from './home/home.component';
