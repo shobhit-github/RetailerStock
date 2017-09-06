@@ -434,19 +434,17 @@ var Index = function() {
 					9: 'October',
 					10: 'November',
 					11: 'December'
-
 				}
 			}
 		});
 	};
 
 	window.jQ.Index = function() {
-			chart1Handler();
-			chart2Handler();
-			chart3Handler();
-			chart4Handler();
-			sparklineHandler();
-
+    chart1Handler();
+    chart2Handler();
+    chart3Handler();
+    chart4Handler();
+    sparklineHandler();
 	};
 
 
