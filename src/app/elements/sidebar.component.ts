@@ -9,15 +9,14 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
       state('void', style({position: 'fixed'})),
       transition(':enter', [
         style({transform: 'translateX(-100%)'}),
-        animate('0.5s 0.5s ease-in-out', style({transform: 'translateX(0%)'}))
+        animate('0.5s 0.5s ease-in', style({transform: 'translateX(0%)'}))
       ]),
       transition(':leave', [
         style({transform: 'translateX(100%)'}),
-        animate('0.5s 0.5s ease-in-out', style({transform: 'translateX(10%)'}))
+        animate('0.5s 0.5s ease-in', style({transform: 'translateX(10%)'}))
       ])
     ])
   ],
-  providers:[WindowRef],
   template: `
     <!-- sidebar -->
     <div [@sidebarTransition]="" class="sidebar app-aside" id="sidebar">
@@ -675,7 +674,8 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
               <a href="javascript:void(0)">
                 <div class="item-content">
                   <div class="item-media">
-                    <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+                    <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i
+                      class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
                   </div>
                   <div class="item-inner">
                     <span class="title"> Calendar </span>

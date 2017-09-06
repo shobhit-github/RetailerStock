@@ -11,17 +11,7 @@ const APP_ROUTER_PROVIDER: Routes = [
         path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuard],
-        children: [
-            {
-                path: 'dashboard',
-                component: DashboardComponent,
-            },
-            {
-                path: '',
-                redirectTo: 'dashboard',
-                pathMatch: 'full'
-            }
-        ]
+        loadChildren: './home/home.module#HomeModule'
     },
     {
         path: 'auth',

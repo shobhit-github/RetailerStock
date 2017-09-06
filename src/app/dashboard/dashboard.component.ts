@@ -9,8 +9,7 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
     animation.zoomIn,
     animation.slideToLeft,
     animation.fadeInOut
-  ],
-  providers: [WindowRef]
+  ]
 })
 export class DashboardComponent implements AfterViewInit {
 
