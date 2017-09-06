@@ -4,7 +4,7 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
 
 
 @Component({
-  templateUrl: './dashboard.component.html',
+  templateUrl: './profile.component.html',
   animations: [
     animation.manageUser,
     animation.manageOrder,
@@ -21,9 +21,9 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
     animation.chat,
     animation.fadeInOut
   ],
-  styleUrls:['./dashboard.component.css']
+  styleUrls:['./profile.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
+export class ProfileComponent implements AfterViewInit {
 
 
   constructor(public windowRef: WindowRef) {
