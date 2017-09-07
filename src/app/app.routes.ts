@@ -1,7 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import {PageNotFoundComponent, InternalErrorComponent} from './elements/index';
 import { AuthGuard } from './_shared/_guards/index';
-import {HomeComponent, DashboardComponent} from './home/home.component';
 
 
 
@@ -9,8 +8,6 @@ const APP_ROUTER_PROVIDER: Routes = [
 
     {
         path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard],
         loadChildren: './home/home.module#HomeModule'
     },
     {
@@ -21,7 +18,7 @@ const APP_ROUTER_PROVIDER: Routes = [
 
     {
         path: '',
-        redirectTo: '/home/dashboard',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
 
