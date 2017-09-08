@@ -50,4 +50,4 @@ export class HomeComponent {
 }
 
 
-export * from '../dashboard/dashboard.component';
+export * from './dashboard/dashboard.component';

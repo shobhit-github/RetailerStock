@@ -1,0 +1,7 @@
+.tab-pane {
+  padding: 15px;
+}
+
+.fileinput-new .fileinput-exists {
+  display: none;
+}

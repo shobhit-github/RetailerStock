@@ -1,6 +1,15 @@
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from "./home.component";
 import {AuthGuard} from "../_shared/_guards/auth.guard";
+import {DashboardModule} from './dashboard/dashboard.module';
+import {ProfileModule} from './profile/profile.module';
+import {PageNotFoundComponent} from '../elements/not-found.component';
+
+// have to be export modules to handle the lazy loading routing
+export function loadDashboardModule() { return DashboardModule; }
+export function loadProfileModule() { return ProfileModule; }
+
+
 
 const HOME_ROUTES_PROVIDER: Routes = [
 
@@ -10,7 +19,12 @@ const HOME_ROUTES_PROVIDER: Routes = [
         children: [
             {
                 path: 'dashboard',
-                loadChildren: '../dashboard/dashboard.module#DashboardModule',
+                loadChildren: loadDashboardModule
+            },
+
+            {
+                path: 'profile',
+                loadChildren: loadProfileModule
             },
 
 
@@ -23,6 +37,12 @@ const HOME_ROUTES_PROVIDER: Routes = [
         canActivate: [AuthGuard]
     },
 
+
+    // otherwise redirect to 404
+    {
+        path: '**',
+        component: PageNotFoundComponent
+    },
 
 
 ];

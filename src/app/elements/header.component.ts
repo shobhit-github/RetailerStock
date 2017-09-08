@@ -169,7 +169,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
             </a>
             <ul class="dropdown-menu dropdown-dark">
               <li>
-                <a href="javascript:void(0);">
+                <a routerLink="/home/profile">
                   My Profile
                 </a>
               </li>

@@ -1,25 +1,29 @@
 import { Routes, RouterModule } from '@angular/router';
 import {PageNotFoundComponent, InternalErrorComponent} from './elements/index';
-import { AuthGuard } from './_shared/_guards/index';
+import {AuthModule} from './auth/auth.module';
+import {HomeModule} from './home/home.module';
 
+// have to be export modules to handle the lazy loading routing
+export function loadAuthModule() { return AuthModule; }
+export function loadHomeModule() { return HomeModule; }
 
 
 const APP_ROUTER_PROVIDER: Routes = [
 
     {
         path: 'home',
-        loadChildren: './home/home.module#HomeModule'
+        loadChildren: loadHomeModule
     },
     {
         path: 'auth',
-        loadChildren: './auth/auth.module#AuthModule'
+        loadChildren: loadAuthModule
     },
 
 
     {
         path: '',
         redirectTo: '/home',
-        pathMatch: 'full'
+        pathMatch: 'prefix'
     },
 
     {
@@ -35,4 +39,4 @@ const APP_ROUTER_PROVIDER: Routes = [
 
 ];
 
-export const Routing = RouterModule.forRoot(APP_ROUTER_PROVIDER);
+export const Routing = RouterModule.forRoot(APP_ROUTER_PROVIDER, { enableTracing: false });

@@ -23,7 +23,7 @@ import {transition, trigger, style, animate} from '@angular/animations';
                                 <br>
                                 Check the URL you entered for any mistakes and try again.
                                 <br>
-                                <a href="index.html" class="btn btn-red btn-return">
+                                <a routerLink="/home" class="btn btn-red btn-return">
                                     Return home
                                 </a>
                                 <br>
@@ -35,9 +35,10 @@ import {transition, trigger, style, animate} from '@angular/animations';
                                 <div class="input-group">
                                     <input type="text" placeholder="keyword..." size="16" class="form-control">
                                     <span class="input-group-btn">
-										<button class="btn btn-azure">
-											Search
-										</button> </span>
+                                        <button class="btn btn-azure">
+                                          Search
+                                        </button> 
+                                    </span>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as animation from './dashboard.animation';
-import {WindowRef} from '../_shared/_helpers/window.ref';
+import {WindowRef} from '../../_shared/_helpers/window.ref';
 
 
 @Component({

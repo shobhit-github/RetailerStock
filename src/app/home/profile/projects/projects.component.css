@@ -1,0 +1,8 @@
+#panel_projects {
+  display: block;
+  padding: 15px;
+}
+.fade {
+  opacity: 1;
+  transition: opacity .15s linear;
+}
