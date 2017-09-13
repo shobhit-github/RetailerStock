@@ -20,11 +20,13 @@ export class AuthGuard implements CanActivate {
 
         if (localStorage.getItem('_token')) {
 
-            /*this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
+            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
                 .map((response: Response) => response.json())
                 .catch( (e) =>  Observable.throw( this.handleError(e)) )
                 .subscribe(
                     data => {
+
+                        console.log('--->>>',data);
 
                         if (data && data.token) {
                             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -36,10 +38,11 @@ export class AuthGuard implements CanActivate {
                     error => {
 
                         // not logged in so redirect to login page with the return url
-                        this.router.navigate(['/auth/login'], {queryParams: {returnUrl: state.url}});
+                        this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
                         return false;
                     }
-                );*/ return true;
+                );
+            // return true;
         } else {
 
             // not logged in so redirect to login page with the return url

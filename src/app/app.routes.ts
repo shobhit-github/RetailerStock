@@ -23,7 +23,7 @@ const APP_ROUTER_PROVIDER: Routes = [
     {
         path: '',
         redirectTo: '/home',
-        pathMatch: 'prefix'
+        pathMatch: 'full'
     },
 
     {

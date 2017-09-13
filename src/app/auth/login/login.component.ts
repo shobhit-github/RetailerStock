@@ -37,15 +37,15 @@ export class LoginComponent implements OnInit {
               private authenticationService: AuthenticationService) {
   }
 
-  ngOnInit() {
+  ngOnInit = () => {
     // reset login status
     this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+  };
 
-  login(): void {
+  login = (): void => {
 
     this.loading = true;
     this.loginError = null;
@@ -55,10 +55,10 @@ export class LoginComponent implements OnInit {
         result => this.router.navigate([this.returnUrl]),
         error => this.handleError(error)
       );
-  }
+  };
 
 
-  private handleError(error): void {
+  private handleError = (error): void => {
     this.loginError = error.json().message;
     this.loading = false;
   }

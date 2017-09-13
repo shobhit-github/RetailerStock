@@ -30,7 +30,7 @@ export class DashboardComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit = () => {
 
     this.windowRef.nativeWindow.jQ.Index();
   }

@@ -720,7 +720,7 @@ export class SidebarComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit = () => {
     this.windowRef.nativeWindow.jQ.Main();
   }
 

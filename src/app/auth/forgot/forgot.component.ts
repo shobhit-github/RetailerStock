@@ -31,7 +31,7 @@ export class ForgotComponent {
 
     }
 
-    forgotPassword() {
+    forgotPassword = (): void => {
 
         this.loading = true;
         this.errorMessage = this.successMessage = null;

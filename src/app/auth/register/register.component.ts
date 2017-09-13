@@ -32,7 +32,7 @@ export class RegisterComponent {
     }
 
 
-    register() {
+    register = (): void => {
         this.loading = true;
         /*this.userService.create(this.model)
             .subscribe(

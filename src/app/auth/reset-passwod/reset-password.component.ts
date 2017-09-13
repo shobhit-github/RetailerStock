@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService) { }
 
-    ngOnInit() {
+    ngOnInit = () => {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = '/';
@@ -41,9 +41,9 @@ export class ResetPasswordComponent implements OnInit {
         this.route.params.subscribe((params: Params) => {
             this.user.id = params['id'];
         });
-    }
+    };
 
-    setNewPassword() {
+    setNewPassword = (): void => {
         this.loading = true;
         this.authenticationService.resetPassword(this.user.id, this.user.password)
             .subscribe(
@@ -54,9 +54,9 @@ export class ResetPasswordComponent implements OnInit {
                     console.log(error.json());
                 }
             );
-    }
+    };
 
-    private loginNow(user: any) {
+    private loginNow = (user: any): void => {
 
         this.authenticationService.login(user.username, user.password)
             .subscribe(
