@@ -2,39 +2,33 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {SliderModule, InputMaskModule, ChartModule} from 'primeng/primeng';
-import {Routing} from './app.routes';
-import {CurrencyPipe, SymbolPipe} from './_shared/_pipes';
-import {AuthGuard} from './_shared/_guards';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+// custom modules and routes
 import {AuthModule} from './auth/auth.module';
 import {HomeModule} from './home/home.module';
-import {WindowRef, EmitterService, MessageService} from './_shared/_helpers';
+import {SharedModule} from './_shared/shared.module';
+import {Routing} from './app.routes';
+
+
 
 
 @NgModule({
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    SliderModule,
-    HttpModule,
-    AuthModule,
-    HomeModule,
-    InputMaskModule,
-    ChartModule,
-    Routing
+      BrowserModule,
+      BrowserAnimationsModule,
+      SliderModule,
+      HttpModule,
+      AuthModule,
+      HomeModule,
+      InputMaskModule,
+      ChartModule,
+      Routing,
+      SharedModule
   ],
   declarations: [
-    AppComponent,
-    CurrencyPipe,
-    SymbolPipe
-  ],
-  providers: [
-    AuthGuard,
-    WindowRef,
-    EmitterService,
-    MessageService
+      AppComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

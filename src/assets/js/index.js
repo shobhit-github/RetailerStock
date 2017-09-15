@@ -440,7 +440,7 @@ var Index = function() {
 	};
 
 	window.jQ.Index = function() {
-    chart1Handler();
+	  chart1Handler();
     chart2Handler();
     chart3Handler();
     chart4Handler();

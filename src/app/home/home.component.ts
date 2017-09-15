@@ -22,6 +22,7 @@ import {trigger, style, state, transition, animate} from '@angular/animations';
         <app-sidebar></app-sidebar>
         <app-header></app-header>
         <div class="main-content">
+          <ui-alert></ui-alert>
           <div class="wrap-content container" id="container">
             <router-outlet></router-outlet>
           </div>

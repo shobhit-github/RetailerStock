@@ -440,23 +440,25 @@ var Main = function() {
 	}
 
 	window.jQ = {
-	  Main: function() {
-      settingsHandler();
-      toggleClassOnElement();
-      sidebarHandler();
-      navbarHandler();
-      searchHandler();
-      tooltipHandler();
-      popoverHandler();
-      perfectScrollbarHandler();
-      switcheryHandler();
-      resizeHandler();
-      showTabHandler();
-      panelScrollHandler();
-      panelToolsHandler();
-      customSelectHandler();
-      goTopHandler();
-    }
+
+      Main: function() {
+          console.log("Main.JS");
+          settingsHandler();
+          toggleClassOnElement();
+          sidebarHandler();
+          navbarHandler();
+          searchHandler();
+          tooltipHandler();
+          popoverHandler();
+          perfectScrollbarHandler();
+          switcheryHandler();
+          resizeHandler();
+          showTabHandler();
+          panelScrollHandler();
+          panelToolsHandler();
+          customSelectHandler();
+          goTopHandler();
+      }
   };
 }();
 

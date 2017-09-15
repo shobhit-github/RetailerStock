@@ -1,6 +1,6 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {WindowRef} from '../_shared/_helpers/window.ref';
+import {WindowRef} from '../_shared/_helpers';
 
 @Component({
   selector: 'app-sidebar',
@@ -716,12 +716,14 @@ import {WindowRef} from '../_shared/_helpers/window.ref';
 
 export class SidebarComponent implements AfterViewInit {
 
-  constructor(public windowRef: WindowRef) {
 
-  }
 
-  ngAfterViewInit = () => {
-    this.windowRef.nativeWindow.jQ.Main();
-  }
+    constructor(public windowRef: WindowRef) {
+
+    }
+
+    ngAfterViewInit() {
+      this.windowRef.nativeWindow.jQ.Main();
+    }
 
 }

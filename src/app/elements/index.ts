@@ -1,3 +1,5 @@
+
+// app elements which is using for template layout structuring
 export * from './internal-error.component';
 export * from './not-found.component';
 export * from './header.component';
