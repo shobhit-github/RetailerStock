@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {Router, ActivatedRoute} from '@angular/router';
-import {AuthenticationService} from '../../_shared/_services/index';
+import {AuthenticationService} from '../../_shared/_services';
+import {MessageService} from '../../_shared/_helpers';
+
+
+
 
 @Component({
   templateUrl: './login.component.html',
-  providers: [AuthenticationService],
   animations: [
     trigger('zoomInOut', [
 
@@ -27,40 +30,54 @@ import {AuthenticationService} from '../../_shared/_services/index';
 
 export class LoginComponent implements OnInit {
 
-  user: any = {};
-  loading: boolean = false;
-  returnUrl: string;
-  loginError: string;
-
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private authenticationService: AuthenticationService) {
-  }
-
-  ngOnInit = () => {
-    // reset login status
-    this.authenticationService.logout();
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
-  };
-
-  login = (): void => {
-
-    this.loading = true;
-    this.loginError = null;
-
-    this.authenticationService.login(this.user.username, this.user.password)
-      .subscribe(
-        result => this.router.navigate([this.returnUrl]),
-        error => this.handleError(error)
-      );
-  };
+    user: any = {};
+    loading: boolean = false;
+    returnUrl: string;
+    loginError: string;
 
 
-  private handleError = (error): void => {
-    this.loginError = error.json().message;
-    this.loading = false;
-  }
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                private authenticationService: AuthenticationService,
+                private messageService: MessageService) {
+    }
+
+
+    ngOnInit() {
+      // reset login status
+      this.authenticationService.logout();
+
+      // get return url from route parameters or default to '/'
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+
+    }
+
+
+    login = (): void => {
+
+        this.loading = true;
+        this.loginError = null;
+
+        this.authenticationService.login(this.user.username, this.user.password)
+            .subscribe(
+                result => {
+                    // send message to subscribers via observable subject
+                    this.messageService.sendMessage('Success', 'Message from Home Component to App Component!', 'success');
+                    this.router.navigate([this.returnUrl])
+                },
+                error => this.handleError(error)
+            );
+
+    };
+
+
+
+
+    private handleError = (error): void => {
+
+        this.loginError = error.json().message;
+        this.loading = false;
+    };
+
 
 }

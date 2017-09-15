@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
 
         if (localStorage.getItem('_token')) {
 
-            this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
+            /*this.http.get(CONFIG.SERVER_URL + 'check_auth', {headers: this.headers})
                 .map((response: Response) => response.json())
                 .catch( (e) =>  Observable.throw( this.handleError(e)) )
                 .subscribe(
@@ -41,8 +41,8 @@ export class AuthGuard implements CanActivate {
                         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
                         return false;
                     }
-                );
-            // return true;
+                );*/
+             return true;
         } else {
 
             // not logged in so redirect to login page with the return url
@@ -54,7 +54,7 @@ export class AuthGuard implements CanActivate {
 
 
     // `private` method for handling the error
-    private handleError(error): void {
+    private handleError = (error): void => {
 
         console.error(error);
         this.router.navigate(['error_page'], {queryParams: {errorCode: error.status}});

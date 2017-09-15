@@ -10,8 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AuthModule} from './auth/auth.module';
 import {HomeModule} from './home/home.module';
-import {WindowRef} from './_shared/_helpers/window.ref';
-import {EmitterService} from './_shared/_helpers/emitter.services';
+import {WindowRef, EmitterService, MessageService} from './_shared/_helpers';
 
 
 @NgModule({
@@ -31,7 +30,12 @@ import {EmitterService} from './_shared/_helpers/emitter.services';
     CurrencyPipe,
     SymbolPipe
   ],
-  providers: [AuthGuard, WindowRef, EmitterService],
+  providers: [
+    AuthGuard,
+    WindowRef,
+    EmitterService,
+    MessageService
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

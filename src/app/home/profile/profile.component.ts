@@ -70,7 +70,7 @@ export class ProfileComponent implements AfterViewInit {
 
   ngAfterViewInit = () => {
 
-    this.windowRef.nativeWindow.jQ.Main();
+    //this.windowRef.nativeWindow.jQ.Main();
   }
 
 }

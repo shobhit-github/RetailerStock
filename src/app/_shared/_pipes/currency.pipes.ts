@@ -5,14 +5,14 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class CurrencyPipe implements PipeTransform {
 
-    filterNums(val) {
+    private filterNums = (val) => {
 
         if (!val) {
             return false;
         }
 
         return parseFloat( val.toString().replace(/[^0-9]+/g, '') );
-    }
+    };
 
 
     transform(val: string, type: string): any {

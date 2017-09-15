@@ -1,6 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import * as animation from './dashboard.animation';
 import {WindowRef} from '../../_shared/_helpers/window.ref';
+import {MessageService} from '../../_shared/_helpers/';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -23,18 +25,31 @@ import {WindowRef} from '../../_shared/_helpers/window.ref';
   ],
   styleUrls:['./dashboard.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent implements AfterViewInit, OnInit, OnDestroy {
+
+    messageSubscription: Subscription;
 
 
-  constructor(public windowRef: WindowRef) {
+    constructor(public windowRef: WindowRef,
+                public messageService: MessageService) {
+    }
 
-  }
+    ngOnInit() {
 
-  ngAfterViewInit = () => {
+    }
 
-    this.windowRef.nativeWindow.jQ.Index();
-  }
+    passMessage = (): void => {
 
+        this.messageService.sendMessage('titleMessage', 'Test Message', 'success');
+    };
 
+    ngAfterViewInit() {
+
+        this.windowRef.nativeWindow.jQ.Index();
+    }
+
+    ngOnDestroy() {
+
+    }
 }
 

@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MessageService} from '../_shared/_helpers/message.service';
 
 
 @Component({
@@ -214,5 +215,16 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   `
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+
+    constructor(private messageService: MessageService){
+    }
+
+    ngOnInit() {
+
+        this.messageService.getMessage()
+            .subscribe(
+                data => console.log('Header Component', data)
+            )
+    }
 }
