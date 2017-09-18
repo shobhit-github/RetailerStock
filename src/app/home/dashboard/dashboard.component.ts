@@ -38,7 +38,7 @@ export class DashboardComponent implements AfterViewInit, OnInit, OnDestroy {
 
     passMessage = (): void => {
 
-        this.messageService.sendMessage('titleMessage', 'Test Message', 'success');
+        this.messageService.sendMessage('titleMessage', 'Test Message', 'success', 'alert');
     };
 
 

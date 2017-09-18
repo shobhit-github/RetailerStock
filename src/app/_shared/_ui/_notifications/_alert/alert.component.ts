@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {MessageService} from '../../../_helpers';
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -19,7 +21,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   ],
   template: `
       <!-- This html use for the success notification as alert -->
-      <div role="alert" class="alert alert-success">
+      <div *ngIf="type=='success'" role="alert" class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -27,7 +29,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       </div>
       
       <!-- This html use for the information notification as alert -->
-      <div class="alert alert-info">
+      <div *ngIf="type=='info'" class="alert alert-info">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true">&times;</span>
           </button>
@@ -35,7 +37,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       </div>
 
       <!-- This html use for the warning notification as alert -->
-      <div class="alert alert-warning">
+      <div *ngIf="type=='warning'" class="alert alert-warning">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -43,7 +45,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       </div>
 
       <!-- This html use for the error notification as alert -->
-      <div class="alert alert-danger">
+      <div *ngIf="type=='error'" class="alert alert-danger">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -52,12 +54,31 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   `
 })
 
-export class AlertComponent implements OnInit {
+export class AlertComponent implements OnInit, OnDestroy {
 
-    constructor(){
+    public subscription: Subscription;
+
+    public type: string;
+    public text: string;
+
+
+    constructor(private messageService: MessageService) {
     }
 
     ngOnInit() {
 
+        this.messageService.getMessage()
+            .subscribe(
+                data => {
+                    this.type = data.type;
+                    this.text = data.message;
+                },
+                error => console.error(error)
+            )
+    }
+
+    ngOnDestroy() {
+
+        // this.subscription.unsubscribe();
     }
 }

@@ -124,8 +124,8 @@ import {MessageService} from '../_shared/_helpers/message.service';
                         class="block text-grey">10 minutes ago</small> </span>
                     </a>
                     <a class="media list-group-item" href="">
-                                            <span class="media-body block no-margin"> 1.0 initial released <small
-                                              class="block text-grey">1 hour ago</small> </span>
+                      <span class="media-body block no-margin"> 1.0 initial released <small
+                        class="block text-grey">1 hour ago</small> </span>
                     </a>
                   </div>
                 </div>
@@ -222,10 +222,7 @@ export class HeaderComponent implements OnInit{
 
     ngOnInit() {
 
-        this.messageService.getMessage()
-            .subscribe(
-                data => console.log('Header Component', data)
-            )
+
     }
 
 

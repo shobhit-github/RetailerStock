@@ -12,8 +12,8 @@ export class MessageService {
     }
 
 
-    sendMessage = (title: string, message: string, type: string) => {
-        this.subject.next({title, message, type});
+    sendMessage = (title: string, message: string, type: string, showAs: string) => {
+        this.subject.next({title, message, type, showAs});
     };
 
 
