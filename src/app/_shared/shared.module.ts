@@ -5,7 +5,7 @@ import {CommonModule} from '@angular/common';
 // shared functionality for guard, helpers, pipes and services
 import {AuthGuard} from './_guards';
 import {MessageService, EmitterService, WindowRef} from './_helpers';
-import {AuthenticationService} from './_services';
+import {AuthenticationService, LocalizationService} from './_services';
 
 
 // shared functionality for ui components
@@ -23,6 +23,7 @@ import {AlertComponent} from './_ui';
     ],
     providers: [
         AuthenticationService,
+        LocalizationService,
         AuthGuard,
         MessageService,
         EmitterService,

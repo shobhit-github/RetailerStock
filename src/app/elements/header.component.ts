@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MessageService} from '../_shared/_helpers/message.service';
+import {LocalizationService} from '../_shared/_services/localization.service';
 
 
 @Component({
@@ -141,24 +142,29 @@ import {MessageService} from '../_shared/_helpers/message.service';
           <!-- start: LANGUAGE SWITCHER -->
           <li class="dropdown">
             <a href class="dropdown-toggle" data-toggle="dropdown">
-              <i class="ti-world"></i> English
+              <i class="ti-world"></i> {{lang}}
             </a>
             <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
-              <li>
-                <a href="#" class="menu-toggler">
-                  Deutsch
+              <li *ngFor="let lang of langList">
+                <a (click)="setLanguage(lang.tag, lang.name)" href="javascript:void(0);" class="menu-toggler">
+                  {{lang.name}}
+                </a>
+              </li>
+              <!--<li>
+                <a (click)="setLanguage('hd')" href="javascript:void(0);" class="menu-toggler">
+                  Hindi
                 </a>
               </li>
               <li>
-                <a href="#" class="menu-toggler">
+                <a (click)="setLanguage('en')" href="javascript:void(0);" class="menu-toggler">
                   English
                 </a>
               </li>
               <li>
-                <a href="#" class="menu-toggler">
-                  Italiano
+                <a (click)="setLanguage('pb')" href="javascript:void(0);" class="menu-toggler">
+                  Punjabi
                 </a>
-              </li>
+              </li>-->
             </ul>
           </li>
           <!-- start: LANGUAGE SWITCHER -->
@@ -215,15 +221,33 @@ import {MessageService} from '../_shared/_helpers/message.service';
   `
 })
 
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
 
-    constructor(private messageService: MessageService){
+    public lang: string;
+    public langList: any;
+
+    constructor(private localizationService: LocalizationService) {
     }
 
     ngOnInit() {
 
-
+        this.defaultLang();
+        this.langList = this.getLangList();
+        this.lang = this.getLangTag()['name'];
     }
+
+    setLanguage = (tag: string, name?: string) => {
+
+        this.lang = name;
+        this.localizationService.changeLanguage(tag)
+    };
+
+
+    private getLangList = (): Array<object> => this.localizationService.getLanguageList();
+
+    private getLangTag = (): object => this.localizationService.getLanguage()[0];
+
+    private defaultLang = (): void => this.localizationService.changeLanguage('en');
 
 
 }

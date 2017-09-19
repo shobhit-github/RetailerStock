@@ -62,7 +62,6 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 result => {
                     // send message to subscribers via observable subject
-
                     this.router.navigate([this.returnUrl])
                 },
                 error => this.handleError(error)
