@@ -1,2 +1,2 @@
-export * from './currency.pipes';
-export * from './symbol.pipes';
+export * from './logger.pipes';
+export * from './translate.pipes';

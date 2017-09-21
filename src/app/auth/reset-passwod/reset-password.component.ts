@@ -41,7 +41,7 @@ export class ResetPasswordComponent implements OnInit {
         this.route.params.subscribe((params: Params) => {
             this.user.id = params['id'];
         });
-    };
+    }
 
     setNewPassword = (): void => {
         this.loading = true;
@@ -54,7 +54,7 @@ export class ResetPasswordComponent implements OnInit {
                     console.log(error.json());
                 }
             );
-    };
+    }
 
     private loginNow = (user: any): void => {
 

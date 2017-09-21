@@ -28,7 +28,7 @@ import {Routing} from './app.routes';
       SharedModule
   ],
   declarations: [
-      AppComponent,
+      AppComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

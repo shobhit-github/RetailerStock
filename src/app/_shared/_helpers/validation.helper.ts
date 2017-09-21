@@ -2,7 +2,7 @@ export class ValidationHelper {
 
 
     static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
-        let config = {
+        const config = {
             'required': 'Required',
             'invalidCreditCard': 'Is invalid credit card number',
             'invalidEmailAddress': 'Invalid email address',
@@ -40,4 +40,6 @@ export class ValidationHelper {
             return { 'invalidPassword': true };
         }
     }
+
+
 }

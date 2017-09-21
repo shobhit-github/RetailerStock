@@ -27,7 +27,6 @@ import {Subscription} from 'rxjs/Subscription';
           </button>
           <strong>Well done!</strong> You successfully read this important alert message.
       </div>
-      
       <!-- This html use for the information notification as alert -->
       <div *ngIf="type=='info'" class="alert alert-info">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -35,7 +34,6 @@ import {Subscription} from 'rxjs/Subscription';
           </button>
           <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
       </div>
-
       <!-- This html use for the warning notification as alert -->
       <div *ngIf="type=='warning'" class="alert alert-warning">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -43,7 +41,6 @@ import {Subscription} from 'rxjs/Subscription';
           </button>
           <strong>Warning!</strong> Better check yourself, you're not looking too good.
       </div>
-
       <!-- This html use for the error notification as alert -->
       <div *ngIf="type=='error'" class="alert alert-danger">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -74,7 +71,7 @@ export class AlertComponent implements OnInit, OnDestroy {
                     this.text = data.message;
                 },
                 error => console.error(error)
-            )
+            );
     }
 
     ngOnDestroy() {

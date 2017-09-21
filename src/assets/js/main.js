@@ -442,7 +442,6 @@ var Main = function() {
 	window.jQ = {
 
       Main: function() {
-          console.log("Main.JS");
           settingsHandler();
           toggleClassOnElement();
           sidebarHandler();

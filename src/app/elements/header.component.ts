@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MessageService} from '../_shared/_helpers/message.service';
-import {LocalizationService} from '../_shared/_services/localization.service';
+import {TranslationService} from '../_shared/_services';
 
 
 @Component({
@@ -150,21 +149,6 @@ import {LocalizationService} from '../_shared/_services/localization.service';
                   {{lang.name}}
                 </a>
               </li>
-              <!--<li>
-                <a (click)="setLanguage('hd')" href="javascript:void(0);" class="menu-toggler">
-                  Hindi
-                </a>
-              </li>
-              <li>
-                <a (click)="setLanguage('en')" href="javascript:void(0);" class="menu-toggler">
-                  English
-                </a>
-              </li>
-              <li>
-                <a (click)="setLanguage('pb')" href="javascript:void(0);" class="menu-toggler">
-                  Punjabi
-                </a>
-              </li>-->
             </ul>
           </li>
           <!-- start: LANGUAGE SWITCHER -->
@@ -177,7 +161,7 @@ import {LocalizationService} from '../_shared/_services/localization.service';
             <ul class="dropdown-menu dropdown-dark">
               <li>
                 <a routerLink="/home/profile">
-                  My Profile
+                  {{'MY_PROFILE_TXT'|translate}}
                 </a>
               </li>
               <li>
@@ -186,7 +170,7 @@ import {LocalizationService} from '../_shared/_services/localization.service';
                 </a>
               </li>
               <li>
-                <a hef="javascript:void(0);">
+                <a href="javascript:void(0);">
                   My Messages (3)
                 </a>
               </li>
@@ -226,28 +210,28 @@ export class HeaderComponent implements OnInit {
     public lang: string;
     public langList: any;
 
-    constructor(private localizationService: LocalizationService) {
+    constructor(private translationService: TranslationService) {
     }
 
     ngOnInit() {
 
-        this.defaultLang();
         this.langList = this.getLangList();
         this.lang = this.getLangTag()['name'];
+
+        this.translationService.onLangChanged
+          .subscribe(data => console.log(data));
     }
 
     setLanguage = (tag: string, name?: string) => {
 
         this.lang = name;
-        this.localizationService.changeLanguage(tag)
-    };
+        this.translationService.changeLanguage(tag);
+    }
 
 
-    private getLangList = (): Array<object> => this.localizationService.getLanguageList();
+    private getLangList = (): Array<object> => this.translationService.getLanguageList();
 
-    private getLangTag = (): object => this.localizationService.getLanguage()[0];
-
-    private defaultLang = (): void => this.localizationService.changeLanguage('en');
+    private getLangTag = (): object => this.translationService.getLanguage()[0];
 
 
 }

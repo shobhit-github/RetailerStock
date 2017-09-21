@@ -1,2 +1,2 @@
 export * from './authentication.service';
-export * from './localization.service';
+export * from './translation.service';

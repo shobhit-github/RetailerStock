@@ -1,4 +1,4 @@
-export const en: object = {
+export const pa: object = {
 
   // some common text that will use globally
   ALL_RIGHT_RESERVED_TXT: 'All rights reserved',
@@ -43,7 +43,7 @@ export const en: object = {
   // -------------------------------------
 
   //  header section
-  MY_PROFILE_TXT: 'My Profile',
+  MY_PROFILE_TXT: 'My Punjabi',
   MY_CALENDER_TXT: 'My Calender',
   MY_MESSAGES_TXT: 'My Messages',
   LOCK_SCREEN_TXT: 'Lock Screen',

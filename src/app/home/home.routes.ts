@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from "./home.component";
-import {AuthGuard} from "../_shared/_guards/auth.guard";
+import {HomeComponent} from './home.component';
+import {AuthGuard} from '../_shared/_guards/auth.guard';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {ProfileModule} from './profile/profile.module';
 import {PageNotFoundComponent} from '../elements/not-found.component';

@@ -5318,6 +5318,10 @@ select[multiple="multiple"]:focus option {
   color: #a94442 !important;
 }
 
+.has-error.form-group {
+  color: #A94442 !important;
+}
+
 .has-warning {
   color: #eea236;
 }

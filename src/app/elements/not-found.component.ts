@@ -37,7 +37,7 @@ import {transition, trigger, style, animate} from '@angular/animations';
                                     <span class="input-group-btn">
                                         <button class="btn btn-azure">
                                           Search
-                                        </button> 
+                                        </button>
                                     </span>
                                 </div>
                             </form>

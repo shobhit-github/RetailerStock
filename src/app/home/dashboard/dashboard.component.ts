@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import * as animation from './dashboard.animation';
 import {WindowRef, MessageService} from '../../_shared/_helpers/';
 import {Subscription} from 'rxjs/Subscription';
+import {TranslationService} from '../../_shared/_services/translation.service';
 
 
 @Component({
@@ -22,13 +23,14 @@ import {Subscription} from 'rxjs/Subscription';
       animation.chat,
       animation.fadeInOut
   ],
-  styleUrls:['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements AfterViewInit, OnInit, OnDestroy {
 
 
     constructor(public windowRef: WindowRef,
-                public messageService: MessageService) {
+                public messageService: MessageService,
+                private translationService: TranslationService) {
     }
 
     ngOnInit() {
@@ -39,7 +41,7 @@ export class DashboardComponent implements AfterViewInit, OnInit, OnDestroy {
     passMessage = (): void => {
 
         this.messageService.sendMessage('titleMessage', 'Test Message', 'success', 'alert');
-    };
+    }
 
 
     ngAfterViewInit() {

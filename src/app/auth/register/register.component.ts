@@ -1,6 +1,8 @@
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ValidationHelper} from '../../_shared/_helpers';
 
 @Component({
     templateUrl: './register.component.html',
@@ -24,10 +26,11 @@ export class RegisterComponent {
     user: any = {};
     loading = false;
     state: string = 'small';
-    userForm: any;
 
     constructor(
-        private router: Router) {
+        private router: Router,
+        private formBuilder: FormBuilder) {
+
 
     }
 

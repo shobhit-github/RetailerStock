@@ -4,7 +4,7 @@ import * as animation from './profile.animation';
 
 
 @Component({
-  template: `    
+  template: `
       <div class="wrap-content container" id="container">
           <!-- start: PAGE TITLE -->
           <section [@fadeInOut]="" id="page-title">
@@ -70,7 +70,7 @@ export class ProfileComponent implements AfterViewInit {
 
   ngAfterViewInit = () => {
 
-    //this.windowRef.nativeWindow.jQ.Main();
+    // this.windowRef.nativeWindow.jQ.Main();
   }
 
 }

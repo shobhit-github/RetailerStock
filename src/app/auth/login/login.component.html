@@ -5,7 +5,7 @@
         </div>
         <!-- start: LOGIN BOX -->
         <div class="box-login">
-                <form (ngSubmit)="login()" class="form-login" novalidate>
+                <form (ngSubmit)="login()" class="form-login" [formGroup]="loginForm" novalidate>
                 <fieldset>
                     <legend>
                         Sign in to your account
@@ -13,26 +13,26 @@
                     <p>
                         Please enter your name and password to log in.
                     </p>
-                    <div class="form-group" [ngClass]="{'has-error':username.errors && (username.dirty || username.touched)}" >
+                    <div class="form-group" [ngClass]="{'has-error': loginForm.controls['username'].dirty && loginForm.controls['username'].invalid}">
                         <span class="input-icon">
-                            <input [(ngModel)] = "user.username" type="text" class="form-control" name="username" placeholder="Username" required #username="ngModel" />
+                            <input formControlName="username" [(ngModel)] = "user.username" type="text" class="form-control" name="username" placeholder="Username" />
                             <i class="fa fa-user"></i>
                         </span>
-                        <div *ngIf="username.errors && (username.dirty || username.touched)">
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!username.errors.required"> You've to enter your username ! </i>
+                        <div *ngIf="loginForm.controls['username'].dirty && loginForm.controls['username'].invalid">
+                            <i class="pull-right" [hidden]="!loginForm.controls['username'].errors['required']"> You've to enter your username ! </i>
                         </div>
                     </div>
-                    <div class="form-group form-actions" [ngClass]="{'has-error':password.errors && (password.dirty || password.touched)}">
+                    <div class="form-group form-actions" [ngClass]="{'has-error': loginForm.controls['password'].dirty && loginForm.controls['password'].invalid}">
                         <span class="input-icon">
-                            <input [(ngModel)] = "user.password" type="password" class="form-control password" name="password" placeholder="Password" required #password="ngModel" />
+                            <input formControlName="password" [(ngModel)] = "user.password" type="password" class="form-control password" name="password" placeholder="Password" />
                             <i class="fa fa-lock"></i>
                             <a class="forgot" [routerLink]="['/forgot']">
                                 I forgot my password
                             </a>
                         </span>
-                        <div *ngIf="password.errors && (password.dirty || password.touched)">
-                            <i class="pull-right" [ngStyle]="{'color':'#A94442'}" [hidden]="!password.errors.required"> You've to enter your password ! </i>
-                        </div>
+                      <div *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].invalid">
+                        <i class="pull-right" [hidden]="!loginForm.controls['password'].errors['required']"> You've to enter your password ! </i>
+                      </div>
                     </div>
                     <div class="form-actions">
                         <div style="text-align: center;color: #A94442" class="check-primary">
@@ -43,7 +43,7 @@
                             <label for="remember">
                                 Keep me signed in
                             </label>
-                            <button [disabled]="(password.errors || username.errors || loading)" type="submit" class="btn btn-primary pull-right">
+                            <button [disabled]="(loginForm.invalid || loginForm.errors || loading)" type="submit" class="btn btn-primary pull-right">
                                 Login <i [ngClass]="(!loading)?'fa fa-arrow-circle-right':'fa fa-circle-o-notch fa-spin'"></i>
                             </button>
                         </div>

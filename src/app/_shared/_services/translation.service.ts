@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
-export class LocalizationService {
+export class TranslationService {
+
+    public onLangChanged: Observable<any>;
+
 
     constructor() {
     }
@@ -13,13 +17,15 @@ export class LocalizationService {
 
         // store language in local storage to keep user logged in between page refreshes
         localStorage.setItem('_lang', lang);
-    };
+         this.onLangChanged.
+    }
 
 
     getLanguage = (): object => {
+
         // retrieve language from local storage to keep user logged in between page refreshes
-        return this.getLanguageList().filter(  data => data['tag'] == localStorage.getItem('_lang'));
-    };
+        return this.getLanguageList().filter(  data => data['tag'] === (localStorage.getItem('_lang') || 'en') );
+    }
 
 
     getLanguageList = (): Array<object> => {
@@ -37,7 +43,7 @@ export class LocalizationService {
                 name: 'Punjabi',
                 tag: 'pa'
             }
-        ]
+        ];
     }
 
 

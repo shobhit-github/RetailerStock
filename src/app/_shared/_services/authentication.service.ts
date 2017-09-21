@@ -28,19 +28,19 @@ export class AuthenticationService {
                 // return false to indicate failed login
                 return false;
             });
-    };
+    }
 
 
     resetPassword = (encryptedId: string, password: string): Observable<any> => {
         return this.http.post(CONFIG.SERVER_URL + 'reset_password', {email: encryptedId, password: password})
             .map((response: Response) => response.json());
-    };
+    }
 
 
     forgotPassword = (email: string): Observable<any> => {
         return this.http.post(CONFIG.SERVER_URL + 'forgot_password', {email: email})
             .map((res: Response) => res.json());
-    };
+    }
 
 
     logout = (): void => {

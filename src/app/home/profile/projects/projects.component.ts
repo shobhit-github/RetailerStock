@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as animation from './projects.animation'
+import * as animation from './projects.animation';
 
 
 @Component({
