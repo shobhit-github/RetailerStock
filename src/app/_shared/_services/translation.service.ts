@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class TranslationService {
 
-    public onLangChanged: Observable<any>;
+    public onLangChanged: EventEmitter<string> = new EventEmitter();
 
 
     constructor() {
@@ -17,7 +17,7 @@ export class TranslationService {
 
         // store language in local storage to keep user logged in between page refreshes
         localStorage.setItem('_lang', lang);
-         this.onLangChanged.
+        this.onLangChanged.emit(lang)
     }
 
 

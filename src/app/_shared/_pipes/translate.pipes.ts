@@ -11,7 +11,7 @@ export class TranslatePipes implements PipeTransform {
 
   constructor() {
 
-      this.language = localStorage.getItem('_lang');
+      this.language = ( localStorage.getItem('_lang') || 'en' );
   }
 
   transform(value: string, args?: any[]): any {

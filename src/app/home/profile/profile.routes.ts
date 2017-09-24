@@ -29,11 +29,13 @@ const PROFILE_ROUTE_PROVIDER: Routes = [
                 component: OverviewComponent
             },
 
+
             {
-                path: '',
-                redirectTo: '/home/profile/overview',
-                pathMatch: 'full'
+              path: '',
+              redirectTo: '/profile/overview',
+              pathMatch: 'full'
             }
+
         ]
     },
 

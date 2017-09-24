@@ -1,5 +1,4 @@
 export const CONFIG = {
 
-    SERVER_URL: 'http://localhost:3000/api/'
-
+    SERVER_URL: 'https://retailerstock.herokuapp.com/api/'
 };

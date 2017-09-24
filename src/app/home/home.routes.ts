@@ -27,12 +27,12 @@ const HOME_ROUTES_PROVIDER: Routes = [
                 loadChildren: loadProfileModule
             },
 
-
             {
-                path: '',
-                redirectTo: '/home/dashboard',
-                pathMatch: 'full'
+              path: '',
+              redirectTo: '/home/dashboard',
+              pathMatch: 'full'
             }
+
         ],
         canActivate: [AuthGuard]
     },

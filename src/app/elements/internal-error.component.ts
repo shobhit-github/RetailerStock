@@ -52,7 +52,7 @@ export class InternalErrorComponent implements OnInit {
 
     }
 
-    ngOnInit = () => {
+    ngOnInit() {
 
         this.errorCode = this.route.snapshot.queryParams['errorCode'] || 500;
     }

@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService) { }
 
-    ngOnInit = () => {
+    ngOnInit() {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = '/';

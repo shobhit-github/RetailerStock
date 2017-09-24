@@ -7,7 +7,15 @@ const DASHBOARD_ROUTER_PROVIDERS: Routes = [
 
     {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        children: [
+
+            {
+              path: '',
+              redirectTo: '/home/dashboard',
+              pathMatch: 'full'
+            }
+        ]
     },
 
 

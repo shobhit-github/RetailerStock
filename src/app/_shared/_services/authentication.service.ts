@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import {CONFIG} from '../../app.config';
 import 'rxjs/add/operator/map';

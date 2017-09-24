@@ -155,8 +155,7 @@ import {TranslationService} from '../_shared/_services';
           <!-- start: USER OPTIONS DROPDOWN -->
           <li class="dropdown current-user">
             <a href class="dropdown-toggle" data-toggle="dropdown">
-              <img src="assets/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i
-              class="ti-angle-down"></i></span>
+              <img src="assets/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i class="ti-angle-down"></i></span>
             </a>
             <ul class="dropdown-menu dropdown-dark">
               <li>
