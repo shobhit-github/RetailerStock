@@ -30,28 +30,25 @@ export class DashboardComponent implements AfterViewInit, OnInit, OnDestroy {
     constructor(public windowRef: WindowRef,
                 public messageService: MessageService,
                 private translationService: TranslationService,
-                private guard: AuthGuard){
+                private guard: AuthGuard) {
     }
 
     ngOnInit() {
-      console.log(this.guard.getAuthenticatedData);
+
         this.guard.getAuthenticatedData
-            .subscribe(data => console.log('session data --->',data), err => console.log(err))
+            .subscribe(data => console.log('session data --->',data))
     }
 
 
     passMessage = (): void => {
 
         this.messageService.sendMessage('titleMessage', 'Test Message', 'success', 'alert');
-    }
+    };
 
 
     ngAfterViewInit() {
 
         this.windowRef.nativeWindow.jQ.Index();
-        console.log('ghghghgg');
-      console.log(this.guard.getAuthenticatedData);
-
     }
 
     ngOnDestroy() {

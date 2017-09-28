@@ -5,7 +5,7 @@ import {Subject} from 'rxjs/Subject';
 @Injectable()
 export class MessageService {
 
-    private subject = new Subject<any>();
+    public subject = new Subject<any>();
 
 
     constructor() {
@@ -14,12 +14,14 @@ export class MessageService {
 
     sendMessage = (title: string, message: string, type: string, showAs: string) => {
         this.subject.next({title, message, type, showAs});
-    }
+        this.clearMessage();
+    };
 
 
-    clearMessage = () => {
-        this.subject.next();
-    }
+    private clearMessage = () => {
+
+        setTimeout( () => this.subject.next(false), 5000)
+    };
 
 
     getMessage = (): Observable<any> => {

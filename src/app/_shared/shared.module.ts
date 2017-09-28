@@ -35,7 +35,8 @@ import {AlertComponent} from './_ui';
     ],
     exports: [
       LoggerPipes,
-      TranslatePipes
+      TranslatePipes,
+      AlertComponent
     ]
 })
 export class SharedModule {

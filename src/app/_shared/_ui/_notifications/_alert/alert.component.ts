@@ -15,7 +15,7 @@ import {Subscription} from 'rxjs/Subscription';
       ]),
       transition(':leave', [
         style({transform: 'translateY(0%)'}),
-        animate(500)
+        animate(5000)
       ])
     ])
   ],
@@ -48,7 +48,13 @@ import {Subscription} from 'rxjs/Subscription';
           </button>
           <strong>Oh snap!</strong> Change a few things up and try this operation again.
       </div>
-  `
+  `,
+  styles: [`
+      .alert {
+        margin-bottom: 0;
+        border-radius: 0;
+      }
+  `]
 })
 
 export class AlertComponent implements OnInit, OnDestroy {
@@ -64,9 +70,12 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
 
-        this.messageService.getMessage()
+        this.subscription = this.messageService.getMessage()
             .subscribe(
                 data => {
+                    if(!data) {
+                      return this.type = null;
+                    }
                     this.type = data.type;
                     this.text = data.message;
                 },
@@ -76,6 +85,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
 
-        // this.subscription.unsubscribe();
+        this.subscription.unsubscribe();
     }
 }

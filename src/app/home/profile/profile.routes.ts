@@ -32,7 +32,7 @@ const PROFILE_ROUTE_PROVIDER: Routes = [
 
             {
               path: '',
-              redirectTo: '/profile/overview',
+              redirectTo: '/home/profile/overview',
               pathMatch: 'full'
             }
 
