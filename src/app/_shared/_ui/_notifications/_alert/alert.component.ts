@@ -6,22 +6,9 @@ import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'ui-alert',
-  animations: [
-    trigger('headerTransition', [
-      state('void', style({position: 'fixed'})),
-      transition(':enter', [
-        style({transform: 'translateY(-100%)'}),
-        animate(500)
-      ]),
-      transition(':leave', [
-        style({transform: 'translateY(0%)'}),
-        animate(5000)
-      ])
-    ])
-  ],
   template: `
       <!-- This html use for the success notification as alert -->
-      <div *ngIf="type=='success'" role="alert" class="alert alert-success">
+      <div *ngIf="type=='success'" role="alert" class="animate-zoomin alert alert-success">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>

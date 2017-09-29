@@ -48,7 +48,9 @@ export class AuthGuard implements CanActivate {
         return observer.map(
             result => {
                 if(result.success) {
-                    this.getAuthenticatedData.emit(result.response);
+                    this.getAuthenticatedData = Observable.create( (observer) => {
+                        observer.next(result.response)
+                    });
                     return result.success;
                  }
                 // not logged in so redirect to login page with the return url

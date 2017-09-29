@@ -18,15 +18,8 @@ export class MessageService {
     };
 
 
-    private clearMessage = () => {
+    private clearMessage = () => setTimeout( () => this.subject.next(false), 5000);
 
-        setTimeout( () => this.subject.next(false), 5000)
-    };
-
-
-    getMessage = (): Observable<any> => {
-        return this.subject.asObservable();
-    }
-
+    getMessage = (): Observable<any> => this.subject.asObservable();
 
 }

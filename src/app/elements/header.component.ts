@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {TranslationService} from '../_shared/_services';
+import {AuthGuard} from '../_shared/_guards/auth.guard';
 
 
 @Component({
@@ -23,6 +24,9 @@ import {TranslationService} from '../_shared/_services';
     <header [@headerTransition]="" class="navbar navbar-default navbar-static-top">
       <!-- start: NAVBAR HEADER -->
       <div class="navbar-header">
+        <!--<a href="javascript:void(0)" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+          <i class="ti-align-justify"></i>
+        </a>-->
         <a class="navbar-brand" routerLink="/">
           <img src="assets/images/logo.png" alt="Clip-Two"/>
         </a>
@@ -155,7 +159,7 @@ import {TranslationService} from '../_shared/_services';
           <!-- start: USER OPTIONS DROPDOWN -->
           <li class="dropdown current-user">
             <a href class="dropdown-toggle" data-toggle="dropdown">
-              <img src="assets/images/avatar-1.jpg" alt="Peter"> <span class="username">Peter <i class="ti-angle-down"></i></span>
+              <img src="{{user.picture}}" alt="{{user.firstname}}"> <span class="username">{{user.firstname}} <i class="ti-angle-down"></i></span>
             </a>
             <ul class="dropdown-menu dropdown-dark">
               <li>
@@ -208,8 +212,10 @@ export class HeaderComponent implements OnInit {
 
     public lang: string;
     public langList: any;
+    public user: any;
 
-    constructor(private translationService: TranslationService) {
+    constructor(private translationService: TranslationService,
+                private guard: AuthGuard) {
     }
 
     ngOnInit() {
@@ -217,18 +223,28 @@ export class HeaderComponent implements OnInit {
         this.langList = this.getLangList();
         this.lang = this.getLangTag()['name'];
 
-        this.translationService.onLangChanged
-          .subscribe(data => console.log(data));
+
+
+        this.retrieveUserData();
     }
 
     setLanguage = (tag: string, name?: string) => {
 
         this.lang = name;
         this.translationService.changeLanguage(tag);
-    }
+    };
 
+
+
+    private getTranslatedData = (): void => this.translationService.onLangChanged.subscribe(
+      data => console.log(data)
+    );
 
     private getLangList = (): Array<object> => this.translationService.getLanguageList();
+
+    private retrieveUserData = (): void => this.guard.getAuthenticatedData.subscribe(
+        user => this.user = user
+    );
 
     private getLangTag = (): object => this.translationService.getLanguage()[0];
 
