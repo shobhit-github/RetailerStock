@@ -11,6 +11,9 @@ export class AppComponent {
 
   constructor() {
 
+    /**
+     * Commented
+     */
   }
 
 }
